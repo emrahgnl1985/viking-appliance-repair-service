@@ -25,15 +25,32 @@ $phone_raw = get_option('ar_phone_raw', '+18000000000');
 $biz       = ar_get_business_name();
 $service_url = home_url('/services/' . strtolower($brand) . '-' . strtolower($appliance) . '-repair/');
 
-/* Severity from cost */
-preg_match('/\$(\d+)/', $cost, $m);
-$cost_start = (int)($m[1] ?? 0);
-if ($cost_start >= 200) {
-    $sev = ['label' => 'High', 'cls' => 'ec-sev--high', 'tip' => 'Stop using the appliance and call a technician.'];
-} elseif ($cost_start >= 90) {
-    $sev = ['label' => 'Medium', 'cls' => 'ec-sev--med', 'tip' => 'Professional repair recommended.'];
-} else {
-    $sev = ['label' => 'Low', 'cls' => 'ec-sev--low', 'tip' => 'Often resolved with basic troubleshooting.'];
+/* Severity — read stored meta first, fall back to cost-derived */
+$severity_stored = get_post_meta($pid, '_ar_severity', true);
+switch ($severity_stored) {
+    case 'Critical':
+        $sev = ['label' => 'Critical', 'cls' => 'ec-sev--critical', 'tip' => 'Stop using immediately. Safety risk — call a technician now.'];
+        break;
+    case 'High':
+        $sev = ['label' => 'High', 'cls' => 'ec-sev--high', 'tip' => 'Stop using the appliance and call a technician.'];
+        break;
+    case 'Medium':
+        $sev = ['label' => 'Medium', 'cls' => 'ec-sev--med', 'tip' => 'Professional repair recommended.'];
+        break;
+    case 'Low':
+        $sev = ['label' => 'Low', 'cls' => 'ec-sev--low', 'tip' => 'Often resolved with basic troubleshooting.'];
+        break;
+    default:
+        /* Legacy fallback: derive from cost range */
+        preg_match('/\$(\d+)/', $cost, $m);
+        $cost_start = (int)($m[1] ?? 0);
+        if ($cost_start >= 200) {
+            $sev = ['label' => 'High', 'cls' => 'ec-sev--high', 'tip' => 'Stop using the appliance and call a technician.'];
+        } elseif ($cost_start >= 90) {
+            $sev = ['label' => 'Medium', 'cls' => 'ec-sev--med', 'tip' => 'Professional repair recommended.'];
+        } else {
+            $sev = ['label' => 'Low', 'cls' => 'ec-sev--low', 'tip' => 'Often resolved with basic troubleshooting.'];
+        }
 }
 
 /* Fallbacks */
@@ -173,12 +190,15 @@ get_header();
   border-radius: 20px;
 }
 .ec-sev::before { content: ''; width: 6px; height: 6px; border-radius: 50%; }
-.ec-sev--low  { background: rgba(21,128,61,.15); color: #86efac; border: 1px solid rgba(21,128,61,.3); }
-.ec-sev--low::before  { background: #86efac; }
-.ec-sev--med  { background: rgba(180,83,9,.15); color: #fcd34d; border: 1px solid rgba(180,83,9,.3); }
-.ec-sev--med::before  { background: #fcd34d; }
-.ec-sev--high { background: rgba(27,58,107,.2); color: #fca5a5; border: 1px solid rgba(27,58,107,.3); }
-.ec-sev--high::before { background: #fca5a5; }
+.ec-sev--low      { background: rgba(21,128,61,.15);  color: #86efac; border: 1px solid rgba(21,128,61,.3); }
+.ec-sev--low::before      { background: #86efac; }
+.ec-sev--med      { background: rgba(180,83,9,.15);  color: #fcd34d; border: 1px solid rgba(180,83,9,.3); }
+.ec-sev--med::before      { background: #fcd34d; }
+.ec-sev--high     { background: rgba(27,58,107,.2);  color: #fca5a5; border: 1px solid rgba(27,58,107,.3); }
+.ec-sev--high::before     { background: #fca5a5; }
+.ec-sev--critical { background: rgba(153,27,27,.25); color: #fca5a5; border: 1px solid rgba(220,38,38,.5); animation: ec-pulse 2s ease-in-out infinite; }
+.ec-sev--critical::before { background: #ef4444; }
+@keyframes ec-pulse { 0%,100% { opacity:1; } 50% { opacity:.65; } }
 .ec-hero__brand-chip {
   font-size: .78rem;
   color: #fff;
@@ -623,12 +643,14 @@ get_header();
   font-size: .85rem;
   padding: 8px 20px;
 }
-.ec-sb-severity-display .ec-sev--low  { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
-.ec-sb-severity-display .ec-sev--low::before { background: #15803d; }
-.ec-sb-severity-display .ec-sev--med  { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
-.ec-sb-severity-display .ec-sev--med::before { background: #b45309; }
-.ec-sb-severity-display .ec-sev--high { background: #fff1f2; color: #1B3A6B; border: 1px solid #fecdd3; }
-.ec-sb-severity-display .ec-sev--high::before { background: #1B3A6B; }
+.ec-sb-severity-display .ec-sev--low      { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+.ec-sb-severity-display .ec-sev--low::before      { background: #15803d; }
+.ec-sb-severity-display .ec-sev--med      { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+.ec-sb-severity-display .ec-sev--med::before      { background: #b45309; }
+.ec-sb-severity-display .ec-sev--high     { background: #fff1f2; color: #1B3A6B; border: 1px solid #fecdd3; }
+.ec-sb-severity-display .ec-sev--high::before     { background: #1B3A6B; }
+.ec-sb-severity-display .ec-sev--critical { background: #fef2f2; color: #991b1b; border: 1px solid #fca5a5; }
+.ec-sb-severity-display .ec-sev--critical::before { background: #dc2626; }
 .ec-sb-sev-tip {
   font-size: .8rem;
   color: var(--ec-muted);
