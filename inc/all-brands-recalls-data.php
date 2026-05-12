@@ -57,7 +57,7 @@ function ar_recalls_viking(): array {
             'meta_title' => 'Viking Refrigerator Recall — Ice Maker Electrical Hazard',
             'meta_desc'  => 'Viking Range LLC recalled certain built-in refrigerators due to an electrical hazard from the ice maker assembly. Check your model for affected units.',
             'taxonomies' => [ 'brand' => 'Viking' ],
-            'meta_fields' => [ '_ar_brand' => 'Viking', '_ar_hero_image' => get_template_directory_uri() . '/assets/images/viking-refrigerator-3series.jpg' ],
+            'meta_fields' => [ '_ar_brand' => 'Viking', '_ar_hero_image' => get_template_directory_uri() . '/assets/images/viking-range-desert-modern.jpg' ],
             'content'    => '<h2>Recall Summary</h2>
 <p>Viking Range LLC recalled certain built-in refrigerator models due to an electrical hazard associated with the ice maker assembly. A wiring issue in the ice maker can cause an electrical fault, posing a risk of fire and electrical shock to consumers.</p>
 

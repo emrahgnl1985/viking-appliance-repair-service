@@ -150,7 +150,7 @@ $_schema_data = [
 $current_slug = get_post_field( 'post_name', get_the_ID() );
 
 $image_map = [
-    'viking-range-repair'        => '/assets/images/viking-kitchen-miramar.jpg',
+    'viking-range-repair'        => '/assets/images/viking-3series-feature.jpg',
     'viking-refrigerator-repair' => '/assets/images/viking-refrigerator-3series.jpg',
     'viking-dishwasher-repair'   => '/assets/images/viking-dishwasher-7series.jpg',
     'viking-cooktop-repair'      => '/assets/images/viking-cooktop-rangetop.jpg',

@@ -1038,10 +1038,10 @@ img { display: block; max-width: 100%; }
 }
 </style>
 
-<div class="img-break" role="img" aria-label="Viking-certified technician working on a premium kitchen appliance">
+<div class="img-break" role="img" aria-label="Viking Tuscany Series professional range in active use — the appliances our certified technicians service">
     <img
         class="img-break__photo"
-        src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/appliance-repair-1.jpg'); ?>"
+        src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/viking-tuscany-kitchen-1.jpg'); ?>"
         alt=""
         loading="lazy"
         aria-hidden="true"

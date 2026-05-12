@@ -103,13 +103,13 @@ $posts = [
         'slug'     => 'viking-range-not-heating-diagnosis-guide',
         'cat'      => 'range-oven',
         'focuskw'  => 'Viking range not heating',
-        'image'    => get_template_directory_uri() . '/assets/images/viking-cooktop-rangetop.jpg',
-        'image_alt'=> 'Viking professional gas range with sealed burners',
+        'image'    => get_template_directory_uri() . '/assets/images/viking-3series-kitchen.jpg',
+        'image_alt'=> 'Viking 3 Series range in stylish kitchen — range not heating diagnosis guide',
         'excerpt'  => 'A Viking range that won\'t heat the oven is a frustrating problem — but it\'s almost always caused by one of a small number of well-understood faults. Here\'s how to diagnose it.',
         'content'  => <<<HTML
 <p>A Viking range that fails to heat the oven is one of the most common service calls we handle. Given that Viking ranges are built to professional kitchen standards and are designed for decades of service, a no-heat fault is almost always caused by a specific component failure rather than a fundamental problem with the appliance. Here is how to diagnose it systematically.</p>
 
-<figure><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/viking-cooktop-rangetop.jpg' ); ?>" alt="Viking professional gas range — not heating diagnosis guide" loading="lazy"></figure>
+<figure><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/viking-3series-kitchen.jpg' ); ?>" alt="Viking 3 Series range in styled kitchen — not heating diagnosis guide" loading="lazy"></figure>
 
 <h2>Step 1: Check for a Fault Code</h2>
 <p>Before anything else, check whether the control panel is displaying an F-code. Viking ranges and ovens use a documented series of F fault codes that pinpoint the failed component. The most common codes related to a no-heat condition are:</p>
@@ -307,13 +307,13 @@ HTML,
         'slug'     => 'viking-professional-vs-tuscany-range-comparison',
         'cat'      => 'buying-guides',
         'focuskw'  => 'Viking Professional vs Tuscany range',
-        'image'    => get_template_directory_uri() . '/assets/images/viking-5series-kitchen.jpg',
-        'image_alt'=> 'Viking 5 Series Professional range in premium kitchen',
+        'image'    => get_template_directory_uri() . '/assets/images/viking-tuscany-product-1.jpg',
+        'image_alt'=> 'Viking Tuscany Series 48-inch range in olive green — Professional vs Tuscany comparison',
         'excerpt'  => 'Viking\'s product lineup can be confusing at first glance. Here\'s a clear breakdown of the differences between the Professional and Tuscany series — and which one belongs in your kitchen.',
         'content'  => <<<HTML
 <p>Viking offers several residential range series with meaningfully different designs, feature sets, and price points. If you are considering a Viking range purchase — or trying to understand what you already own — this guide explains the key differences between the Professional Series and Tuscany Series.</p>
 
-<figure><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/viking-5series-kitchen.jpg' ); ?>" alt="Viking 5 Series Professional range — Tuscany vs Professional Series comparison" loading="lazy"></figure>
+<figure><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/viking-tuscany-product-1.jpg' ); ?>" alt="Viking Tuscany Series 48-inch range — Tuscany vs Professional Series comparison" loading="lazy"></figure>
 
 <h2>Viking Professional Series</h2>
 <p>The Professional Series is Viking's flagship residential range line and represents the core of their product lineup. Key characteristics:</p>
@@ -346,13 +346,13 @@ HTML,
         'slug'     => 'viking-cooktop-burner-wont-ignite-troubleshooting',
         'cat'      => 'cooktop',
         'focuskw'  => 'Viking cooktop burner won\'t ignite',
-        'image'    => get_template_directory_uri() . '/assets/images/viking-cooktop-rangetop.jpg',
-        'image_alt'=> 'Viking gas cooktop pro sealed burners',
+        'image'    => get_template_directory_uri() . '/assets/images/viking-tuscany-kitchen-2.jpg',
+        'image_alt'=> 'Cooking on a Viking Tuscany Series gas range — burner ignition guide',
         'excerpt'  => 'A Viking cooktop burner that clicks but won\'t light — or won\'t click at all — has one of five likely causes. Here\'s how to work through them in order.',
         'content'  => <<<HTML
 <p>Viking gas cooktop burner ignition problems are among the most common service calls we receive. The good news: in most cases the cause is straightforward and can often be resolved at home before a technician is needed. Here are the five most likely causes, in order of likelihood.</p>
 
-<figure><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/viking-cooktop-rangetop.jpg' ); ?>" alt="Viking gas cooktop burner ignition troubleshooting" loading="lazy"></figure>
+<figure><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/viking-tuscany-kitchen-2.jpg' ); ?>" alt="Viking Tuscany range gas burners in use — burner ignition troubleshooting guide" loading="lazy"></figure>
 
 <h2>1. Moisture Around the Burner</h2>
 <p>Moisture is the most common cause of Viking cooktop ignition problems. When liquid boils over or condensation forms around a burner, it can enter the spark electrode area and cause the igniter to click continuously without lighting — or prevent it from sparking at all.</p>

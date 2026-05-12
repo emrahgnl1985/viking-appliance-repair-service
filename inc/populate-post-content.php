@@ -1238,7 +1238,7 @@ foreach ($pages as $page) {
             ar_seo_desc('Schedule Viking appliance repair online in minutes. Choose a same-day or next-day slot. Certified technicians, upfront pricing, and a 30-day warranty on every Viking repair.'),
             'schedule Viking appliance repair'
         );
-        $img = "<figure>\n<img src=\"" . esc_url(get_template_directory_uri() . '/assets/images/appliance-repair-1.jpg') . "\" alt=\"schedule Viking appliance repair — book online\" width=\"800\" height=\"450\" loading=\"lazy\">\n</figure>\n";
+        $img = "<figure>\n<img src=\"" . esc_url(get_template_directory_uri() . '/assets/images/viking-3series-product-1.jpg') . "\" alt=\"Viking 3 Series refrigerator and range — schedule Viking appliance repair\" width=\"800\" height=\"450\" loading=\"lazy\">\n</figure>\n";
         $html  = "<h1>Schedule Viking Appliance Repair — Same-Day Booking Available</h1>\n"; // KW in H1
         $html .= $img;
         $html .= "<p>You can <strong>schedule appliance repair</strong> online in minutes using our booking form. "; // KW ×2
@@ -1289,7 +1289,7 @@ foreach ($pages as $page) {
             ar_seo_desc('Our Viking appliance repair tips come from certified technicians. Find guides for Viking ranges, refrigerators, dishwashers, cooktops, wall ovens, and wine coolers.'),
             'Viking appliance repair tips'
         );
-        $img = "<figure>\n<img src=\"" . esc_url(get_template_directory_uri() . '/assets/images/appliance-repair-r85t66cagzwxgbug8lh1hz5ff8x21qz0d4lomfrmds.jpg') . "\" alt=\"Viking appliance repair tips — expert guides from certified technicians\" width=\"800\" height=\"450\" loading=\"lazy\">\n</figure>\n";
+        $img = "<figure>\n<img src=\"" . esc_url(get_template_directory_uri() . '/assets/images/viking-3series-lifestyle.jpg') . "\" alt=\"Viking induction cooktop in use — appliance repair tips and expert guides\" width=\"800\" height=\"450\" loading=\"lazy\">\n</figure>\n";
         $html  = "<h1>Viking Appliance Repair Tips &amp; Expert Guides — By Certified Technicians</h1>\n"; // KW in H1
         $html .= $img;
         $html .= "<p>We noticed that most <strong>Viking appliance repair</strong> content online was written by people who had never actually worked on a Viking range or refrigerator. "; // KW ×2

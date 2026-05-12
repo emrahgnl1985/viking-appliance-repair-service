@@ -74,7 +74,7 @@ ar_output_schema($_schema_data);
 
 /* Hero */
 .rc-hero {
-  /* background: url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/appliance-repair-r85t66cagzwxgbug8lh1hz5ff8x21qz0d4lomfrmds.jpg'); ?>') no-repeat center center; */
+  /* background: url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/viking-kitchen-7series-hero.jpg'); ?>') no-repeat center center; */
   background-size: cover;
   border-bottom: 1px solid var(--clr-border);
   /* Optional: fallback color if image fails to load */
