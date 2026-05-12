@@ -404,7 +404,7 @@ get_header();
     <div class="rc-hero__inner">
       <p class="rc-hero__eyebrow">Safety Information</p>
       <h1 class="rc-hero__title">Viking Appliance <em>Safety Recalls</em></h1>
-      <p class="rc-hero__sub">Official recall notices for major US appliance brands. Check if your appliance is affected, what the hazard is, and exactly what steps to take to protect your household.</p>
+      <p class="rc-hero__sub">Official Viking appliance recall notices based on U.S. CPSC records. Check if your Viking appliance is affected, what the hazard is, and exactly what steps to take to protect your household.</p>
       <div class="rc-hero__meta">
         <div>
           <div class="rc-hero__stat-num"><?php echo $total ?: '10+'; ?></div>

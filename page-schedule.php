@@ -22,8 +22,8 @@ get_header();
 /* ── Hero ── */
 .sch-hero {
     background:
-        linear-gradient(135deg, rgba(190,22,34,.18) 0%, transparent 50%),
-        linear-gradient(180deg, #0D1B2A 0%, #1B3A6B 100%);
+        linear-gradient(135deg, rgba(196,148,58,.18) 0%, transparent 50%),
+        linear-gradient(180deg, #1A2B42 0%, #2A3F5C 100%);
     padding: 128px 0 48px;
     text-align: center;
     color: #fff;
@@ -34,7 +34,7 @@ get_header();
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 70% 80% at 50% 0%, rgba(190,22,34,.12) 0%, transparent 70%);
+    background: radial-gradient(ellipse 70% 80% at 50% 0%, rgba(196,148,58,.12) 0%, transparent 70%);
     pointer-events: none;
 }
 .sch-hero__eyebrow {

@@ -398,7 +398,7 @@ get_header();
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(190,22,34,.15) 0%, transparent 65%);
+    background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(196,148,58,.15) 0%, transparent 65%);
     pointer-events: none;
 }
 .as-cta__inner { position: relative; z-index: 1; }

@@ -74,7 +74,7 @@ $_schema_data = [
     'wordCount'       => $word_count,
     'author'          => [ '@type' => 'Person', 'name' => get_the_author() ],
     'publisher'       => [ '@type' => 'Organization', 'name' => $biz,
-                           'logo'  => [ '@type' => 'ImageObject', 'url' => AR_URI . '/assets/icons/logo.png' ] ],
+                           'logo'  => [ '@type' => 'ImageObject', 'url' => AR_URI . '/assets/images/logo.png' ] ],
     'image'           => $hero_img_url ?: null,
     'mainEntityOfPage'=> [ '@type' => 'WebPage', '@id' => get_permalink() ],
 ];

@@ -186,7 +186,7 @@ get_header();
   white-space: nowrap;
   transition: background .2s, box-shadow .2s;
 }
-.ec-hero__search button:hover { background: #9B1119; box-shadow: 0 4px 16px rgba(190,22,34,.4); }
+.ec-hero__search button:hover { background: #9E7428; box-shadow: 0 4px 16px rgba(196,148,58,.4); }
 .ec-hero__stats {
   display: flex;
   gap: 32px;
