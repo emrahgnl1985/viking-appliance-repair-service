@@ -1,7 +1,7 @@
 ﻿<?php
 /**
  * Template: Error Code — Single Page
- * Design: matches mielerepairguide.com/error-codes/ single code pages
+ * Design: matches vikingappliancerepairservice.com/error-codes/ single code pages
  *
  * ACF Fields:
  *   _ar_brand, _ar_appliance_type, _ar_error_code, _ar_code_meaning,
@@ -219,7 +219,7 @@ get_header();
   gap: 6px;
   transition: background .2s;
 }
-.ec-btn--red:hover { background: #a01320; }
+.ec-btn--red:hover { background: #9E7428; }
 .ec-btn--outline {
   color: rgba(255,255,255,.8);
   padding: 12px 26px;
@@ -581,7 +581,7 @@ get_header();
   margin-bottom: 10px;
   transition: background .2s;
 }
-.ec-sb-cta__phone:hover { background: #a01320; }
+.ec-sb-cta__phone:hover { background: #9E7428; }
 .ec-sb-cta__book {
   display: block;
   text-align: center;

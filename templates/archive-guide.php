@@ -2,7 +2,7 @@
 /**
  * Archive: Guides
  * URL: /guides/
- * Design: matches mielerepairguide.com/guides/ — editorial warm-white, DM Serif Display headings,
+ * Design: matches vikingappliancerepairservice.com/guides/ — editorial warm-white, DM Serif Display headings,
  *         category browse cards, guide grid with read-time, scroll animations.
  */
 defined('ABSPATH') || exit;

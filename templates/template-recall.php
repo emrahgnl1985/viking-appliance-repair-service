@@ -1,7 +1,7 @@
 ﻿<?php
 /**
  * Template: Recall — Single Page
- * Design: matches mielerepairguide.com/safety/recalls/ single pages
+ * Design: matches vikingappliancerepairservice.com/recalls/ single pages
  */
 defined('ABSPATH') || exit;
 
@@ -127,7 +127,7 @@ ar_output_schema($_schema_data);
 .rc-hero__meta-item strong { color: rgba(255,255,255,.8); }
 .rc-hero__btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
 .rc-btn--red   { background:var(--rc-red); color:#fff; padding:12px 26px; border-radius:50px; font-size:.875rem; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:6px; transition:background .2s; }
-.rc-btn--red:hover { background:#a01320; }
+.rc-btn--red:hover { background:#9E7428; }
 .rc-btn--outline { color:rgba(255,255,255,.8); padding:12px 26px; border-radius:50px; font-size:.875rem; font-weight:600; text-decoration:none; display:inline-block; border:1.5px solid rgba(255,255,255,.2); transition:background .2s; }
 .rc-btn--outline:hover { background:rgba(255,255,255,.08); }
 
@@ -241,7 +241,7 @@ ar_output_schema($_schema_data);
 .rc-sb-cta__title { font-size:1rem; font-weight:800; color:#fff; margin:0 0 7px; line-height:1.3; }
 .rc-sb-cta__sub   { font-size:.8rem; color:rgba(255,255,255,.6); line-height:1.5; margin:0 0 16px; }
 .rc-sb-cta__phone { display:flex; align-items:center; gap:7px; background:var(--rc-red); color:#fff; padding:12px 16px; border-radius:8px; text-decoration:none; font-weight:700; font-size:.875rem; margin-bottom:8px; transition:background .2s; }
-.rc-sb-cta__phone:hover { background:#a01320; }
+.rc-sb-cta__phone:hover { background:#9E7428; }
 .rc-sb-cta__book  { display:block; text-align:center; color:rgba(255,255,255,.55); font-size:.75rem; text-decoration:underline; padding:4px 0; }
 
 .rc-sb-card {

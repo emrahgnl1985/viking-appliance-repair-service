@@ -245,7 +245,7 @@ ar_output_schema($_schema_data);
     <?php if ( has_post_thumbnail() ) : ?>
     <div class="hero__bg" style="background-image: url('<?php echo esc_url( get_the_post_thumbnail_url( null, 'ar-hero' ) ); ?>');" aria-hidden="true"></div>
     <?php else : ?>
-    <div class="hero__bg" style="background-image: url('<?php echo esc_url( AR_URI . '/assets/icons/hero-placeholder.jpg' ); ?>');" aria-hidden="true"></div>
+    <div class="hero__bg" style="background-image: url('<?php echo esc_url( AR_URI . '/assets/images/viking-kitchen-7series-hero.jpg' ); ?>');" aria-hidden="true"></div>
     <?php endif; ?>
 
     <div class="container">

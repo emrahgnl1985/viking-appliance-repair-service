@@ -6,7 +6,7 @@
  */
 defined('ABSPATH') || exit;
 
-define('AR_VERSION', '1.5.5');
+define('AR_VERSION', '1.5.6');
 define('AR_DIR', get_template_directory());
 define('AR_URI', get_template_directory_uri());
 
@@ -65,10 +65,8 @@ add_action('init', function() {
 
 /* ── Enqueue ── */
 add_action('wp_enqueue_scripts', function() {
-    wp_enqueue_style('ar-fonts','https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Barlow+Condensed:wght@600;700;800&display=swap',[],null);
-    if (is_front_page()) {
-        wp_enqueue_style('ar-fonts-homepage','https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap',[],null);
-    }
+    // Viking Heritage Estate typography — Playfair Display (serif display) + Inter (body) — loaded globally
+    wp_enqueue_style('ar-fonts','https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap',[],null);
     wp_enqueue_style('ar-variables', AR_URI.'/assets/css/variables.css', [], AR_VERSION);
     wp_enqueue_style('ar-base',      AR_URI.'/assets/css/base.css',      ['ar-variables'], AR_VERSION);
     wp_enqueue_style('ar-components',AR_URI.'/assets/css/components.css',['ar-base'], AR_VERSION);
@@ -153,7 +151,7 @@ function ar_render_options_page():void {
     $p=get_option('ar_phone_number','');$n=get_option('ar_business_name','');$a=get_option('ar_address','');$e=get_option('ar_email','');$l=get_option('ar_license_number','');
     echo '<div class="wrap"><h1>Viking Appliance Repair Settings</h1><form method="post">';wp_nonce_field('ar_nonce');
     echo '<table class="form-table"><tr><th>Business Name</th><td><input name="ar_business_name" value="'.esc_attr($n).'" class="regular-text"></td></tr>';
-    echo '<tr><th>Phone Number</th><td><input name="ar_phone_number" value="'.esc_attr($p).'" class="regular-text" placeholder="844-739-1647"></td></tr>';
+    echo '<tr><th>Phone Number</th><td><input name="ar_phone_number" value="'.esc_attr($p).'" class="regular-text" placeholder="844-719-4467"></td></tr>';
     echo '<tr><th>Address</th><td><input name="ar_address" value="'.esc_attr($a).'" class="regular-text"></td></tr>';
     echo '<tr><th>Email</th><td><input name="ar_email" type="email" value="'.esc_attr($e).'" class="regular-text"></td></tr>';
     echo '<tr><th>License #</th><td><input name="ar_license_number" value="'.esc_attr($l).'" class="regular-text"></td></tr></table>';
@@ -176,7 +174,7 @@ add_action('wp_ajax_ar_appointment','ar_handle_form');
 add_action('wp_ajax_nopriv_ar_appointment','ar_handle_form');
 
 /* ── Helpers ── */
-function ar_get_phone():string{return get_option('ar_phone_number','844-739-1647');}
+function ar_get_phone():string{return get_option('ar_phone_number','844-719-4467');}
 function ar_phone_link():string{return 'tel:'.preg_replace('/[^0-9+]/','',ar_get_phone());}
 function ar_get_business_name():string{return get_option('ar_business_name','We');}
 function ar_meta(int $id,string $key,string $fallback=''):string{return get_post_meta($id,$key,true)?:$fallback;}

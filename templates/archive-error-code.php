@@ -2,7 +2,7 @@
 /**
  * Archive: Error Codes
  * URL: /error-codes/
- * Design: matches mielerepairguide.com/error-codes/
+ * Design: matches vikingappliancerepairservice.com/error-codes/
  */
 defined('ABSPATH') || exit;
 
@@ -60,7 +60,7 @@ get_header();
 <style>
 /* ── Error Code Archive — Scoped Styles ─────────────────── */
 :root {
-  --ec-red:    #BE1622;
+  --ec-red:    #C4943A;
   --ec-dark:   #1a1a1a;
   --ec-warm:   #f8f6f3;
   --ec-alt:    #f2f0ed;
@@ -112,7 +112,7 @@ get_header();
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: #BE1622;
+  color: #C4943A;
   margin-bottom: 16px;
   background: rgba(255,255,255,.92);
   padding: 5px 14px 5px 10px;
@@ -124,7 +124,7 @@ get_header();
   display: block;
   width: 16px;
   height: 2px;
-  background: #BE1622;
+  background: #C4943A;
 }
 .ec-hero__title {
   font-size: clamp(2rem, 4vw, 3rem);
@@ -136,7 +136,7 @@ get_header();
 }
 .ec-hero__title em {
   font-style: normal;
-  color: #BE1622;
+  color: #C4943A;
 }
 .ec-hero__subtitle {
   font-size: 1.0625rem;
@@ -175,7 +175,7 @@ get_header();
 }
 .ec-hero__search input::placeholder { color: rgba(255,255,255,.4); }
 .ec-hero__search button {
-  background: #BE1622;
+  background: #C4943A;
   color: #fff;
   border: none;
   border-radius: 50px;
@@ -485,7 +485,7 @@ get_header();
   white-space: nowrap;
   transition: color .15s;
 }
-.ec-view-link:hover { color: #a01320; text-decoration: underline; }
+.ec-view-link:hover { color: #9E7428; text-decoration: underline; }
 
 /* No results / hidden rows */
 .ec-table-row--hidden { display: none; }
@@ -569,7 +569,7 @@ get_header();
   display: inline-block;
   transition: background .2s, transform .15s;
 }
-.ec-btn--red:hover { background: #a01320; transform: translateY(-1px); }
+.ec-btn--red:hover { background: #9E7428; transform: translateY(-1px); }
 .ec-btn--ghost {
   color: rgba(255,255,255,.8);
   padding: 14px 32px;

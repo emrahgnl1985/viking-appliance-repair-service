@@ -2,7 +2,7 @@
 /**
  * Archive: Recalls
  * URL: /recalls/
- * Design: matches mielerepairguide.com/safety/recalls/
+ * Design: matches vikingappliancerepairservice.com/recalls/
  */
 defined('ABSPATH') || exit;
 
@@ -384,7 +384,7 @@ get_header();
 .rc-cta__sub     { color:rgba(255,255,255,.65); font-size:.9375rem; max-width:500px; margin:0 auto 32px; }
 .rc-cta__btns    { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 .rc-btn--red   { background:var(--rc-red); color:#fff; padding:13px 30px; border-radius:50px; font-size:.9375rem; font-weight:700; text-decoration:none; display:inline-block; transition:background .2s; }
-.rc-btn--red:hover { background:#a01320; }
+.rc-btn--red:hover { background:#9E7428; }
 .rc-btn--ghost { color:rgba(255,255,255,.8); padding:13px 30px; border-radius:50px; font-size:.9375rem; font-weight:600; text-decoration:none; display:inline-block; border:1.5px solid rgba(255,255,255,.2); transition:background .2s; }
 .rc-btn--ghost:hover { background:rgba(255,255,255,.08); }
 

@@ -976,7 +976,7 @@ foreach ($posts as $post) {
     $year = $yr_match[1] ?? date('Y');
 
     // ── Unique keyphrase per recall page ──────────────────
-    // e.g. "miele dishwasher recall 2023" — unique across all pages
+    // e.g. "Viking gas range recall 2023" — unique across all pages
     $keyphrase = strtolower("$brand $appl_label recall $year");
     // Human-readable version for use in content
     $kw_display = "$brand $appl_label Recall $year"; // e.g. "Viking Washer Recall 2016"

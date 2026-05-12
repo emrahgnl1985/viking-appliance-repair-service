@@ -96,7 +96,7 @@ get_header();
 /* â”€â”€ Archive Service â€” Scoped â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 :root {
   --as-blue:   #1B3A6B;
-  --as-red:    #BE1622;
+  --as-red:    #C4943A;
   --as-bg:     #f7f8fa;
   --as-white:  #ffffff;
   --as-border: #e4e8ed;
@@ -228,13 +228,13 @@ get_header();
     font-weight: 700;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: #BE1622;
+    color: #C4943A;
     display: flex;
     align-items: center;
     gap: 8px;
     margin-bottom: 10px;
 }
-.as-eyebrow::before { content:''; width:20px; height:2px; background: #BE1622; }
+.as-eyebrow::before { content:''; width:20px; height:2px; background: #C4943A; }
 .as-section-title {
     font-size: clamp(1.4rem, 2.5vw, 2rem);
     font-weight: 800;
