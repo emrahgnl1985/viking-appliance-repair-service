@@ -59,6 +59,22 @@ $appliance_data = [
         'intro'  => 'Viking wine cellars and wine coolers are designed for precise temperature and humidity management for proper wine storage. When a Viking wine cooler fails to maintain temperature, makes unusual noise, or displays a fault code, our certified technicians diagnose and repair the issue with genuine Viking OEM parts.',
         'issues' => ['Not Cooling', 'Compressor Running Continuously', 'Excessive Noise', 'Temperature Fluctuating', 'Fault Code on Display', 'Interior Light Failure'],
     ],
+    'freezer' => [
+        'label'  => 'Freezer',
+        'term'   => 'Freezer',
+        'slug'   => 'viking-freezer-repair',
+        'image'  => '/assets/images/viking-refrigerator-integrated.jpg',
+        'intro'  => 'Viking built-in column freezers and upright freezers are engineered to maintain consistent sub-zero temperatures for long-term food preservation. When a Viking freezer develops a defrost fault, excessive frost buildup, or fails to maintain temperature, our certified technicians diagnose and resolve the issue using genuine Viking OEM parts.',
+        'issues' => ['Not Reaching Temperature', 'Excessive Frost Buildup', 'Defrost System Fault', 'Temperature Alarm', 'Unusual Noise', 'Door Seal Failure'],
+    ],
+    'vent-hood' => [
+        'label'  => 'Vent Hood',
+        'term'   => 'Vent Hood',
+        'slug'   => 'viking-vent-hood-repair',
+        'image'  => '/assets/images/5_Series_Kitchen_HQ-new.jpg',
+        'intro'  => 'Viking Professional vent hoods and range hoods are designed to efficiently remove smoke, steam, grease, and odors from above Viking ranges and cooktops. When a Viking vent hood develops a blower motor fault, lighting failure, or control panel issue, our certified technicians repair it using genuine Viking OEM components.',
+        'issues' => ['Weak or No Suction', 'Blower Motor Not Running', 'Unusual Noise During Operation', 'Lights Not Working', 'Control Panel Unresponsive', 'Grease Filter Warning'],
+    ],
 ];
 
 $filter_appliance = sanitize_text_field($_GET['appliance'] ?? '');

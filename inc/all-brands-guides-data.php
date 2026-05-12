@@ -17,7 +17,11 @@ function ar_get_all_brands_guides_data(): array {
         ar_guides_viking_range(),
         ar_guides_viking_refrigerator(),
         ar_guides_viking_dishwasher(),
-        ar_guides_viking_cooktop()
+        ar_guides_viking_cooktop(),
+        ar_guides_viking_wall_oven(),
+        ar_guides_viking_wine_cooler(),
+        ar_guides_viking_freezer(),
+        ar_guides_viking_vent_hood()
     );
 
     foreach ( $guides as &$guide ) {
@@ -234,3 +238,130 @@ function ar_guides_viking_cooktop(): array {
 
 
 
+
+// ─────────────────────────────────────────────────────────────────────────────
+// WALL OVEN GUIDES
+// ─────────────────────────────────────────────────────────────────────────────
+function ar_guides_viking_wall_oven(): array {
+    return [
+        [
+            'post_type'  => 'guide',
+            'title'      => 'Viking Wall Oven F-Code Guide — F1, F2, F3, F4, F9 Explained',
+            'slug'       => 'viking-wall-oven-f-codes',
+            'image'      => get_template_directory_uri() . '/assets/images/viking-wall-oven-7series.jpg',
+            'meta_title' => 'Viking Wall Oven F-Codes — F1, F2, F3, F4, F9 Diagnosis Guide',
+            'meta_desc'  => 'Viking wall oven displaying an F-code? This guide explains every F-fault code and what each means for repair.',
+            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Wall Oven' ],
+            'meta_fields' => [
+                '_ar_brand'          => 'Viking',
+                '_ar_appliance_type' => 'Wall Oven',
+                '_ar_intro'          => 'Viking wall ovens use the same Electronic Range Control (ERC) as Viking ranges, so F-series fault codes are identical across both product types. F1 is a control board fault, F2 a temperature sensor short, F3 an open sensor circuit, F4 temperature runaway, and F9 a self-clean door lock failure. Reset any F-code by switching off the circuit breaker for 60 seconds. If the code returns, professional repair is required.',
+                '_ar_steps'          => [
+                    [ 'title' => 'F1 — Control Board Failure', 'content' => 'F1 indicates the ERC has detected an internal fault. Reset by switching off the circuit breaker for 60 seconds. If F1 returns, the control board requires professional replacement.' ],
+                    [ 'title' => 'F2 — Temperature Sensor Short Circuit', 'content' => 'F2 means the oven temperature sensor probe is reading a short circuit. Do not use the oven with F2 active. A technician replaces the probe with a genuine Viking OEM part.' ],
+                    [ 'title' => 'F3 — Temperature Sensor Open Circuit', 'content' => 'F3 means the temperature sensor circuit is open. The technician checks the connector and wiring harness before replacing the sensor probe.' ],
+                    [ 'title' => 'F4 — Temperature Runaway', 'content' => 'F4 triggers when the oven exceeds the set temperature by more than 50 degrees F. This safety fault requires professional repair before the oven is used again.' ],
+                    [ 'title' => 'F9 — Self-Clean Door Lock Failure', 'content' => 'F9 indicates the self-clean door lock did not engage or disengage. Switch off the circuit breaker for 5 minutes to reset the lock motor. If the door remains locked, professional service is required.' ],
+                ],
+                '_ar_faqs' => [
+                    [ 'question' => 'Are Viking wall oven fault codes the same as Viking range codes?', 'answer' => 'Yes. Viking wall ovens and ranges use the same ERC system. F-codes are identical in meaning and are diagnosed and repaired the same way in both product types.' ],
+                ],
+            ],
+            'content' => '<p>Viking wall oven F-codes directly identify the failed component. <a href="/services/viking-wall-oven-repair/">View our Viking wall oven repair service</a> or <a href="/schedule/">book an appointment online</a>.</p>',
+        ],
+    ];
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// WINE COOLER GUIDES
+// ─────────────────────────────────────────────────────────────────────────────
+function ar_guides_viking_wine_cooler(): array {
+    return [
+        [
+            'post_type'  => 'guide',
+            'title'      => 'Viking Wine Cooler Not Cooling — Diagnosis Guide',
+            'slug'       => 'viking-wine-cooler-not-cooling',
+            'image'      => get_template_directory_uri() . '/assets/images/viking-wine-cellar.jpg',
+            'meta_title' => 'Viking Wine Cooler Not Cooling — Diagnosis Guide',
+            'meta_desc'  => 'Viking wine cooler not maintaining temperature? This guide covers every cause from clogged condenser to compressor failure with diagnosis steps.',
+            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Wine Cooler' ],
+            'meta_fields' => [
+                '_ar_brand'          => 'Viking',
+                '_ar_appliance_type' => 'Wine Cooler',
+                '_ar_intro'          => 'A Viking wine cooler that cannot maintain set storage temperature damages wine by accelerating aging and degrading flavor. Most Viking wine cooler temperature faults have a specific mechanical cause our technicians can identify on the first visit. This guide covers diagnosis in order from the simplest self-service checks to faults requiring professional service.',
+                '_ar_steps'          => [
+                    [ 'title' => 'Step 1: Clean the condenser coil', 'content' => 'Unplug the wine cooler and vacuum the condenser coil at the rear or bottom of the unit. Dust buildup is the most preventable cause of temperature faults.' ],
+                    [ 'title' => 'Step 2: Inspect the door seal', 'content' => 'Run your hand around the door perimeter with the cooler running. Warmth felt anywhere indicates a gasket gap allowing warm air infiltration.' ],
+                    [ 'title' => 'Step 3: Check ambient conditions', 'content' => 'Viking wine coolers are rated for indoor use at 60-85 degrees F ambient. Operating above this range prevents the unit from reaching set temperature.' ],
+                    [ 'title' => 'Step 4: Listen for the compressor', 'content' => 'A completely silent compressor with the unit plugged in may indicate a failed start relay, failed compressor, or control issue requiring professional diagnosis.' ],
+                ],
+                '_ar_faqs' => [
+                    [ 'question' => 'How often should I clean the Viking wine cooler condenser?', 'answer' => 'At least annually, or every six months in dusty environments or homes with pets.' ],
+                ],
+            ],
+            'content' => '<p>If cleaning the condenser does not restore cooling, professional diagnosis is required. <a href="/services/viking-wine-cooler-repair/">View our Viking wine cooler repair service</a> or <a href="/schedule/">book an appointment online</a>.</p>',
+        ],
+    ];
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// FREEZER GUIDES
+// ─────────────────────────────────────────────────────────────────────────────
+function ar_guides_viking_freezer(): array {
+    return [
+        [
+            'post_type'  => 'guide',
+            'title'      => 'Viking Freezer Frost Buildup — Defrost System Fault Guide',
+            'slug'       => 'viking-freezer-frost-buildup',
+            'image'      => get_template_directory_uri() . '/assets/images/viking-refrigerator-integrated.jpg',
+            'meta_title' => 'Viking Freezer Frost Buildup — Defrost System Diagnosis',
+            'meta_desc'  => 'Excessive frost or ice in your Viking No Frost freezer means the automatic defrost cycle has failed. This guide explains the causes and repair.',
+            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Freezer' ],
+            'meta_fields' => [
+                '_ar_brand'          => 'Viking',
+                '_ar_appliance_type' => 'Freezer',
+                '_ar_intro'          => 'Viking No Frost freezers should never have visible frost accumulation inside the compartment. If you see thick frost or ice on the back wall or on food packages, the automatic defrost system has stopped working. This guide explains how the Viking defrost system works, what causes it to fail, and what the repair involves.',
+                '_ar_steps'          => [
+                    [ 'title' => 'Confirm it is a defrost failure', 'content' => 'In a Viking No Frost freezer, visible frost buildup is not normal and indicates the defrost cycle has stopped running.' ],
+                    [ 'title' => 'Perform a temporary manual defrost', 'content' => 'Remove all food, unplug the freezer, and leave the door open for 24-48 hours to melt all ice. This is temporary only — the defrost system will fail again without professional repair.' ],
+                    [ 'title' => 'Understanding the failed components', 'content' => 'The defrost heater element, defrost thermostat, or defrost timer or control board must be diagnosed. Our technician tests each component to identify the specific failed part before ordering.' ],
+                ],
+                '_ar_faqs' => [
+                    [ 'question' => 'Will manual defrosting fix my Viking freezer?', 'answer' => 'Manual defrosting temporarily restores cooling by melting ice blocking the evaporator. However, the defrost system will fail again within days without professional repair of the failed component.' ],
+                ],
+            ],
+            'content' => '<p>Defrost system repair requires testing the heater, thermostat, and control to identify the failed component. <a href="/services/viking-freezer-repair/">View our Viking freezer repair service</a> or <a href="/schedule/">book an appointment online</a>.</p>',
+        ],
+    ];
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// VENT HOOD GUIDES
+// ─────────────────────────────────────────────────────────────────────────────
+function ar_guides_viking_vent_hood(): array {
+    return [
+        [
+            'post_type'  => 'guide',
+            'title'      => 'Viking Vent Hood Maintenance Guide — Filters, Motor and Lighting',
+            'slug'       => 'viking-vent-hood-maintenance',
+            'image'      => get_template_directory_uri() . '/assets/images/5_Series_Kitchen_HQ-new.jpg',
+            'meta_title' => 'Viking Vent Hood Maintenance Guide — Keep It Running Reliably',
+            'meta_desc'  => 'Viking vent hood maintenance covering grease filter cleaning, blower motor care, and lighting maintenance to prevent failures and maintain performance.',
+            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Vent Hood' ],
+            'meta_fields' => [
+                '_ar_brand'          => 'Viking',
+                '_ar_appliance_type' => 'Vent Hood',
+                '_ar_intro'          => 'Viking Professional vent hoods require regular maintenance to maintain full suction performance and prevent component failures. Grease accumulation restricts airflow, overloads the blower motor, and creates a fire hazard in the duct system. This guide covers the key maintenance tasks that keep your Viking vent hood operating at full performance.',
+                '_ar_steps'          => [
+                    [ 'title' => 'Monthly: Clean the grease filters', 'content' => 'Remove the stainless mesh grease filters and wash in hot soapy water or run through the dishwasher on a heavy cycle. Allow to air dry before reinstalling. Clogged filters are the most common cause of reduced suction and blower motor overload.' ],
+                    [ 'title' => 'Quarterly: Clean the filter housing', 'content' => 'With filters removed, wipe the interior of the filter housing with a degreasing cleaner. Grease that passes through partially-clogged filters accumulates on the housing walls.' ],
+                    [ 'title' => 'Annually: Inspect the duct run', 'content' => 'Grease in the duct run creates a fire hazard over time. For duct runs longer than 10 feet or with heavy daily cooking use, professional duct cleaning every 1-2 years is recommended.' ],
+                ],
+                '_ar_faqs' => [
+                    [ 'question' => 'How often should Viking vent hood filters be cleaned?', 'answer' => 'Monthly under normal cooking use. For households cooking daily with high-heat methods, every two weeks. Visibly darkened or dripping filters should be cleaned immediately.' ],
+                ],
+            ],
+            'content' => '<p>Monthly filter cleaning is the single most effective maintenance task for Viking vent hoods. When a blower motor or other component fails, <a href="/services/viking-vent-hood-repair/">view our Viking vent hood repair service</a> or <a href="/schedule/">book an appointment online</a>.</p>',
+        ],
+    ];
+}

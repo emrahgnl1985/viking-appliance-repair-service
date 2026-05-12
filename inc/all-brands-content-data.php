@@ -399,5 +399,110 @@ function ar_brand_viking(): array {
             ],
         ],
 
+        // ─────────────────────────────────────────────────────────────────────
+        // 7. FREEZER REPAIR
+        // ─────────────────────────────────────────────────────────────────────
+        [
+            'post_type'  => 'service_page',
+            'title'      => 'Viking Freezer Repair',
+            'slug'       => 'viking-freezer-repair',
+            'meta_title' => 'Viking Freezer Repair | Not Freezing, Ice Buildup, Compressor | OEM Parts',
+            'meta_desc'  => 'Expert Viking freezer repair for cooling failures, excessive frost buildup, and compressor faults. Built-in column and upright freezer specialists. Genuine OEM parts. 30-day warranty.',
+            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Freezer' ],
+            'meta_fields' => [
+                '_ar_brand'          => 'Viking',
+                '_ar_appliance_type' => 'Freezer',
+                '_ar_hero_subtitle'  => 'Certified Viking freezer repair for built-in column, upright, and combination models. Cooling failures, frost buildup, and compressor faults resolved with genuine Viking OEM parts.',
+                '_ar_body_intro'     => "Viking built-in column freezers and upright freezers are engineered to maintain consistent sub-zero temperatures for long-term food preservation. Viking freezers use a No Frost evaporator system, precision temperature control, and robust sealed refrigeration systems designed for decades of reliable performance.\n\nWhen a Viking freezer fails to maintain temperature, develops excessive frost or ice buildup, or becomes unusually noisy, our certified technicians diagnose the root cause and complete the repair using genuine Viking OEM parts. Common Viking freezer faults include defrost system failures, evaporator fan motor failures, condenser issues, and compressor problems.\n\nAll Viking freezer repairs are backed by our 30-day parts and labor warranty.",
+                '_ar_common_issues'  => [
+                    [ 'title' => 'Not Maintaining Temperature',            'description' => 'A Viking freezer that cannot reach or hold sub-zero temperatures typically has a defrost system failure that allows ice to build up on the evaporator coil and block airflow, a failed evaporator fan motor, or a compressor problem. We diagnose the specific fault and replace the failed component.' ],
+                    [ 'title' => 'Excessive Frost or Ice Buildup',         'description' => 'Frost accumulation in a No Frost Viking freezer indicates a failed defrost heater, defrost thermostat, or defrost timer/control board fault. The defrost cycle is not running, allowing frost to accumulate on the evaporator and block airflow. We replace the specific failed defrost component.' ],
+                    [ 'title' => 'Freezer Not Freezing at All',            'description' => 'A Viking freezer that is completely warm despite the compressor running indicates a sealed system failure — typically a refrigerant leak or a failed compressor. We perform a full sealed-system assessment before recommending a course of action.' ],
+                    [ 'title' => 'Unusual Noise — Buzzing or Rattling',    'description' => 'Buzzing or grinding from a Viking freezer most commonly originates from a failing evaporator fan motor, a failing condenser fan motor, or vibration from a compressor beginning to fail. We identify the noise source and replace the failing component.' ],
+                    [ 'title' => 'Door Seal Failure',                      'description' => 'A damaged or worn door gasket on a Viking freezer allows warm air infiltration, forcing the compressor to run continuously and leading to frost buildup and poor temperature performance. We replace the door gasket with a genuine Viking OEM seal.' ],
+                    [ 'title' => 'Water Pooling Under or Inside Unit',     'description' => 'Water in or below a Viking freezer is typically caused by a blocked defrost drain tube that is backing up meltwater into the freezer compartment or onto the floor. We clear the drain and address the root cause of the blockage.' ],
+                ],
+                '_ar_services' => [
+                    [
+                        'name'        => 'Diagnostic Inspection',
+                        'description' => 'Full freezer diagnostic including temperature assessment, defrost system check, fan motor test, and sealed system evaluation. Written estimate before any work begins.',
+                        'price_range' => '$85 – $130',
+                    ],
+                    [
+                        'name'        => 'Defrost System Repair',
+                        'description' => 'Diagnosis and replacement of failed defrost heater, defrost thermostat, or defrost control component. Includes manual defrost of accumulated ice to restore airflow and temperature performance.',
+                        'price_range' => '$160 – $280',
+                    ],
+                    [
+                        'name'        => 'Evaporator Fan Motor Replacement',
+                        'description' => 'Replacement of the evaporator fan motor that circulates cold air through the freezer compartment. Resolves temperature inconsistency and unusual buzzing or grinding noise from the freezer interior.',
+                        'price_range' => '$150 – $260',
+                    ],
+                    [
+                        'name'        => 'Door Gasket Replacement',
+                        'description' => 'Replacement of the freezer door seal with a genuine Viking OEM gasket. Eliminates warm air infiltration, reduces frost buildup, and allows the freezer to maintain proper sub-zero temperature without the compressor overworking.',
+                        'price_range' => '$130 – $220',
+                    ],
+                ],
+                '_ar_faqs' => [
+                    [ 'question' => 'Why is my Viking freezer not freezing?', 'answer' => 'The most common causes of a Viking freezer not reaching or maintaining sub-zero temperature are: a defrost system failure that has allowed frost to build up on the evaporator and block airflow, a failed evaporator fan motor that is not circulating cold air, or a compressor or refrigerant issue. Our technician will diagnose the specific fault on the first visit.' ],
+                    [ 'question' => 'Why is there frost buildup in my Viking No Frost freezer?', 'answer' => 'Frost accumulation in a Viking No Frost freezer means the automatic defrost cycle is not working correctly. The defrost heater, defrost thermostat, or defrost control has failed, and the evaporator coil is icing over between defrost cycles. This is a straightforward repair — we replace the specific failed defrost component.' ],
+                    [ 'question' => 'How long should a Viking freezer last?', 'answer' => 'Viking freezers are built for a 15–20+ year service life with proper maintenance. Given this longevity, repair is almost always the more economical choice for units less than 15 years old, even for significant repairs such as compressor replacement. We provide a transparent written estimate before any work begins.' ],
+                ],
+            ],
+        ],
+
+        // ─────────────────────────────────────────────────────────────────────
+        // 8. VENT HOOD REPAIR
+        // ─────────────────────────────────────────────────────────────────────
+        [
+            'post_type'  => 'service_page',
+            'title'      => 'Viking Vent Hood Repair',
+            'slug'       => 'viking-vent-hood-repair',
+            'meta_title' => 'Viking Vent Hood Repair | Blower, Motor, Lighting | OEM Parts',
+            'meta_desc'  => 'Professional Viking vent hood repair for blower motor failures, lighting issues, and control faults. Professional Series and custom hood specialists. Genuine OEM parts. 30-day warranty.',
+            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Vent Hood' ],
+            'meta_fields' => [
+                '_ar_brand'          => 'Viking',
+                '_ar_appliance_type' => 'Vent Hood',
+                '_ar_hero_subtitle'  => 'Certified Viking vent hood repair for Professional Series and custom liner models. Blower motor, lighting, and control faults resolved with genuine Viking OEM parts and a 30-day warranty.',
+                '_ar_body_intro'     => "Viking professional-style range hoods and vent hoods are designed to efficiently remove smoke, steam, grease, and odors from the kitchen environment, complementing Viking's professional cooking appliances. Viking vent hoods feature powerful blower motors with multiple speed settings, energy-efficient LED lighting, and seamless control panels.\n\nWhen a Viking vent hood stops exhausting effectively, develops unusual noise, or has lighting or control failures, our certified technicians diagnose and resolve the issue using genuine Viking OEM components. Common Viking vent hood faults include blower motor failures, control board faults, and LED lighting assembly failures.\n\nAll Viking vent hood repairs are backed by our 30-day parts and labor warranty.",
+                '_ar_common_issues'  => [
+                    [ 'title' => 'Blower Motor Not Running or Weak Suction', 'description' => 'A Viking vent hood that produces weak suction or no airflow typically has a failing blower motor, a clogged grease filter restricting airflow, or a control board fault that is not sending power to the blower. We clean the filters, test the motor, and replace the motor or board as needed.' ],
+                    [ 'title' => 'Excessive Noise During Operation',         'description' => 'Unusual noise from a Viking vent hood — rattling, humming, or grinding — most commonly originates from a failing blower motor bearing, a loose or unbalanced blower wheel, or a vibrating damper. We identify the noise source and replace the failing component.' ],
+                    [ 'title' => 'Lights Not Working',                       'description' => 'Viking vent hood LED lighting failures are typically caused by a failed LED module, a failed lighting control board, or a failed dimmer component. We identify the specific failed lighting component and replace it with a genuine Viking OEM part.' ],
+                    [ 'title' => 'Control Panel Not Responding',             'description' => 'A Viking vent hood control panel that is unresponsive or erratic typically has a failed control board or a damaged membrane keypad. We test the control circuit and replace the failed component to restore full control panel function.' ],
+                    [ 'title' => 'Hood Not Venting Properly',                'description' => 'A Viking vent hood that runs but does not effectively remove smoke or odors may have grease filters that need cleaning, a blocked duct run, or a failed backdraft damper that is not opening fully. We inspect and address the specific cause of reduced ventilation performance.' ],
+                ],
+                '_ar_services' => [
+                    [
+                        'name'        => 'Diagnostic Inspection',
+                        'description' => 'Full vent hood diagnostic including blower motor test, lighting system check, control board evaluation, and filter inspection. Written estimate before any work begins.',
+                        'price_range' => '$85 – $130',
+                    ],
+                    [
+                        'name'        => 'Blower Motor Replacement',
+                        'description' => 'Replacement of the blower motor assembly with a genuine Viking OEM component. Restores full suction power and resolves motor noise at all speed settings.',
+                        'price_range' => '$200 – $360',
+                    ],
+                    [
+                        'name'        => 'LED Lighting Module Replacement',
+                        'description' => 'Replacement of failed LED lighting module or lighting control assembly. Restores full-brightness task lighting under the hood.',
+                        'price_range' => '$120 – $220',
+                    ],
+                    [
+                        'name'        => 'Control Board Replacement',
+                        'description' => 'Diagnosis and replacement of the vent hood control board. Resolves unresponsive controls, erratic speed behavior, and lighting control failures.',
+                        'price_range' => '$180 – $320',
+                    ],
+                ],
+                '_ar_faqs' => [
+                    [ 'question' => 'Why is my Viking vent hood so loud?', 'answer' => 'Unusual noise from a Viking vent hood is most commonly caused by a failing blower motor bearing, an unbalanced or dirty blower wheel, or a vibrating damper. Grease buildup on the blower wheel over time can cause imbalance and increased noise. We inspect and clean the blower assembly and replace the motor if the bearing has failed.' ],
+                    [ 'question' => 'How often should Viking vent hood filters be cleaned?', 'answer' => 'Viking recommends cleaning the stainless steel mesh grease filters monthly under normal use, or every two weeks for heavy cooking. A clogged filter significantly reduces airflow and forces the blower motor to work harder, accelerating motor wear. Filters can be cleaned in the dishwasher or with hot soapy water.' ],
+                    [ 'question' => 'Why are my Viking vent hood lights not working?', 'answer' => 'Viking vent hood LED lighting failures are most commonly caused by a failed LED module or a failed lighting control board component. These are straightforward repairs using genuine Viking OEM parts and are typically completed in a single visit.' ],
+                ],
+            ],
+        ],
+
     ]; // end return
 }
