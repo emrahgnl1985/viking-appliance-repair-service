@@ -1338,7 +1338,7 @@ foreach ($pages as $page) {
             ar_seo_desc('Our privacy policy explains how we collect, use, and protect your personal information when you use our Viking appliance repair services and website.'),
             'privacy policy'
         );
-        $img = "<figure>\n<img src=\"" . esc_url(get_template_directory_uri() . '/assets/images/ICONICbackground-desktop.jpg') . "\" alt=\"privacy policy — Viking appliance repair data protection\" width=\"800\" height=\"450\" loading=\"lazy\">\n</figure>\n";
+        $img = "<figure>\n<img src=\"" . esc_url(get_template_directory_uri() . '/assets/images/viking-kitchen-7series-hero.jpg') . "\" alt=\"privacy policy — Viking appliance repair data protection\" width=\"800\" height=\"450\" loading=\"lazy\">\n</figure>\n";
         $html  = "<h1>Privacy Policy — How {$biz} Handles Your Personal Information</h1>\n"; // KW in H1
         $html .= $img;
         $html .= "<p>Our clients tell us that trust matters as much as the repair itself — and we agree. "; // KW ×2
@@ -1394,7 +1394,7 @@ foreach ($pages as $page) {
             ar_seo_desc('Our terms of service explain your rights and our responsibilities. Review pricing, warranty, cancellation, and booking terms before scheduling your Viking appliance repair.'),
             'terms of service'
         );
-        $img = "<figure>\n<img src=\"" . esc_url(get_template_directory_uri() . '/assets/images/ICONICbackground-desktop.jpg') . "\" alt=\"terms of service — Viking appliance repair agreement\" width=\"800\" height=\"450\" loading=\"lazy\">\n</figure>\n";
+        $img = "<figure>\n<img src=\"" . esc_url(get_template_directory_uri() . '/assets/images/viking-kitchen-7series-hero.jpg') . "\" alt=\"terms of service — Viking appliance repair agreement\" width=\"800\" height=\"450\" loading=\"lazy\">\n</figure>\n";
         $html  = "<h1>Terms of Service — Your Agreement with {$biz}</h1>\n"; // KW in H1
         $html .= $img;
         $html .= "<p>We noticed that customers rarely read terms of service because they are usually written by lawyers for other lawyers. "; // KW ×2
@@ -1441,7 +1441,7 @@ foreach ($pages as $page) {
             ar_seo_desc('Our terms of use explain your rights and our responsibilities. Review pricing, warranty, cancellation, and booking conditions before scheduling your Viking appliance repair.'),
             'terms of use'
         );
-        $img = "<figure>\n<img src=\"" . esc_url(get_template_directory_uri() . '/assets/images/ICONICbackground-desktop.jpg') . "\" alt=\"terms of use — Viking appliance repair agreement\" width=\"800\" height=\"450\" loading=\"lazy\">\n</figure>\n";
+        $img = "<figure>\n<img src=\"" . esc_url(get_template_directory_uri() . '/assets/images/viking-kitchen-7series-hero.jpg') . "\" alt=\"terms of use — Viking appliance repair agreement\" width=\"800\" height=\"450\" loading=\"lazy\">\n</figure>\n";
         $html  = "<h1>Terms of Use — Your Agreement with {$biz}</h1>\n"; // KW in H1
         $html .= $img;
         $html .= "<p>We noticed that customers rarely read terms of use because they are usually written by lawyers for other lawyers. "; // KW ×2
@@ -1643,4 +1643,5 @@ foreach ( $all_error_code_posts as $ec_post ) {
 
 echo "Done. Updated: $updated. Skipped (already had content): $skipped. Trashed: $trashed.\n";
 echo "Archive SEO titles and front-page SEO also updated.\n";
+
 

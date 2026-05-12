@@ -76,7 +76,7 @@ get_header();
 /* ── Hero ─────────────────────────────────────────────── */
 .ec-hero {
   background:
-    url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/ICONICbackground-desktop.jpg'); ?>') no-repeat center center / cover;
+    url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/viking-kitchen-7series-hero.jpg'); ?>') no-repeat center center / cover;
   background-color: #0D1B2A;
   padding: 72px 0 56px;
   position: relative;
@@ -1154,5 +1154,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <?php get_footer(); ?>
+
 
 

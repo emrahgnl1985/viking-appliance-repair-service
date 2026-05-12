@@ -15,7 +15,7 @@ $appliance_data = [
         'label'  => 'Range',
         'term'   => 'Range',
         'slug'   => 'viking-range-repair',
-        'image'  => '/assets/images/48InductionHomepageSlide2025-2-1536x691.png',
+        'image'  => '/assets/images/viking-kitchen-miramar.jpg',
         'intro'  => 'Viking gas and dual-fuel ranges are built to professional kitchen standards, featuring pro sealed burners with up to 23,000 BTU output and precision oven temperature control. When your Viking range displays a fault code, a burner fails to ignite, or the oven won\'t heat, our certified technicians diagnose the root cause and repair it with genuine Viking OEM parts on the first visit. We service the full Viking range lineup including Professional Series, Tuscany, and Virtuoso models.',
         'issues' => ['F2 / F3 Temperature Sensor Fault', 'F9 Door Lock Failure', 'Burner Not Igniting', 'Oven Not Heating', 'F1 Control Board Fault', 'F4 Temperature Runaway'],
     ],
@@ -23,7 +23,7 @@ $appliance_data = [
         'label'  => 'Refrigerator',
         'term'   => 'Refrigerator',
         'slug'   => 'viking-refrigerator-repair',
-        'image'  => '/assets/images/pexels-pixabay-373548.jpg',
+        'image'  => '/assets/images/viking-refrigerator-3series.jpg',
         'intro'  => 'Viking built-in and freestanding refrigerators deliver precision temperature management for optimal food preservation. Common faults include defrost system failures that cause the refrigerator compartment to warm, ice maker malfunctions, condenser fan motor failures, and compressor issues. Our technicians carry genuine Viking OEM refrigerator components and can complete most repairs on the first visit.',
         'issues' => ['Not Cooling', 'Ice Maker Not Working', 'Excessive Noise', 'Water Leaking', 'Temperature Fluctuation', 'Compressor Not Running'],
     ],
@@ -31,7 +31,7 @@ $appliance_data = [
         'label'  => 'Dishwasher',
         'term'   => 'Dishwasher',
         'slug'   => 'viking-dishwasher-repair',
-        'image'  => '/assets/images/5_Series_Kitchen_HQ-new.jpg',
+        'image'  => '/assets/images/viking-dishwasher-7series.jpg',
         'intro'  => 'Viking Professional dishwashers deliver quiet, thorough cleaning with a multi-level spray system and stainless steel interior. When your Viking dishwasher fails to clean properly, won\'t drain, or leaves water in the tub, our certified technicians identify the specific component fault and replace it with a genuine Viking OEM part. Most Viking dishwasher repairs are completed in a single visit.',
         'issues' => ['Not Cleaning Properly', 'Not Draining', 'Water in Tub After Cycle', 'Door Latch Failure', 'Water Leaking', 'Not Starting'],
     ],
@@ -39,7 +39,7 @@ $appliance_data = [
         'label'  => 'Cooktop',
         'term'   => 'Cooktop',
         'slug'   => 'viking-cooktop-repair',
-        'image'  => '/assets/images/48InductionHomepageSlide2025-2-1536x691.png',
+        'image'  => '/assets/images/viking-cooktop-rangetop.jpg',
         'intro'  => 'Viking gas, electric, and induction cooktops are engineered for high-performance cooking in residential kitchens. When a Viking cooktop burner won\'t ignite, a surface element fails to heat, or an induction zone stops responding, our technicians diagnose and repair the fault with genuine Viking OEM parts. Most Viking cooktop repairs are completed in a single visit.',
         'issues' => ['Gas Burner Not Igniting', 'Continuous Clicking', 'Burner Flame Extinguishes', 'Surface Element Not Heating', 'Induction Zone Not Responding', 'Control Panel Unresponsive'],
     ],
@@ -47,7 +47,7 @@ $appliance_data = [
         'label'  => 'Wall Oven',
         'term'   => 'Wall Oven',
         'slug'   => 'viking-wall-oven-repair',
-        'image'  => '/assets/images/smiley-old-woman-opening-door-oven.jpg',
+        'image'  => '/assets/images/viking-wall-oven-7series.jpg',
         'intro'  => 'Viking single and double wall ovens feature TruConvec convection systems for precise, even baking and roasting. When a Viking wall oven fails to heat, displays an F-code fault, or the self-clean door won\'t unlock, our certified technicians identify and repair the root cause using genuine Viking OEM components.',
         'issues' => ['Not Heating', 'F2 / F3 Sensor Fault', 'F9 Door Lock Failure', 'Temperature Inaccuracy', 'F4 Temperature Runaway', 'F1 Control Board Fault'],
     ],
@@ -55,7 +55,7 @@ $appliance_data = [
         'label'  => 'Wine Cooler',
         'term'   => 'Wine Cooler',
         'slug'   => 'viking-wine-cooler-repair',
-        'image'  => '/assets/images/pexels-pixabay-373548.jpg',
+        'image'  => '/assets/images/viking-wine-cellar.jpg',
         'intro'  => 'Viking wine cellars and wine coolers are designed for precise temperature and humidity management for proper wine storage. When a Viking wine cooler fails to maintain temperature, makes unusual noise, or displays a fault code, our certified technicians diagnose and repair the issue with genuine Viking OEM parts.',
         'issues' => ['Not Cooling', 'Compressor Running Continuously', 'Excessive Noise', 'Temperature Fluctuating', 'Fault Code on Display', 'Interior Light Failure'],
     ],
@@ -75,7 +75,7 @@ $hero_subtitle = $active_data
     : 'Certified Viking repair technicians. Genuine Viking OEM parts. 30-day warranty on every repair. Same-day service available.';
 $hero_image    = $active_data
     ? get_template_directory_uri() . $active_data['image']
-    : get_template_directory_uri() . '/assets/images/ICONICbackground-desktop.jpg';
+    : get_template_directory_uri() . '/assets/images/viking-kitchen-7series-hero.jpg';
 
 // WP_Query
 $tax_query = [['taxonomy' => 'brand', 'field' => 'slug', 'terms' => 'viking']];
@@ -482,13 +482,13 @@ get_header();
         <div class="as-grid">
             <?php
             $image_map = [
-                'viking-range-repair'        => '/assets/images/48InductionHomepageSlide2025-2-1536x691.png',
-                'viking-refrigerator-repair' => '/assets/images/pexels-pixabay-373548.jpg',
-                'viking-dishwasher-repair'   => '/assets/images/5_Series_Kitchen_HQ-new.jpg',
-                'viking-cooktop-repair'      => '/assets/images/48InductionHomepageSlide2025-2-1536x691.png',
-                'viking-wall-oven-repair'    => '/assets/images/smiley-old-woman-opening-door-oven.jpg',
-                'viking-wine-cooler-repair'  => '/assets/images/pexels-pixabay-373548.jpg',
-                'viking-freezer-repair'      => '/assets/images/pexels-pixabay-373548.jpg',
+                'viking-range-repair'        => '/assets/images/viking-kitchen-miramar.jpg',
+                'viking-refrigerator-repair' => '/assets/images/viking-refrigerator-3series.jpg',
+                'viking-dishwasher-repair'   => '/assets/images/viking-dishwasher-7series.jpg',
+                'viking-cooktop-repair'      => '/assets/images/viking-cooktop-rangetop.jpg',
+                'viking-wall-oven-repair'    => '/assets/images/viking-wall-oven-7series.jpg',
+                'viking-wine-cooler-repair'  => '/assets/images/viking-wine-cellar.jpg',
+                'viking-freezer-repair'      => '/assets/images/viking-refrigerator-integrated.jpg',
                 'viking-vent-hood-repair'    => '/assets/images/5_Series_Kitchen_HQ-new.jpg',
             ];
             while ($services_query->have_posts()): $services_query->the_post();
@@ -497,7 +497,7 @@ get_header();
                 $post_slug  = get_post_field('post_name', $pid);
                 $card_img   = isset($image_map[$post_slug])
                               ? get_template_directory_uri() . $image_map[$post_slug]
-                              : get_template_directory_uri() . '/assets/images/ICONICbackground-desktop.jpg';
+                              : get_template_directory_uri() . '/assets/images/viking-kitchen-7series-hero.jpg';
                 $excerpt    = get_the_excerpt() ?: wp_trim_words(get_the_content(), 22);
             ?>
             <a href="<?php the_permalink(); ?>" class="as-card">
@@ -583,6 +583,7 @@ get_header();
 <?php ar_disclaimer(); ?>
 
 <?php get_footer(); ?>
+
 
 
 

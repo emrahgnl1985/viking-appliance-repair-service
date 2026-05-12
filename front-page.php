@@ -12,12 +12,12 @@ $phone_link = ar_phone_link();
 $biz        = ar_get_business_name();
 
 $appliances = [
-    ['icon' => 'range',       'label' => 'Range Repair',         'service_slug' => 'viking-range-repair',         'img' => '48InductionHomepageSlide2025-2-1536x691.png',           'desc' => 'Viking Professional and Tuscany Series gas and dual-fuel ranges. Burner ignition failures, oven calibration, and control board faults resolved same day.'],
-    ['icon' => 'fridge',      'label' => 'Refrigerator Repair',  'service_slug' => 'viking-refrigerator-repair',  'img' => 'pexels-pixabay-373548.jpg', 'desc' => 'Viking built-in and French Door refrigerators. Ice maker failures, compressor issues, cooling faults, and door seal replacements — all covered.'],
-    ['icon' => 'dishwasher',  'label' => 'Dishwasher Repair',    'service_slug' => 'viking-dishwasher-repair',    'img' => '5_Series_Kitchen_HQ-new.jpg',   'desc' => 'Viking dishwashers not cleaning, draining, or starting. Control board faults, door latch issues, and spray arm failures resolved quickly.'],
-    ['icon' => 'cooktop',     'label' => 'Cooktop Repair',       'service_slug' => 'viking-cooktop-repair',       'img' => '48InductionHomepageSlide2025-2-1536x691.png',            'desc' => 'Viking gas, electric, and induction cooktops. Burner ignition, spark module, and surface element failures fixed with genuine OEM parts.'],
-    ['icon' => 'oven',        'label' => 'Wall Oven Repair',     'service_slug' => 'viking-wall-oven-repair',     'img' => 'smiley-old-woman-opening-door-oven.jpg',            'desc' => 'Viking single and double wall ovens. Temperature inaccuracies, bake/broil element failures, door lock faults, and control panel issues.'],
-    ['icon' => 'wine',        'label' => 'Wine Cooler Repair',   'service_slug' => 'viking-wine-cooler-repair',   'img' => 'pexels-pixabay-373548.jpg', 'desc' => 'Viking wine coolers not maintaining temperature or displaying fault codes. Compressor, thermostat, and cooling fan repairs done right.'],
+    ['icon' => 'range',       'label' => 'Range Repair',         'service_slug' => 'viking-range-repair',         'img' => 'viking-kitchen-miramar.jpg',           'desc' => 'Viking Professional and Tuscany Series gas and dual-fuel ranges. Burner ignition failures, oven calibration, and control board faults resolved same day.'],
+    ['icon' => 'fridge',      'label' => 'Refrigerator Repair',  'service_slug' => 'viking-refrigerator-repair',  'img' => 'viking-refrigerator-3series.jpg', 'desc' => 'Viking built-in and French Door refrigerators. Ice maker failures, compressor issues, cooling faults, and door seal replacements — all covered.'],
+    ['icon' => 'dishwasher',  'label' => 'Dishwasher Repair',    'service_slug' => 'viking-dishwasher-repair',    'img' => 'viking-dishwasher-7series.jpg',   'desc' => 'Viking dishwashers not cleaning, draining, or starting. Control board faults, door latch issues, and spray arm failures resolved quickly.'],
+    ['icon' => 'cooktop',     'label' => 'Cooktop Repair',       'service_slug' => 'viking-cooktop-repair',       'img' => 'viking-cooktop-rangetop.jpg',            'desc' => 'Viking gas, electric, and induction cooktops. Burner ignition, spark module, and surface element failures fixed with genuine OEM parts.'],
+    ['icon' => 'oven',        'label' => 'Wall Oven Repair',     'service_slug' => 'viking-wall-oven-repair',     'img' => 'viking-wall-oven-7series.jpg',            'desc' => 'Viking single and double wall ovens. Temperature inaccuracies, bake/broil element failures, door lock faults, and control panel issues.'],
+    ['icon' => 'wine',        'label' => 'Wine Cooler Repair',   'service_slug' => 'viking-wine-cooler-repair',   'img' => 'viking-wine-cellar.jpg', 'desc' => 'Viking wine coolers not maintaining temperature or displaying fault codes. Compressor, thermostat, and cooling fan repairs done right.'],
 ];
 
 $hiw_steps = [
@@ -274,7 +274,7 @@ img { display: block; max-width: 100%; }
 .hero__bg {
     position: absolute;
     inset: 0;
-    background-image: url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/ICONICbackground-desktop.jpg'); ?>');
+    background-image: url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/viking-kitchen-7series-hero.jpg'); ?>');
     background-size: cover;
     background-position: center 30%;
     transform: scale(1.04);
@@ -1162,8 +1162,8 @@ img { display: block; max-width: 100%; }
 
             <div class="why-visual">
                 <img
-                    src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/appliance-repair-r85t66cagzwxgbug8lh1hz5ff8x21qz0d4lomfrmds.jpg'); ?>"
-                    alt="Viking-certified repair technician at work"
+                    src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/ICONICbackground-desktop.jpg'); ?>"
+                    alt="Viking professional range in premium marble kitchen — ICONIC Series"
                     loading="lazy"
                 >
             </div>
@@ -1452,7 +1452,7 @@ img { display: block; max-width: 100%; }
                 <div class="hiw__photo">
                     <img
                         src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/5_Series_Kitchen_HQ-new.jpg'); ?>"
-                        alt="Technician repairing a Viking range"
+                        alt="Viking 5 Series professional kitchen with range, refrigerator, and dishwasher"
                         loading="lazy"
                     >
                 </div>
@@ -1698,5 +1698,7 @@ img { display: block; max-width: 100%; }
 <?php ar_appointment_form('homepage', 'Book Your Viking Appliance Repair Today'); ?>
 
 <?php get_footer(); ?>
+
+
 
 

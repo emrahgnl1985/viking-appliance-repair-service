@@ -150,20 +150,20 @@ $_schema_data = [
 $current_slug = get_post_field( 'post_name', get_the_ID() );
 
 $image_map = [
-    'viking-range-repair'        => '/assets/images/48InductionHomepageSlide2025-2-1536x691.png',
-    'viking-refrigerator-repair' => '/assets/images/pexels-pixabay-373548.jpg',
-    'viking-dishwasher-repair'   => '/assets/images/5_Series_Kitchen_HQ-new.jpg',
-    'viking-cooktop-repair'      => '/assets/images/48InductionHomepageSlide2025-2-1536x691.png',
-    'viking-wall-oven-repair'    => '/assets/images/smiley-old-woman-opening-door-oven.jpg',
-    'viking-wine-cooler-repair'  => '/assets/images/pexels-pixabay-373548.jpg',
-    'viking-freezer-repair'      => '/assets/images/pexels-pixabay-373548.jpg',
+    'viking-range-repair'        => '/assets/images/viking-kitchen-miramar.jpg',
+    'viking-refrigerator-repair' => '/assets/images/viking-refrigerator-3series.jpg',
+    'viking-dishwasher-repair'   => '/assets/images/viking-dishwasher-7series.jpg',
+    'viking-cooktop-repair'      => '/assets/images/viking-cooktop-rangetop.jpg',
+    'viking-wall-oven-repair'    => '/assets/images/viking-wall-oven-7series.jpg',
+    'viking-wine-cooler-repair'  => '/assets/images/viking-wine-cellar.jpg',
+    'viking-freezer-repair'      => '/assets/images/viking-refrigerator-integrated.jpg',
     'viking-vent-hood-repair'    => '/assets/images/5_Series_Kitchen_HQ-new.jpg',
 ];
 
 // fallback image
 $image_path = isset($image_map[$current_slug])
     ? $image_map[$current_slug]
-    : '/assets/images/ICONICbackground-desktop.jpg';
+    : '/assets/images/viking-kitchen-7series-hero.jpg';
 
 get_header();
 ar_output_schema($_schema_data);
@@ -750,6 +750,7 @@ endif;
 </section>
 
 <?php get_footer(); ?>
+
 
 
 

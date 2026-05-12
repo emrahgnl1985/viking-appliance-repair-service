@@ -41,7 +41,7 @@ function ar_guides_viking_range(): array {
             'post_type'  => 'guide',
             'title'      => 'Viking Range Not Heating — F-Code Diagnosis & Repair Guide',
             'slug'       => 'viking-range-not-heating',
-            'image'      => get_template_directory_uri() . '/assets/images/48InductionHomepageSlide2025-2-1536x691.png',
+            'image'      => get_template_directory_uri() . '/assets/images/viking-cooktop-rangetop.jpg',
             'meta_title' => 'Viking Range Not Heating — F2, F3, F4 Diagnosis Guide',
             'meta_desc'  => 'Viking range not heating? This guide covers every cause — F2/F3 sensor faults, gas igniter failure, bake element failure — with diagnosis steps.',
             'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Range' ],
@@ -69,7 +69,7 @@ function ar_guides_viking_range(): array {
             'post_type'  => 'guide',
             'title'      => 'Viking Range Burner Not Igniting — 5 Causes and How to Fix Each',
             'slug'       => 'viking-range-burner-not-igniting',
-            'image'      => get_template_directory_uri() . '/assets/images/48InductionHomepageSlide2025-2-1536x691.png',
+            'image'      => get_template_directory_uri() . '/assets/images/viking-cooktop-rangetop.jpg',
             'meta_title' => 'Viking Range Burner Not Igniting — Diagnosis Guide for Gas Cooktops',
             'meta_desc'  => 'Viking gas range burner won\'t ignite? This guide covers the 5 most likely causes — from moisture to failed electrodes — with step-by-step fixes.',
             'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Range' ],
@@ -96,7 +96,7 @@ function ar_guides_viking_range(): array {
             'post_type'  => 'guide',
             'title'      => 'Viking Range Annual Maintenance Guide',
             'slug'       => 'viking-range-maintenance',
-            'image'      => get_template_directory_uri() . '/assets/images/48InductionHomepageSlide2025-2-1536x691.png',
+            'image'      => get_template_directory_uri() . '/assets/images/viking-cooktop-rangetop.jpg',
             'meta_title' => 'Viking Range Maintenance Guide — Annual Cleaning & Inspection Routines',
             'meta_desc'  => 'Expert Viking range maintenance routines to prevent ignition failures, temperature drift, and self-clean issues. Gas and dual-fuel models covered.',
             'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Range' ],
@@ -133,7 +133,7 @@ function ar_guides_viking_refrigerator(): array {
             'post_type'  => 'guide',
             'title'      => 'Viking Refrigerator Not Cooling — Causes, Diagnosis & Expert Advice',
             'slug'       => 'viking-refrigerator-not-cooling',
-            'image'      => get_template_directory_uri() . '/assets/images/pexels-pixabay-373548.jpg',
+            'image'      => get_template_directory_uri() . '/assets/images/viking-refrigerator-french-door.jpg',
             'meta_title' => 'Viking Refrigerator Not Cooling — Complete Diagnosis Guide',
             'meta_desc'  => 'Viking fridge not cooling? This guide covers every cause — dirty coils to defrost failure to compressor issues — with step-by-step troubleshooting.',
             'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Refrigerator' ],
@@ -171,7 +171,7 @@ function ar_guides_viking_dishwasher(): array {
             'post_type'  => 'guide',
             'title'      => 'Viking Dishwasher Not Draining — Causes & Step-by-Step Fix',
             'slug'       => 'viking-dishwasher-not-draining',
-            'image'      => get_template_directory_uri() . '/assets/images/5_Series_Kitchen_HQ-new.jpg',
+            'image'      => get_template_directory_uri() . '/assets/images/viking-dishwasher-7series.jpg',
             'meta_title' => 'Viking Dishwasher Not Draining — Water in Tub Fix Guide',
             'meta_desc'  => 'Viking dishwasher leaving standing water in the tub? This guide covers every drain fault cause — from clogged filter to failed pump — with step-by-step fixes.',
             'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Dishwasher' ],
@@ -231,5 +231,6 @@ function ar_guides_viking_cooktop(): array {
 
     ];
 }
+
 
 

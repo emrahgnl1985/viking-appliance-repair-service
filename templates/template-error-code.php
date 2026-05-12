@@ -117,7 +117,7 @@ get_header();
 
 /* ── Hero ─────────────────────────────────────────────── */
 .ec-hero {
-  background: url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/ICONICbackground-desktop.jpg'); ?>') no-repeat center center;
+  background: url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/viking-kitchen-7series-hero.jpg'); ?>') no-repeat center center;
   background-size: cover;
   border-bottom: 1px solid var(--clr-border);
   /* Optional: fallback color if image fails to load */
@@ -1011,4 +1011,5 @@ ar_output_schema($schema);
 </script>
 
 <?php get_footer(); ?>
+
 
