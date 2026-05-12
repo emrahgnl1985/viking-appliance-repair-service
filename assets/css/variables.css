@@ -1,8 +1,8 @@
 ﻿/* ============================================================
-   DESIGN TOKENS — Samsung Appliance Repair
+   DESIGN TOKENS — Viking Appliance Repair Service
    ============================================================ */
 :root {
-  /* Brand Colors — Professional red for Samsung appliance repair */
+  /* Brand Colors — Professional red for Viking Appliance Repair Service */
   --color-primary:       #BE1622;
   --color-primary-dark:  #0d1b2e;
   --color-primary-light: #E57373;
@@ -114,3 +114,4 @@
   --z-modal:    400;
   --z-toast:    500;
 }
+

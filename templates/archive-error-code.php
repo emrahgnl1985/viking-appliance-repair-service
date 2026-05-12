@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Archive: Error Codes
  * URL: /error-codes/
@@ -16,11 +16,11 @@ $all_codes = new WP_Query([
     'tax_query'      => [[
         'taxonomy' => 'brand',
         'field'    => 'slug',
-        'terms'    => 'samsung',
+        'terms'    => 'viking',
     ]],
 ]);
 
-$brands     = get_terms(['taxonomy' => 'brand',         'hide_empty' => true, 'orderby' => 'name', 'slug' => 'samsung']);
+$brands     = get_terms(['taxonomy' => 'brand',         'hide_empty' => true, 'orderby' => 'name', 'slug' => 'viking']);
 $appliances = get_terms(['taxonomy' => 'appliance_type','hide_empty' => true, 'orderby' => 'name']);
 $total      = $all_codes->found_posts;
 $phone      = ar_get_phone();
@@ -725,12 +725,12 @@ get_header();
   <div class="container">
     <div class="ec-hero__inner">
       <p class="ec-hero__eyebrow">Diagnostic Library</p>
-      <h1 class="ec-hero__title">Samsung <em>Error Code</em> Library</h1>
-      <p class="ec-hero__subtitle">Find what your Samsung appliance's error code means, how serious it is, and exactly what to do next &mdash; covering washers, dryers, refrigerators, dishwashers, ovens, microwaves, and wall ovens.</p>
+      <h1 class="ec-hero__title">Viking <em>Fault Code</em> Library</h1>
+      <p class="ec-hero__subtitle">Find what your Viking appliance's fault code means, how serious it is, and exactly what to do next &mdash; covering ranges, wall ovens, refrigerators, dishwashers, cooktops, and wine coolers.</p>
 
       <div class="ec-hero__search" id="ec-hero-search">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input type="text" id="ec-search-input" placeholder="Search by code or appliance type…" autocomplete="off" aria-label="Search Samsung error codes">
+        <input type="text" id="ec-search-input" placeholder="Search by fault code or appliance type…" autocomplete="off" aria-label="Search Viking fault codes">
         <button type="button" onclick="document.getElementById('ec-search-input').focus()">Search</button>
       </div>
 
@@ -744,7 +744,7 @@ get_header();
           <div class="ec-stat__label">Appliance Types</div>
         </div>
         <div>
-          <div class="ec-stat__num">Samsung</div>
+          <div class="ec-stat__num">Viking</div>
           <div class="ec-stat__label">Brand</div>
         </div>
         <div>
@@ -759,13 +759,12 @@ get_header();
 <!-- ── ERROR CODES BY APPLIANCE TYPE ──────────────────────── -->
 <?php if ( ! empty($appliances) ):
   $ap_descriptions = [
-    'washer'       => 'Samsung washing machine error codes indicate problems with the wash cycle, water supply, drainage, motor, or electronic control board. Most codes point to a specific component failure that a certified technician can diagnose in minutes.',
-    'dryer'        => 'Samsung dryer error codes typically relate to heating elements, thermal fuses, airflow restrictions, motor failures, or control board issues. Ignoring these codes can lead to fire hazards — schedule service promptly.',
-    'refrigerator' => 'Samsung refrigerator error codes signal problems with the compressor, condenser, evaporator fan, ice maker, or defrost system. Early diagnosis prevents food spoilage and costly compressor replacement.',
-    'dishwasher'   => 'Samsung dishwasher error codes point to water fill, drain, heating, door latch, or circulation pump failures. Most codes prevent the appliance from completing a cycle to avoid water damage.',
-    'oven'         => 'Samsung oven and range error codes indicate temperature sensor failures, igniter problems, control board faults, or door lock malfunctions. These codes are safety-critical and should be addressed immediately.',
-    'microwave'    => 'Samsung microwave error codes relate to magnetron failures, door switch faults, control board malfunctions, or sensor issues. An SE code or no-heat condition requires prompt service to restore safe operation.',
-    'wall-oven'    => 'Samsung wall oven error codes indicate temperature probe failures, door lock malfunctions, or control board faults. Double wall oven errors may affect both cavities — certified diagnosis is recommended.',
+    'range'        => 'Viking range fault codes (F1–F9) indicate specific failures in the oven temperature control system, control board, or door lock mechanism. These codes are documented in Viking service literature and allow precise diagnosis. F2 and F3 codes relate to temperature sensor faults; F4 indicates temperature runaway; F9 signals a self-clean door lock failure.',
+    'refrigerator' => 'Viking refrigerator fault codes signal problems with the defrost system, evaporator fan, ice maker assembly, or temperature sensing. Early diagnosis prevents food spoilage and prevents more costly compressor or sealed system failures.',
+    'dishwasher'   => 'Viking dishwasher fault codes point to water fill, drain, heating element, door latch, or circulation pump failures. Most codes prevent the appliance from completing a cycle to protect the kitchen from water damage.',
+    'cooktop'      => 'Viking cooktop fault indicators relate to ignition module failures, spark electrode faults, surface element failures on electric models, or induction coil issues. Most cooktop faults are diagnosed by observing which zone or burner is affected.',
+    'wall-oven'    => 'Viking wall oven fault codes use the same F-series architecture as Viking ranges. F2 and F3 indicate temperature sensor faults; F4 signals temperature runaway; F9 is a self-clean door lock failure. F1 indicates a main control board fault.',
+    'wine-cooler'  => 'Viking wine cooler fault displays indicate temperature sensing failures, compressor issues, or fan motor faults. Temperature inconsistency in a wine cooler risks wine quality — schedule service promptly when a fault code appears.',
   ];
 ?>
 <section class="ec-sections" id="ec-appliance-sections">
@@ -797,7 +796,7 @@ get_header();
           [
             'taxonomy' => 'brand',
             'field'    => 'slug',
-            'terms'    => 'samsung',
+            'terms'    => 'viking',
           ],
         ],
         'no_found_rows'  => true,
@@ -1156,3 +1155,4 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <?php get_footer(); ?>
+

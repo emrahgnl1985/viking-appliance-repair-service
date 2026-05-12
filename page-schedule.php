@@ -496,10 +496,10 @@ get_header();
 $faqs = [
     ['question' => 'How quickly can a technician arrive?',
      'answer'   => 'In most service areas we offer same-day appointments for requests received before noon, and next-day appointments for all other requests. We provide a 2-hour arrival window so you are not waiting all day.'],
-    ['question' => 'What Samsung appliances do you service?',
-     'answer'   => 'We specialize exclusively in Samsung appliances: washers, dryers, refrigerators, dishwashers, ovens and ranges, microwaves, and wall ovens — all Samsung models and series covered.'],
+    ['question' => 'What Viking appliances do you service?',
+     'answer'   => 'We specialize exclusively in Viking appliances: ranges, cooktops, refrigerators, dishwashers, wall ovens, wine coolers, freezers, and vent hoods — all Viking models and series covered.'],
     ['question' => 'What appliances do you repair?',
-     'answer'   => 'We repair Samsung washers, dryers, refrigerators, dishwashers, ovens and ranges, microwaves, and wall ovens — both freestanding and built-in Samsung models.'],
+     'answer'   => 'We repair Viking ranges, cooktops, refrigerators, dishwashers, wall ovens, wine coolers, freezers, and vent hoods — both freestanding and built-in Viking models.'],
     ['question' => 'How much does a repair cost?',
      'answer'   => 'Most common repairs range from $150 to $400 including parts and labor. You receive a firm written quote after diagnosis — the price you approve is the price you pay.'],
     ['question' => 'Is there a diagnostic fee?',

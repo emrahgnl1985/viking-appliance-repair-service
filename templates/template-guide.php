@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Template: Guide / Article
  * CPT: guide  |  URL: /guides/{slug}/
@@ -674,9 +674,9 @@ ar_output_schema($_schema_data);
                     <?php
                     $g_img_url = get_post_meta( $g->ID, '_ar_image', true );
                     if ( has_post_thumbnail( $g->ID ) ) :
-                        echo get_the_post_thumbnail( $g->ID, 'medium', [ 'alt' => esc_attr( get_the_title( $g->ID ) ) . ' — Samsung Appliance Repair Guide', 'loading' => 'lazy' ] );
+                        echo get_the_post_thumbnail( $g->ID, 'medium', [ 'alt' => esc_attr( get_the_title( $g->ID ) ) . ' — Viking Appliance Repair Guide', 'loading' => 'lazy' ] );
                     elseif ( $g_img_url ) : ?>
-                        <img src="<?php echo esc_url( $g_img_url ); ?>" alt="<?php echo esc_attr( get_the_title( $g->ID ) ); ?> — Samsung Appliance Repair Guide" loading="lazy">
+                        <img src="<?php echo esc_url( $g_img_url ); ?>" alt="<?php echo esc_attr( get_the_title( $g->ID ) ); ?> — Viking Appliance Repair Guide" loading="lazy">
                     <?php else : ?>
                         <div class="gd-rcard__placeholder" aria-hidden="true">🔧</div>
                     <?php endif; ?>

@@ -1,9 +1,8 @@
 <?php
 /**
  * Homepage Template (front-page.php)
- * REDESIGNED: Dark cinematic hero, appliance photo service cards,
- * visual rhythm with alternating image breaks, industrial-refined aesthetic.
- * Fonts: Outfit (display) + DM Sans (body)
+ * REDESIGNED: Viking Heritage Estate — warm cream canvas, deep navy anchors,
+ * antique-gold accent, Playfair Display serif headlines, editorial rhythm.
  */
 defined('ABSPATH') || exit;
 get_header();
@@ -13,21 +12,20 @@ $phone_link = ar_phone_link();
 $biz        = ar_get_business_name();
 
 $appliances = [
-    ['icon' => 'washer',     'label' => 'Washer Repair',       'service_slug' => 'samsung-washer-repair',       'img' => 'washer.jpg',              'desc' => 'Samsung top-load, front-load & FlexWash models. Error codes, leaks, spin failures, and drum issues fixed fast.'],
-    ['icon' => 'dryer',      'label' => 'Dryer Repair',        'service_slug' => 'samsung-dryer-repair',        'img' => 'dryer.jpg',               'desc' => "Samsung gas and electric dryers. No heat, won't start, DV error codes — diagnosed and resolved same day."],
-    ['icon' => 'fridge',     'label' => 'Refrigerator Repair', 'service_slug' => 'samsung-refrigerator-repair', 'img' => 'product-refrigerator.jpg', 'desc' => 'Samsung Family Hub, French Door & Side-by-Side. Ice maker, cooling, compressor problems — all covered.'],
-    ['icon' => 'dishwasher', 'label' => 'Dishwasher Repair',   'service_slug' => 'samsung-dishwasher-repair',   'img' => 'product-dishwasher.jpg',   'desc' => 'Not cleaning, draining, or starting. 5C, LC, and other error codes resolved quickly.'],
-    ['icon' => 'oven',       'label' => 'Oven & Range Repair', 'service_slug' => 'samsung-oven-repair',         'img' => 'gas-range.jpg',            'desc' => 'Samsung gas and electric ranges, slide-in and freestanding. Burner, ignition, temperature failures fixed.'],
-    ['icon' => 'microwave',  'label' => 'Microwave Repair',    'service_slug' => 'samsung-microwave-repair',    'img' => 'microwave.jpg',            'desc' => 'Over-range and countertop microwaves. Not heating, door switch issues, and SE error codes resolved.'],
-    ['icon' => 'oven',       'label' => 'Wall Oven Repair',    'service_slug' => 'samsung-wall-oven-repair',    'img' => 'wall-oven.jpg',            'desc' => 'Samsung single and double wall ovens. Temperature inaccuracies, door lock faults, control board issues.'],
+    ['icon' => 'range',       'label' => 'Range Repair',         'service_slug' => 'viking-range-repair',         'img' => 'washer.jpg',              'desc' => 'Viking Professional and Tuscany Series gas and dual-fuel ranges. Burner ignition failures, oven calibration, and control board faults resolved same day.'],
+    ['icon' => 'fridge',      'label' => 'Refrigerator Repair',  'service_slug' => 'viking-refrigerator-repair',  'img' => 'product-refrigerator.jpg', 'desc' => 'Viking built-in and French Door refrigerators. Ice maker failures, compressor issues, cooling faults, and door seal replacements — all covered.'],
+    ['icon' => 'dishwasher',  'label' => 'Dishwasher Repair',    'service_slug' => 'viking-dishwasher-repair',    'img' => 'product-dishwasher.jpg',   'desc' => 'Viking dishwashers not cleaning, draining, or starting. Control board faults, door latch issues, and spray arm failures resolved quickly.'],
+    ['icon' => 'cooktop',     'label' => 'Cooktop Repair',       'service_slug' => 'viking-cooktop-repair',       'img' => 'gas-range.jpg',            'desc' => 'Viking gas, electric, and induction cooktops. Burner ignition, spark module, and surface element failures fixed with genuine OEM parts.'],
+    ['icon' => 'oven',        'label' => 'Wall Oven Repair',     'service_slug' => 'viking-wall-oven-repair',     'img' => 'wall-oven.jpg',            'desc' => 'Viking single and double wall ovens. Temperature inaccuracies, bake/broil element failures, door lock faults, and control panel issues.'],
+    ['icon' => 'wine',        'label' => 'Wine Cooler Repair',   'service_slug' => 'viking-wine-cooler-repair',   'img' => 'microwave.jpg',            'desc' => 'Viking wine coolers not maintaining temperature or displaying fault codes. Compressor, thermostat, and cooling fan repairs done right.'],
 ];
 
 $hiw_steps = [
     ['eyebrow' => 'First step',    'title' => 'Book Your Appointment', 'text' => 'Call or use our online form. Same-day and next-day slots available Monday through Saturday in most service areas.', 'badge' => 'Available Mon – Sat'],
-    ['eyebrow' => 'On-site',       'title' => 'Technician Arrives',    'text' => 'Our Samsung-trained tech arrives in the confirmed window — fully equipped with Samsung diagnostic tools and parts to fix it on the first visit.', 'badge' => 'On-time, every time'],
-    ['eyebrow' => 'Transparency',  'title' => 'Honest Diagnosis',      'text' => 'We read your Samsung error codes, identify the root cause, and give you a clear upfront quote before any work begins. No hidden fees, ever.', 'badge' => 'Upfront pricing, no surprises'],
-    ['eyebrow' => 'The fix',       'title' => 'Expert Repair',         'text' => 'Using genuine Samsung parts, we complete the repair professionally and efficiently. Most Samsung repairs are finished in a single 1–2 hour visit.', 'badge' => 'Genuine Samsung parts'],
-    ['eyebrow' => 'Peace of mind', 'title' => '30-Day Warranty',     'text' => 'Your warranty begins the day of repair. We leave written documentation so you have everything on record.', 'badge' => 'Written docs same day'],
+    ['eyebrow' => 'On-site',       'title' => 'Technician Arrives',    'text' => 'Our Viking-trained technician arrives in the confirmed window — fully equipped with diagnostic tools and genuine OEM parts to fix your appliance on the first visit.', 'badge' => 'On-time, every time'],
+    ['eyebrow' => 'Transparency',  'title' => 'Honest Diagnosis',      'text' => 'We inspect your Viking appliance, identify the root cause, and provide a clear upfront quote before any work begins. No hidden fees, ever.', 'badge' => 'Upfront pricing, no surprises'],
+    ['eyebrow' => 'The fix',       'title' => 'Expert Repair',         'text' => 'Using genuine Viking OEM parts, we complete the repair professionally and efficiently. Most Viking repairs are resolved in a single 1–2 hour visit.', 'badge' => 'Genuine Viking OEM parts'],
+    ['eyebrow' => 'Peace of mind', 'title' => '30-Day Warranty',       'text' => 'Your warranty begins the day of repair. We provide written documentation so you have everything on record.', 'badge' => 'Written warranty same day'],
 ];
 
 $cities = [
@@ -45,50 +43,50 @@ ar_output_schema([
     'name'            => $biz,
     'url'             => home_url('/'),
     'telephone'       => $phone,
-    'description'     => 'Certified Samsung appliance repair service. Expert technicians, genuine Samsung parts, 30-day warranty on every repair.',
+    'description'     => 'Certified Viking appliance repair service. Expert technicians, genuine Viking OEM parts, 30-day warranty on every repair.',
 ]);
 ?>
 
 <!-- ═══════════════════════════════════════════════════════════
-     DESIGN TOKENS & GLOBAL STYLES
+     DESIGN TOKENS — Viking Heritage Estate palette
      ═══════════════════════════════════════════════════════════ -->
 <style>
 /* ── Design Tokens ── */
 :root {
-    /* Brand */
-    --red:           #C41C29;
-    --red-dark:      #9E1520;
-    --red-dim:       rgba(196,28,41,.15);
-    --red-glow:      rgba(196,28,41,.35);
+    /* Brand — antique gold replaces red */
+    --red:           #C4943A;
+    --red-dark:      #9E7428;
+    --red-dim:       rgba(196,148,58,.14);
+    --red-glow:      rgba(196,148,58,.32);
 
-    /* Neutrals */
-    --ink:           #0d1b2e;
-    --ink-80:        rgba(13,27,46,.8);
-    --ink-50:        rgba(13,27,46,.5);
-    --paper:         #F7F5F2;
-    --paper-alt:     #EFEDE9;
+    /* Neutrals — warm, not cool */
+    --ink:           #1A2B42;
+    --ink-80:        rgba(26,43,66,.8);
+    --ink-50:        rgba(26,43,66,.5);
+    --paper:         #FAF7F2;
+    --paper-alt:     #F2ECE3;
     --white:         #ffffff;
     --surface:       #ffffff;
-    --surface-raise: #FAFAF8;
+    --surface-raise: #FDFAF6;
 
     /* Text */
-    --text-1:        #141416;
-    --text-2:        #3B3F4D;
+    --text-1:        #111827;
+    --text-2:        #374151;
     --text-3:        #6B7280;
-    --text-inv:      rgba(255,255,255,.9);
-    --text-inv-dim:  rgba(255,255,255,.55);
+    --text-inv:      rgba(255,255,255,.92);
+    --text-inv-dim:  rgba(255,255,255,.58);
 
     /* Borders */
-    --border:        rgba(0,0,0,.08);
-    --border-strong: rgba(0,0,0,.14);
+    --border:        rgba(0,0,0,.07);
+    --border-strong: rgba(0,0,0,.12);
 
-    /* Green */
-    --green:         #0D9168;
-    --green-bg:      #E6F5F0;
+    /* Success */
+    --green:         #15803D;
+    --green-bg:      #DCFCE7;
 
-    /* Typography */
-    --font-display: 'Outfit', sans-serif;
-    --font-body:    'DM Sans', sans-serif;
+    /* Typography — Playfair Display (serif) + Inter (body) */
+    --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-body:    'Inter', system-ui, -apple-system, sans-serif;
 
     /* Radii */
     --r-sm:  6px;
@@ -100,8 +98,8 @@ ar_output_schema([
     /* Shadows */
     --shadow-sm:   0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
     --shadow-md:   0 4px 16px rgba(0,0,0,.08), 0 1px 4px rgba(0,0,0,.04);
-    --shadow-lg:   0 12px 40px rgba(0,0,0,.12), 0 4px 12px rgba(0,0,0,.06);
-    --shadow-red:  0 8px 24px rgba(196,28,41,.30);
+    --shadow-lg:   0 12px 40px rgba(0,0,0,.10), 0 4px 12px rgba(0,0,0,.06);
+    --shadow-red:  0 8px 24px rgba(196,148,58,.30);
 
     /* Transitions */
     --ease: .22s cubic-bezier(.4,0,.2,1);
@@ -131,19 +129,17 @@ img { display: block; max-width: 100%; }
 }
 
 /* ── Section base ── */
-.section {
-    padding: 100px 0;
-}
-.section--sm { padding: 72px 0; }
-.section--paper { background: var(--paper); }
+.section          { padding: 100px 0; }
+.section--sm      { padding: 72px 0; }
+.section--paper   { background: var(--paper); }
 .section--paper-alt { background: var(--paper-alt); }
-.section--white { background: var(--white); }
-.section--ink { background: var(--ink); }
+.section--white   { background: var(--white); }
+.section--ink     { background: var(--ink); }
 
 /* ── Section header ── */
 .sh {
     text-align: center;
-    max-width: 620px;
+    max-width: 640px;
     margin: 0 auto 64px;
 }
 .sh--left { text-align: left; margin-left: 0; }
@@ -152,19 +148,20 @@ img { display: block; max-width: 100%; }
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: .14em;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .18em;
     text-transform: uppercase;
     color: var(--red);
     margin-bottom: 16px;
+    font-family: var(--font-body);
 }
 .eyebrow::before,
 .eyebrow::after {
     content: '';
     display: block;
-    width: 20px;
-    height: 1.5px;
+    width: 24px;
+    height: 1px;
     background: var(--red);
     flex-shrink: 0;
 }
@@ -172,20 +169,20 @@ img { display: block; max-width: 100%; }
 
 .h2 {
     font-family: var(--font-display);
-    font-size: clamp(30px, 3.8vw, 52px);
-    font-weight: 800;
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 700;
     color: var(--text-1);
-    line-height: 1.08;
-    letter-spacing: -.03em;
+    line-height: 1.12;
+    letter-spacing: -.01em;
     margin-bottom: 18px;
 }
-.h2 em { font-style: normal; color: var(--red); }
+.h2 em  { font-style: italic; color: var(--red); }
 .h2--inv { color: var(--white); }
 
 .lead {
     font-size: 17px;
     color: var(--text-3);
-    line-height: 1.75;
+    line-height: 1.78;
 }
 .lead--inv { color: var(--text-inv-dim); }
 
@@ -206,7 +203,7 @@ img { display: block; max-width: 100%; }
     transition: background var(--ease), color var(--ease), border-color var(--ease),
                 transform var(--ease), box-shadow var(--ease);
     white-space: nowrap;
-    letter-spacing: -.01em;
+    letter-spacing: .01em;
 }
 .btn:active { transform: scale(.97); }
 
@@ -247,12 +244,12 @@ img { display: block; max-width: 100%; }
     border-color: #fff;
 }
 .btn--white:hover {
-    background: #f8f8f8;
+    background: #f8f6f1;
     box-shadow: var(--shadow-lg);
 }
 
-.btn--lg  { padding: 15px 32px; font-size: 16px; }
-.btn--xl  { padding: 18px 38px; font-size: 17px; }
+.btn--lg   { padding: 15px 32px; font-size: 16px; }
+.btn--xl   { padding: 18px 38px; font-size: 17px; }
 .btn--full { width: 100%; }
 
 /* ── Section CTA ── */
@@ -260,8 +257,9 @@ img { display: block; max-width: 100%; }
 
 </style>
 
+
 <!-- ═══════════════════════════════════════════════════════════
-     HERO — Dark cinematic, subdued overlay, no blinding brightness
+     HERO — Warm architectural hero, editorial navy + gold
      ═══════════════════════════════════════════════════════════ -->
 <style>
 .hero {
@@ -273,7 +271,6 @@ img { display: block; max-width: 100%; }
     background: var(--ink);
 }
 
-/* Background image */
 .hero__bg {
     position: absolute;
     inset: 0;
@@ -286,28 +283,27 @@ img { display: block; max-width: 100%; }
 }
 .hero--loaded .hero__bg { transform: scale(1); }
 
-/* Light overlay — image shows through clearly, text still readable */
+/* Richer, warmer overlay — navy tones instead of near-black */
 .hero__overlay {
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(105deg, rgba(10,11,14,.42) 0%, rgba(10,11,14,.20) 55%, rgba(10,11,14,.06) 100%),
-        linear-gradient(to bottom, rgba(10,11,14,.04) 0%, transparent 50%, rgba(10,11,14,.18) 100%);
+        linear-gradient(108deg, rgba(26,43,66,.58) 0%, rgba(26,43,66,.28) 55%, rgba(26,43,66,.08) 100%),
+        linear-gradient(to bottom, rgba(26,43,66,.06) 0%, transparent 50%, rgba(26,43,66,.22) 100%);
 }
 
-/* Red atmospheric accent */
+/* Gold atmospheric accent — replaces red glow */
 .hero__accent {
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 600px 400px at 68% 55%, rgba(196,28,41,.18) 0%, transparent 65%);
+    background: radial-gradient(ellipse 600px 400px at 68% 55%, rgba(196,148,58,.14) 0%, transparent 65%);
     pointer-events: none;
 }
 
-/* Grain texture overlay */
 .hero__grain {
     position: absolute;
     inset: 0;
-    opacity: .035;
+    opacity: .028;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     background-size: 200px;
 }
@@ -333,58 +329,61 @@ img { display: block; max-width: 100%; }
     gap: 8px;
     padding: 6px 14px 6px 8px;
     border-radius: 99px;
-    border: 1px solid rgba(196,28,41,.4);
-    background: rgba(196,28,41,.12);
-    font-size: 13.5px;
-    font-weight: 700;
-    color: #F07070;
-    letter-spacing: .06em;
+    border: 1px solid rgba(196,148,58,.40);
+    background: rgba(196,148,58,.12);
+    font-size: 13px;
+    font-weight: 600;
+    color: #D4B46A;
+    letter-spacing: .08em;
     text-transform: uppercase;
     margin-bottom: 28px;
     backdrop-filter: blur(8px);
+    font-family: var(--font-body);
 }
 .hero__badge-dot {
     width: 6px; height: 6px;
     background: var(--red);
     border-radius: 50%;
-    box-shadow: 0 0 8px rgba(196,28,41,.8);
-    animation: pulse-dot 2s ease infinite;
+    box-shadow: 0 0 8px rgba(196,148,58,.80);
+    animation: pulse-dot 2.4s ease infinite;
 }
 @keyframes pulse-dot {
     0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: .6; transform: scale(.85); }
+    50%       { opacity: .5; transform: scale(.82); }
 }
 
 .hero__h1 {
     font-family: var(--font-display);
-    font-size: clamp(44px, 5.5vw, 72px);
-    font-weight: 900;
+    font-size: clamp(42px, 5.2vw, 68px);
+    font-weight: 700;
     color: #fff;
-    line-height: 1.03;
-    letter-spacing: -.035em;
+    line-height: 1.06;
+    letter-spacing: -.01em;
     margin-bottom: 26px;
 }
 .hero__h1 em {
-    font-style: normal;
-    color: var(--red);
+    font-style: italic;
+    color: #D4B46A;
     display: block;
 }
 .hero__h1 em::after {
     content: '';
     display: block;
-    width: 80px;
-    height: 3px;
+    width: 72px;
+    height: 2px;
     background: var(--red);
-    margin-top: 10px;
+    margin-top: 12px;
     border-radius: 2px;
+    opacity: .7;
 }
 
 .hero__sub {
     font-size: 17px;
-    color: rgba(255,255,255,.72);
-    line-height: 1.8;
+    color: rgba(255,255,255,.70);
+    line-height: 1.80;
     margin-bottom: 40px;
     max-width: 500px;
+    font-family: var(--font-body);
 }
 
 .hero__actions {
@@ -405,22 +404,20 @@ img { display: block; max-width: 100%; }
     gap: 8px;
     font-size: 15px;
     font-weight: 500;
-    color: rgba(255,255,255,.65);
+    color: rgba(255,255,255,.62);
+    font-family: var(--font-body);
 }
-.hero__trust-item svg {
-    color: var(--red);
-    flex-shrink: 0;
-}
+.hero__trust-item svg    { color: #D4B46A; flex-shrink: 0; }
 .hero__trust-item strong { color: #fff; }
 
-/* Right card */
+/* Right booking card */
 .hero__card {
     background: rgba(255,255,255,.97);
     backdrop-filter: blur(16px);
     border: 1px solid rgba(255,255,255,.3);
     border-radius: var(--r-2xl);
     padding: 36px;
-    box-shadow: 0 24px 64px rgba(0,0,0,.40), 0 4px 16px rgba(0,0,0,.16);
+    box-shadow: 0 24px 64px rgba(0,0,0,.38), 0 4px 16px rgba(0,0,0,.14);
 }
 
 .hero__card-head {
@@ -442,16 +439,17 @@ img { display: block; max-width: 100%; }
 .hero__card h2 {
     font-family: var(--font-display);
     font-size: 21px;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--text-1);
-    letter-spacing: -.02em;
+    letter-spacing: -.01em;
     line-height: 1.2;
 }
 .hero__card > p {
-    font-size: 16.5px;
+    font-size: 16px;
     color: var(--text-3);
     line-height: 1.6;
     margin-bottom: 24px;
+    font-family: var(--font-body);
 }
 
 .hero__card-check {
@@ -468,9 +466,10 @@ img { display: block; max-width: 100%; }
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 16.5px;
+    font-size: 16px;
     color: var(--text-2);
     font-weight: 500;
+    font-family: var(--font-body);
 }
 .hero__card-check li svg { color: var(--green); flex-shrink: 0; }
 
@@ -479,6 +478,7 @@ img { display: block; max-width: 100%; }
     text-align: center;
     font-size: 13.5px;
     color: var(--text-3);
+    font-family: var(--font-body);
 }
 .hero__card-phone a {
     color: var(--red);
@@ -487,7 +487,7 @@ img { display: block; max-width: 100%; }
 }
 .hero__card-phone a:hover { text-decoration: underline; }
 
-/* Scroll indicator */
+/* Scroll cue */
 .hero__scroll {
     position: absolute;
     bottom: 28px;
@@ -498,19 +498,20 @@ img { display: block; max-width: 100%; }
     flex-direction: column;
     align-items: center;
     gap: 6px;
-    opacity: .5;
-    animation: bounce 2.2s ease infinite;
+    opacity: .4;
+    animation: bounce 2.4s ease infinite;
 }
 .hero__scroll span {
-    font-size: 14px;
+    font-size: 11px;
     font-weight: 600;
-    letter-spacing: .1em;
+    letter-spacing: .14em;
     text-transform: uppercase;
     color: #fff;
+    font-family: var(--font-body);
 }
 @keyframes bounce {
     0%, 100% { transform: translateX(-50%) translateY(0); }
-    55% { transform: translateX(-50%) translateY(6px); }
+    55%       { transform: translateX(-50%) translateY(6px); }
 }
 
 /* Responsive */
@@ -522,7 +523,7 @@ img { display: block; max-width: 100%; }
 @media (max-width: 640px) {
     .hero { min-height: auto; }
     .hero__inner { padding: 64px 0 60px; }
-    .hero__h1 { font-size: 40px; }
+    .hero__h1  { font-size: 38px; }
     .hero__sub { font-size: 15.5px; }
     .hero__actions .btn--xl { padding: 14px 22px; font-size: 15px; }
     .hero__card { padding: 28px 24px; border-radius: var(--r-xl); }
@@ -541,19 +542,19 @@ img { display: block; max-width: 100%; }
 
                 <!-- Left: headline + CTA -->
                 <div>
-                    <div class="hero__badge" aria-label="Status: Certified Samsung Repair, Same-Day Service Available">
+                    <div class="hero__badge" aria-label="Status: Certified Viking Repair, Same-Day Service Available">
                         <span class="hero__badge-dot" aria-hidden="true"></span>
-                        Certified Samsung Repair &mdash; Same-Day Available
+                        Certified Viking Specialists &mdash; Same-Day Available
                     </div>
 
                     <h1 class="hero__h1" id="home-h1">
-                        Samsung Appliance<br>
+                        Viking Appliance<br>
                         Repair &amp;
-                        <em>Expert Diagnostics</em>
+                        <em>Expert Service</em>
                     </h1>
 
                     <p class="hero__sub">
-                        Genuine Samsung parts, same-day and next-day service, and a full 30-day warranty on every repair. Fast, honest, and done right the first time.
+                        Genuine Viking OEM parts, same-day and next-day service, and a full 30-day warranty on every repair. Trusted specialists for the appliances that define your kitchen.
                     </p>
 
                     <div class="hero__actions">
@@ -567,7 +568,7 @@ img { display: block; max-width: 100%; }
                     <div class="hero__trust" role="list" aria-label="Our guarantees">
                         <div class="hero__trust-item" role="listitem">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                            <span><strong>Genuine</strong> Samsung Parts</span>
+                            <span><strong>Genuine</strong> Viking OEM Parts</span>
                         </div>
                         <div class="hero__trust-item" role="listitem">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -588,17 +589,16 @@ img { display: block; max-width: 100%; }
                         </div>
                         <h2>Schedule a Repair</h2>
                     </div>
-                    <!-- <p>Same-day and next-day slots available. Takes less than a minute.</p> -->
 
                     <a href="/schedule/" class="btn btn--red btn--full btn--lg">
-                        Book Samsung Repair Now &rarr;
+                        Book Viking Repair Now &rarr;
                     </a>
 
                     <ul class="hero__card-check">
                         <?php foreach([
                             'Same-day &amp; next-day availability',
                             'Upfront pricing — no hidden fees',
-                            'Factory-certified parts only',
+                            'Genuine Viking OEM parts only',
                             '30-day parts &amp; labor warranty',
                         ] as $item): ?>
                         <li>
@@ -609,7 +609,7 @@ img { display: block; max-width: 100%; }
                     </ul>
 
                     <p class="hero__card-phone">
-                        Or call us directly: <a href="<?php echo esc_url($phone_link); ?>"><?php echo esc_html($phone); ?></a>
+                        Or call directly: <a href="<?php echo esc_url($phone_link); ?>"><?php echo esc_html($phone); ?></a>
                     </p>
                 </div>
 
@@ -617,7 +617,6 @@ img { display: block; max-width: 100%; }
         </div><!-- .wrap -->
     </div><!-- .hero__inner -->
 
-    <!-- Scroll cue -->
     <div class="hero__scroll" aria-hidden="true">
         <span>Scroll</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
@@ -633,25 +632,22 @@ img { display: block; max-width: 100%; }
 
 
 <!-- ═══════════════════════════════════════════════════════════
-     TRUST BAR — Premium social proof strip
+     TRUST BAR — Gold-accented social proof strip
      ═══════════════════════════════════════════════════════════ -->
 <style>
-/* ── Wrapper ── */
 .tbar {
     background: var(--white);
     border-bottom: 1px solid var(--border);
-    box-shadow: 0 2px 12px rgba(0,0,0,.055);
+    box-shadow: 0 2px 12px rgba(0,0,0,.045);
     position: relative;
     z-index: 10;
 }
- 
-/* ── 5-column CSS grid — never wraps on desktop ── */
+
 .tbar__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
- 
-/* ── Each cell ── */
+
 .tbar__cell {
     display: flex;
     align-items: center;
@@ -663,28 +659,24 @@ img { display: block; max-width: 100%; }
     overflow: hidden;
 }
 .tbar__cell:last-child { border-right: none; }
-.tbar__cell:hover { background: #FAFAF8; }
- 
-/* Animated red top accent */
+.tbar__cell:hover      { background: #FDFAF6; }
+
 .tbar__cell::after {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 3px;
+    height: 2px;
     background: var(--red);
     transform: scaleX(0);
     transform-origin: left center;
     transition: transform .3s cubic-bezier(.4,0,.2,1);
-    border-radius: 0 0 2px 2px;
 }
 .tbar__cell:hover::after { transform: scaleX(1); }
- 
-/* ── Icon ── */
+
 .tbar__icon {
-    width: 46px;
-    height: 46px;
+    width: 46px; height: 46px;
     border-radius: var(--r-md);
-    background: #FEF2F2;
+    background: rgba(196,148,58,.10);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -697,14 +689,13 @@ img { display: block; max-width: 100%; }
     color: #fff;
     transform: scale(1.08);
 }
- 
-/* ── Text block ── */
+
 .tbar__text { min-width: 0; }
- 
+
 .tbar__strong {
     display: block;
-    font-family: var(--font-display);
-    font-size: 15.5px;
+    font-family: var(--font-body);
+    font-size: 15px;
     font-weight: 700;
     color: var(--text-1);
     line-height: 1.25;
@@ -712,60 +703,45 @@ img { display: block; max-width: 100%; }
 }
 .tbar__sub {
     display: block;
-    font-size: 14px;
+    font-size: 13.5px;
     color: var(--text-3);
     line-height: 1.4;
     margin-top: 3px;
 }
- 
-/* ══════════════════════════════════════
-   RESPONSIVE
-   ══════════════════════════════════════ */
- 
-/* Large tablet ≤1100px: tighten padding, same 4-col grid */
+
 @media (max-width: 1100px) {
-    .tbar__cell  { padding: 20px 16px; gap: 12px; }
-    .tbar__icon  { width: 40px; height: 40px; }
-    .tbar__strong { font-size: 14.5px; }
-    .tbar__sub   { font-size: 12.5px; }
+    .tbar__cell   { padding: 20px 16px; gap: 12px; }
+    .tbar__icon   { width: 40px; height: 40px; }
+    .tbar__strong { font-size: 14px; }
+    .tbar__sub    { font-size: 12px; }
 }
- 
-/* Tablet ≤860px: still 5 cols, hide subtitle to keep one row */
 @media (max-width: 860px) {
-    .tbar__cell  { padding: 18px 12px; gap: 10px; }
-    .tbar__icon  { width: 36px; height: 36px; }
+    .tbar__cell   { padding: 18px 12px; gap: 10px; }
+    .tbar__icon   { width: 36px; height: 36px; }
     .tbar__icon svg { width: 17px; height: 17px; }
-    .tbar__strong { font-size: 13.5px; }
-    .tbar__sub   { display: none; }
+    .tbar__strong { font-size: 13px; }
+    .tbar__sub    { display: none; }
 }
- 
-/* Small tablet ≤640px: 2-column grid */
 @media (max-width: 640px) {
-    .tbar__grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .tbar__grid { grid-template-columns: repeat(2, 1fr); }
     .tbar__cell {
         padding: 20px 18px;
         border-right: 1px solid var(--border);
         border-bottom: 1px solid var(--border);
         gap: 14px;
     }
-    /* No right border on even items */
     .tbar__cell:nth-child(2n) { border-right: none; }
-    /* No bottom border on last two items (3rd & 4th) */
     .tbar__cell:nth-child(3),
-    .tbar__cell:nth-child(4) { border-bottom: none; }
+    .tbar__cell:nth-child(4)  { border-bottom: none; }
     .tbar__sub    { display: block; font-size: 13px; }
     .tbar__icon   { width: 42px; height: 42px; }
-    .tbar__strong { font-size: 15px; }
+    .tbar__strong { font-size: 14.5px; }
 }
- 
-/* Mobile ≤400px: icon + text stacked */
 @media (max-width: 400px) {
     .tbar__cell { flex-direction: column; align-items: flex-start; gap: 8px; padding: 18px 16px; }
 }
 </style>
- 
+
 <div class="tbar" role="list" aria-label="Why choose us">
     <div class="container">
         <div class="tbar__grid">
@@ -773,8 +749,8 @@ img { display: block; max-width: 100%; }
             $trust_items = [
                 [
                     'icon'   => '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
-                    'strong' => 'OEM-Certified Parts',
-                    'sub'    => 'No generic substitutes, ever',
+                    'strong' => 'Genuine Viking OEM Parts',
+                    'sub'    => 'No aftermarket substitutes, ever',
                 ],
                 [
                     'icon'   => '<path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>',
@@ -784,12 +760,12 @@ img { display: block; max-width: 100%; }
                 [
                     'icon'   => '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
                     'strong' => 'Same-Day Service',
-                    'sub'    => 'Mon – Sat in most areas',
+                    'sub'    => 'Mon – Sat in most service areas',
                 ],
                 [
                     'icon'   => '<path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>',
                     'strong' => 'Certified Technicians',
-                    'sub'    => 'Background-checked &amp; insured',
+                    'sub'    => 'Background-checked &amp; fully insured',
                 ],
             ];
             foreach ($trust_items as $item): ?>
@@ -811,7 +787,7 @@ img { display: block; max-width: 100%; }
 
 
 <!-- ═══════════════════════════════════════════════════════════
-     SERVICES — Photo cards with real appliance images
+     SERVICES — Viking appliance photo cards
      ═══════════════════════════════════════════════════════════ -->
 <style>
 .svc-grid {
@@ -834,10 +810,9 @@ img { display: block; max-width: 100%; }
 .svc-card:hover {
     transform: translateY(-6px);
     box-shadow: var(--shadow-lg);
-    border-color: rgba(196,28,41,.2);
+    border-color: rgba(196,148,58,.22);
 }
 
-/* Appliance photo */
 .svc-card__photo {
     position: relative;
     height: 180px;
@@ -847,17 +822,15 @@ img { display: block; max-width: 100%; }
 .svc-card__photo img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* <-- show full image */
+    object-fit: contain;
     object-position: center;
     transition: transform .55s ease;
 }
-.svc-card:hover .svc-card__photo img {
-    transform: scale(1.06);
-}
+.svc-card:hover .svc-card__photo img { transform: scale(1.06); }
 .svc-card__photo-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, transparent 40%, rgba(10,11,14,.55) 100%);
+    background: linear-gradient(to bottom, transparent 40%, rgba(26,43,66,.50) 100%);
 }
 .svc-card__photo-tag {
     position: absolute;
@@ -865,15 +838,15 @@ img { display: block; max-width: 100%; }
     left: 14px;
     background: var(--red);
     color: #fff;
-    font-size: 13.5px;
+    font-size: 13px;
     font-weight: 700;
     letter-spacing: .06em;
     text-transform: uppercase;
     padding: 4px 10px;
     border-radius: 99px;
+    font-family: var(--font-body);
 }
 
-/* Card body */
 .svc-card__body {
     padding: 22px 24px 26px;
     flex: 1;
@@ -883,18 +856,19 @@ img { display: block; max-width: 100%; }
 .svc-card__title {
     font-family: var(--font-display);
     font-size: 19px;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--text-1);
-    letter-spacing: -.02em;
+    letter-spacing: -.01em;
     margin-bottom: 10px;
-    line-height: 1.2;
+    line-height: 1.25;
 }
 .svc-card__desc {
-    font-size: 16.5px;
+    font-size: 15.5px;
     color: var(--text-3);
-    line-height: 1.7;
+    line-height: 1.72;
     flex: 1;
     margin-bottom: 18px;
+    font-family: var(--font-body);
 }
 .svc-card__cta {
     display: inline-flex;
@@ -903,18 +877,13 @@ img { display: block; max-width: 100%; }
     font-size: 14px;
     font-weight: 700;
     color: var(--red);
-    letter-spacing: -.01em;
+    letter-spacing: .01em;
+    font-family: var(--font-body);
 }
-.svc-card__cta svg {
-    transition: transform var(--ease);
-}
-.svc-card:hover .svc-card__cta svg {
-    transform: translateX(5px);
-}
+.svc-card__cta svg { transition: transform var(--ease); }
+.svc-card:hover .svc-card__cta svg { transform: translateX(5px); }
 
-@media (max-width: 960px) {
-    .svc-grid { grid-template-columns: repeat(2, 1fr); }
-}
+@media (max-width: 960px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 580px) {
     .svc-grid { grid-template-columns: 1fr; }
     .svc-card__photo { height: 220px; }
@@ -925,8 +894,8 @@ img { display: block; max-width: 100%; }
     <div class="wrap">
         <div class="sh">
             <div class="eyebrow">What We Fix</div>
-            <h2 class="h2" id="services-h2">Samsung Appliance<br>Repair Services</h2>
-            <p class="lead">We specialize exclusively in Samsung appliances — every model, every series. Same-day service available in most areas.</p>
+            <h2 class="h2" id="services-h2">Viking Appliance<br><em>Repair Services</em></h2>
+            <p class="lead">We specialize exclusively in Viking appliances — every model, every series. Same-day service available in most areas.</p>
         </div>
 
         <div class="svc-grid">
@@ -966,7 +935,7 @@ img { display: block; max-width: 100%; }
 
 
 <!-- ═══════════════════════════════════════════════════════════
-     IMAGE BREAK — Full-bleed technician photo
+     IMAGE BREAK — Full-bleed technician photo with navy tone
      ═══════════════════════════════════════════════════════════ -->
 <style>
 .img-break {
@@ -982,16 +951,16 @@ img { display: block; max-width: 100%; }
     height: 100%;
     object-fit: cover;
     object-position: center 25%;
-    opacity: .6;
+    opacity: .55;
 }
 .img-break__overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
         90deg,
-        rgba(10,11,14,.92) 0%,
-        rgba(10,11,14,.7) 45%,
-        rgba(10,11,14,.15) 100%
+        rgba(26,43,66,.94) 0%,
+        rgba(26,43,66,.72) 45%,
+        rgba(26,43,66,.18) 100%
     );
 }
 .img-break__content {
@@ -1007,70 +976,69 @@ img { display: block; max-width: 100%; }
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: .12em;
+    letter-spacing: .16em;
     text-transform: uppercase;
-    color: #F07070;
+    color: #D4B46A;
     margin-bottom: 18px;
+    font-family: var(--font-body);
 }
 .img-break__eyebrow::before {
     content: '';
     display: block;
-    width: 18px;
-    height: 1.5px;
+    width: 20px;
+    height: 1px;
     background: var(--red);
 }
 .img-break__h2 {
     font-family: var(--font-display);
-    font-size: clamp(28px, 3.5vw, 46px);
-    font-weight: 900;
+    font-size: clamp(26px, 3.2vw, 44px);
+    font-weight: 700;
     color: #fff;
-    line-height: 1.08;
-    letter-spacing: -.03em;
+    line-height: 1.12;
+    letter-spacing: -.01em;
     margin-bottom: 20px;
 }
 .img-break__p {
     font-size: 16px;
-    color: rgba(255,255,255,.65);
-    line-height: 1.75;
+    color: rgba(255,255,255,.62);
+    line-height: 1.78;
     margin-bottom: 32px;
     max-width: 460px;
+    font-family: var(--font-body);
 }
 .img-break__stats {
     display: flex;
     gap: 32px;
     flex-wrap: wrap;
 }
-.img-break__stat {}
 .img-break__stat-val {
     font-family: var(--font-display);
     font-size: 36px;
-    font-weight: 900;
+    font-weight: 700;
     color: #fff;
-    letter-spacing: -.04em;
+    letter-spacing: -.02em;
     line-height: 1;
 }
-.img-break__stat-val sup {
-    font-size: 18px;
-    vertical-align: super;
-}
+.img-break__stat-val sup { font-size: 18px; vertical-align: super; }
 .img-break__stat-lbl {
-    font-size: 15px;
-    color: rgba(255,255,255,.5);
+    font-size: 14px;
+    color: rgba(255,255,255,.48);
     margin-top: 4px;
     font-weight: 500;
     letter-spacing: .03em;
+    font-family: var(--font-body);
 }
 
 @media (max-width: 640px) {
     .img-break { height: auto; padding: 60px 0; }
-    .img-break__photo { opacity: .35; }
-    .img-break__overlay { background: rgba(10,11,14,.7); }
+    .img-break__photo   { opacity: .3; }
+    .img-break__overlay { background: rgba(26,43,66,.75); }
 }
 </style>
 
-<div class="img-break" role="img" aria-label="Certified Samsung technician working on an appliance">
+<div class="img-break" role="img" aria-label="Viking-certified technician working on a premium kitchen appliance">
     <img
         class="img-break__photo"
         src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/service-maintenance-worker-repairing.jpg'); ?>"
@@ -1082,8 +1050,8 @@ img { display: block; max-width: 100%; }
     <div class="wrap">
         <div class="img-break__content">
             <span class="img-break__eyebrow">Our Technicians</span>
-            <h2 class="img-break__h2">Samsung-Trained.<br>Background-Checked.<br>Fully Insured.</h2>
-            <p class="img-break__p">Every technician carries professional Samsung diagnostic tools, factory parts, and the expertise to resolve any Samsung appliance fault — on the first visit.</p>
+            <h2 class="img-break__h2">Viking-Trained.<br>Background-Checked.<br>Fully Insured.</h2>
+            <p class="img-break__p">Every technician carries factory Viking diagnostic tools, genuine OEM parts, and the expertise to resolve any Viking appliance fault — on the first visit.</p>
             <div class="img-break__stats">
                 <div class="img-break__stat">
                     <div class="img-break__stat-val">98%</div>
@@ -1104,7 +1072,7 @@ img { display: block; max-width: 100%; }
 
 
 <!-- ═══════════════════════════════════════════════════════════
-     WHY CHOOSE US — Split layout with image
+     WHY CHOOSE US — Split layout with editorial serif tone
      ═══════════════════════════════════════════════════════════ -->
 <style>
 .why-layout {
@@ -1120,11 +1088,7 @@ img { display: block; max-width: 100%; }
     box-shadow: var(--shadow-lg);
     aspect-ratio: 4 / 5;
 }
-.why-visual img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+.why-visual img { width: 100%; height: 100%; object-fit: cover; }
 .why-visual__badge {
     position: absolute;
     bottom: 24px;
@@ -1139,35 +1103,30 @@ img { display: block; max-width: 100%; }
 .why-visual__badge strong {
     display: block;
     font-family: var(--font-display);
-    font-size: 32px;
-    font-weight: 900;
+    font-size: 30px;
+    font-weight: 700;
     line-height: 1;
-    letter-spacing: -.03em;
+    letter-spacing: -.01em;
 }
 .why-visual__badge span {
     font-size: 12px;
     font-weight: 600;
     opacity: .85;
-    letter-spacing: .02em;
+    letter-spacing: .04em;
+    font-family: var(--font-body);
 }
 
-.why-content {}
 .why-features {
     display: flex;
     flex-direction: column;
     gap: 32px;
     margin-top: 48px;
 }
-.why-feature {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-}
+.why-feature { display: flex; gap: 20px; align-items: flex-start; }
 .why-feature__icon {
-    width: 48px;
-    height: 48px;
+    width: 48px; height: 48px;
     border-radius: var(--r-md);
-    background: #FEF2F2;
+    background: rgba(196,148,58,.10);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1178,21 +1137,22 @@ img { display: block; max-width: 100%; }
 .why-feature__text h4 {
     font-family: var(--font-display);
     font-size: 18px;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--text-1);
-    letter-spacing: -.02em;
+    letter-spacing: -.01em;
     margin-bottom: 8px;
-    line-height: 1.25;
+    line-height: 1.3;
 }
 .why-feature__text p {
-    font-size: 16px;
+    font-size: 15.5px;
     color: var(--text-3);
-    line-height: 1.75;
+    line-height: 1.78;
+    font-family: var(--font-body);
 }
 
 @media (max-width: 900px) {
-    .why-layout { grid-template-columns: 1fr; gap: 48px; }
-    .why-visual { aspect-ratio: 16 / 9; max-height: 380px; }
+    .why-layout  { grid-template-columns: 1fr; gap: 48px; }
+    .why-visual  { aspect-ratio: 16 / 9; max-height: 380px; }
 }
 </style>
 
@@ -1200,38 +1160,36 @@ img { display: block; max-width: 100%; }
     <div class="wrap">
         <div class="why-layout">
 
-            <!-- Photo side -->
             <div class="why-visual">
                 <img
                     src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/front-recalls.avif'); ?>"
-                    alt="Samsung-certified repair technician at work"
+                    alt="Viking-certified repair technician at work"
                     loading="lazy"
                 >
             </div>
 
-            <!-- Content side -->
             <div class="why-content">
                 <div class="eyebrow eyebrow--left">Our Promise</div>
-                <h2 class="h2" id="why-h2">Why Choose Us for Samsung Repair?</h2>
-                <p class="lead">Samsung specialist technicians, genuine parts, and a no-excuses warranty — every repair done right the first time.</p>
+                <h2 class="h2" id="why-h2">Why Choose Us for <em>Viking Repair?</em></h2>
+                <p class="lead">Viking specialist technicians, genuine OEM parts, and an unconditional warranty — every repair done right the first time.</p>
 
                 <div class="why-features">
                     <?php
                     $features = [
                         [
-                            'icon' => '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
-                            'title' => 'Genuine Samsung Parts — Always',
-                            'text'  => 'We stock only genuine Samsung replacement parts. No generic alternatives, no quality compromises. Your appliance is restored to factory spec every time.',
+                            'icon'  => '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+                            'title' => 'Genuine Viking OEM Parts — Always',
+                            'text'  => 'We stock only genuine Viking replacement parts. No aftermarket alternatives, no quality compromises. Your Viking appliance is restored to factory performance every time.',
                         ],
                         [
-                            'icon' => '<path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>',
-                            'title' => 'Samsung-Certified Technicians',
-                            'text'  => 'Every technician is rigorously trained on Samsung appliances, fully certified, background-checked, and insured — carrying diagnostic tools and a full parts inventory.',
+                            'icon'  => '<path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>',
+                            'title' => 'Viking-Certified Technicians',
+                            'text'  => 'Every technician is factory-trained on Viking appliances, fully certified, background-checked, and insured — arriving with professional diagnostic tools and a complete parts inventory.',
                         ],
                         [
-                            'icon' => '<rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="9 10 12 13 22 4"/>',
+                            'icon'  => '<rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="9 10 12 13 22 4"/>',
                             'title' => '30-Day Parts &amp; Labor Warranty',
-                            'text'  => 'If the same problem recurs within 30 days, we return and fix it at no additional charge — in writing, on the day of repair.',
+                            'text'  => 'If the same issue recurs within 30 days of your repair, we return and fix it at no additional charge. Our warranty is provided in writing on the day of service.',
                         ],
                     ];
                     foreach ($features as $f): ?>
@@ -1256,7 +1214,7 @@ img { display: block; max-width: 100%; }
 
 
 <!-- ═══════════════════════════════════════════════════════════
-     SAMSUNG APPLIANCES — Visually rich chips with icons
+     VIKING APPLIANCES — Chip grid with gold hover
      ═══════════════════════════════════════════════════════════ -->
 <style>
 .models-grid {
@@ -1278,6 +1236,7 @@ img { display: block; max-width: 100%; }
     color: var(--text-2);
     text-decoration: none;
     letter-spacing: -.01em;
+    font-family: var(--font-body);
     transition: background var(--ease), border-color var(--ease), color var(--ease), box-shadow var(--ease), transform var(--ease-spring);
 }
 .model-chip svg { color: var(--text-3); flex-shrink: 0; transition: color var(--ease); }
@@ -1285,29 +1244,30 @@ img { display: block; max-width: 100%; }
     background: var(--red);
     border-color: var(--red);
     color: #fff;
-    box-shadow: 0 4px 18px rgba(196,28,41,.28);
+    box-shadow: 0 4px 18px rgba(196,148,58,.28);
     transform: translateY(-2px);
 }
 .model-chip:hover svg { color: rgba(255,255,255,.8); }
 </style>
 
-<section class="section section--paper-alt" id="samsung-appliances" aria-labelledby="models-h2">
+<section class="section section--paper-alt" id="viking-appliances" aria-labelledby="models-h2">
     <div class="wrap">
         <div class="sh">
-            <div class="eyebrow">All Samsung Appliances</div>
-            <h2 class="h2" id="models-h2">Every Samsung Appliance We Service</h2>
-            <p class="lead">From washers and dryers to refrigerators and microwaves — we fix every Samsung appliance with genuine parts.</p>
+            <div class="eyebrow">All Viking Appliances</div>
+            <h2 class="h2" id="models-h2">Every Viking Appliance <em>We Service</em></h2>
+            <p class="lead">From professional ranges and cooktops to refrigerators and wine coolers — we repair every Viking appliance with genuine factory parts.</p>
         </div>
         <div class="models-grid">
             <?php
             $model_types = [
-                ['label' => 'Washer',        'slug' => 'washer',        'icon' => '<rect x="2" y="2" width="20" height="20" rx="3"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="2"/>'],
-                ['label' => 'Dryer',         'slug' => 'dryer',         'icon' => '<rect x="2" y="2" width="20" height="20" rx="3"/><circle cx="12" cy="13" r="4"/><circle cx="7" cy="7" r="1.5" fill="currentColor"/>'],
-                ['label' => 'Refrigerator',  'slug' => 'refrigerator',  'icon' => '<rect x="4" y="2" width="16" height="20" rx="2"/><path d="M4 10h16"/><path d="M8 6v4"/><path d="M8 14v4"/>'],
-                ['label' => 'Dishwasher',    'slug' => 'dishwasher',    'icon' => '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h6M3 15h6"/><circle cx="16" cy="12" r="2"/>'],
-                ['label' => 'Oven / Range',  'slug' => 'oven',          'icon' => '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><circle cx="7.5" cy="6" r="1"/><circle cx="12" cy="6" r="1"/><circle cx="16.5" cy="6" r="1"/>'],
-                ['label' => 'Microwave',     'slug' => 'microwave',     'icon' => '<rect x="2" y="5" width="20" height="14" rx="2"/><rect x="16" y="9" width="4" height="6" rx="1"/><path d="M6 9h8v6H6z"/>'],
-                ['label' => 'Wall Oven',     'slug' => 'wall-oven',     'icon' => '<rect x="3" y="2" width="18" height="20" rx="2"/><rect x="7" y="7" width="10" height="8" rx="1"/><path d="M7 19h10"/>'],
+                ['label' => 'Range',          'slug' => 'range',          'icon' => '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><circle cx="7.5" cy="6" r="1"/><circle cx="12" cy="6" r="1"/><circle cx="16.5" cy="6" r="1"/>'],
+                ['label' => 'Refrigerator',   'slug' => 'refrigerator',   'icon' => '<rect x="4" y="2" width="16" height="20" rx="2"/><path d="M4 10h16"/><path d="M8 6v4"/><path d="M8 14v4"/>'],
+                ['label' => 'Dishwasher',     'slug' => 'dishwasher',     'icon' => '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h6M3 15h6"/><circle cx="16" cy="12" r="2"/>'],
+                ['label' => 'Cooktop',        'slug' => 'cooktop',        'icon' => '<rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="12" r="2.5"/><circle cx="16" cy="12" r="2.5"/>'],
+                ['label' => 'Wall Oven',      'slug' => 'wall-oven',      'icon' => '<rect x="3" y="2" width="18" height="20" rx="2"/><rect x="7" y="7" width="10" height="8" rx="1"/><path d="M7 19h10"/>'],
+                ['label' => 'Wine Cooler',    'slug' => 'wine-cooler',    'icon' => '<rect x="4" y="2" width="16" height="20" rx="2"/><path d="M4 10h16"/>'],
+                ['label' => 'Freezer',        'slug' => 'freezer',        'icon' => '<rect x="4" y="2" width="16" height="20" rx="2"/><path d="M4 10h16"/><path d="M12 6v8"/>'],
+                ['label' => 'Vent Hood',      'slug' => 'vent-hood',      'icon' => '<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>'],
             ];
             foreach ($model_types as $m):
                 $link = home_url('/services/?appliance=' . esc_attr($m['slug']));
@@ -1325,7 +1285,7 @@ img { display: block; max-width: 100%; }
 
 
 <!-- ═══════════════════════════════════════════════════════════
-     HOW IT WORKS — Timeline with side image
+     HOW IT WORKS — Timeline with sticky sidebar
      ═══════════════════════════════════════════════════════════ -->
 <style>
 .hiw {
@@ -1340,10 +1300,7 @@ img { display: block; max-width: 100%; }
     gap: 80px;
     align-items: start;
 }
-.hiw__sticky {
-    position: sticky;
-    top: 40px;
-}
+.hiw__sticky { position: sticky; top: 40px; }
 .hiw__photo {
     border-radius: var(--r-xl);
     overflow: hidden;
@@ -1351,11 +1308,7 @@ img { display: block; max-width: 100%; }
     margin-bottom: 28px;
     box-shadow: var(--shadow-md);
 }
-.hiw__photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+.hiw__photo img { width: 100%; height: 100%; object-fit: cover; }
 .hiw__stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1373,10 +1326,10 @@ img { display: block; max-width: 100%; }
 .hiw__stat:last-child { border-right: none; }
 .hiw__stat-val {
     font-family: var(--font-display);
-    font-size: 28px;
-    font-weight: 900;
+    font-size: 26px;
+    font-weight: 700;
     color: var(--text-1);
-    letter-spacing: -.04em;
+    letter-spacing: -.02em;
     line-height: 1;
     display: block;
     margin-bottom: 4px;
@@ -1385,14 +1338,12 @@ img { display: block; max-width: 100%; }
     font-size: 11px;
     color: var(--text-3);
     font-weight: 500;
-    letter-spacing: .02em;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-family: var(--font-body);
 }
 
-/* Step list */
-.hiw__steps {
-    list-style: none;
-    padding: 0;
-}
+.hiw__steps { list-style: none; padding: 0; }
 .hiw__step {
     display: grid;
     grid-template-columns: 44px 1fr;
@@ -1405,11 +1356,7 @@ img { display: block; max-width: 100%; }
 .hiw__step.is-vis { opacity: 1; transform: none; }
 .hiw__step:last-child { padding-bottom: 0; }
 
-.hiw__spine {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+.hiw__spine { display: flex; flex-direction: column; align-items: center; }
 .hiw__node {
     width: 40px; height: 40px;
     border-radius: 50%;
@@ -1419,20 +1366,17 @@ img { display: block; max-width: 100%; }
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    font-family: var(--font-display);
+    font-family: var(--font-body);
     font-size: 13px;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--red);
     transition: background var(--ease), color var(--ease);
 }
-.hiw__step:hover .hiw__node {
-    background: var(--red);
-    color: #fff;
-}
+.hiw__step:hover .hiw__node { background: var(--red); color: #fff; }
 .hiw__line {
     flex: 1;
-    width: 1.5px;
-    background: linear-gradient(to bottom, rgba(196,28,41,.3), rgba(196,28,41,.04));
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(196,148,58,.35), rgba(196,148,58,.05));
     margin: 6px 0;
 }
 .hiw__step:last-child .hiw__line { display: none; }
@@ -1441,26 +1385,28 @@ img { display: block; max-width: 100%; }
 .hiw__micro {
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: .1em;
+    letter-spacing: .14em;
     text-transform: uppercase;
     color: var(--red);
     opacity: .7;
     margin-bottom: 5px;
+    font-family: var(--font-body);
 }
 .hiw__title {
     font-family: var(--font-display);
     font-size: 18px;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--text-1);
-    letter-spacing: -.02em;
+    letter-spacing: -.01em;
     margin-bottom: 8px;
-    line-height: 1.2;
+    line-height: 1.25;
 }
 .hiw__text {
     font-size: 15px;
     color: var(--text-3);
-    line-height: 1.75;
+    line-height: 1.78;
     margin-bottom: 12px;
+    font-family: var(--font-body);
 }
 .hiw__badge {
     display: inline-flex;
@@ -1473,23 +1419,20 @@ img { display: block; max-width: 100%; }
     font-size: 12px;
     font-weight: 600;
     color: var(--text-3);
+    font-family: var(--font-body);
 }
-.hiw__badge-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--green);
-}
+.hiw__badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
 
 @media (max-width: 960px) {
     .hiw__layout { grid-template-columns: 1fr; gap: 48px; }
-    .hiw__sticky { position: static; }
-    .hiw__photo { aspect-ratio: 16 / 9; max-height: 340px; }
+    .hiw__sticky  { position: static; }
+    .hiw__photo   { aspect-ratio: 16 / 9; max-height: 340px; }
 }
 @media (max-width: 480px) {
     .hiw { padding: 64px 0; }
-    .hiw__step { grid-template-columns: 36px 1fr; gap: 0 14px; padding-bottom: 32px; }
-    .hiw__stats { grid-template-columns: 1fr; }
-    .hiw__stat { border-right: none; border-bottom: 1px solid var(--border); }
+    .hiw__step   { grid-template-columns: 36px 1fr; gap: 0 14px; padding-bottom: 32px; }
+    .hiw__stats  { grid-template-columns: 1fr; }
+    .hiw__stat   { border-right: none; border-bottom: 1px solid var(--border); }
     .hiw__stat:last-child { border-bottom: none; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1501,16 +1444,15 @@ img { display: block; max-width: 100%; }
     <div class="wrap">
         <div class="hiw__layout">
 
-            <!-- Sticky sidebar -->
             <div class="hiw__sticky">
                 <div class="eyebrow eyebrow--left">Our Process</div>
                 <h2 class="h2" id="hiw-h2">How It Works</h2>
-                <p class="lead" style="margin-bottom: 32px;">Straightforward and transparent from first call to final warranty confirmation.</p>
+                <p class="lead" style="margin-bottom: 32px;">Transparent and straightforward from first call to written warranty confirmation.</p>
 
                 <div class="hiw__photo">
                     <img
                         src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/kitchen-set-2.webp'); ?>"
-                        alt="Technician repairing Samsung appliance"
+                        alt="Technician repairing a Viking range"
                         loading="lazy"
                     >
                 </div>
@@ -1536,7 +1478,6 @@ img { display: block; max-width: 100%; }
                 </a>
             </div>
 
-            <!-- Steps -->
             <ol class="hiw__steps" aria-label="Repair process steps">
                 <?php foreach ($hiw_steps as $i => $step):
                     $num = str_pad($i + 1, 2, '0', STR_PAD_LEFT);
@@ -1566,7 +1507,7 @@ img { display: block; max-width: 100%; }
 <script>
 (function(){
     'use strict';
-    var steps = document.querySelectorAll('.hiw__step');
+    var steps   = document.querySelectorAll('.hiw__step');
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduced || !('IntersectionObserver' in window)) {
         steps.forEach(function(s){ s.classList.add('is-vis'); });
@@ -1586,7 +1527,7 @@ img { display: block; max-width: 100%; }
 
 
 <!-- ═══════════════════════════════════════════════════════════
-     LOCATIONS — Cards with hover
+     LOCATIONS — City service cards
      ═══════════════════════════════════════════════════════════ -->
 <style>
 .loc-grid {
@@ -1605,13 +1546,13 @@ img { display: block; max-width: 100%; }
     box-shadow: var(--shadow-sm);
 }
 .loc-card:hover {
-    border-color: rgba(196,28,41,.25);
+    border-color: rgba(196,148,58,.28);
     box-shadow: var(--shadow-lg);
     transform: translateY(-4px);
 }
 .loc-card__icon {
     width: 44px; height: 44px;
-    background: #FEF2F2;
+    background: rgba(196,148,58,.10);
     border-radius: var(--r-md);
     display: flex;
     align-items: center;
@@ -1624,16 +1565,17 @@ img { display: block; max-width: 100%; }
 .loc-card h3 {
     font-family: var(--font-display);
     font-size: 17px;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--text-1);
-    letter-spacing: -.02em;
+    letter-spacing: -.01em;
     margin-bottom: 6px;
-    line-height: 1.2;
+    line-height: 1.25;
 }
 .loc-card p {
     font-size: 14px;
     color: var(--text-3);
     line-height: 1.65;
+    font-family: var(--font-body);
 }
 
 @media (max-width: 900px) { .loc-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -1644,7 +1586,7 @@ img { display: block; max-width: 100%; }
     <div class="wrap">
         <div class="sh">
             <div class="eyebrow">Coverage</div>
-            <h2 class="h2" id="locations-h2">We Come to You</h2>
+            <h2 class="h2" id="locations-h2">We Come <em>to You</em></h2>
             <p class="lead">Same-day service available in most ZIP codes across 6 major metro areas.</p>
         </div>
         <div class="loc-grid">
@@ -1666,7 +1608,7 @@ img { display: block; max-width: 100%; }
 
 
 <!-- ═══════════════════════════════════════════════════════════
-     IMAGE BREAK 2 — Kitchen scene before error codes CTA
+     FAULT CODES CTA — Split layout
      ═══════════════════════════════════════════════════════════ -->
 <style>
 .split-cta {
@@ -1674,21 +1616,13 @@ img { display: block; max-width: 100%; }
     grid-template-columns: 1fr 1fr;
     min-height: 440px;
 }
-.split-cta__photo {
-    position: relative;
-    overflow: hidden;
-}
-.split-cta__photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
+.split-cta__photo { position: relative; overflow: hidden; }
+.split-cta__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .split-cta__photo::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, transparent 60%, rgba(10,11,14,.6) 100%);
+    background: linear-gradient(to right, transparent 60%, rgba(26,43,66,.65) 100%);
 }
 .split-cta__content {
     background: var(--ink);
@@ -1703,54 +1637,56 @@ img { display: block; max-width: 100%; }
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 500px 400px at 100% 50%, rgba(196,28,41,.22) 0%, transparent 70%);
+    background: radial-gradient(ellipse 500px 400px at 100% 50%, rgba(196,148,58,.18) 0%, transparent 70%);
 }
 .split-cta__content > * { position: relative; z-index: 1; }
 .split-cta__eyebrow {
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: .12em;
+    letter-spacing: .16em;
     text-transform: uppercase;
-    color: #F07070;
+    color: #D4B46A;
     margin-bottom: 16px;
+    font-family: var(--font-body);
 }
 .split-cta__h2 {
     font-family: var(--font-display);
-    font-size: clamp(26px, 3vw, 40px);
-    font-weight: 900;
+    font-size: clamp(24px, 2.8vw, 38px);
+    font-weight: 700;
     color: #fff;
-    letter-spacing: -.03em;
-    line-height: 1.1;
+    letter-spacing: -.01em;
+    line-height: 1.15;
     margin-bottom: 18px;
 }
 .split-cta__p {
     font-size: 15.5px;
-    color: rgba(255,255,255,.6);
-    line-height: 1.75;
+    color: rgba(255,255,255,.58);
+    line-height: 1.78;
     margin-bottom: 32px;
+    font-family: var(--font-body);
 }
 
 @media (max-width: 760px) {
     .split-cta { grid-template-columns: 1fr; min-height: auto; }
-    .split-cta__photo { height: 260px; }
+    .split-cta__photo   { height: 260px; }
     .split-cta__content { padding: 48px 28px; }
 }
 </style>
 
-<div class="split-cta" id="error-codes-cta">
+<div class="split-cta" id="fault-codes-cta">
     <div class="split-cta__photo">
         <img
             src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/kitchen_1.jpg'); ?>"
-            alt="Modern kitchen with Samsung appliances"
+            alt="Viking kitchen appliances"
             loading="lazy"
         >
     </div>
     <div class="split-cta__content">
-        <div class="split-cta__eyebrow">Samsung Error Codes</div>
-        <h2 class="split-cta__h2">Seeing a Samsung Error Code?</h2>
-        <p class="split-cta__p">Our Samsung error code database explains every fault code — what it means, what causes it, and step-by-step troubleshooting for every Samsung appliance model.</p>
+        <div class="split-cta__eyebrow">Viking Fault Codes</div>
+        <h2 class="split-cta__h2">Seeing a Viking Fault Code?</h2>
+        <p class="split-cta__p">Our Viking fault code reference explains every error display — what it means, what causes it, and step-by-step guidance for every Viking appliance.</p>
         <a href="<?php echo esc_url(get_post_type_archive_link('error_code')); ?>" class="btn btn--red btn--lg">
-            Browse Samsung Error Codes &rarr;
+            Browse Viking Fault Codes &rarr;
         </a>
     </div>
 </div>
@@ -1759,6 +1695,6 @@ img { display: block; max-width: 100%; }
 <!-- ═══════════════════════════════════════════════════════════
      APPOINTMENT FORM
      ═══════════════════════════════════════════════════════════ -->
-<?php ar_appointment_form('homepage', 'Book Your Appliance Repair Today'); ?>
+<?php ar_appointment_form('homepage', 'Book Your Viking Appliance Repair Today'); ?>
 
 <?php get_footer(); ?>

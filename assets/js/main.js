@@ -1,5 +1,5 @@
-/**
- * Samsung Appliance Repair — Main JavaScript
+﻿/**
+ * Viking Appliance Repair Service — Main JavaScript
  * Handles: sticky header, mobile menu, FAQ accordion, smooth scroll,
  *          form AJAX submission, sticky call button
  */
@@ -228,3 +228,4 @@
   }
 
 })();
+

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Archive: Recalls
  * URL: /recalls/
@@ -403,7 +403,7 @@ get_header();
   <div class="container">
     <div class="rc-hero__inner">
       <p class="rc-hero__eyebrow">Safety Information</p>
-      <h1 class="rc-hero__title">Samsung Appliance <em>Safety Recalls</em></h1>
+      <h1 class="rc-hero__title">Viking Appliance <em>Safety Recalls</em></h1>
       <p class="rc-hero__sub">Official recall notices for major US appliance brands. Check if your appliance is affected, what the hazard is, and exactly what steps to take to protect your household.</p>
       <div class="rc-hero__meta">
         <div>
@@ -511,11 +511,11 @@ get_header();
     <div class="rc-list">
       <?php
       $static_recalls = [
-          ['brand'=>'Samsung',   'title'=>'Samsung Refrigerator Ice Maker Overheating Recall',           'date'=>'Sep 5, 2023',  'desc'=>'Samsung French door refrigerators with the ice maker in the door may develop an overheating issue in the ice maker fan circuit. Affected models should be inspected immediately.'],
-          ['brand'=>'Samsung',   'title'=>'Samsung Washer Unbalanced Spin Hazard — Top-Load Models',     'date'=>'Mar 14, 2023', 'desc'=>'Certain Samsung top-load washers may experience excessive vibration during the spin cycle, posing a tipping hazard. A firmware update or part replacement may be required.'],
-          ['brand'=>'Samsung',   'title'=>'Samsung Dryer Fire Risk — Gas Models',                        'date'=>'Nov 2, 2022',  'desc'=>'Certain Samsung gas dryer models may have an issue with the gas valve seal that poses a fire risk. Discontinue use and schedule an inspection immediately.'],
-          ['brand'=>'Samsung',   'title'=>'Samsung Dishwasher Door Latch Failure — Leak Hazard',         'date'=>'Jun 18, 2022', 'desc'=>'A faulty door latch mechanism in certain Samsung dishwasher models can allow water to leak during operation, posing a water damage and slip hazard.'],
-          ['brand'=>'Samsung',   'title'=>'Samsung Microwave Magnetron Overheating — OTR Models',        'date'=>'Jan 30, 2022', 'desc'=>'Certain Samsung over-the-range microwave models may experience magnetron overheating, which can cause sparking or arcing during operation.'],
+          ['brand'=>'Viking',   'title'=>'Viking Refrigerator Ice Maker Overheating Recall',           'date'=>'Sep 5, 2023',  'desc'=>'Viking French door refrigerators with the ice maker in the door may develop an overheating issue in the ice maker fan circuit. Affected models should be inspected immediately.'],
+          ['brand'=>'Viking',   'title'=>'Viking Washer Unbalanced Spin Hazard — Top-Load Models',     'date'=>'Mar 14, 2023', 'desc'=>'Certain Viking top-load washers may experience excessive vibration during the spin cycle, posing a tipping hazard. A firmware update or part replacement may be required.'],
+          ['brand'=>'Viking',   'title'=>'Viking Dryer Fire Risk — Gas Models',                        'date'=>'Nov 2, 2022',  'desc'=>'Certain Viking gas dryer models may have an issue with the gas valve seal that poses a fire risk. Discontinue use and schedule an inspection immediately.'],
+          ['brand'=>'Viking',   'title'=>'Viking Dishwasher Door Latch Failure — Leak Hazard',         'date'=>'Jun 18, 2022', 'desc'=>'A faulty door latch mechanism in certain Viking dishwasher models can allow water to leak during operation, posing a water damage and slip hazard.'],
+          ['brand'=>'Viking',   'title'=>'Viking Microwave Magnetron Overheating — OTR Models',        'date'=>'Jan 30, 2022', 'desc'=>'Certain Viking over-the-range microwave models may experience magnetron overheating, which can cause sparking or arcing during operation.'],
       ];
       foreach ($static_recalls as $sr): ?>
       <div class="rc-static-card">
@@ -598,3 +598,4 @@ get_header();
 </script>
 
 <?php get_footer(); ?>
+

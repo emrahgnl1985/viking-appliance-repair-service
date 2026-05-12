@@ -1,7 +1,7 @@
-<?php
+﻿<?php
 /**
  * Template: Location / City Page
- * Samsung Appliance Repair Theme
+ * Viking Appliance Repair Service Theme
  *
  * ACF Fields:
  *   _ar_city          — string
@@ -45,7 +45,7 @@ $local = $city_data[ $city ] ?? [ 'neighborhoods' => $zips, 'suburbs' => [] ];
 if ( empty( $faqs ) ) {
     $faqs = [
         [ 'question' => "How quickly can you reach {$city} neighborhoods?", 'answer' => "We maintain technicians positioned across the {$city} metro area. For most city neighborhoods, same-day appointments are available. Suburban areas typically receive next-day service, with same-day available when technician slots permit." ],
-        [ 'question' => "What Samsung appliances do you repair in {$city}?", 'answer' => "We specialize exclusively in Samsung appliances in {$city}: washers, dryers, refrigerators, dishwashers, ovens and ranges, microwaves, and wall ovens. All Samsung models and series covered." ],
+        [ 'question' => "What Viking appliances do you repair in {$city}?", 'answer' => "We specialize exclusively in Viking appliances in {$city}: ranges, cooktops, refrigerators, dishwashers, wall ovens, wine coolers, freezers, and vent hoods. All Viking models and series covered." ],
         [ 'question' => "Do you service apartments and condos in {$city}?", 'answer' => "Yes. We service all property types throughout {$city} and the surrounding area — apartments, condos, single-family homes, and multi-unit buildings." ],
         [ 'question' => "What is your pricing model for {$city} appliance repair?", 'answer' => "We charge a flat diagnostic fee (credited toward the repair cost if you proceed) and provide a clear, upfront repair quote before any work begins. No hidden fees, no surprises." ],
         [ 'question' => "Are your {$city} technicians licensed and insured?", 'answer' => "Yes. All of our technicians are fully licensed, bonded, and insured. We carry full liability insurance on every service call throughout the {$city} area." ],
@@ -126,7 +126,7 @@ ar_output_schema($_schema_data);
             </span>
 
             <h1 class="hero__title" id="hero-h1">
-                Samsung Appliance Repair in <?php echo esc_html( $city ); ?>, <?php echo esc_html( $state_full ); ?>
+                Viking Appliance Repair in <?php echo esc_html( $city ); ?>, <?php echo esc_html( $state_full ); ?>
             </h1>
 
             <p class="hero__subtitle"><?php echo esc_html( $subtitle ); ?></p>
@@ -217,20 +217,19 @@ ar_output_schema($_schema_data);
         <div class="grid grid-4">
             <?php
             $service_list = [
-                [ 'icon' => '🫧', 'name' => 'Washer Repair',       'url' => '/services/samsung-washer-repair/' ],
-                [ 'icon' => '💨', 'name' => 'Dryer Repair',        'url' => '/services/samsung-dryer-repair/' ],
-                [ 'icon' => '❄️', 'name' => 'Refrigerator Repair', 'url' => '/services/samsung-refrigerator-repair/' ],
-                [ 'icon' => '🍽', 'name' => 'Dishwasher Repair',   'url' => '/services/samsung-dishwasher-repair/' ],
-                [ 'icon' => '🔥', 'name' => 'Oven / Range Repair', 'url' => '/services/samsung-oven-repair/' ],
-                [ 'icon' => '📡', 'name' => 'Microwave Repair',    'url' => '/services/samsung-microwave-repair/' ],
-                [ 'icon' => '🔲', 'name' => 'Wall Oven Repair',    'url' => '/services/samsung-wall-oven-repair/' ],
+                [ 'icon' => '🔥', 'name' => 'Range Repair',        'url' => '/services/viking-range-repair/' ],
+                [ 'icon' => '❄️', 'name' => 'Refrigerator Repair', 'url' => '/services/viking-refrigerator-repair/' ],
+                [ 'icon' => '🍽', 'name' => 'Dishwasher Repair',   'url' => '/services/viking-dishwasher-repair/' ],
+                [ 'icon' => '🫕', 'name' => 'Cooktop Repair',      'url' => '/services/viking-cooktop-repair/' ],
+                [ 'icon' => '🔲', 'name' => 'Wall Oven Repair',    'url' => '/services/viking-wall-oven-repair/' ],
+                [ 'icon' => '🍷', 'name' => 'Wine Cooler Repair',  'url' => '/services/viking-wine-cooler-repair/' ],
             ];
             foreach ( $service_list as $svc ) :
             ?>
             <a href="<?php echo esc_url( home_url( $svc['url'] ) ); ?>" class="service-card">
                 <div class="service-card__icon" aria-hidden="true"><?php echo esc_html( $svc['icon'] ); ?></div>
                 <h3 class="service-card__title"><?php echo esc_html( $svc['name'] ); ?></h3>
-                <p class="service-card__desc">Certified Samsung repair with genuine parts in <?php echo esc_html( $city ); ?>.</p>
+                <p class="service-card__desc">Certified Viking repair with genuine OEM parts in <?php echo esc_html( $city ); ?>.</p>
                 <span class="service-card__link">View Service</span>
             </a>
             <?php endforeach; ?>
@@ -238,23 +237,24 @@ ar_output_schema($_schema_data);
     </div>
 </section>
 
-<!-- ── SAMSUNG APPLIANCES ───────────────────────────────── -->
+<!-- ── VIKING APPLIANCES ────────────────────────────────── -->
 <section class="section section--bg-light">
     <div class="container" style="text-align:center;">
-        <span class="section-header__eyebrow">Samsung Appliances We Service</span>
-        <h2 class="section-header__title" style="margin-bottom:var(--space-8);">Samsung Appliance Repair in <?php echo esc_html( $city ); ?></h2>
+        <span class="section-header__eyebrow">Viking Appliances We Service</span>
+        <h2 class="section-header__title" style="margin-bottom:var(--space-8);">Viking Appliance Repair in <?php echo esc_html( $city ); ?></h2>
         <div style="display:flex;flex-wrap:wrap;gap:var(--space-3);justify-content:center;">
             <?php
-            $samsung_appliances = [
-                'Washer'       => 'samsung-washer-repair',
-                'Dryer'        => 'samsung-dryer-repair',
-                'Refrigerator' => 'samsung-refrigerator-repair',
-                'Dishwasher'   => 'samsung-dishwasher-repair',
-                'Oven / Range' => 'samsung-oven-repair',
-                'Microwave'    => 'samsung-microwave-repair',
-                'Wall Oven'    => 'samsung-wall-oven-repair',
+            $viking_appliances = [
+                'Range'        => 'viking-range-repair',
+                'Refrigerator' => 'viking-refrigerator-repair',
+                'Dishwasher'   => 'viking-dishwasher-repair',
+                'Cooktop'      => 'viking-cooktop-repair',
+                'Wall Oven'    => 'viking-wall-oven-repair',
+                'Wine Cooler'  => 'viking-wine-cooler-repair',
+                'Freezer'      => 'viking-freezer-repair',
+                'Vent Hood'    => 'viking-vent-hood-repair',
             ];
-            foreach ( $samsung_appliances as $label => $slug ) :
+            foreach ( $viking_appliances as $label => $slug ) :
             ?>
             <a href="<?php echo esc_url( home_url( "/services/{$slug}/" ) ); ?>"
                class="zip-badge"
@@ -280,3 +280,4 @@ ar_output_schema($_schema_data);
 </section>
 
 <?php get_footer(); ?>
+

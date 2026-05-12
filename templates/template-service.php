@@ -1,7 +1,7 @@
-<?php
+﻿<?php
 /**
  * Template: Service Page
- * Samsung Appliance Repair Theme
+ * Viking Appliance Repair Service Theme
  *
  * ACF Fields used:
  *   _ar_brand            — string  e.g. "Bosch"
@@ -150,19 +150,20 @@ $_schema_data = [
 $current_slug = get_post_field( 'post_name', get_the_ID() );
 
 $image_map = [
-    'samsung-washer-repair'        => '/assets/images/washer-dryer.jpg',
-    'samsung-dryer-repair'         => '/assets/images/washer-dryer-1.jpg',
-    'samsung-refrigerator-repair'  => '/assets/images/refrigerator.jpg',
-    'samsung-dishwasher-repair'    => '/assets/images/dishwasher.jpg',
-    'samsung-oven-repair'          => '/assets/images/range-oven-cooktop.jpg',
-    'samsung-microwave-repair'     => '/assets/images/microwave.webp',
-    'samsung-wall-oven-repair'     => '/assets/images/service-maintenance-worker-repairing_1.avif',
+    'viking-range-repair'        => '/assets/images/gas-range.jpg',
+    'viking-refrigerator-repair' => '/assets/images/product-refrigerator.jpg',
+    'viking-dishwasher-repair'   => '/assets/images/product-dishwasher.jpg',
+    'viking-cooktop-repair'      => '/assets/images/gas-range.jpg',
+    'viking-wall-oven-repair'    => '/assets/images/wall-oven.jpg',
+    'viking-wine-cooler-repair'  => '/assets/images/product-refrigerator.jpg',
+    'viking-freezer-repair'      => '/assets/images/product-refrigerator.jpg',
+    'viking-vent-hood-repair'    => '/assets/images/kitchen-set-2.webp',
 ];
 
 // fallback image
 $image_path = isset($image_map[$current_slug])
     ? $image_map[$current_slug]
-    : '/assets/images/samsung-service.webp';
+    : '/assets/images/kitchen-set-1.webp';
 
 get_header();
 ar_output_schema($_schema_data);
@@ -636,7 +637,7 @@ ar_output_schema($_schema_data);
                 <div class="svc-hiw-media">
                     <img 
                         src="<?php echo get_template_directory_uri() . $image_path; ?>"
-                        alt="Samsung appliance repair technician working"
+                        alt="Viking appliance repair technician working"
                         loading="lazy"
                     >
 
@@ -749,3 +750,4 @@ endif;
 </section>
 
 <?php get_footer(); ?>
+

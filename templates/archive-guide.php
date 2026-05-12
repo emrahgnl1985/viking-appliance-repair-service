@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Archive: Guides
  * URL: /guides/
@@ -429,7 +429,7 @@ $categories = [
         <div class="g-eyebrow" aria-hidden="true">Expert Resources</div>
 
         <h1 class="g-hero__title" id="g-hero-h1">
-            Samsung Appliance Repair <em>Guides</em>
+            Viking Appliance Repair <em>Guides</em>
         </h1>
 
         <p class="g-hero__sub">
@@ -517,9 +517,9 @@ $categories = [
             <a href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true">
                 <div class="g-guide-card__img">
                     <?php if ( has_post_thumbnail() ) : ?>
-                        <?php the_post_thumbnail( 'medium', [ 'alt' => esc_attr( get_the_title() ) . ' — Samsung Appliance Repair Guide', 'loading' => 'lazy' ] ); ?>
+                        <?php the_post_thumbnail( 'medium', [ 'alt' => esc_attr( get_the_title() ) . ' — Viking Appliance Repair Guide', 'loading' => 'lazy' ] ); ?>
                     <?php elseif ( $ar_img_url ) : ?>
-                        <img src="<?php echo esc_url( $ar_img_url ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?> — Samsung Appliance Repair Guide" loading="lazy">
+                        <img src="<?php echo esc_url( $ar_img_url ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?> — Viking Appliance Repair Guide" loading="lazy">
                     <?php else : ?>
                         <div class="g-guide-card__img-placeholder" aria-hidden="true">🔧</div>
                     <?php endif; ?>

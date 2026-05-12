@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Archive: Service Pages
  * URL: /services/ and /services/?appliance=wall-oven etc.
@@ -9,63 +9,55 @@ $phone     = ar_get_phone();
 $phone_raw = ar_phone_link();
 $biz       = ar_get_business_name();
 
-// Appliance definitions — 'term' must match the exact taxonomy term name in the DB
+// Appliance definitions â€” 'term' must match the exact taxonomy term name in the DB
 $appliance_data = [
-    'washer' => [
-        'label'  => 'Washer',
-        'term'   => 'Washer',
-        'slug'   => 'samsung-washer-repair',
-        'image'  => '/assets/images/washer.jpg',
-        'intro'  => 'Samsung washing machines are built around VRT Plus vibration reduction and EcoBubble technology, delivering outstanding efficiency across all load types. When your Samsung washer develops a fault — whether it\'s displaying a 4C water supply error, a 5E drain failure, or an unbalance UB alert — our brand-trained technicians carry the complete OEM parts inventory to resolve it on the first visit. We service front-load, top-load, and combination washer models across the full Samsung range.',
-        'issues' => ['4C / 4E Water Supply Error', '5E Drain Failure', 'UB Unbalance Error', 'DC Door Lock Fault', 'Leaking Water', 'Excessive Vibration'],
-    ],
-    'dryer' => [
-        'label'  => 'Dryer',
-        'term'   => 'Dryer',
-        'slug'   => 'samsung-dryer-repair',
-        'image'  => '/assets/images/dryer.jpg',
-        'intro'  => 'Samsung dryers feature Sensor Dry moisture detection and multi-steam technology to protect fabrics while delivering thorough drying performance. The most frequent Samsung dryer failures — blown thermal fuses from restricted venting, failed heating elements, broken drive belts, and HE/HC heater circuit errors — are all resolved by our technicians using genuine Samsung OEM components. We service both gas and electric Samsung dryer models.',
-        'issues' => ['No Heat', 'HE / HC Error Code', 'Drum Not Turning', 'Overheating', 'Not Starting', 'Clothes Still Damp'],
+    'range' => [
+        'label'  => 'Range',
+        'term'   => 'Range',
+        'slug'   => 'viking-range-repair',
+        'image'  => '/assets/images/gas-range.jpg',
+        'intro'  => 'Viking gas and dual-fuel ranges are built to professional kitchen standards, featuring pro sealed burners with up to 23,000 BTU output and precision oven temperature control. When your Viking range displays a fault code, a burner fails to ignite, or the oven won\'t heat, our certified technicians diagnose the root cause and repair it with genuine Viking OEM parts on the first visit. We service the full Viking range lineup including Professional Series, Tuscany, and Virtuoso models.',
+        'issues' => ['F2 / F3 Temperature Sensor Fault', 'F9 Door Lock Failure', 'Burner Not Igniting', 'Oven Not Heating', 'F1 Control Board Fault', 'F4 Temperature Runaway'],
     ],
     'refrigerator' => [
         'label'  => 'Refrigerator',
         'term'   => 'Refrigerator',
-        'slug'   => 'samsung-refrigerator-repair',
+        'slug'   => 'viking-refrigerator-repair',
         'image'  => '/assets/images/product-refrigerator.jpg',
-        'intro'  => 'Samsung refrigerators — including the French door RF series, side-by-side models, and bottom-freezer configurations — are engineered with Twin Cooling Plus technology for independent temperature control of the refrigerator and freezer compartments. Common faults include ice maker defrost failures, evaporator fan motor issues, and cooling inconsistencies. Our technicians are trained on the full Samsung refrigerator range and carry OEM cooling and ice maker components for same-visit repair.',
-        'issues' => ['Not Cooling', 'Ice Maker Not Working', 'Water Leaking Inside', 'Freezer Over-Freezing', 'Ice Maker Frost Buildup', 'Temperature Fluctuation'],
+        'intro'  => 'Viking built-in and freestanding refrigerators deliver precision temperature management for optimal food preservation. Common faults include defrost system failures that cause the refrigerator compartment to warm, ice maker malfunctions, condenser fan motor failures, and compressor issues. Our technicians carry genuine Viking OEM refrigerator components and can complete most repairs on the first visit.',
+        'issues' => ['Not Cooling', 'Ice Maker Not Working', 'Excessive Noise', 'Water Leaking', 'Temperature Fluctuation', 'Compressor Not Running'],
     ],
     'dishwasher' => [
         'label'  => 'Dishwasher',
         'term'   => 'Dishwasher',
-        'slug'   => 'samsung-dishwasher-repair',
+        'slug'   => 'viking-dishwasher-repair',
         'image'  => '/assets/images/product-dishwasher.jpg',
-        'intro'  => 'Samsung dishwashers deliver whisper-quiet performance through their StormWash and WaterWall spray technologies, combined with AutoRelease door drying. When your Samsung dishwasher displays an OC, 3C, LE, or HE error code — or fails to drain, clean, or latch — our technicians diagnose the specific component fault and replace it with a genuine Samsung OEM part. Most Samsung dishwasher repairs are completed in a single visit.',
-        'issues' => ['OC / 3C Error Code', 'Not Draining', 'Not Cleaning Dishes', 'Door Latch Failure', 'Water Leaking', 'Not Starting'],
+        'intro'  => 'Viking Professional dishwashers deliver quiet, thorough cleaning with a multi-level spray system and stainless steel interior. When your Viking dishwasher fails to clean properly, won\'t drain, or leaves water in the tub, our certified technicians identify the specific component fault and replace it with a genuine Viking OEM part. Most Viking dishwasher repairs are completed in a single visit.',
+        'issues' => ['Not Cleaning Properly', 'Not Draining', 'Water in Tub After Cycle', 'Door Latch Failure', 'Water Leaking', 'Not Starting'],
     ],
-    'oven' => [
-        'label'  => 'Oven / Range',
-        'term'   => 'Oven / Range',
-        'slug'   => 'samsung-oven-repair',
+    'cooktop' => [
+        'label'  => 'Cooktop',
+        'term'   => 'Cooktop',
+        'slug'   => 'viking-cooktop-repair',
         'image'  => '/assets/images/gas-range.jpg',
-        'intro'  => 'Samsung ovens and ranges — gas, electric, and dual-fuel — incorporate Flex Duo dual-cavity cooking and Rapid Boil burner technology for precision temperature control. When a Samsung oven stops heating, displays an SE error, or a gas burner fails to ignite, our technicians trace the fault to the specific component — whether that\'s the bake element, igniter, control board, or gas valve — and replace it with a genuine OEM part. Same-day service is available for most oven faults.',
-        'issues' => ['Not Heating', 'Gas Burner Not Igniting', 'Uneven Baking', 'Control Panel Unresponsive', 'SE Error Code', 'Self-Clean Lock Failure'],
-    ],
-    'microwave' => [
-        'label'  => 'Microwave',
-        'term'   => 'Microwave',
-        'slug'   => 'samsung-microwave-repair',
-        'image'  => '/assets/images/microwave.jpg',
-        'intro'  => 'Samsung over-the-range and countertop microwaves are engineered for precise power delivery and integrated ventilation. Common faults include magnetron failure causing no heat, SE control panel errors, door latch issues, and arcing or sparking caused by internal component breakdown. Our technicians carry the high-voltage components, door switches, and control boards required to resolve Samsung microwave faults safely and correctly using genuine OEM parts.',
-        'issues' => ['Not Heating', 'Sparking / Arcing', 'Turntable Not Spinning', 'SE Error Code', 'Door Not Latching', 'Exhaust Fan Not Working'],
+        'intro'  => 'Viking gas, electric, and induction cooktops are engineered for high-performance cooking in residential kitchens. When a Viking cooktop burner won\'t ignite, a surface element fails to heat, or an induction zone stops responding, our technicians diagnose and repair the fault with genuine Viking OEM parts. Most Viking cooktop repairs are completed in a single visit.',
+        'issues' => ['Gas Burner Not Igniting', 'Continuous Clicking', 'Burner Flame Extinguishes', 'Surface Element Not Heating', 'Induction Zone Not Responding', 'Control Panel Unresponsive'],
     ],
     'wall-oven' => [
         'label'  => 'Wall Oven',
         'term'   => 'Wall Oven',
-        'slug'   => 'samsung-wall-oven-repair',
+        'slug'   => 'viking-wall-oven-repair',
         'image'  => '/assets/images/wall-oven.jpg',
-        'intro'  => 'Samsung wall ovens — single, double, and combination microwave-oven units — deliver consistent, even heat through their Dual Convection fan system. When a Samsung wall oven fails to reach temperature, displays an SE or tE sensor error, or the self-clean cycle locks the door without completing, our technicians identify the root cause — bake or broil element, temperature probe, or control board — and perform a permanent repair using genuine Samsung OEM components.',
-        'issues' => ['Not Heating', 'Temperature Inaccuracy', 'SE / tE Error Code', 'Self-Clean Not Working', 'Door Hinge Failure', 'Control Board Fault'],
+        'intro'  => 'Viking single and double wall ovens feature TruConvec convection systems for precise, even baking and roasting. When a Viking wall oven fails to heat, displays an F-code fault, or the self-clean door won\'t unlock, our certified technicians identify and repair the root cause using genuine Viking OEM components.',
+        'issues' => ['Not Heating', 'F2 / F3 Sensor Fault', 'F9 Door Lock Failure', 'Temperature Inaccuracy', 'F4 Temperature Runaway', 'F1 Control Board Fault'],
+    ],
+    'wine-cooler' => [
+        'label'  => 'Wine Cooler',
+        'term'   => 'Wine Cooler',
+        'slug'   => 'viking-wine-cooler-repair',
+        'image'  => '/assets/images/product-refrigerator.jpg',
+        'intro'  => 'Viking wine cellars and wine coolers are designed for precise temperature and humidity management for proper wine storage. When a Viking wine cooler fails to maintain temperature, makes unusual noise, or displays a fault code, our certified technicians diagnose and repair the issue with genuine Viking OEM parts.',
+        'issues' => ['Not Cooling', 'Compressor Running Continuously', 'Excessive Noise', 'Temperature Fluctuating', 'Fault Code on Display', 'Interior Light Failure'],
     ],
 ];
 
@@ -74,19 +66,19 @@ $active_data      = $filter_appliance && isset($appliance_data[$filter_appliance
                     ? $appliance_data[$filter_appliance]
                     : null;
 
-// Hero content — appliance-specific if filtered
+// Hero content â€” appliance-specific if filtered
 $hero_title    = $active_data
-    ? 'Samsung ' . $active_data['label'] . ' Repair Service'
-    : 'Samsung Appliance Repair Services';
+    ? 'Viking ' . $active_data['label'] . ' Repair Service'
+    : 'Viking Appliance Repair Services';
 $hero_subtitle = $active_data
     ? $active_data['subtitle']
-    : 'Certified Samsung repair technicians. Genuine OEM parts. 30-day warranty on every repair. Same-day service available.';
+    : 'Certified Viking repair technicians. Genuine Viking OEM parts. 30-day warranty on every repair. Same-day service available.';
 $hero_image    = $active_data
     ? get_template_directory_uri() . $active_data['image']
     : get_template_directory_uri() . '/assets/images/kitchen-set-1.webp';
 
 // WP_Query
-$tax_query = [['taxonomy' => 'brand', 'field' => 'slug', 'terms' => 'samsung']];
+$tax_query = [['taxonomy' => 'brand', 'field' => 'slug', 'terms' => 'viking']];
 if ($active_data) {
     $tax_query[] = ['taxonomy' => 'appliance_type', 'field' => 'name', 'terms' => $active_data['term']];
 }
@@ -101,7 +93,7 @@ $services_query = new WP_Query([
 get_header();
 ?>
 <style>
-/* ── Archive Service — Scoped ───────────────────────── */
+/* â”€â”€ Archive Service â€” Scoped â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 :root {
   --as-blue:   #1B3A6B;
   --as-red:    #BE1622;
@@ -113,7 +105,7 @@ get_header();
   --as-radius: 12px;
 }
 
-/* ── Hero (original preserved) ── */
+/* â”€â”€ Hero (original preserved) â”€â”€ */
 .s-hero {
     background: url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/kitchen_1.jpg'); ?>') no-repeat center center;
     background-size: cover;
@@ -430,15 +422,15 @@ get_header();
 }
 </style>
 
-<!-- ── HERO (original) ───────────────────────────────────── -->
+<!-- â”€â”€ HERO (original) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
 <section class="s-hero s-hero--info" aria-labelledby="svc-arch-h1">
     <div class="container">
-        <h1 id="svc-arch-h1" class="s-hero__title">Samsung Appliance Repair Services</h1>
-        <p class="s-hero__sub">Genuine Samsung parts &mdash; certified technicians &mdash; 30-day warranty on every repair.</p>
+        <h1 id="svc-arch-h1" class="s-hero__title">Viking Appliance Repair Services</h1>
+        <p class="s-hero__sub">Genuine Viking parts &mdash; certified technicians &mdash; 30-day warranty on every repair.</p>
     </div>
 </section>
 
-<!-- ── FILTER TABS ───────────────────────────────────────── -->
+<!-- â”€â”€ FILTER TABS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
 <nav class="as-filters" aria-label="Filter by appliance type">
     <div class="container">
         <div class="as-filters__inner">
@@ -454,7 +446,7 @@ get_header();
     </div>
 </nav>
 
-<!-- ── COMMON ISSUES STRIP (filtered only) ──────────────── -->
+<!-- â”€â”€ COMMON ISSUES STRIP (filtered only) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
 <?php if ($active_data): ?>
 <div class="as-issues">
     <div class="container">
@@ -468,21 +460,21 @@ get_header();
 </div>
 <?php endif; ?>
 
-<!-- ── MAIN CONTENT ──────────────────────────────────────── -->
+<!-- â”€â”€ MAIN CONTENT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
 <section class="as-main">
     <div class="container">
 
         <div class="as-section-header">
-            <p class="as-eyebrow"><?php echo $active_data ? esc_html('Samsung ' . $active_data['label'] . ' Repair') : 'All Repair Services'; ?></p>
+            <p class="as-eyebrow"><?php echo $active_data ? esc_html('viking ' . $active_data['label'] . ' Repair') : 'All Repair Services'; ?></p>
             <h2 class="as-section-title">
                 <?php echo $active_data
-                    ? esc_html('Samsung ' . $active_data['label'] . ' Repair — What We Cover')
-                    : 'Samsung Appliance Repair — All Services'; ?>
+                    ? esc_html('viking ' . $active_data['label'] . ' Repair â€” What We Cover')
+                    : 'Viking Appliance Repair â€” All Services'; ?>
             </h2>
             <?php if ($active_data): ?>
             <p class="as-section-intro"><?php echo esc_html($active_data['intro']); ?></p>
             <?php else: ?>
-            <p class="as-section-sub">Select an appliance above to view specific services and detailed repair information, or browse our full Samsung repair service range below.</p>
+            <p class="as-section-sub">Select an appliance above to view specific services and detailed repair information, or browse our full Viking repair service range below.</p>
             <?php endif; ?>
         </div>
 
@@ -490,13 +482,13 @@ get_header();
         <div class="as-grid">
             <?php
             $image_map = [
-                'samsung-washer-repair'       => '/assets/images/washer.jpg',
-                'samsung-dryer-repair'        => '/assets/images/dryer.jpg',
-                'samsung-refrigerator-repair' => '/assets/images/product-refrigerator.jpg',
-                'samsung-dishwasher-repair'   => '/assets/images/product-dishwasher.jpg',
-                'samsung-oven-repair'         => '/assets/images/gas-range.jpg',
-                'samsung-microwave-repair'    => '/assets/images/microwave.jpg',
-                'samsung-wall-oven-repair'    => '/assets/images/wall-oven.jpg',
+                'viking-washer-repair'       => '/assets/images/washer.jpg',
+                'viking-dryer-repair'        => '/assets/images/dryer.jpg',
+                'viking-refrigerator-repair' => '/assets/images/product-refrigerator.jpg',
+                'viking-dishwasher-repair'   => '/assets/images/product-dishwasher.jpg',
+                'viking-oven-repair'         => '/assets/images/gas-range.jpg',
+                'viking-microwave-repair'    => '/assets/images/microwave.jpg',
+                'viking-wall-oven-repair'    => '/assets/images/wall-oven.jpg',
             ];
             while ($services_query->have_posts()): $services_query->the_post();
                 $pid        = get_the_ID();
@@ -512,11 +504,11 @@ get_header();
                     <img src="<?php echo esc_url($card_img); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" loading="lazy">
                 </div>
                 <div class="as-card__body">
-                    <p class="as-card__label">Samsung <?php echo esc_html($appliance); ?></p>
+                    <p class="as-card__label">viking <?php echo esc_html($appliance); ?></p>
                     <h3 class="as-card__title"><?php the_title(); ?></h3>
                     <p class="as-card__desc"><?php echo esc_html(wp_trim_words($excerpt, 20)); ?></p>
                     <div class="as-card__footer">
-                        <span class="as-card__cta">View Service →</span>
+                        <span class="as-card__cta">View Service â†’</span>
                     </div>
                 </div>
             </a>
@@ -531,14 +523,14 @@ get_header();
             ?>
             <a href="<?php echo esc_url(home_url('/services/' . $ap['slug'] . '/')); ?>" class="as-card">
                 <div class="as-card__img">
-                    <img src="<?php echo esc_url($card_img); ?>" alt="Samsung <?php echo esc_attr($ap['label']); ?> Repair" loading="lazy">
+                    <img src="<?php echo esc_url($card_img); ?>" alt="viking <?php echo esc_attr($ap['label']); ?> Repair" loading="lazy">
                 </div>
                 <div class="as-card__body">
-                    <p class="as-card__label">Samsung <?php echo esc_html($ap['label']); ?></p>
-                    <h3 class="as-card__title">Samsung <?php echo esc_html($ap['label']); ?> Repair</h3>
+                    <p class="as-card__label">viking <?php echo esc_html($ap['label']); ?></p>
+                    <h3 class="as-card__title">viking <?php echo esc_html($ap['label']); ?> Repair</h3>
                     <p class="as-card__desc"><?php echo esc_html($ap['subtitle']); ?></p>
                     <div class="as-card__footer">
-                        <span class="as-card__cta">View Service →</span>
+                        <span class="as-card__cta">View Service â†’</span>
                     </div>
                 </div>
             </a>
@@ -550,17 +542,17 @@ get_header();
         <div class="as-trust">
             <div class="as-trust__grid">
                 <div class="as-trust__item">
-                    <span class="as-trust__icon">🔧</span>
+                    <span class="as-trust__icon">ðŸ”§</span>
                     <span class="as-trust__val">OEM</span>
-                    <span class="as-trust__lbl">Genuine Samsung Parts</span>
+                    <span class="as-trust__lbl">Genuine Viking Parts</span>
                 </div>
                 <div class="as-trust__item">
-                    <span class="as-trust__icon">🛡</span>
+                    <span class="as-trust__icon">ðŸ›¡</span>
                     <span class="as-trust__val">30 Day</span>
                     <span class="as-trust__lbl">Parts & Labor Warranty</span>
                 </div>
                 <div class="as-trust__item">
-                    <span class="as-trust__icon">⏰</span>
+                    <span class="as-trust__icon">â°</span>
                     <span class="as-trust__val">Same-Day</span>
                     <span class="as-trust__lbl">Service Available</span>
                 </div>
@@ -570,23 +562,24 @@ get_header();
     </div>
 </section>
 
-<!-- ── CTA ───────────────────────────────────────────────── -->
+<!-- â”€â”€ CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
 <section class="as-cta">
     <div class="container">
         <div class="as-cta__inner">
             <p class="as-cta__eyebrow">Ready to Book?</p>
-            <h2 class="as-cta__title">Get Your Samsung <?php echo $active_data ? esc_html($active_data['label']) : 'Appliance'; ?> Repaired Today</h2>
+            <h2 class="as-cta__title">Get Your Viking <?php echo $active_data ? esc_html($active_data['label']) : 'Appliance'; ?> Repaired Today</h2>
             <p class="as-cta__sub">Same-day and next-day appointments available. Our technician arrives fully equipped to diagnose and fix your appliance in a single visit.</p>
             <div class="as-cta__btns">
-                <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="as-btn--red">📞 <?php echo esc_html($phone); ?></a>
-                <a href="<?php echo esc_url(home_url('/schedule/')); ?>" class="as-btn--outline">Schedule Online →</a>
+                <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="as-btn--red">ðŸ“ž <?php echo esc_html($phone); ?></a>
+                <a href="<?php echo esc_url(home_url('/schedule/')); ?>" class="as-btn--outline">Schedule Online â†’</a>
             </div>
         </div>
     </div>
 </section>
 
-<?php ar_appointment_form('service-archive', 'Book Your Samsung Repair Today'); ?>
+<?php ar_appointment_form('service-archive', 'Book Your Viking Repair Today'); ?>
 
 <?php ar_disclaimer(); ?>
 
 <?php get_footer(); ?>
+

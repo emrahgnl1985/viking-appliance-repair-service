@@ -1,6 +1,6 @@
-# Samsung Appliance Repair — WordPress Theme
+﻿# Viking Appliance Repair — WordPress Theme
 
-A WordPress theme for independent appliance repair businesses operating in the US market. Covers multiple brands (Bosch, Electrolux, Frigidaire, KitchenAid, LG, Maytag, Samsung, Whirlpool) and appliance types (Washer, Dryer, Dishwasher, Refrigerator, Oven/Range). Built with pure PHP/CSS/JS — no build tools required.
+A WordPress theme for independent appliance repair businesses operating in the US market. Covers multiple brands (Bosch, Electrolux, Frigidaire, KitchenAid, LG, Maytag, Viking, Whirlpool) and appliance types (Washer, Dryer, Dishwasher, Refrigerator, Oven/Range). Built with pure PHP/CSS/JS — no build tools required.
 
 ---
 
@@ -8,7 +8,7 @@ A WordPress theme for independent appliance repair businesses operating in the U
 
 | Item | Detail |
 |------|--------|
-| Theme Name | Samsung Appliance Repair |
+| Theme Name | Viking Appliance Repair |
 | WordPress | 6.0+ |
 | PHP | 8.0+ |
 | Build step | None — edit files directly |
@@ -17,7 +17,7 @@ A WordPress theme for independent appliance repair businesses operating in the U
 
 ### Brands Covered
 
-- Bosch, Electrolux, Frigidaire, KitchenAid, LG, Maytag, Samsung, Whirlpool
+- Bosch, Electrolux, Frigidaire, KitchenAid, LG, Maytag, Viking, Whirlpool
 
 ### Appliance Types
 
@@ -26,7 +26,7 @@ A WordPress theme for independent appliance repair businesses operating in the U
 ### Content at a Glance
 
 - **Services pages** — one per brand × appliance type combination (e.g., Bosch Dishwasher Repair, LG Washer Repair)
-- **Error code pages** — one per error code per brand (e.g., Bosch E22, Samsung 4E, LG OE)
+- **Error code pages** — one per error code per brand (e.g., Bosch E22, Viking 4E, LG OE)
 - **Location pages** — one per service city
 - **Guides** — how-to repair and maintenance articles
 - **Recalls** — CPSC-sourced recall notices
@@ -460,7 +460,7 @@ Settings stored in `wp_options` with `ar_` prefix. Managed via **Appearance → 
 | Option Key | Description | Example |
 |------------|-------------|---------|
 | `ar_phone` | Business phone | `(555) 123-4567` |
-| `ar_business_name` | Business name | `Samsung Appliance Repair` |
+| `ar_business_name` | Business name | `Viking Appliance Repair` |
 | `ar_address` | Full address | `123 Main St, Chicago, IL 60601` |
 | `ar_email` | Contact email | `info@appliancerepairpro.com` |
 | `ar_license` | License/certification number | `IL-APR-12345` |
@@ -592,7 +592,7 @@ Log in to `https://yourdomain.com/wp-admin` with your credentials, then:
 
 | Task | Where |
 |------|-------|
-| Activate theme | Appearance → Themes → Activate **Samsung Appliance Repair** |
+| Activate theme | Appearance → Themes → Activate **Viking Appliance Repair** |
 | Activate plugins | Plugins → Activate **ACF** and **Yoast SEO** |
 | Sync ACF fields | Custom Fields → Tools → Sync all |
 | Flush permalinks | Settings → Permalinks → Save Changes |
@@ -680,4 +680,5 @@ RewriteRule . /index.php [L]
 
 ## License
 
-This theme is proprietary software for Samsung Appliance Repair. All brand names, trademarks, and model numbers referenced throughout this theme are the property of their respective manufacturers and are used solely for identification purposes. This business is an independent service provider and is not affiliated with, authorized by, or endorsed by any appliance manufacturer.
+This theme is proprietary software for Viking Appliance Repair. All brand names, trademarks, and model numbers referenced throughout this theme are the property of their respective manufacturers and are used solely for identification purposes. This business is an independent service provider and is not affiliated with, authorized by, or endorsed by any appliance manufacturer.
+

@@ -1,10 +1,10 @@
-# CLAUDE.md
+﻿# CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## What This Is
 
-A WordPress theme (`Samsung Appliance Repair`) for appliance repair businesses. Pure PHP/CSS/JS — no build tools, no npm, no Composer. Requires WordPress 6.0+ and PHP 8.0+. Deploy by uploading to `/wp-content/themes/` and activating.
+A WordPress theme (`Viking Appliance Repair Service`) for appliance repair businesses. Pure PHP/CSS/JS — no build tools, no npm, no Composer. Requires WordPress 6.0+ and PHP 8.0+. Deploy by uploading to `/wp-content/themes/` and activating.
 
 Required plugins: **Advanced Custom Fields (ACF)**, **Yoast SEO** or **RankMath**, a caching plugin.
 
@@ -62,3 +62,4 @@ Always go to **Settings → Permalinks → Save Changes** to flush rewrite rules
 ## ACF Field Sync
 
 If ACF field groups don't appear in the editor, go to **Custom Fields → Tools → Sync** and sync all groups from `acf-json/`.
+

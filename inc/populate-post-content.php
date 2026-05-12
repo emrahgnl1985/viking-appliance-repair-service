@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * One-time script: Populate post_content + Yoast SEO title/description
  * - SEO title:        50–60 characters (guaranteed)
@@ -438,7 +438,7 @@ foreach ($posts as $post) {
     $faqs      = get_post_meta($id, '_ar_faqs',            true);
 
     // SEO title — guaranteed 50–60 chars
-    $seo_title = ar_seo_title("Samsung $appliance Repair", [
+    $seo_title = ar_seo_title("Viking $appliance Repair", [
         ' | Certified Repair',
         ' | 30-Day Warranty',
         ' | Same-Day Service',
@@ -544,9 +544,9 @@ foreach ($posts as $post) {
     $models    = get_post_meta($id, '_ar_us_models',       true);
 
     // SEO title — guaranteed 50–60 chars
-    $seo_title = ar_seo_title("Samsung $code Error Code", [
+    $seo_title = ar_seo_title("Viking $code Error Code", [
         " — $appliance Fault Fix",
-        " | Samsung Repair",
+        " | Viking Repair",
         " | $appliance Repair",
         ": Causes & Fixes",
         " Explained",
@@ -771,7 +771,7 @@ foreach ($posts as $post) {
     $zips  = get_post_meta($id, '_ar_zip_codes',      true);
     $faqs  = get_post_meta($id, '_ar_faqs',           true);
 
-    $seo_title = ar_seo_title("Samsung Appliance Repair $city", [
+    $seo_title = ar_seo_title("Viking Appliance Repair $city", [
         ", $state | Same-Day",
         ' | Same-Day Service',
         ' | Certified',
@@ -783,30 +783,30 @@ foreach ($posts as $post) {
         . "Our certified technicians offer same-day service, genuine OEM parts, and a 30-day warranty on every repair."
     );
 
-    ar_set_yoast($id, $seo_title, $seo_desc, strtolower("samsung appliance repair $city"));
+    ar_set_yoast($id, $seo_title, $seo_desc, strtolower("Viking appliance repair $city"));
 
     // Set alt text on featured image
     $thumb_id = (int) get_post_thumbnail_id($id);
     if ($thumb_id) {
-        update_post_meta($thumb_id, '_wp_attachment_image_alt', "Samsung Appliance Repair in $city — Same-Day Service");
+        update_post_meta($thumb_id, '_wp_attachment_image_alt', "Viking Appliance Repair in $city — Same-Day Service");
     }
 
-    $html  = "<h1>Samsung Appliance Repair in $city, $state — Same-Day Service</h1>\n";
-    $html .= "<p>We noticed that $city residents were struggling to find a Samsung specialist — someone who actually knew the brand, not a generalist who repaired everything and nothing particularly well. ";
-    $html .= "That is why we brought our certified <strong>Samsung appliance repair</strong> service to $city. ";
+    $html  = "<h1>Viking Appliance Repair in $city, $state — Same-Day Service</h1>\n";
+    $html .= "<p>We noticed that $city residents were struggling to find a Viking specialist — someone who actually knew the brand, not a generalist who repaired everything and nothing particularly well. ";
+    $html .= "That is why we brought our certified <strong>Viking appliance repair</strong> service to $city. ";
     $html .= "Our clients in $city tell us the same thing every time: they wish they had called us first instead of trying someone else.</p>\n";
 
     if ($intro) {
-        $html .= "<h2>Samsung Appliance Repair Services in $city</h2>\n";
+        $html .= "<h2>Viking Appliance Repair Services in $city</h2>\n";
         $html .= ar_process_acf($intro);
-        $html .= "<p>Our clients in $city like that we carry genuine Samsung OEM parts on every visit — which means most repairs are completed the same day, without a second trip.</p>\n";
+        $html .= "<p>Our clients in $city like that we carry genuine Viking OEM parts on every visit — which means most repairs are completed the same day, without a second trip.</p>\n";
     }
 
     if ($hoods) {
         $hood_list = array_filter(array_map('trim', explode(',', $hoods)));
         if (!empty($hood_list)) {
             $html .= "<h2>Neighborhoods We Serve in $city</h2>\n";
-            $html .= "<p>We cover all of $city. Our clients across these neighborhoods have trusted us for Samsung repairs:</p>\n<ul>\n";
+            $html .= "<p>We cover all of $city. Our clients across these neighborhoods have trusted us for Viking repairs:</p>\n<ul>\n";
             foreach ($hood_list as $h) $html .= '<li>' . esc_html($h) . "</li>\n";
             $html .= "</ul>\n";
             $html .= "<p>Do not see your neighborhood listed? Call us directly — we most likely cover your area and can confirm within minutes.</p>\n";
@@ -819,7 +819,7 @@ foreach ($posts as $post) {
         $html .= "We noticed that most of our $city bookings are confirmed for same-day or next-day — so do not wait.</p>\n";
     }
 
-    $html .= "<h2>How to Book Samsung Appliance Repair in $city</h2>\n";
+    $html .= "<h2>How to Book Viking Appliance Repair in $city</h2>\n";
     $html .= "<p>Our clients in $city like how quick the booking process is — it takes under two minutes online or by phone. ";
     $html .= "We noticed that people appreciated a confirmed 2-hour arrival window instead of waiting home all day, so that is what we give every customer in $city. ";
     $html .= "Our technician arrives, explains the fault in plain language, gives you a written quote you approve before anything is touched, and completes the repair on the spot. ";
@@ -834,7 +834,7 @@ foreach ($posts as $post) {
     $html .= "You can also read our <a href=\"{$home}/guides/\">appliance repair guides</a> for step-by-step maintenance advice.</p>\n";
 
     if (is_array($faqs) && !empty($faqs)) {
-        $html .= "<h2>Samsung Appliance Repair in $city — Frequently Asked Questions</h2>\n";
+        $html .= "<h2>Viking Appliance Repair in $city — Frequently Asked Questions</h2>\n";
         foreach ($faqs as $f) {
             $q = $f['question'] ?? '';
             if (!$q) continue;
@@ -861,15 +861,15 @@ foreach ($posts as $post) {
     $title     = $post->post_title;
 
     $seo_title = ar_seo_title($title, [
-        ' | Samsung Repair Guide',
-        ' | Samsung Step by Step',
+        ' | Viking Repair Guide',
+        ' | Viking Step by Step',
         ' | Expert Guide',
-        " | Fix Samsung $appliance",
+        " | Fix Viking $appliance",
     ]);
 
     $seo_desc = ar_seo_desc(
         "This step-by-step guide shows you how to " . strtolower($title) . ". "
-        . "Our certified Samsung appliance repair technicians share the exact process they use to diagnose and fix this fault."
+        . "Our certified Viking appliance repair technicians share the exact process they use to diagnose and fix this fault."
     );
 
     ar_set_yoast($id, $seo_title, $seo_desc, ar_derive_keyphrase($title));
@@ -877,7 +877,7 @@ foreach ($posts as $post) {
     // Set alt text on featured image
     $thumb_id = (int) get_post_thumbnail_id($id);
     if ($thumb_id) {
-        update_post_meta($thumb_id, '_wp_attachment_image_alt', esc_attr($title) . " — Samsung Appliance Repair Guide");
+        update_post_meta($thumb_id, '_wp_attachment_image_alt', esc_attr($title) . " — Viking Appliance Repair Guide");
     }
 
     $html  = "<h1>" . esc_html($title) . "</h1>\n";
@@ -980,11 +980,11 @@ foreach ($posts as $post) {
     // e.g. "miele dishwasher recall 2023" — unique across all pages
     $keyphrase = strtolower("$brand $appl_label recall $year");
     // Human-readable version for use in content
-    $kw_display = "$brand $appl_label Recall $year"; // e.g. "Samsung Washer Recall 2016"
+    $kw_display = "$brand $appl_label Recall $year"; // e.g. "Viking Washer Recall 2016"
 
     // ── SEO title — keyphrase MUST be at the beginning ───
     // Format: "$brand $appl_label Recall $year | Safety Notice"
-    $seo_title = ar_seo_title("Samsung $appl_label Recall $year", [
+    $seo_title = ar_seo_title("Viking $appl_label Recall $year", [
         ' | Official Safety Notice',
         ' | CPSC Safety Alert',
         ' | Safety Notice',
@@ -1124,7 +1124,7 @@ foreach ($posts as $post) {
 
 $biz = function_exists('ar_get_business_name')
     ? ar_get_business_name()
-    : get_option('ar_business_name', 'Samsung Appliance Repair');
+    : get_option('ar_business_name', 'Viking Appliance Repair');
 
 // Reusable inline image builder for pages
 $ar_page_img = function(int $post_id, string $search, string $alt_text): string {
@@ -1151,33 +1151,33 @@ $ar_page_img = function(int $post_id, string $search, string $alt_text): string 
 /* ── FRONT PAGE ─────────────────────────────────────────── */
 $fp_id = (int) get_option('page_on_front', 0);
 if ($fp_id > 0) {
-    $fp_kw    = 'samsung appliance repair';
-    $fp_img   = $ar_page_img($fp_id, 'samsung appliance repair', 'samsung appliance repair — certified technicians');
+    $fp_kw    = 'Viking appliance repair';
+    $fp_img   = $ar_page_img($fp_id, 'Viking appliance repair', 'Viking appliance repair — certified technicians');
     ar_set_yoast(
         $fp_id,
-        ar_seo_title('Samsung Appliance Repair | Same-Day & Certified'),
-        ar_seo_desc('Our Samsung appliance repair service covers all Samsung models. Certified technicians, same-day service, genuine OEM parts, and a 30-day warranty on every repair.'),
+        ar_seo_title('Viking Appliance Repair | Same-Day & Certified'),
+        ar_seo_desc('Our Viking appliance repair service covers all Viking models. Certified technicians, same-day service, genuine OEM parts, and a 30-day warranty on every repair.'),
         $fp_kw
     );
-    $html  = "<h1>Expert Samsung Appliance Repair — Same-Day, Certified &amp; Warrantied</h1>\n"; // KW in H1
+    $html  = "<h1>Expert Viking Appliance Repair — Same-Day, Certified &amp; Warrantied</h1>\n"; // KW in H1
     $html .= $fp_img;
-    $html .= "<p>Our <strong>Samsung appliance repair service</strong> has been built around one thing we noticed early on: Samsung owners wanted a specialist, not a generalist. "; // KW ×2
+    $html .= "<p>Our <strong>Viking appliance repair service</strong> has been built around one thing we noticed early on: Viking owners wanted a specialist, not a generalist. "; // KW ×2
     $html .= "They wanted a technician who already knew the common failure points on their specific model — not someone learning on the job in their kitchen. ";
     $html .= "That insight shaped everything about how we work: the training, the parts inventory, and the way we communicate with every customer.</p>\n";
 
-    $html .= "<h2>Samsung Appliance Repair Specialists</h2>\n"; // KW in H2 ×3
+    $html .= "<h2>Viking Appliance Repair Specialists</h2>\n"; // KW in H2 ×3
     $html .= "<p>We noticed that most appliance repair companies try to cover every brand and end up being mediocre at all of them. ";
-    $html .= "Our clients like that we focus exclusively on Samsung — washers, dryers, refrigerators, dishwashers, ovens, microwaves, wall ovens, and more. ";
-    $html .= "That focus means our vans carry the exact OEM parts Samsung models actually need, and our technicians can diagnose most faults without a second visit. ";
+    $html .= "Our clients like that we focus exclusively on Viking — washers, dryers, refrigerators, dishwashers, ovens, microwaves, wall ovens, and more. ";
+    $html .= "That focus means our vans carry the exact OEM parts Viking models actually need, and our technicians can diagnose most faults without a second visit. ";
     $html .= "Our clients tell us that single-visit resolution is the thing they value most — no waiting at home twice for the same job.</p>\n";
 
     $html .= "<h2>Why Choose Our Certified Technicians?</h2>\n";
-    $html .= "<p>Our clients like knowing that every technician holds Samsung factory certification — not a generic appliance-repair ticket, but brand-specific training. ";
+    $html .= "<p>Our clients like knowing that every technician holds Viking factory certification — not a generic appliance-repair ticket, but brand-specific training. ";
     $html .= "We noticed that homeowners felt much more confident approving a repair when the technician could explain exactly what failed and why, in plain language. ";
     $html .= "So we made upfront written quotes and plain-English diagnosis a non-negotiable part of every visit. ";
     $html .= "You approve the cost before we touch anything — no surprises on the invoice.</p>\n";
 
-    $html .= "<h2>How Our Samsung Appliance Repair Service Works</h2>\n"; // KW in H2 ×4
+    $html .= "<h2>How Our Viking Appliance Repair Service Works</h2>\n"; // KW in H2 ×4
     $html .= "<p>Book online or by phone — it takes under two minutes. ";
     $html .= "We noticed our clients liked a confirmed 2-hour arrival window rather than an all-day wait, so that is exactly what we text and email you after every booking. ";
     $html .= "Our technician arrives, diagnoses the fault, presents a written quote, and completes the repair — most jobs finish in a single 1–2 hour visit. ";
@@ -1212,8 +1212,8 @@ foreach ($blog_posts as $post) {
         preg_match('/<p[^>]*>(.*?)<\/p>/s', $post->post_content, $m);
         $excerpt = strip_tags($m[1] ?? '');
     }
-    $seo_title = ar_seo_title($title, [' | Samsung Repair Tips', ' | Samsung Guide', ' | Expert Advice']);
-    $seo_desc  = ar_seo_desc($excerpt, 'Our certified Samsung repair technicians explain every step.');
+    $seo_title = ar_seo_title($title, [' | Viking Repair Tips', ' | Viking Guide', ' | Expert Advice']);
+    $seo_desc  = ar_seo_desc($excerpt, 'Our certified Viking repair technicians explain every step.');
     $seo_kw    = ar_derive_keyphrase(str_replace('-', ' ', $post->post_name));
     ar_set_yoast($id, $seo_title, $seo_desc, $seo_kw);
     $updated++;
@@ -1235,19 +1235,19 @@ foreach ($pages as $page) {
     if ($slug === 'schedule') {
         ar_set_yoast(
             $id,
-            ar_seo_title('Schedule Samsung Appliance Repair | Same-Day'),
-            ar_seo_desc('Schedule Samsung appliance repair online in minutes. Choose a same-day or next-day slot. Certified technicians, upfront pricing, and a 30-day warranty on every Samsung repair.'),
-            'schedule samsung appliance repair'
+            ar_seo_title('Schedule Viking Appliance Repair | Same-Day'),
+            ar_seo_desc('Schedule Viking appliance repair online in minutes. Choose a same-day or next-day slot. Certified technicians, upfront pricing, and a 30-day warranty on every Viking repair.'),
+            'schedule Viking appliance repair'
         );
-        $img = "<figure>\n<img src=\"" . esc_url(get_template_directory_uri() . '/assets/images/samsung-service.webp') . "\" alt=\"schedule samsung appliance repair — book online\" width=\"800\" height=\"450\" loading=\"lazy\">\n</figure>\n";
-        $html  = "<h1>Schedule Samsung Appliance Repair — Same-Day Booking Available</h1>\n"; // KW in H1
+        $img = "<figure>\n<img src=\"" . esc_url(get_template_directory_uri() . '/assets/images/Viking-service.webp') . "\" alt=\"schedule Viking appliance repair — book online\" width=\"800\" height=\"450\" loading=\"lazy\">\n</figure>\n";
+        $html  = "<h1>Schedule Viking Appliance Repair — Same-Day Booking Available</h1>\n"; // KW in H1
         $html .= $img;
         $html .= "<p>You can <strong>schedule appliance repair</strong> online in minutes using our booking form. "; // KW ×2
         $html .= "Specifically, choose your appliance type, pick a date and time, and confirm your address. ";
         $html .= "Furthermore, we offer same-day and next-day slots Monday through Saturday in most US service areas. ";
         $html .= "As a result, your appliance gets back to working order as quickly as possible.</p>\n";
 
-        $html .= "<h2>How to Schedule Samsung Appliance Repair with Us</h2>\n"; // KW in H2 ×3
+        $html .= "<h2>How to Schedule Viking Appliance Repair with Us</h2>\n"; // KW in H2 ×3
         $html .= "<p>First, fill out the booking form with your appliance type and fault description. ";
         $html .= "Next, select a date and 2-hour arrival window from the available slots. ";
         $html .= "After that, confirm your address and contact details. ";
@@ -1266,7 +1266,7 @@ foreach ($pages as $page) {
         $html .= "Furthermore, emergency bookings are available for urgent faults such as a refrigerator not cooling or a washer flooding. ";
         $html .= "Additionally, all appointments include a free diagnostic if you proceed with the repair.</p>\n";
 
-        $html .= "<h2>Why Thousands Choose Samsung Appliance Repair with Us</h2>\n"; // KW in H2 ×4
+        $html .= "<h2>Why Thousands Choose Viking Appliance Repair with Us</h2>\n"; // KW in H2 ×4
         $html .= "<p>First, all our technicians hold factory certification for the brands they service. ";
         $html .= "Furthermore, they carry genuine OEM parts on every visit. ";
         $html .= "As a result, most repairs complete in a single appointment without waiting for parts. ";
@@ -1286,20 +1286,20 @@ foreach ($pages as $page) {
     } elseif ($slug === 'blog') {
         ar_set_yoast(
             $id,
-            ar_seo_title('Samsung Appliance Repair Tips & Expert Guides'),
-            ar_seo_desc('Our Samsung appliance repair tips come from certified technicians. Find guides for Samsung washers, dryers, refrigerators, ovens, microwaves, wall ovens, and dishwashers.'),
-            'samsung appliance repair tips'
+            ar_seo_title('Viking Appliance Repair Tips & Expert Guides'),
+            ar_seo_desc('Our Viking appliance repair tips come from certified technicians. Find guides for Viking washers, dryers, refrigerators, ovens, microwaves, wall ovens, and dishwashers.'),
+            'Viking appliance repair tips'
         );
-        $img = "<figure>\n<img src=\"" . esc_url(get_template_directory_uri() . '/assets/images/samsung-repair-technician.webp') . "\" alt=\"samsung appliance repair tips — expert guides from certified technicians\" width=\"800\" height=\"450\" loading=\"lazy\">\n</figure>\n";
-        $html  = "<h1>Samsung Appliance Repair Tips &amp; Expert Guides — By Certified Technicians</h1>\n"; // KW in H1
+        $img = "<figure>\n<img src=\"" . esc_url(get_template_directory_uri() . '/assets/images/Viking-repair-technician.webp') . "\" alt=\"Viking appliance repair tips — expert guides from certified technicians\" width=\"800\" height=\"450\" loading=\"lazy\">\n</figure>\n";
+        $html  = "<h1>Viking Appliance Repair Tips &amp; Expert Guides — By Certified Technicians</h1>\n"; // KW in H1
         $html .= $img;
-        $html .= "<p>We noticed that most <strong>Samsung appliance repair</strong> content online was written by people who had never actually opened a Samsung washing machine. "; // KW ×2
+        $html .= "<p>We noticed that most <strong>Viking appliance repair</strong> content online was written by people who had never actually opened a Viking washing machine. "; // KW ×2
         $html .= "Our clients kept telling us the same thing — they would follow a guide they found online, make the problem worse, and then call us anyway. ";
         $html .= "So we started writing our own guides: real fault scenarios, written by the technicians who diagnose them every single day.</p>\n";
 
-        $html .= "<h2>Expert Samsung Appliance Repair Tips for Every Samsung Appliance</h2>\n"; // KW in H2 ×3
-        $html .= "<p>Our clients like that every article is specific to Samsung — not a generic 'check the plug' walkthrough, but actual model-aware advice. ";
-        $html .= "We noticed that Samsung washers, refrigerators, and ovens each have their own recurring failure patterns, and once you know what to look for, diagnosis becomes much faster. ";
+        $html .= "<h2>Expert Viking Appliance Repair Tips for Every Viking Appliance</h2>\n"; // KW in H2 ×3
+        $html .= "<p>Our clients like that every article is specific to Viking — not a generic 'check the plug' walkthrough, but actual model-aware advice. ";
+        $html .= "We noticed that Viking washers, refrigerators, and ovens each have their own recurring failure patterns, and once you know what to look for, diagnosis becomes much faster. ";
         $html .= "That knowledge is what we share in every guide — what the fault usually is, what causes it, and exactly how to fix it or when to stop and call us.</p>\n";
 
         $html .= "<h2>What You Will Find in Our Blog</h2>\n";
@@ -1312,8 +1312,8 @@ foreach ($pages as $page) {
         $html .= "<li><strong>Maintenance Guides</strong> — preventive care, filter replacement, cleaning schedules</li>\n";
         $html .= "</ul>\n";
 
-        $html .= "<h2>Use Our Samsung Appliance Repair Tips to Fix Common Faults Yourself</h2>\n"; // KW in H2 ×4
-        $html .= "<p>We noticed that a surprisingly large number of Samsung appliance faults have a simple fix — a clogged filter, a tripped breaker, a settings change. ";
+        $html .= "<h2>Use Our Viking Appliance Repair Tips to Fix Common Faults Yourself</h2>\n"; // KW in H2 ×4
+        $html .= "<p>We noticed that a surprisingly large number of Viking appliance faults have a simple fix — a clogged filter, a tripped breaker, a settings change. ";
         $html .= "Our clients like that our guides tell them upfront whether this is a DIY job or a call-us job, instead of wasting their time on steps that will not help. "; // KW ×5
         $html .= "Every guide includes a clear safety note for anything risky, so you always know when to stop and call a certified technician instead.</p>\n";
 
@@ -1336,14 +1336,14 @@ foreach ($pages as $page) {
         ar_set_yoast(
             $id,
             ar_seo_title('Privacy Policy | How We Protect Your Data'),
-            ar_seo_desc('Our privacy policy explains how we collect, use, and protect your personal information when you use our Samsung appliance repair services and website.'),
+            ar_seo_desc('Our privacy policy explains how we collect, use, and protect your personal information when you use our Viking appliance repair services and website.'),
             'privacy policy'
         );
-        $img = "<figure>\n<img src=\"" . esc_url(get_template_directory_uri() . '/assets/images/product.jpg') . "\" alt=\"privacy policy — samsung appliance repair data protection\" width=\"800\" height=\"450\" loading=\"lazy\">\n</figure>\n";
+        $img = "<figure>\n<img src=\"" . esc_url(get_template_directory_uri() . '/assets/images/product.jpg') . "\" alt=\"privacy policy — Viking appliance repair data protection\" width=\"800\" height=\"450\" loading=\"lazy\">\n</figure>\n";
         $html  = "<h1>Privacy Policy — How {$biz} Handles Your Personal Information</h1>\n"; // KW in H1
         $html .= $img;
         $html .= "<p>Our clients tell us that trust matters as much as the repair itself — and we agree. "; // KW ×2
-        $html .= "This <strong>privacy policy</strong> explains exactly what personal information we collect when you book a Samsung appliance repair, how we use it, and how we protect it. ";
+        $html .= "This <strong>privacy policy</strong> explains exactly what personal information we collect when you book a Viking appliance repair, how we use it, and how we protect it. ";
         $html .= "We noticed that most privacy policies are written to confuse rather than inform, so we have kept this one as plain and direct as possible.</p>\n";
 
         $html .= "<h2>What This Privacy Policy Covers</h2>\n"; // KW in H2 ×3
@@ -1391,11 +1391,11 @@ foreach ($pages as $page) {
     } elseif ($slug === 'terms-of-service') {
         ar_set_yoast(
             $id,
-            ar_seo_title('Terms of Service | Your Agreement with Samsung Appliance Repair '),
-            ar_seo_desc('Our terms of service explain your rights and our responsibilities. Review pricing, warranty, cancellation, and booking terms before scheduling your Samsung appliance repair.'),
+            ar_seo_title('Terms of Service | Your Agreement with Viking Appliance Repair '),
+            ar_seo_desc('Our terms of service explain your rights and our responsibilities. Review pricing, warranty, cancellation, and booking terms before scheduling your Viking appliance repair.'),
             'terms of service'
         );
-        $img = "<figure>\n<img src=\"" . esc_url(get_template_directory_uri() . '/assets/images/product.jpg') . "\" alt=\"terms of service — samsung appliance repair agreement\" width=\"800\" height=\"450\" loading=\"lazy\">\n</figure>\n";
+        $img = "<figure>\n<img src=\"" . esc_url(get_template_directory_uri() . '/assets/images/product.jpg') . "\" alt=\"terms of service — Viking appliance repair agreement\" width=\"800\" height=\"450\" loading=\"lazy\">\n</figure>\n";
         $html  = "<h1>Terms of Service — Your Agreement with {$biz}</h1>\n"; // KW in H1
         $html .= $img;
         $html .= "<p>We noticed that customers rarely read terms of service because they are usually written by lawyers for other lawyers. "; // KW ×2
@@ -1403,7 +1403,7 @@ foreach ($pages as $page) {
         $html .= "Our clients like knowing exactly what they are agreeing to before we arrive, so here it is clearly laid out.</p>\n";
 
         $html .= "<h2>What These Terms of Service Cover</h2>\n"; // KW in H2 ×3
-        $html .= "<p>These terms of service apply to all Samsung appliance repair work we carry out at your home or business, whether you booked online, by phone, or in person. ";
+        $html .= "<p>These terms of service apply to all Viking appliance repair work we carry out at your home or business, whether you booked online, by phone, or in person. ";
         $html .= "They cover pricing, booking and cancellation, our 30-day warranty, and your rights if something is not right. ";
         $html .= "Our clients tell us they feel more confident booking when they have read this page — that is exactly why we made it easy to read.</p>\n";
 
@@ -1438,11 +1438,11 @@ foreach ($pages as $page) {
     } elseif ($slug === 'terms-of-use') {
         ar_set_yoast(
             $id,
-            ar_seo_title('Terms of Use | Your Agreement with Samsung Appliance Repair'),
-            ar_seo_desc('Our terms of use explain your rights and our responsibilities. Review pricing, warranty, cancellation, and booking conditions before scheduling your Samsung appliance repair.'),
+            ar_seo_title('Terms of Use | Your Agreement with Viking Appliance Repair'),
+            ar_seo_desc('Our terms of use explain your rights and our responsibilities. Review pricing, warranty, cancellation, and booking conditions before scheduling your Viking appliance repair.'),
             'terms of use'
         );
-        $img = "<figure>\n<img src=\"" . esc_url(get_template_directory_uri() . '/assets/images/product.jpg') . "\" alt=\"terms of use — samsung appliance repair agreement\" width=\"800\" height=\"450\" loading=\"lazy\">\n</figure>\n";
+        $img = "<figure>\n<img src=\"" . esc_url(get_template_directory_uri() . '/assets/images/product.jpg') . "\" alt=\"terms of use — Viking appliance repair agreement\" width=\"800\" height=\"450\" loading=\"lazy\">\n</figure>\n";
         $html  = "<h1>Terms of Use — Your Agreement with {$biz}</h1>\n"; // KW in H1
         $html .= $img;
         $html .= "<p>We noticed that customers rarely read terms of use because they are usually written by lawyers for other lawyers. "; // KW ×2
@@ -1450,7 +1450,7 @@ foreach ($pages as $page) {
         $html .= "Our clients like knowing exactly what they are agreeing to before we arrive, so here it is clearly laid out.</p>\n";
 
         $html .= "<h2>What These Terms of Use Cover</h2>\n"; // KW in H2 ×3
-        $html .= "<p>These terms of use apply to all Samsung appliance repair work we carry out at your home or business, whether you booked online, by phone, or in person. ";
+        $html .= "<p>These terms of use apply to all Viking appliance repair work we carry out at your home or business, whether you booked online, by phone, or in person. ";
         $html .= "They cover pricing, booking and cancellation conditions, our 30-day warranty, and your rights if something is not right. ";
         $html .= "Our clients tell us they feel more confident booking when they have read this page — that is exactly why we made it easy to read.</p>\n";
 
@@ -1485,38 +1485,38 @@ foreach ($pages as $page) {
     } elseif (in_array($slug, ['about-us', 'about'])) {
         ar_set_yoast(
             $id,
-            ar_seo_title('About Us | Samsung Appliance Repair'),
-            ar_seo_desc('We are a team of certified Samsung appliance repair technicians serving 30+ US cities. Learn why thousands of homeowners trust us for same-day Samsung repairs with a 30-day warranty.'),
-            'samsung appliance repair team'
+            ar_seo_title('About Us | Viking Appliance Repair'),
+            ar_seo_desc('We are a team of certified Viking appliance repair technicians serving 30+ US cities. Learn why thousands of homeowners trust us for same-day Viking repairs with a 30-day warranty.'),
+            'Viking appliance repair team'
         );
-        $html  = "<h1>About {$biz} — Certified Samsung Appliance Repair</h1>\n";
-        $html .= "<p>We started {$biz} with one simple goal: give Samsung appliance owners fast, honest, and affordable repair. ";
-        $html .= "We noticed that most homeowners struggled to find a technician who truly specialized in Samsung — someone who knew the firmware quirks, the model-specific failure patterns, and where to source genuine OEM parts quickly. ";
+        $html  = "<h1>About {$biz} — Certified Viking Appliance Repair</h1>\n";
+        $html .= "<p>We started {$biz} with one simple goal: give Viking appliance owners fast, honest, and affordable repair. ";
+        $html .= "We noticed that most homeowners struggled to find a technician who truly specialized in Viking — someone who knew the firmware quirks, the model-specific failure patterns, and where to source genuine OEM parts quickly. ";
         $html .= "That gap is exactly what we set out to close.</p>\n";
 
-        $html .= "<h2>What We Have Learned After Thousands of Samsung Repairs</h2>\n";
-        $html .= "<p>Over time, we noticed the same faults appearing across Samsung models again and again — door latch failures on front-load washers, ice-maker issues on French-door refrigerators, and igniter wear on slide-in ranges. ";
+        $html .= "<h2>What We Have Learned After Thousands of Viking Repairs</h2>\n";
+        $html .= "<p>Over time, we noticed the same faults appearing across Viking models again and again — door latch failures on front-load washers, ice-maker issues on French-door refrigerators, and igniter wear on slide-in ranges. ";
         $html .= "Our clients told us they wanted a technician who could diagnose the problem in the first visit, not someone who guessed their way through it. ";
-        $html .= "So we built our entire process around first-visit resolution: the right parts on the truck, the right training on Samsung diagnostics, and a clear upfront quote before any work begins.</p>\n";
+        $html .= "So we built our entire process around first-visit resolution: the right parts on the truck, the right training on Viking diagnostics, and a clear upfront quote before any work begins.</p>\n";
 
         $html .= "<h2>Why Our Clients Keep Coming Back</h2>\n";
         $html .= "<p>Our clients tell us the thing they appreciate most is honesty. ";
-        $html .= "We noticed early on that homeowners are often quoted inflated repair costs by generalist technicians who are simply unfamiliar with Samsung appliances. ";
+        $html .= "We noticed early on that homeowners are often quoted inflated repair costs by generalist technicians who are simply unfamiliar with Viking appliances. ";
         $html .= "We made a decision to always provide a written quote before starting, explain exactly what failed and why, and never recommend a replacement when a repair will do the job. ";
         $html .= "That approach has earned us hundreds of five-star reviews and a repeat customer rate we are genuinely proud of.</p>\n";
 
         $html .= "<h2>Our Team</h2>\n";
-        $html .= "<p>Every technician on our team is Samsung-certified and undergoes ongoing training as new models are released. ";
-        $html .= "We noticed that Samsung appliances evolve quickly — new inverter motor generations, updated control board architectures, and software-driven diagnostics — so staying current is non-negotiable for us. ";
+        $html .= "<p>Every technician on our team is Viking-certified and undergoes ongoing training as new models are released. ";
+        $html .= "We noticed that Viking appliances evolve quickly — new inverter motor generations, updated control board architectures, and software-driven diagnostics — so staying current is non-negotiable for us. ";
         $html .= "Our clients like that they always speak directly with an experienced technician, not a call-center agent.</p>\n";
 
         $html .= "<h2>Our Promise to You</h2>\n";
-        $html .= "<p>Same-day or next-day service in most areas. A written quote before we touch anything. Genuine Samsung OEM parts. And a 30-day parts-and-labor warranty on every repair we complete. ";
+        $html .= "<p>Same-day or next-day service in most areas. A written quote before we touch anything. Genuine Viking OEM parts. And a 30-day parts-and-labor warranty on every repair we complete. ";
         $html .= "If the same fault comes back within 30 days, we return at no charge — no questions asked.</p>\n";
 
         $html .= "<ul>\n";
         $html .= "<li><a href=\"{$home}/schedule/\">Book a same-day repair</a></li>\n";
-        $html .= "<li><a href=\"{$home}/services/\">Browse our Samsung repair services</a></li>\n";
+        $html .= "<li><a href=\"{$home}/services/\">Browse our Viking repair services</a></li>\n";
         $html .= "<li><a href=\"{$home}/locations/\">Find your nearest service area</a></li>\n";
         $html .= "</ul>\n";
 
@@ -1524,40 +1524,40 @@ foreach ($pages as $page) {
     } elseif (in_array($slug, ['cities', 'service-areas', 'locations-list'])) {
         ar_set_yoast(
             $id,
-            ar_seo_title('Samsung Appliance Repair — Cities We Serve'),
-            ar_seo_desc('Find Samsung appliance repair in your city. We serve 30+ US cities with same-day service, certified technicians, and a 30-day warranty on every Samsung repair.'),
-            'samsung appliance repair cities'
+            ar_seo_title('Viking Appliance Repair — Cities We Serve'),
+            ar_seo_desc('Find Viking appliance repair in your city. We serve 30+ US cities with same-day service, certified technicians, and a 30-day warranty on every Viking repair.'),
+            'Viking appliance repair cities'
         );
-        $html  = "<h1>Samsung Appliance Repair — Every City We Serve</h1>\n";
+        $html  = "<h1>Viking Appliance Repair — Every City We Serve</h1>\n";
         $html .= "<p>We serve 30+ cities across the United States, and we are adding new service areas every month. ";
-        $html .= "We noticed that Samsung appliance owners in smaller metros were often underserved — big national chains focused on high-volume cities and left everyone else waiting weeks for a technician. ";
+        $html .= "We noticed that Viking appliance owners in smaller metros were often underserved — big national chains focused on high-volume cities and left everyone else waiting weeks for a technician. ";
         $html .= "We built our network specifically to reach those communities with the same same-day service we offer in major metros.</p>\n";
 
         $html .= "<h2>How We Choose the Cities We Expand Into</h2>\n";
         $html .= "<p>Our clients in existing service areas often referred us to friends and family in nearby cities. ";
-        $html .= "We noticed a pattern: wherever Samsung appliances were popular, so was the demand for a specialist who truly understood them. ";
+        $html .= "We noticed a pattern: wherever Viking appliances were popular, so was the demand for a specialist who truly understood them. ";
         $html .= "Our clients liked knowing that the same technician team they trusted in one city had now arrived in theirs. ";
         $html .= "That word-of-mouth feedback directly shaped how we grew our service footprint.</p>\n";
 
         $html .= "<h2>What You Get in Every City We Serve</h2>\n";
-        $html .= "<p>No matter which city you are in, the experience is identical: a same-day or next-day appointment, a Samsung-certified technician, a written upfront quote, genuine OEM parts, and a 30-day warranty on every repair. ";
+        $html .= "<p>No matter which city you are in, the experience is identical: a same-day or next-day appointment, a Viking-certified technician, a written upfront quote, genuine OEM parts, and a 30-day warranty on every repair. ";
         $html .= "We noticed our clients really valued consistency — knowing that booking a repair in their city would feel exactly like a friend had recommended us personally.</p>\n";
 
         $html .= "<ul>\n";
         $html .= "<li><a href=\"{$home}/locations/\">Browse all service locations</a></li>\n";
         $html .= "<li><a href=\"{$home}/schedule/\">Book a repair in your city</a></li>\n";
-        $html .= "<li><a href=\"{$home}/services/\">See all Samsung appliances we repair</a></li>\n";
+        $html .= "<li><a href=\"{$home}/services/\">See all Viking appliances we repair</a></li>\n";
         $html .= "</ul>\n";
 
     /* ── All other pages — generic, skip if not empty ─── */
     } else {
         $seo_title = ar_seo_title($title, [
-            ' | Samsung Appliance Repair',
+            ' | Viking Appliance Repair',
             ' | Appliance Repair',
             ' | Expert Repair Service',
         ]);
         $seo_desc = ar_seo_desc(
-            "Visit our " . strtolower($title) . " page for details about our Samsung appliance repair service, booking options, and 30-day warranty."
+            "Visit our " . strtolower($title) . " page for details about our Viking appliance repair service, booking options, and 30-day warranty."
         );
         ar_set_yoast($id, $seo_title, $seo_desc, ar_derive_keyphrase($title));
 
@@ -1589,30 +1589,30 @@ foreach ($pages as $page) {
 $wpseo = get_option('wpseo_titles', []);
 
 // /services/
-$wpseo['title-ptarchive-service_page']   = ar_seo_title('Samsung Appliance Repair Services', [' | Certified Techs', ' | OEM Parts']);
-$wpseo['metadesc-ptarchive-service_page'] = ar_seo_desc('Browse all our Samsung appliance repair services. Certified technicians fix Samsung washers, dryers, refrigerators, dishwashers, ovens, microwaves, and wall ovens with genuine OEM parts.');
+$wpseo['title-ptarchive-service_page']   = ar_seo_title('Viking Appliance Repair Services', [' | Certified Techs', ' | OEM Parts']);
+$wpseo['metadesc-ptarchive-service_page'] = ar_seo_desc('Browse all our Viking appliance repair services. Certified technicians fix Viking washers, dryers, refrigerators, dishwashers, ovens, microwaves, and wall ovens with genuine OEM parts.');
 
 // /locations/
-$wpseo['title-ptarchive-location_page']   = ar_seo_title('Samsung Appliance Repair Locations', [' | 30+ US Cities', ' | Find Your City']);
-$wpseo['metadesc-ptarchive-location_page'] = ar_seo_desc('Find certified Samsung appliance repair near you. We serve 30+ cities across the US with same-day service, genuine OEM parts, and a 30-day warranty on every Samsung repair.');
+$wpseo['title-ptarchive-location_page']   = ar_seo_title('Viking Appliance Repair Locations', [' | 30+ US Cities', ' | Find Your City']);
+$wpseo['metadesc-ptarchive-location_page'] = ar_seo_desc('Find certified Viking appliance repair near you. We serve 30+ cities across the US with same-day service, genuine OEM parts, and a 30-day warranty on every Viking repair.');
 
 // /error-codes/
-$wpseo['title-ptarchive-error_code']   = ar_seo_title('Samsung Error Code Database', [' | All Models', ' | Diagnose & Fix']);
-$wpseo['metadesc-ptarchive-error_code'] = ar_seo_desc('Look up Samsung appliance error codes for every model. Get causes, step-by-step fixes, and repair cost estimates from certified Samsung technicians.');
+$wpseo['title-ptarchive-error_code']   = ar_seo_title('Viking Error Code Database', [' | All Models', ' | Diagnose & Fix']);
+$wpseo['metadesc-ptarchive-error_code'] = ar_seo_desc('Look up Viking appliance error codes for every model. Get causes, step-by-step fixes, and repair cost estimates from certified Viking technicians.');
 
 // /guides/
-$wpseo['title-ptarchive-guide']   = ar_seo_title('Samsung Appliance Repair Guides', [' | Step-by-Step', ' | Expert Guides']);
-$wpseo['metadesc-ptarchive-guide'] = ar_seo_desc('Read step-by-step Samsung appliance repair guides written by certified technicians. We cover Samsung washers, dryers, refrigerators, dishwashers, ovens, microwaves, and wall ovens.');
+$wpseo['title-ptarchive-guide']   = ar_seo_title('Viking Appliance Repair Guides', [' | Step-by-Step', ' | Expert Guides']);
+$wpseo['metadesc-ptarchive-guide'] = ar_seo_desc('Read step-by-step Viking appliance repair guides written by certified technicians. We cover Viking washers, dryers, refrigerators, dishwashers, ovens, microwaves, and wall ovens.');
 
 // /recalls/
-$wpseo['title-ptarchive-recall']   = ar_seo_title('Samsung Appliance Safety Recalls', [' | CPSC Notices', ' | Safety Alerts']);
-$wpseo['metadesc-ptarchive-recall'] = ar_seo_desc('Check the latest Samsung appliance safety recalls. Find official CPSC notices, hazard details, remedies, and how to book a post-recall inspection.');
+$wpseo['title-ptarchive-recall']   = ar_seo_title('Viking Appliance Safety Recalls', [' | CPSC Notices', ' | Safety Alerts']);
+$wpseo['metadesc-ptarchive-recall'] = ar_seo_desc('Check the latest Viking appliance safety recalls. Find official CPSC notices, hazard details, remedies, and how to book a post-recall inspection.');
 
 // /blog/ (posts page)
 $blog_page_id = (int) get_option('page_for_posts', 0);
 if ($blog_page_id > 0) {
-    $wpseo['title-page-' . $blog_page_id]   = ar_seo_title('Samsung Appliance Repair Blog', [' | Tips & Guides', ' | Expert Repair Tips']);
-    $wpseo['metadesc-page-' . $blog_page_id] = ar_seo_desc('Expert Samsung appliance repair tips, how-to guides, and error code explanations. Our certified technicians share practical advice for Samsung washers, dryers, refrigerators, and more.');
+    $wpseo['title-page-' . $blog_page_id]   = ar_seo_title('Viking Appliance Repair Blog', [' | Tips & Guides', ' | Expert Repair Tips']);
+    $wpseo['metadesc-page-' . $blog_page_id] = ar_seo_desc('Expert Viking appliance repair tips, how-to guides, and error code explanations. Our certified technicians share practical advice for Viking washers, dryers, refrigerators, and more.');
 }
 
 update_option('wpseo_titles', $wpseo);

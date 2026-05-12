@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * All Content Update Script — overwrites meta fields on existing posts.
  * Use this when posts already exist but have empty/missing ACF meta data.
@@ -27,7 +27,7 @@ $counts = [ 'updated' => 0, 'created' => 0, 'errors' => 0 ];
 
 WP_CLI::line( '' );
 WP_CLI::line( '╔══════════════════════════════════════════════╗' );
-WP_CLI::line( '║   Samsung Appliance Repair — Full Content Update  ║' );
+WP_CLI::line( '║   Viking Appliance Repair — Full Content Update  ║' );
 WP_CLI::line( '╚══════════════════════════════════════════════╝' );
 WP_CLI::line( sprintf( 'Total entries to process: %d', count( $all_pages ) ) );
 WP_CLI::line( '' );
@@ -116,3 +116,4 @@ WP_CLI::line( sprintf( '║  Errors  : %-33d║', $counts['errors']  ) );
 WP_CLI::line( '╚══════════════════════════════════════════════╝' );
 WP_CLI::line( '' );
 WP_CLI::success( 'Update complete. Go to Settings → Permalinks → Save Changes if any pages return 404.' );
+

@@ -4,8 +4,8 @@
  * @var array $args ['context' => string, 'heading' => string]
  */
 $context = $args['context'] ?? '';
-$heading = $args['heading'] ?: 'Book Your Samsung Repair Today';
-$sub     = 'Samsung specialist available same-day. We\'ll call within 60 minutes to confirm.';
+$heading = $args['heading'] ?: 'Book Your Viking Repair Today';
+$sub     = 'Viking specialists available same-day. We\'ll call within 60 minutes to confirm your appointment.';
 ?>
 
 <section class="section section--alt" id="book-appointment" aria-labelledby="form-heading" style="padding: 0 !important;">
@@ -13,8 +13,8 @@ $sub     = 'Samsung specialist available same-day. We\'ll call within 60 minutes
         <div class="appt-form">
 
             <div class="appt-form__header">
-                <h2 id="form-heading"><?php echo esc_html( $heading ); ?></h2>
-                <p class="appt-form__sub"><?php echo esc_html( $sub ); ?></p>
+                <h2 id="form-heading"><?php echo esc_html($heading); ?></h2>
+                <p class="appt-form__sub"><?php echo esc_html($sub); ?></p>
 
                 <ul class="appt-form__trust" aria-label="Service guarantees">
                     <li>
@@ -46,7 +46,7 @@ $sub     = 'Samsung specialist available same-day. We\'ll call within 60 minutes
                         height="600"
                         frameborder="0"
                         scrolling="no"
-                        title="Book your Samsung appliance repair appointment"
+                        title="Book your Viking appliance repair appointment"
                         loading="lazy"
                         allow="autoplay"
                     ></iframe>
@@ -70,7 +70,6 @@ $sub     = 'Samsung specialist available same-day. We\'ll call within 60 minutes
     margin-inline: auto;
 }
 
-/* Header */
 .appt-form__header {
     text-align: center;
     margin-bottom: 2rem;
@@ -87,7 +86,6 @@ $sub     = 'Samsung specialist available same-day. We\'ll call within 60 minutes
     margin: 0 0 1.25rem;
 }
 
-/* Trust badges */
 .appt-form__trust {
     list-style: none;
     margin: 0;
@@ -112,16 +110,14 @@ $sub     = 'Samsung specialist available same-day. We\'ll call within 60 minutes
     color: var(--color-success, #1a7f4b);
 }
 
-/* Body card */
 .appt-form__body {
     background: #fff;
-    border: 2px solid #d1d5db; /* thicker + darker */
+    border: 2px solid #d1d5db;
     border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0,0,0,.08); /* more depth */
+    box-shadow: 0 8px 24px rgba(0,0,0,.08);
 }
 
-/* iframe wrapper */
 .appt-form__iframe-wrap {
     width: 100%;
     line-height: 0;
@@ -135,7 +131,6 @@ $sub     = 'Samsung specialist available same-day. We\'ll call within 60 minutes
     min-height: 600px;
 }
 
-/* Privacy note */
 .appt-form__privacy {
     display: flex;
     align-items: center;
@@ -148,18 +143,11 @@ $sub     = 'Samsung specialist available same-day. We\'ll call within 60 minutes
     border-top: 1px solid var(--color-border, #e5e7eb);
 }
 
-.appt-form__privacy svg {
-    flex-shrink: 0;
-}
+.appt-form__privacy svg { flex-shrink: 0; }
 
-/* Mobile */
 @media (max-width: 600px) {
-    .appt-form__trust {
-        gap: .5rem 1rem;
-    }
-    .appt-form__iframe-wrap iframe {
-        min-height: 520px;
-    }
+    .appt-form__trust { gap: .5rem 1rem; }
+    .appt-form__iframe-wrap iframe { min-height: 520px; }
 }
 </style>
 
@@ -168,7 +156,6 @@ $sub     = 'Samsung specialist available same-day. We\'ll call within 60 minutes
     var iframe = document.getElementById('appointmentIframe');
     if (!iframe) return;
 
-    /* 1. postMessage from the form host (preferred — cross-origin safe) */
     window.addEventListener('message', function (e) {
         try {
             var origin = new URL(iframe.src).origin;
@@ -179,7 +166,6 @@ $sub     = 'Samsung specialist available same-day. We\'ll call within 60 minutes
         }
     });
 
-    /* 2. Fallback: read scrollHeight when same-origin */
     iframe.addEventListener('load', function () {
         try {
             var doc = iframe.contentDocument || iframe.contentWindow.document;

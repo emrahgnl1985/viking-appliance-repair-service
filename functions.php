@@ -1,12 +1,12 @@
 <?php
 /**
- * Samsung Appliance Repair — functions.php
+ * Viking Appliance Repair Service — functions.php
  * Theme setup, CPTs, taxonomies, enqueue, helpers, AJAX
  * @version 1.0.0
  */
 defined('ABSPATH') || exit;
 
-define('AR_VERSION', '1.5.4');
+define('AR_VERSION', '1.5.5');
 define('AR_DIR', get_template_directory());
 define('AR_URI', get_template_directory_uri());
 
@@ -67,7 +67,7 @@ add_action('init', function() {
 add_action('wp_enqueue_scripts', function() {
     wp_enqueue_style('ar-fonts','https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Barlow+Condensed:wght@600;700;800&display=swap',[],null);
     if (is_front_page()) {
-        wp_enqueue_style('ar-fonts-homepage','https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap',[],null);
+        wp_enqueue_style('ar-fonts-homepage','https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap',[],null);
     }
     wp_enqueue_style('ar-variables', AR_URI.'/assets/css/variables.css', [], AR_VERSION);
     wp_enqueue_style('ar-base',      AR_URI.'/assets/css/base.css',      ['ar-variables'], AR_VERSION);
@@ -149,7 +149,7 @@ function ar_render_options_page():void {
     if(!current_user_can('manage_options'))return;
     if(isset($_POST['ar_save'])&&check_admin_referer('ar_nonce')){foreach(['ar_phone_number','ar_business_name','ar_address','ar_email','ar_license_number'] as $f)update_option($f,sanitize_text_field($_POST[$f]??''));echo '<div class="notice notice-success"><p>Saved.</p></div>';}
     $p=get_option('ar_phone_number','');$n=get_option('ar_business_name','');$a=get_option('ar_address','');$e=get_option('ar_email','');$l=get_option('ar_license_number','');
-    echo '<div class="wrap"><h1>Samsung Appliance Repair Settings</h1><form method="post">';wp_nonce_field('ar_nonce');
+    echo '<div class="wrap"><h1>Viking Appliance Repair Settings</h1><form method="post">';wp_nonce_field('ar_nonce');
     echo '<table class="form-table"><tr><th>Business Name</th><td><input name="ar_business_name" value="'.esc_attr($n).'" class="regular-text"></td></tr>';
     echo '<tr><th>Phone Number</th><td><input name="ar_phone_number" value="'.esc_attr($p).'" class="regular-text" placeholder="844-739-1647"></td></tr>';
     echo '<tr><th>Address</th><td><input name="ar_address" value="'.esc_attr($a).'" class="regular-text"></td></tr>';
@@ -241,11 +241,11 @@ add_filter('wpseo_pre_analysis_post_content', function(string $content, $post): 
 /* ── Yoast SEO: archive-page titles & descriptions ── */
 add_filter('wpseo_title', function(string $title): string {
     $map = [
-        'service_page'  => 'Samsung Appliance Repair Services | Certified Techs',
-        'location_page' => 'Samsung Appliance Repair Locations | 30+ US Cities',
-        'error_code'    => 'Samsung Error Code Database | All Models',
-        'guide'         => 'Samsung Appliance Repair Guides | Step-by-Step',
-        'recall'        => 'Samsung Appliance Safety Recalls | CPSC Notices',
+        'service_page'  => 'Viking Appliance Repair Services | Certified Specialists',
+        'location_page' => 'Viking Appliance Repair Locations | Major US Cities',
+        'error_code'    => 'Viking Appliance Fault Code Database | All Models',
+        'guide'         => 'Viking Appliance Repair Guides | Step-by-Step',
+        'recall'        => 'Viking Appliance Safety Recalls | CPSC Notices',
     ];
     if (is_post_type_archive()) {
         $pt = get_queried_object()->name ?? '';
@@ -256,11 +256,11 @@ add_filter('wpseo_title', function(string $title): string {
 
 add_filter('wpseo_metadesc', function(string $desc): string {
     $map = [
-        'service_page'  => 'Browse all Samsung appliance repair services. Certified Samsung technicians fix washers, dryers, refrigerators, ovens, and dishwashers with genuine Samsung parts and a 30-day warranty.',
-        'location_page' => 'Find certified Samsung appliance repair near you. We serve 30+ cities across the US with same-day service, genuine Samsung parts, and a 30-day warranty on every repair.',
-        'error_code'    => 'Look up Samsung appliance error codes. Get causes, step-by-step fixes, and cost estimates from our certified Samsung technicians.',
-        'guide'         => 'Step-by-step Samsung appliance repair guides written by certified technicians. Covers Samsung washers, dryers, refrigerators, ovens, and dishwashers.',
-        'recall'        => 'Check the latest Samsung appliance safety recalls. Find CPSC notices, hazard details, remedies, and how to book a post-recall inspection.',
+        'service_page'  => 'Browse all Viking appliance repair services. Certified Viking specialists repair ranges, refrigerators, dishwashers, cooktops, and wall ovens with genuine OEM parts and a 30-day warranty.',
+        'location_page' => 'Find certified Viking appliance repair near you. We serve major US cities with same-day service, genuine Viking OEM parts, and a 30-day warranty on every repair.',
+        'error_code'    => 'Look up Viking appliance fault codes. Get verified causes, step-by-step guidance, and expert repair estimates from our certified Viking technicians.',
+        'guide'         => 'Step-by-step Viking appliance repair guides written by certified technicians. Covers Viking ranges, refrigerators, dishwashers, cooktops, and wall ovens.',
+        'recall'        => 'Check the latest Viking appliance safety recalls. Find CPSC notices, hazard details, remedies, and how to book a post-recall inspection.',
     ];
     if (is_post_type_archive()) {
         $pt = get_queried_object()->name ?? '';

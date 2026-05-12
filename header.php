@@ -1,7 +1,7 @@
 <?php
 /**
  * Site Header
- * Samsung Appliance Repair Theme
+ * Viking Appliance Repair Service Theme
  */
 ?>
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#1B3A6B">
+    <meta name="theme-color" content="#1A2B42">
 
     <?php
     $site_icon_url = get_site_icon_url(32);
@@ -40,19 +40,25 @@
                aria-label="<?php bloginfo('name'); ?> — Home">
 
                 <div class="site-logo__mark" aria-hidden="true">
+                    <!-- Viking-inspired flame/range burner icon -->
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"
+                        <rect x="3" y="6" width="18" height="14" rx="2"
                               stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3 11h18"
+                              stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="8"  cy="8.5" r="1" fill="white"/>
+                        <circle cx="12" cy="8.5" r="1" fill="white"/>
+                        <circle cx="16" cy="8.5" r="1" fill="white"/>
                     </svg>
                 </div>
 
                 <div class="site-logo__text">
                     <span class="site-logo__name">
-                        <?php bloginfo('name'); ?> 
+                        <?php bloginfo('name'); ?>
                     </span>
                     <span class="site-logo__tagline">
-                        Repair Guides &amp; Diagnostics
+                        Certified Viking Repair Specialists
                     </span>
                 </div>
             </a>
@@ -60,41 +66,31 @@
             <!-- ================= PRIMARY NAV ================= -->
             <nav class="primary-nav" aria-label="Primary navigation" role="navigation">
 
-                <!-- GUIDES -->
-                <!-- <div class="primary-nav__item">
-                    <a href="<?php echo esc_url(home_url('/guides/')); ?>" class="primary-nav__link">Guides</a>
-                </div> -->
-
                 <!-- ERROR CODES -->
-                <!-- <div class="primary-nav__item primary-nav__item--dropdown">
+                <div class="primary-nav__item primary-nav__item--dropdown">
                     <a href="<?php echo esc_url(home_url('/error-codes/')); ?>" class="primary-nav__link">
-                        Error Codes
+                        Fault Codes
                     </a>
                     <div class="dropdown-menu" role="menu">
                         <?php
                         $ec_appliances = [
-                            'Washer'       => 'washer',
-                            'Dryer'        => 'dryer',
-                            'Refrigerator' => 'refrigerator',
-                            'Dishwasher'   => 'dishwasher',
-                            'Oven / Range' => 'oven',
-                            'Microwave'    => 'microwave',
-                            'Wall Oven'    => 'wall-oven',
+                            'Range &amp; Oven' => 'range',
+                            'Refrigerator'     => 'refrigerator',
+                            'Dishwasher'       => 'dishwasher',
+                            'Cooktop'          => 'cooktop',
+                            'Wall Oven'        => 'wall-oven',
+                            'Wine Cooler'      => 'wine-cooler',
                         ];
                         foreach ($ec_appliances as $ec_name => $ec_slug):
-                            $ec_url = add_query_arg( 'appliance', $ec_slug, home_url('/error-codes/') );
+                            $ec_url = add_query_arg('appliance', $ec_slug, home_url('/error-codes/'));
                         ?>
                             <a href="<?php echo esc_url($ec_url); ?>"
                                class="dropdown-menu__link"
                                role="menuitem">
-                                <?php echo esc_html($ec_name); ?> Codes
+                                <?php echo $ec_name; ?> Codes
                             </a>
                         <?php endforeach; ?>
                     </div>
-                </div> -->
-
-                <div class="primary-nav__item">
-                    <a href="<?php echo esc_url(home_url('/error-codes/')); ?>" class="primary-nav__link">Error Codes</a>
                 </div>
 
                 <!-- RECALLS -->
@@ -110,13 +106,12 @@
                     <div class="dropdown-menu" role="menu">
                         <?php
                         $blog_topics = [
-                            'Washer Tips'        => 'washer',
-                            'Dryer Tips'         => 'dryer',
-                            'Refrigerator Tips'  => 'refrigerator',
-                            'Dishwasher Tips'    => 'dishwasher',
-                            'Oven &amp; Range'   => 'oven-range',
-                            'Maintenance'        => 'maintenance',
-                            'Buying Guides'      => 'buying-guides',
+                            'Range &amp; Oven Tips' => 'range-oven',
+                            'Refrigerator Tips'     => 'refrigerator',
+                            'Dishwasher Tips'       => 'dishwasher',
+                            'Cooktop Tips'          => 'cooktop',
+                            'Maintenance Guides'    => 'maintenance',
+                            'Troubleshooting'       => 'troubleshooting',
                         ];
                         foreach ($blog_topics as $topic_name => $topic_slug):
                         ?>
@@ -137,13 +132,14 @@
                     <div class="dropdown-menu" role="menu">
                         <?php
                         $svc_appliances = [
-                            'Washer'       => 'samsung-washer-repair',
-                            'Dryer'        => 'samsung-dryer-repair',
-                            'Refrigerator' => 'samsung-refrigerator-repair',
-                            'Dishwasher'   => 'samsung-dishwasher-repair',
-                            'Oven / Range' => 'samsung-oven-repair',
-                            'Microwave'    => 'samsung-microwave-repair',
-                            'Wall Oven'    => 'samsung-wall-oven-repair',
+                            'Range'          => 'viking-range-repair',
+                            'Refrigerator'   => 'viking-refrigerator-repair',
+                            'Dishwasher'     => 'viking-dishwasher-repair',
+                            'Cooktop'        => 'viking-cooktop-repair',
+                            'Wall Oven'      => 'viking-wall-oven-repair',
+                            'Wine Cooler'    => 'viking-wine-cooler-repair',
+                            'Freezer'        => 'viking-freezer-repair',
+                            'Vent Hood'      => 'viking-vent-hood-repair',
                         ];
                         foreach ($svc_appliances as $svc_name => $svc_slug):
                         ?>
@@ -164,12 +160,12 @@
                     <div class="dropdown-menu" role="menu">
                         <?php
                         $cities = [
+                            'Los Angeles'   => 'los-angeles',
                             'Chicago'       => 'chicago',
+                            'New York'      => 'new-york',
                             'San Francisco' => 'san-francisco',
                             'Houston'       => 'houston',
                             'Miami'         => 'miami',
-                            'Los Angeles'   => 'los-angeles',
-                            'New York'      => 'new-york',
                         ];
                         foreach ($cities as $name => $slug):
                         ?>
@@ -222,12 +218,11 @@
         <button class="mobile-menu__close" aria-label="Close menu">&times;</button>
     </div>
 
-    <a href="<?php echo esc_url(home_url('/')); ?>" class="mobile-nav__link">Home</a>
-    <a href="<?php echo esc_url(home_url('/guides/')); ?>" class="mobile-nav__link">Guides</a>
-    <a href="<?php echo esc_url(home_url('/error-codes/')); ?>" class="mobile-nav__link">Error Codes</a>
-    <a href="<?php echo esc_url(home_url('/recalls/')); ?>" class="mobile-nav__link">Recalls</a>
-    <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="mobile-nav__link">Blog</a>
-    <a href="<?php echo esc_url(home_url('/services/')); ?>" class="mobile-nav__link">Services</a>
+    <a href="<?php echo esc_url(home_url('/')); ?>"          class="mobile-nav__link">Home</a>
+    <a href="<?php echo esc_url(home_url('/services/')); ?>"  class="mobile-nav__link">Services</a>
+    <a href="<?php echo esc_url(home_url('/error-codes/')); ?>" class="mobile-nav__link">Fault Codes</a>
+    <a href="<?php echo esc_url(home_url('/recalls/')); ?>"   class="mobile-nav__link">Recalls</a>
+    <a href="<?php echo esc_url(home_url('/blog/')); ?>"      class="mobile-nav__link">Blog</a>
     <a href="<?php echo esc_url(home_url('/locations/')); ?>" class="mobile-nav__link">Locations</a>
 
     <a href="<?php echo esc_url(ar_phone_link()); ?>" class="mobile-nav__phone">
