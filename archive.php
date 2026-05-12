@@ -423,7 +423,7 @@ get_header();
 
                 <div class="ba-cta-card">
                     <h3 class="ba-cta-card__title">Need a Repair?</h3>
-                    <p class="ba-cta-card__text">Same-day service. 30-day warranty. All major brands.</p>
+                    <p class="ba-cta-card__text">Same-day service. 30-day warranty. Viking specialists.</p>
                     <a href="<?php echo esc_url($phone_link); ?>" class="ba-cta-card__phone">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 16.92V19.92C22.001 20.4785 21.793 21.0169 21.415 21.4217C21.037 21.8265 20.516 22.0672 19.96 22.1C16.423 21.7011 13.027 20.4773 10.05 18.53C7.275 16.7506 4.939 14.415 3.16 11.64C1.2 8.65031 -0.024 5.24039 0.04 1.70001C0.04 1.14594 0.249 0.612295 0.627 0.234492C1.005 -0.143311 1.539 -0.352821 2.093 -0.352821H5.093C6.107 -0.362986 6.966 0.342782 7.133 1.35001C7.273 2.20001 7.507 3.03001 7.833 3.82001C8.103 4.50029 7.934 5.27001 7.403 5.80001L6.103 7.10001C7.743 9.97385 10.199 12.43 13.073 14.07L14.373 12.77C14.903 12.2393 15.673 12.0702 16.353 12.34C17.143 12.6657 17.973 12.9 18.823 13.04C19.84 13.2095 20.552 14.0865 20.533 15.11L22 16.92Z" fill="white"/></svg>
                         <?php echo esc_html($phone); ?>

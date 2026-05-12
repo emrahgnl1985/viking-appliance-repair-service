@@ -979,7 +979,7 @@ foreach ($posts as $post) {
     // e.g. "Viking gas range recall 2023" — unique across all pages
     $keyphrase = strtolower("$brand $appl_label recall $year");
     // Human-readable version for use in content
-    $kw_display = "$brand $appl_label Recall $year"; // e.g. "Viking Washer Recall 2016"
+    $kw_display = "$brand $appl_label Recall $year"; // e.g. "Viking Range Recall 2023"
 
     // ── SEO title — keyphrase MUST be at the beginning ───
     // Format: "$brand $appl_label Recall $year | Safety Notice"
@@ -1166,7 +1166,7 @@ if ($fp_id > 0) {
 
     $html .= "<h2>Viking Appliance Repair Specialists</h2>\n"; // KW in H2 ×3
     $html .= "<p>We noticed that most appliance repair companies try to cover every brand and end up being mediocre at all of them. ";
-    $html .= "Our clients like that we focus exclusively on Viking — washers, dryers, refrigerators, dishwashers, ovens, microwaves, wall ovens, and more. ";
+    $html .= "Our clients like that we focus exclusively on Viking — ranges, refrigerators, dishwashers, cooktops, wall ovens, wine coolers, and more. ";
     $html .= "That focus means our vans carry the exact OEM parts Viking models actually need, and our technicians can diagnose most faults without a second visit. ";
     $html .= "Our clients tell us that single-visit resolution is the thing they value most — no waiting at home twice for the same job.</p>\n";
 
@@ -1494,7 +1494,7 @@ foreach ($pages as $page) {
         $html .= "That gap is exactly what we set out to close.</p>\n";
 
         $html .= "<h2>What We Have Learned After Thousands of Viking Repairs</h2>\n";
-        $html .= "<p>Over time, we noticed the same faults appearing across Viking models again and again — door latch failures on front-load washers, ice-maker issues on French-door refrigerators, and igniter wear on slide-in ranges. ";
+        $html .= "<p>Over time, we noticed the same faults appearing across Viking models again and again — control board failures on Professional Series ranges, ice-maker issues on French-door refrigerators, and igniter wear on gas ranges and wall ovens. ";
         $html .= "Our clients told us they wanted a technician who could diagnose the problem in the first visit, not someone who guessed their way through it. ";
         $html .= "So we built our entire process around first-visit resolution: the right parts on the truck, the right training on Viking diagnostics, and a clear upfront quote before any work begins.</p>\n";
 

@@ -186,7 +186,7 @@ ar_output_schema($_schema_data);
     text-decoration: none;
 }
 .gd-hero__h1 {
-    font-family: 'DM Serif Display', Georgia, serif;
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(28px, 4vw, 44px);
     font-weight: 400;
     color: #ffffff;
@@ -296,7 +296,7 @@ ar_output_schema($_schema_data);
 /* Article typography */
 .gd-article-content { line-height: 1.75; color: var(--gd-ink-mid); font-size: 16px; }
 .gd-article-content h2 {
-    font-family: 'DM Serif Display', Georgia, serif;
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(20px, 2.5vw, 26px);
     font-weight: 400;
     color: var(--gd-ink);
@@ -453,7 +453,7 @@ ar_output_schema($_schema_data);
 /* Stat mini-card */
 .gd-scard__stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
 .gd-scard__stat { text-align: center; background: var(--gd-alt); border-radius: 7px; padding: 10px 8px; }
-.gd-scard__stat-val { font-family: 'DM Serif Display', Georgia, serif; font-size: 22px; font-weight: 400; color: var(--gd-ink); display: block; }
+.gd-scard__stat-val { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 400; color: var(--gd-ink); display: block; }
 .gd-scard__stat-lbl { font-size: 10px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--gd-ink-muted); }
 
 /* ── Disclaimer ── */
@@ -474,7 +474,7 @@ ar_output_schema($_schema_data);
     margin-bottom: 32px; flex-wrap: wrap;
 }
 .gd-related__title {
-    font-family: 'DM Serif Display', Georgia, serif;
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: 28px; font-weight: 400; color: var(--gd-ink);
     letter-spacing: -.02em; margin: 0;
 }
@@ -641,7 +641,7 @@ ar_output_schema($_schema_data);
             <!-- Error codes CTA -->
             <div class="gd-scard" style="background: var(--gd-alt);">
                 <p class="gd-scard__title">Seeing an Error Code?</p>
-                <p class="gd-scard__body">Our error code database covers 500+ codes across all major brands.</p>
+                <p class="gd-scard__body">Our Viking fault code database covers documented F-series and appliance codes for all Viking models.</p>
                 <a href="<?php echo esc_url( home_url('/error-codes/') ); ?>" style="display:block;text-align:center;background:var(--gd-surface);border:1px solid var(--gd-border);color:var(--gd-ink);border-radius:7px;padding:9px 14px;font-size:13px;font-weight:600;text-decoration:none;">Search Error Codes →</a>
             </div>
 

@@ -391,7 +391,7 @@ ar_output_schema($_schema_data);
           <h2 class="rc-block__h2">Has Your Recall Remedy Been Completed?</h2>
           <div class="rc-block__body">
             <p>Once the manufacturer has performed the recall remedy on your <?php echo esc_html($brand ?: 'appliance'); ?>, you may still need independent appliance service for unrelated issues — or you may want a certified technician to verify the repair was correctly completed.</p>
-            <p>Our technicians can inspect your appliance, document the condition, and perform any additional service required. We carry OEM parts for all major brands and back every repair with a 30-day parts and labor warranty.</p>
+            <p>Our Viking-certified technicians can inspect your appliance, document the condition, and perform any additional service required. We carry genuine Viking OEM parts and back every repair with a 30-day parts and labor warranty.</p>
           </div>
           <div style="margin-top:20px;">
             <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="rc-btn--red">📞 <?php echo esc_html($phone); ?></a>

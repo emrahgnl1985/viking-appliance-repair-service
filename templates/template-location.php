@@ -212,7 +212,7 @@ ar_output_schema($_schema_data);
         <div class="section-header">
             <span class="section-header__eyebrow">What We Fix</span>
             <h2 class="section-header__title">Appliance Repair Services in <?php echo esc_html( $city ); ?></h2>
-            <p class="section-header__subtitle">All major brands, all major appliances — fixed right the first time.</p>
+            <p class="section-header__subtitle">Viking appliance specialists — certified technicians, genuine OEM parts, fixed right the first time.</p>
         </div>
         <div class="grid grid-4">
             <?php

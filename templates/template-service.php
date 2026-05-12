@@ -212,7 +212,7 @@ ar_output_schema($_schema_data);
     
 }
 .s-hero__title {
-    font-family: 'DM Serif Display', Georgia, serif;
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(36px, 5vw, 58px);
     font-weight: 400;
     color: var(--g-ink);

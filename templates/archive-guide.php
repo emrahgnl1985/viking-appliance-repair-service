@@ -80,7 +80,7 @@ $categories = [
     background: rgba(255, 255, 255, 0.35);
 }
 .g-hero__title {
-    font-family: 'DM Serif Display', Georgia, serif;
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(36px, 5vw, 58px);
     font-weight: 400;
     color: #ffffff;
@@ -102,7 +102,7 @@ $categories = [
     flex-wrap: wrap;
 }
 .g-hero__stat-val {
-    font-family: 'DM Serif Display', Georgia, serif;
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: 30px;
     font-weight: 500;
     color: #ffd700;
@@ -130,7 +130,7 @@ $categories = [
 .g-section--alt { background: var(--g-alt); }
 .g-section-head { margin-bottom: 40px; }
 .g-section-title {
-    font-family: 'DM Serif Display', Georgia, serif;
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(24px, 3vw, 36px);
     font-weight: 400;
     color: var(--g-ink);
@@ -341,7 +341,7 @@ $categories = [
 }
 .g-empty__icon { font-size: 48px; margin-bottom: 16px; }
 .g-empty__title {
-    font-family: 'DM Serif Display', Georgia, serif;
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: 24px;
     font-weight: 400;
     color: var(--g-ink);
@@ -366,7 +366,7 @@ $categories = [
     display: block;
 }
 .g-cta-band__title {
-    font-family: 'DM Serif Display', Georgia, serif;
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(24px, 3vw, 36px);
     font-weight: 400;
     color: #fff;
@@ -571,7 +571,7 @@ $categories = [
     <div class="g-cta-band__inner">
         <span class="g-cta-band__eyebrow">Need a technician?</span>
         <h2 class="g-cta-band__title">Still not sure what's wrong with your appliance?</h2>
-        <p class="g-cta-band__sub">Our factory-certified technicians diagnose and repair all major brands. Same-day service available in most areas with a 30-day warranty on every repair.</p>
+        <p class="g-cta-band__sub">Our Viking-certified technicians diagnose and repair all Viking appliances. Same-day service available in most areas with a 30-day warranty on every repair.</p>
         <div class="g-cta-band__btns">
             <a href="/schedule/" class="g-btn g-btn--accent">Book a Repair →</a>
             <a href="<?php echo esc_url( home_url('/error-codes/') ); ?>" class="g-btn g-btn--ghost">Search Error Codes</a>

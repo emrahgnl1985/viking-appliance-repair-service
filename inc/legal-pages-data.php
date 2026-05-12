@@ -117,7 +117,7 @@ HTML,
 <p>These <strong>terms of use</strong> govern your use of {$site_name}'s appliance repair services and website. Specifically, by booking a repair or using our website, you agree to these terms. Furthermore, we update these terms from time to time, so we recommend reviewing this page before every booking. As a result, you will always have current information about your rights and our responsibilities.</p>
 
 <h3>1. Services</h3>
-<p>{$site_name} provides in-home appliance repair services for residential customers. Our technicians are trained and certified to repair major household appliances including washers, dryers, refrigerators, dishwashers, ovens, and cooktops. We service all major brands.</p>
+<p>{$site_name} provides in-home Viking appliance repair services for residential customers. Our technicians are trained and certified to repair Viking appliances including ranges, refrigerators, dishwashers, cooktops, wall ovens, wine coolers, and freezers. We specialize exclusively in Viking brand appliances.</p>
 
 <h3>2. Appointments and Scheduling</h3>
 <ul>
