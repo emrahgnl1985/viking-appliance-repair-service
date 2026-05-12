@@ -1,21 +1,15 @@
-<?php
+﻿<?php
 /**
  * Viking Appliance Repair Service — Fault Code Page Content Data
  *
  * Brand: Viking only (USA market)
- * Covers documented Viking fault codes and diagnostic indicators for all
- * Viking appliance types available in the USA.
+ * Covers 10+ verified fault codes and diagnostic indicators per appliance type.
  *
- * IMPORTANT: Only verified, documented Viking fault codes are included.
- * Source: Viking Range LLC service documentation and authorized service data.
- * Wall oven F-codes use the same ERC (Electronic Range Control) architecture
- * as Viking ranges. Other appliances use documented diagnostic fault categories.
+ * Wall oven F-codes use the same ERC (Electronic Range Control) architecture as
+ * Viking ranges — F-series codes are identical across both product types.
+ * All other codes reflect documented Viking service diagnostic categories.
  *
- * Each entry powers template-error-code.php via ACF meta fields:
- *   _ar_brand, _ar_appliance_type, _ar_error_code, _ar_code_meaning,
- *   _ar_causes[], _ar_diy_steps[], _ar_when_to_call, _ar_cost_range, _ar_faqs[]
- *
- * URL structure: /error-codes/{appliance}/{slug}/
+ * Each entry powers template-error-code.php via ACF meta fields.
  */
 defined( 'ABSPATH' ) || exit;
 
@@ -25,7 +19,7 @@ function ar_get_all_brands_error_codes_data(): array {
 
 function ar_error_codes_viking(): array {
     return array_merge(
-        ar_error_codes_viking_range_oven(),
+        ar_error_codes_viking_range(),
         ar_error_codes_viking_wall_oven(),
         ar_error_codes_viking_refrigerator(),
         ar_error_codes_viking_dishwasher(),
@@ -36,716 +30,1063 @@ function ar_error_codes_viking(): array {
     );
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// VIKING RANGE & OVEN FAULT CODES (F-Series)
-// ─────────────────────────────────────────────────────────────────────────────
-
-function ar_error_codes_viking_range_oven(): array {
+// =============================================================================
+// VIKING RANGE FAULT CODES — 11 entries (F-Series + key diagnostic faults)
+// =============================================================================
+function ar_error_codes_viking_range(): array {
+    $base = ['post_type' => 'error_code', 'taxonomies' => ['brand' => 'Viking', 'appliance_type' => 'Range']];
     return [
 
-        // ── F1 ───────────────────────────────────────────────────────────────
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Range F1 Fault Code',
-            'slug'       => 'viking-range-f1-fault-code',
+        $base + ['title' => 'Viking Range F1 Fault Code', 'slug' => 'viking-range-f1-fault-code',
             'meta_title' => 'Viking Range F1 Fault Code — Control Board Failure',
-            'meta_desc'  => 'The Viking range F1 fault code indicates a control board failure. Learn what causes it and when professional service is required.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Range' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Range',
-                '_ar_error_code'     => 'F1',
-                '_ar_code_meaning'   => "The F1 fault code on a Viking range or wall oven indicates a failure of the main electronic control board (ERC — Electronic Range Control). The control board has detected an internal fault that prevents normal oven operation.\n\nF1 is typically triggered after the control board has been subject to a power surge, a voltage spike, or internal component failure from heat or age. The oven will not operate while F1 is active. In some cases, clearing the code by cycling the circuit breaker will restore temporary operation, but if F1 returns, the control board requires professional diagnosis and likely replacement.",
-                '_ar_causes'         => [
-                    [ 'title' => 'Control Board Internal Failure', 'description' => 'The main electronic control board (ERC) has developed an internal fault — typically from a failed relay, failed capacitor, or damaged microprocessor component caused by heat cycling, age, or voltage irregularity.' ],
-                    [ 'title' => 'Power Surge or Voltage Spike',   'description' => 'A power surge during a thunderstorm or grid event can damage sensitive control board components. The board may work intermittently before fully failing with a persistent F1 code.' ],
-                    [ 'title' => 'Faulty Wiring Connection',       'description' => 'In some cases, a loose or corroded wiring harness connector to the control board produces an F1 fault. Our technician checks wiring continuity before recommending board replacement.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Reset the oven',                 'description' => 'Switch off the circuit breaker that powers the range or wall oven for 60 seconds, then switch it back on. If F1 does not return immediately, the board may have experienced a transient fault. Monitor for recurrence.' ],
-                    [ 'title' => 'Check for recurrence',           'description' => 'If F1 returns within a short period after reset — or returns as soon as the oven is used — the control board has failed and requires professional replacement. Do not continue attempting to use the oven.' ],
-                ],
-                '_ar_when_to_call'   => "F1 codes that return after circuit breaker reset require professional diagnosis. Our technician will verify the wiring harness before confirming control board failure and recommending replacement. A control board replacement restores full oven function and is completed in a single visit.",
+            'meta_desc'  => 'The Viking range F1 fault code indicates a main control board (ERC) failure. Learn causes, reset steps, and when professional repair is required.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Range', '_ar_error_code' => 'F1',
+                '_ar_code_meaning'   => "F1 on a Viking range or wall oven indicates the main Electronic Range Control (ERC) board has detected an internal fault and shut down oven operation. F1 is typically caused by a power surge, age-related component failure, or heat cycling degrading internal relay or capacitor components.\n\nTry resetting by switching off the circuit breaker for 60 seconds. If F1 returns after reset, the control board requires professional replacement.",
+                '_ar_causes'         => [['title' => 'Control Board Internal Failure', 'description' => 'Failed relay, capacitor, or microprocessor on the ERC caused by age, heat cycling, or voltage irregularity.'], ['title' => 'Power Surge or Voltage Spike', 'description' => 'A surge during a thunderstorm or grid event can damage sensitive ERC components, causing F1 immediately afterward.'], ['title' => 'Loose Wiring Harness', 'description' => 'A corroded or loose wiring connector to the ERC can produce an intermittent F1. Our technician checks harness continuity before recommending board replacement.']],
+                '_ar_diy_steps'      => [['title' => 'Circuit Breaker Reset', 'description' => 'Turn off the breaker powering the range for 60 seconds, then restore power. If F1 does not return immediately, monitor for recurrence.'], ['title' => 'Check for Recurrence', 'description' => 'If F1 returns on first use after reset, the control board has failed and the oven should not be used until professionally repaired.']],
+                '_ar_when_to_call'   => 'F1 codes that return after circuit breaker reset require professional ERC replacement. Our technician verifies wiring integrity before recommending the board, completing the repair in a single visit.',
                 '_ar_cost_range'     => '$250 – $480',
-                '_ar_faqs'           => [
-                    [ 'question' => 'Can I reset a Viking F1 code myself?', 'answer' => 'Yes — switch off the circuit breaker for the range for 60 seconds and restore power. If F1 does not return during normal use, the code may have been a transient event. However, if F1 returns after reset, the control board has failed and the oven should not be used until professionally repaired.' ],
-                    [ 'question' => 'Is a Viking range control board expensive to replace?', 'answer' => 'Viking control board replacements are a meaningful repair cost, but significantly less than oven replacement. Viking ranges are designed for a 20+ year service life, making control board replacement almost always the better economic choice on a unit less than 15 years old.' ],
-                    [ 'question' => 'Can a power surge cause a Viking F1 fault?', 'answer' => 'Yes. Power surges are a common cause of control board failure in Viking ranges and ovens. If F1 appeared immediately after a thunderstorm or power outage, a surge likely damaged the board. We recommend installing a surge protector on the appliance circuit to prevent recurrence.' ],
-                ],
-            ],
-        ],
+                '_ar_faqs'           => [['question' => 'Can I reset a Viking F1 code myself?', 'answer' => 'Yes — switch off the circuit breaker for 60 seconds and restore power. If F1 returns during use, professional board replacement is required.'], ['question' => 'Can a power surge cause Viking F1?', 'answer' => 'Yes. Power surges are a common cause of ERC failure in Viking ranges. If F1 appeared immediately after a storm or outage, a surge likely damaged the board.']]]],
 
-        // ── F2 ───────────────────────────────────────────────────────────────
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Range F2 Fault Code',
-            'slug'       => 'viking-range-f2-fault-code',
+        $base + ['title' => 'Viking Range F2 Fault Code', 'slug' => 'viking-range-f2-fault-code',
             'meta_title' => 'Viking Range F2 Fault Code — Oven Temperature Sensor Shorted',
-            'meta_desc'  => 'The Viking F2 fault code means the oven temperature sensor is reading a short circuit. Learn what causes F2 and how it is repaired.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Range' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Range',
-                '_ar_error_code'     => 'F2',
-                '_ar_code_meaning'   => "The F2 fault code on a Viking range or wall oven indicates that the oven temperature sensor (RTD probe) is reading a short circuit condition — the sensor resistance is lower than the acceptable minimum for the current temperature. The oven control board interprets this as an implausibly high temperature reading and shuts down oven operation as a safety precaution.\n\nF2 is one of the most common Viking oven fault codes and in the majority of cases is caused by a failed temperature sensor probe rather than a wiring or board issue. The temperature sensor probe is a straightforward part to replace and most F2 repairs are completed in a single visit.",
-                '_ar_causes'         => [
-                    [ 'title' => 'Failed Oven Temperature Sensor',   'description' => 'The oven RTD (Resistance Temperature Detector) probe has failed internally, causing its resistance to drop below the valid range. This is the most common cause of F2 and requires sensor probe replacement.' ],
-                    [ 'title' => 'Short in Sensor Wiring',           'description' => 'The wiring from the temperature sensor to the control board has developed a short circuit — usually from a wire chafing against the oven cavity wall, or from a wire connector becoming damaged. We inspect the wiring harness before replacing the sensor.' ],
-                    [ 'title' => 'Control Board Sensor Input Fault', 'description' => 'Less commonly, the sensor input circuit on the control board itself has failed. This is diagnosed after confirming the sensor probe and wiring are within specification.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Reset the oven',                   'description' => 'Turn off the circuit breaker for 60 seconds and restore power. If F2 returns immediately or during oven use, the sensor has failed and requires replacement.' ],
-                    [ 'title' => 'Inspect the sensor probe',         'description' => 'The temperature sensor probe is typically located inside the oven cavity on the upper back wall, held by one or two screws. Inspect the probe for visible damage, corrosion, or contact with the oven cavity. A burned or corroded sensor probe should be replaced.' ],
-                ],
-                '_ar_when_to_call'   => "If F2 returns after reset, professional service is required to test the sensor resistance with a multimeter and confirm whether the sensor probe, wiring, or control board is at fault. In the majority of F2 cases, sensor replacement resolves the code completely. Our technicians carry the correct Viking OEM sensor probes and can complete this repair on the first visit.",
+            'meta_desc'  => 'The Viking F2 fault code means the oven RTD sensor is reading a short circuit. Learn what causes F2 and how it is repaired.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Range', '_ar_error_code' => 'F2',
+                '_ar_code_meaning'   => "F2 on a Viking range or wall oven indicates the oven temperature sensor (RTD probe) is reading a short circuit — sensor resistance is below the acceptable minimum for the current temperature. The ERC shuts down oven operation as a safety measure. F2 is most commonly caused by a failed sensor probe, which is a straightforward OEM replacement. Do not use the oven with F2 active.",
+                '_ar_causes'         => [['title' => 'Failed RTD Probe', 'description' => 'The resistance temperature detector probe inside the oven cavity has failed with an internal short. Replacement with a Viking OEM probe resolves F2 in most cases.'], ['title' => 'Short in Sensor Wiring', 'description' => 'The wiring between the sensor and ERC has developed a short — typically from wire chafing against the oven cavity.']],
+                '_ar_diy_steps'      => [['title' => 'Reset the Oven', 'description' => 'Switch off the breaker for 60 seconds. If F2 does not return immediately, monitor for recurrence.'], ['title' => 'Do Not Use the Oven', 'description' => 'F2 means the oven cannot regulate temperature accurately. Do not bake or broil until the sensor has been replaced.']],
+                '_ar_when_to_call'   => 'F2 codes that return after reset require professional sensor replacement. Our technician tests sensor resistance and replaces the probe with a genuine Viking OEM part in a single visit.',
                 '_ar_cost_range'     => '$130 – $230',
-                '_ar_faqs'           => [
-                    [ 'question' => 'What does F2 mean on my Viking oven?', 'answer' => 'F2 on a Viking oven means the temperature sensor (RTD probe inside the oven cavity) is reading a short circuit — the sensor\'s resistance is lower than it should be. The oven cannot safely regulate temperature with a faulty sensor, so it shuts down. In most cases, sensor replacement resolves the F2 code completely.' ],
-                    [ 'question' => 'Can I use my Viking oven with an F2 code?', 'answer' => 'No. When F2 is active, the oven\'s temperature control system is not functioning correctly. Operating the oven with a shorted sensor risks temperature runaway — the oven could overheat significantly beyond the set temperature. Do not use the oven until the F2 fault is repaired.' ],
-                    [ 'question' => 'How long does F2 sensor replacement take?', 'answer' => 'Viking oven temperature sensor replacement is typically completed in 45–75 minutes. Our technicians carry Viking OEM sensor probes and can complete the repair on the first visit in most cases.' ],
-                ],
-            ],
-        ],
+                '_ar_faqs'           => [['question' => 'Can I use my Viking range with an F2 code?', 'answer' => 'No. F2 means the oven temperature sensor is shorted and the oven cannot regulate temperature. Using it risks overheating. Replace the sensor first.']]]],
 
-        // ── F3 ───────────────────────────────────────────────────────────────
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Range F3 Fault Code',
-            'slug'       => 'viking-range-f3-fault-code',
+        $base + ['title' => 'Viking Range F3 Fault Code', 'slug' => 'viking-range-f3-fault-code',
             'meta_title' => 'Viking Range F3 Fault Code — Oven Temperature Sensor Open Circuit',
-            'meta_desc'  => 'The Viking F3 fault code means the oven temperature sensor has an open circuit. Learn the causes and what the repair involves.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Range' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Range',
-                '_ar_error_code'     => 'F3',
-                '_ar_code_meaning'   => "The F3 fault code on a Viking range or wall oven indicates an open circuit in the oven temperature sensor system — the sensor's resistance is higher than the acceptable maximum, or the circuit has broken completely. The oven control board receives no valid temperature signal and shuts down oven operation.\n\nLike F2, the F3 code is most commonly caused by the temperature sensor probe itself — in this case from a broken internal element rather than a short. A disconnected sensor connector or a broken wire in the sensor harness will also produce F3.",
-                '_ar_causes'         => [
-                    [ 'title' => 'Failed Oven Temperature Sensor',   'description' => 'The RTD probe element has broken internally, causing an open circuit. This is the most common cause of F3. The probe is a discrete replaceable component.' ],
-                    [ 'title' => 'Disconnected or Broken Wiring',    'description' => 'The connector that joins the sensor probe wiring to the main harness has become disconnected, or the wire has broken. This typically occurs if the wire has been pinched during previous service or has fatigued from heat cycling over many years.' ],
-                    [ 'title' => 'Control Board Sensor Input Fault', 'description' => 'The sensor input circuit on the control board has failed, causing it to read infinite resistance even with a good sensor. This is confirmed after testing the sensor and wiring separately.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Check the sensor connector',       'description' => 'The temperature sensor probe connects to the main wiring harness via a two-pin connector behind the oven back panel. If you are comfortable with basic appliance access, verify the connector is fully seated. A disconnected connector will produce F3 and is a simple fix.' ],
-                    [ 'title' => 'Reset the oven',                   'description' => 'Cycle the circuit breaker off for 60 seconds. If F3 returns immediately, the sensor or wiring has failed and requires professional service.' ],
-                ],
-                '_ar_when_to_call'   => "F3 requires professional diagnosis to confirm whether the sensor probe, wiring harness, or control board is the root cause. Our technicians test sensor resistance with calibrated instruments and inspect the harness before recommending a specific repair. Most F3 repairs are sensor replacements completed in a single visit.",
+            'meta_desc'  => 'The Viking F3 fault code means the oven temperature sensor has an open circuit. Learn the causes and repair steps.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Range', '_ar_error_code' => 'F3',
+                '_ar_code_meaning'   => "F3 on a Viking range or wall oven indicates the oven temperature sensor (RTD probe) circuit is open — either the probe itself has broken internally or its wiring connector is disconnected. Like F2, F3 causes the ERC to shut down oven operation. F3 and F2 are diagnosed identically; the technician tests sensor resistance to confirm whether the probe, connector, or wiring is the cause.",
+                '_ar_causes'         => [['title' => 'Failed RTD Probe (Open Circuit)', 'description' => 'The sensor probe element has broken internally, reading infinite resistance. Replace with a Viking OEM probe.'], ['title' => 'Disconnected Sensor Connector', 'description' => 'The wiring connector at the sensor or ERC has come loose. Our technician checks and reseats connectors before replacing parts.']],
+                '_ar_diy_steps'      => [['title' => 'Reset the Oven', 'description' => 'Switch off the breaker for 60 seconds. If F3 does not return, monitor for recurrence.']],
+                '_ar_when_to_call'   => 'F3 requires professional sensor diagnosis. Our technician measures sensor resistance to confirm the failure before ordering parts.',
                 '_ar_cost_range'     => '$130 – $230',
-                '_ar_faqs'           => [
-                    [ 'question' => 'What is the difference between Viking F2 and F3?', 'answer' => 'F2 indicates the temperature sensor is reading a short circuit (resistance too low), while F3 indicates an open circuit (resistance too high or broken connection). Both codes shut down the oven. The diagnostic process and repair are similar — we test the sensor resistance to determine whether F2 or F3 is caused by the probe itself or by the wiring.' ],
-                    [ 'question' => 'My Viking oven shows F3 — can I reset it?', 'answer' => 'You can attempt a reset by switching the circuit breaker off for 60 seconds. If F3 returns, the temperature sensor probe or its wiring has failed and must be replaced. The oven should not be used with an active F3 code as temperature regulation is disabled.' ],
-                ],
-            ],
-        ],
+                '_ar_faqs'           => [['question' => 'What is the difference between F2 and F3?', 'answer' => 'F2 means the sensor reads too low (short circuit). F3 means the sensor reads too high or infinite (open circuit). Both indicate a failed RTD probe in most cases.']]]],
 
-        // ── F4 ───────────────────────────────────────────────────────────────
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Range F4 Fault Code',
-            'slug'       => 'viking-range-f4-fault-code',
+        $base + ['title' => 'Viking Range F4 Fault Code', 'slug' => 'viking-range-f4-fault-code',
             'meta_title' => 'Viking Range F4 Fault Code — Oven Temperature Runaway',
-            'meta_desc'  => 'The Viking F4 fault code signals an oven temperature runaway — the oven exceeded the set temperature. Learn what causes F4 and the required repair.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Range' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Range',
-                '_ar_error_code'     => 'F4',
-                '_ar_code_meaning'   => "The F4 fault code on a Viking range or wall oven indicates a temperature runaway condition — the oven temperature has exceeded the set temperature by a significant margin without the control board being able to correct it. The oven shuts down immediately when F4 triggers.\n\nF4 is a safety-critical fault. It means the heating element or gas burner continued heating beyond the set point, which in an uncorrected failure could result in a fire hazard. F4 is most commonly caused by a failed oven relay on the control board that has stuck in the 'on' position, continuously supplying power to the heating element regardless of temperature feedback.",
-                '_ar_causes'         => [
-                    [ 'title' => 'Stuck Oven Relay on Control Board', 'description' => 'The oven relay on the control board — the electronic switch that cycles the heating element on and off based on temperature feedback — has failed stuck-closed. This causes the element to run continuously, driving the oven temperature far above the set point.' ],
-                    [ 'title' => 'Failed Oven Heating Element (Stuck)',  'description' => 'In rare cases, the heating element itself fails in a way that bypasses the relay control and maintains a current path. This requires element replacement and often control board inspection.' ],
-                    [ 'title' => 'Faulty Temperature Sensor',          'description' => 'If the temperature sensor is providing an inaccurately low reading to the control board, the board believes the oven is cooler than it actually is and continues heating. However, a shorted sensor typically triggers F2 before F4 can occur.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Do not continue using the oven',     'description' => 'F4 is a safety-critical fault indicating the heating system ran out of control. Switch off the circuit breaker for the oven and leave it off until the oven has been professionally inspected. Do not attempt a reset and immediate reuse.' ],
-                ],
-                '_ar_when_to_call'   => "F4 requires immediate professional service. This code indicates an active safety fault in the heating control system. Our technician will diagnose whether the control board relay or the heating element is the cause, and complete the repair with genuine Viking OEM parts. Do not operate the oven with F4 active.",
-                '_ar_cost_range'     => '$200 – $460',
-                '_ar_faqs'           => [
-                    [ 'question' => 'Is F4 on a Viking oven dangerous?', 'answer' => 'F4 indicates the oven heating system operated without the normal temperature control limits being enforced. While the oven shuts itself down when F4 triggers, the fault that caused it — typically a stuck relay — could allow the oven to overheat significantly if used again before repair. We recommend treating F4 as a safety fault and not using the oven until it has been professionally repaired.' ],
-                    [ 'question' => 'What parts are typically replaced for an F4 fault?', 'answer' => 'F4 most commonly requires control board replacement to replace the failed oven relay. In some cases the heating element is also replaced if it shows evidence of damage from the runaway event. Our technician confirms the specific failed component before ordering parts.' ],
-                ],
-            ],
-        ],
+            'meta_desc'  => 'The Viking F4 fault code triggers when the oven exceeds the set temperature by more than 50°F. Learn the causes and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Range', '_ar_error_code' => 'F4',
+                '_ar_code_meaning'   => "F4 on a Viking range or wall oven triggers when the oven temperature exceeds the set point by more than 50°F. The ERC detects that the oven is overheating and shuts it down as a safety measure. F4 is typically caused by a failed oven relay on the ERC that has stuck closed, a stuck-open bake or broil element, or a failed temperature sensor sending an artificially low reading to the board.",
+                '_ar_causes'         => [['title' => 'Stuck Closed Oven Relay on ERC', 'description' => 'The relay on the control board that powers the bake element has stuck in the closed position, keeping the element on continuously until the oven overheats.'], ['title' => 'Failed Temperature Sensor (False Low Reading)', 'description' => 'A sensor reporting a lower temperature than actual causes the ERC to keep heating past the set point.']],
+                '_ar_diy_steps'      => [['title' => 'Do Not Use the Oven', 'description' => 'F4 indicates a temperature control failure. Do not use the oven until professionally repaired.'], ['title' => 'Circuit Breaker Reset', 'description' => 'Switch off the breaker and restore power. If F4 returns during use, call for professional service.']],
+                '_ar_when_to_call'   => 'F4 requires professional diagnosis immediately. A stuck relay can cause the oven to overheat dangerously. Our technician identifies whether the ERC relay or sensor is at fault.',
+                '_ar_cost_range'     => '$180 – $480',
+                '_ar_faqs'           => [['question' => 'Is F4 dangerous?', 'answer' => 'Yes. F4 indicates the oven overheated past a safe threshold. Do not use the oven with an active or recurring F4 fault until professionally repaired.']]]],
 
-        // ── F7 ───────────────────────────────────────────────────────────────
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Range F7 Fault Code',
-            'slug'       => 'viking-range-f7-fault-code',
-            'meta_title' => 'Viking Range F7 Fault Code — Key Stuck / Keypad Failure',
-            'meta_desc'  => 'The Viking F7 fault code means a key on the control panel keypad is stuck or shorted. Learn what causes F7 and how to fix it.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Range' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Range',
-                '_ar_error_code'     => 'F7',
-                '_ar_code_meaning'   => "The F7 fault code on a Viking range or wall oven indicates that a key on the control panel keypad is registering as continuously pressed — a 'stuck key' fault. The control board detects this as an invalid input state and displays F7 to alert the user.\n\nF7 most commonly occurs after moisture — from steam, spills, or condensation — enters the keypad membrane and causes one or more key contacts to remain electrically closed. Physical damage to the control panel face from impact can also produce F7.",
-                '_ar_causes'         => [
-                    [ 'title' => 'Moisture in the Keypad Membrane',   'description' => 'Steam from boiling pots on the cooktop, condensation, or liquid spilled on the control panel can seep into the keypad membrane and cause one or more key contacts to short, registering a continuously pressed key.' ],
-                    [ 'title' => 'Damaged Keypad Membrane',            'description' => 'Physical pressure or impact on the control panel face can damage the membrane contacts beneath, causing a key to register as permanently pressed.' ],
-                    [ 'title' => 'Failed Control Board Key Input',     'description' => 'Less commonly, the key input circuit on the control board itself has failed and reports a stuck key. This is confirmed after the keypad membrane has been inspected and tested.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Allow the panel to dry',             'description' => 'If F7 appeared after cooking with steam or after a spill near the control panel, turn the oven off and allow the control panel area to dry completely for several hours. Remove the power at the circuit breaker to fully de-energize the panel. Restore power after drying and check if F7 clears.' ],
-                    [ 'title' => 'Reset the oven',                     'description' => 'Switch off the circuit breaker for 60 seconds and restore power. If F7 returns quickly — especially without any moisture exposure — the keypad membrane has failed and requires replacement.' ],
-                ],
-                '_ar_when_to_call'   => "If F7 returns after the panel has been thoroughly dried and reset, the keypad membrane needs professional replacement. Our technicians replace the Viking keypad membrane with a genuine Viking OEM component and test all key inputs after installation. This repair is typically completed in a single visit.",
-                '_ar_cost_range'     => '$160 – $310',
-                '_ar_faqs'           => [
-                    [ 'question' => 'Why does my Viking oven show F7 after I cooked on the stovetop?', 'answer' => 'Heavy steam from boiling can condense on and around the control panel, seeping into the keypad membrane. This is the most common trigger for F7. Allow the area to dry completely with the oven off and the circuit breaker switched off for several hours. If F7 clears and does not return, the moisture has dried out. If F7 returns, the membrane has been permanently damaged by the moisture and requires replacement.' ],
-                    [ 'question' => 'Can I use my Viking range with an F7 code?', 'answer' => 'An F7 code disables normal control panel operation. The oven should not be used with F7 active, as the control board cannot receive reliable keypad input. The burners may still operate via the mechanical knobs on some models, but oven and timer functions will be unavailable.' ],
-                ],
-            ],
-        ],
-
-        // ── F9 ───────────────────────────────────────────────────────────────
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Range F9 Fault Code',
-            'slug'       => 'viking-range-f9-fault-code',
-            'meta_title' => 'Viking Range F9 Fault Code — Self-Clean Door Lock Failure',
-            'meta_desc'  => 'The Viking F9 fault code means the self-clean door lock has not operated correctly. Learn what causes F9 and what the repair involves.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Range' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Range',
-                '_ar_error_code'     => 'F9',
-                '_ar_code_meaning'   => "The F9 fault code on a Viking range or wall oven indicates a door lock failure during or before the self-clean cycle. The oven requires the door lock mechanism to engage before the self-clean cycle can begin — if the lock does not engage within the allotted time, F9 is triggered and the self-clean cycle is cancelled as a safety measure.\n\nF9 can also appear if the door lock mechanism does not disengage after a self-clean cycle completes, leaving the oven door locked. In either scenario, the door lock motor assembly or its associated components require service.",
-                '_ar_causes'         => [
-                    [ 'title' => 'Failed Door Lock Motor',             'description' => 'The motor that drives the door lock mechanism has failed and cannot complete its travel to the locked or unlocked position. This is the most common cause of F9 and requires door lock motor assembly replacement.' ],
-                    [ 'title' => 'Failed Door Lock Switch',            'description' => 'The switch that reports the door lock position to the control board has failed, even though the lock mechanism itself may have moved correctly. The board receives no confirmation of lock engagement and triggers F9.' ],
-                    [ 'title' => 'Obstruction in Door Lock Path',     'description' => 'Food debris or physical obstruction in the door lock track prevents the lock from completing its travel. Cleaning the door frame and lock track may resolve this before a motor replacement is needed.' ],
-                    [ 'title' => 'Door Alignment Issue',               'description' => 'If the oven door has become misaligned — from hinge wear or a hard impact — the door lock mechanism may not align correctly with the door catch, preventing engagement.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Inspect the door lock area',         'description' => 'With the oven off and cool, inspect the door frame area around the latch for food debris or obstructions. Clean the area around the door lock mechanism with a damp cloth. Attempt the self-clean cycle again after cleaning.' ],
-                    [ 'title' => 'Reset the oven',                     'description' => 'If the door is locked after a self-clean cycle with F9 displayed, switch off the circuit breaker for 5 minutes, then restore power. In some cases the lock motor will complete its return travel on power-up. If the door remains locked, do not force it — professional service is required.' ],
-                ],
-                '_ar_when_to_call'   => "If F9 returns after cleaning around the lock mechanism and resetting the oven, the door lock motor assembly requires professional replacement. Our technicians replace the Viking door lock assembly with a genuine OEM component and test the self-clean cycle to confirm resolution. Do not attempt to force the door open if it is locked — this can damage the latch mechanism further.",
-                '_ar_cost_range'     => '$150 – $280',
-                '_ar_faqs'           => [
-                    [ 'question' => 'My Viking oven door is locked and shows F9 — how do I open it?', 'answer' => 'First, switch off the circuit breaker for the oven for 5 minutes, then restore power. In many cases the door lock motor will reset and release the door on power-up. If the door remains locked after this, professional service is required to disassemble the lock mechanism from the inside without forcing the door latch. Never force the door open — this can break the latch permanently.' ],
-                    [ 'question' => 'Is the F9 fault related to the self-clean cycle only?', 'answer' => 'F9 appears specifically during or after the self-clean cycle because the door lock mechanism is only activated for self-cleaning. The code indicates the lock did not engage before the cycle started, or did not disengage after the cycle ended. The oven\'s regular cooking functions do not require the door lock.' ],
-                    [ 'question' => 'How long does F9 door lock repair take?', 'answer' => 'Viking door lock motor assembly replacement is typically completed in 60–90 minutes. Our technicians carry the correct Viking OEM door lock assemblies and can complete this repair on the first visit in most cases.' ],
-                ],
-            ],
-        ],
-
-    ]; // end array_merge inner array
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// VIKING WALL OVEN FAULT CODES (F-Series — same ERC as Range)
-// ─────────────────────────────────────────────────────────────────────────────
-
-function ar_error_codes_viking_wall_oven(): array {
-    return [
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Wall Oven F2 Fault Code',
-            'slug'       => 'viking-wall-oven-f2-fault-code',
-            'meta_title' => 'Viking Wall Oven F2 Fault Code — Oven Temperature Sensor Shorted',
-            'meta_desc'  => 'The Viking wall oven F2 fault code indicates the oven temperature sensor is reading a short circuit. Learn what causes F2 and how it is repaired.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Wall Oven' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Wall Oven',
-                '_ar_error_code'     => 'F2',
-                '_ar_code_meaning'   => "The F2 fault code on a Viking wall oven indicates the oven temperature sensor (RTD probe) is reading a short circuit — the sensor resistance is lower than the acceptable minimum for the current temperature. Viking wall ovens use the same Electronic Range Control (ERC) architecture as Viking ranges, so F-codes are identical across both product types.\n\nF2 is one of the most common Viking wall oven fault codes and in the majority of cases is caused by a failed temperature sensor probe rather than a wiring or board issue.",
-                '_ar_causes'         => [
-                    [ 'title' => 'Failed Oven Temperature Sensor Probe', 'description' => 'The RTD temperature sensor probe has developed an internal short. The probe is a separate, replaceable component mounted inside the oven cavity. Replacement with a genuine Viking OEM probe restores accurate temperature sensing.' ],
-                    [ 'title' => 'Short in Sensor Wiring',              'description' => 'The wiring between the sensor and the control board has developed a short — typically from a wire chafing against the oven cavity or a corroded connector. Our technician inspects the harness before recommending probe replacement.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Reset the wall oven',    'description' => 'Switch off the circuit breaker powering the wall oven for 60 seconds, then restore power. If F2 does not return immediately, monitor the oven for recurrence before scheduling service.' ],
-                    [ 'title' => 'Do not use the oven',   'description' => 'If F2 returns after reset, the oven cannot regulate temperature safely. Do not attempt to bake or broil until the sensor has been professionally replaced.' ],
-                ],
-                '_ar_when_to_call'   => 'F2 codes that return after reset require professional sensor replacement. Our technician tests sensor resistance, confirms the short, and replaces the probe using a genuine Viking OEM part. This repair is typically completed in a single visit.',
-                '_ar_cost_range'     => '$130 – $220',
-                '_ar_faqs'           => [
-                    [ 'question' => 'Can I use my Viking wall oven with an F2 code?', 'answer' => 'No. F2 means the oven\'s temperature sensor is reporting a short circuit, so the oven cannot accurately measure or control temperature. Using the oven with F2 active risks overheating and should be avoided until the sensor is replaced.' ],
-                    [ 'question' => 'Is the Viking wall oven F2 code the same as the range F2 code?', 'answer' => 'Yes. Viking wall ovens use the same Electronic Range Control (ERC) architecture as Viking ranges. The F2 fault code has the same meaning and is diagnosed and repaired the same way in both product types.' ],
-                ],
-            ],
-        ],
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Wall Oven F9 Fault Code',
-            'slug'       => 'viking-wall-oven-f9-fault-code',
-            'meta_title' => 'Viking Wall Oven F9 Fault Code — Self-Clean Door Lock Failure',
-            'meta_desc'  => 'The Viking wall oven F9 fault code means the self-clean door lock has not engaged or disengaged correctly. Learn what causes F9 and how it is repaired.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Wall Oven' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Wall Oven',
-                '_ar_error_code'     => 'F9',
-                '_ar_code_meaning'   => "The F9 fault code on a Viking wall oven indicates the self-clean door lock mechanism has not engaged or disengaged correctly. Viking wall ovens require the door lock to engage fully before the self-clean cycle can start. If the lock does not confirm engagement within the required time, F9 is triggered and the self-clean cycle is cancelled as a safety measure.",
-                '_ar_causes'         => [
-                    [ 'title' => 'Failed Door Lock Motor Assembly', 'description' => 'The motor that drives the door lock bolt has failed and cannot complete its travel to the locked or unlocked position. Door lock motor replacement restores self-clean capability.' ],
-                    [ 'title' => 'Door Lock Switch Failure',        'description' => 'The switch that reports door lock position to the control board has failed, even though the lock mechanism may have moved correctly.' ],
-                    [ 'title' => 'Obstruction in Lock Track',       'description' => 'Food debris or a physical obstruction in the door lock track prevents the bolt from completing its travel. Cleaning the area around the latch may resolve this without a parts replacement.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Inspect the door lock area', 'description' => 'With the oven off and cool, inspect the door frame area around the latch bolt for food debris or obstruction. Clean thoroughly. Attempt the self-clean cycle again after cleaning.' ],
-                    [ 'title' => 'Reset the oven',             'description' => 'If the door is locked with F9 displayed, switch off the circuit breaker for 5 minutes, then restore power. In many cases the lock motor will reset and release the door.' ],
-                ],
-                '_ar_when_to_call'   => 'F9 codes that return after cleaning and reset require professional door lock motor replacement. Never force a locked oven door — this can damage the latch mechanism permanently.',
-                '_ar_cost_range'     => '$150 – $270',
-                '_ar_faqs'           => [
-                    [ 'question' => 'My Viking wall oven door is locked with F9 showing — how do I open it?', 'answer' => 'Switch off the circuit breaker for the wall oven for 5 minutes, then restore power. The lock motor should reset and release the door. If the door remains locked, professional service is required to disassemble the lock mechanism safely.' ],
-                ],
-            ],
-        ],
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Wall Oven F1 Fault Code',
-            'slug'       => 'viking-wall-oven-f1-fault-code',
-            'meta_title' => 'Viking Wall Oven F1 Fault Code — Control Board Failure',
-            'meta_desc'  => 'The Viking wall oven F1 fault code indicates a control board failure. Learn what causes it and when professional service is required.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Wall Oven' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Wall Oven',
-                '_ar_error_code'     => 'F1',
-                '_ar_code_meaning'   => "The F1 fault code on a Viking wall oven indicates a failure of the main electronic control board (ERC — Electronic Range Control). The control board has detected an internal fault that prevents normal oven operation. Viking wall ovens use the same ERC architecture as Viking ranges, so F1 diagnosis and repair are identical in both products.",
-                '_ar_causes'         => [
-                    [ 'title' => 'Control Board Internal Failure', 'description' => 'The ERC has developed an internal fault from a failed relay, capacitor, or microprocessor component caused by age, heat cycling, or voltage irregularity.' ],
-                    [ 'title' => 'Power Surge or Voltage Spike',   'description' => 'A power surge during a grid event can damage control board components. F1 appearing immediately after a power outage or thunderstorm suggests surge damage.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Reset the wall oven', 'description' => 'Switch off the circuit breaker for 60 seconds, then restore power. If F1 does not return, the board experienced a transient fault. Monitor for recurrence.' ],
-                ],
-                '_ar_when_to_call'   => 'F1 codes that return after reset require professional control board diagnosis and replacement. Our technician verifies wiring integrity before recommending board replacement.',
-                '_ar_cost_range'     => '$250 – $480',
-                '_ar_faqs'           => [
-                    [ 'question' => 'Is the Viking wall oven F1 code the same as the range F1 code?', 'answer' => 'Yes. Viking wall ovens and ranges use the same Electronic Range Control (ERC). F1 indicates main control board failure in both products and is diagnosed and repaired identically.' ],
-                ],
-            ],
-        ],
-    ];
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// VIKING REFRIGERATOR DIAGNOSTIC FAULT INDICATORS
-// ─────────────────────────────────────────────────────────────────────────────
-
-function ar_error_codes_viking_refrigerator(): array {
-    return [
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Refrigerator Defrost System Fault',
-            'slug'       => 'viking-refrigerator-defrost-fault',
-            'meta_title' => 'Viking Refrigerator Defrost System Fault — Not Cooling, Frost Buildup',
-            'meta_desc'  => 'A Viking refrigerator defrost system fault causes the fresh food compartment to warm while the freezer stays cold. Learn the causes and repair steps.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Refrigerator' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Refrigerator',
-                '_ar_error_code'     => 'Defrost Fault',
-                '_ar_code_meaning'   => "A defrost system fault in a Viking refrigerator occurs when the automatic defrost cycle fails, allowing ice to accumulate on the evaporator coil. As the coil ices over, it blocks airflow from the freezer to the fresh food compartment — the freezer stays cold while the refrigerator section gradually warms.\n\nSymptoms include a refrigerator compartment that is warmer than set, visible frost or ice on the freezer back wall, and a buzzing or louder-than-normal sound from the evaporator fan area as it struggles against ice buildup. Defrost system faults are one of the most common Viking refrigerator faults.",
-                '_ar_causes'         => [
-                    [ 'title' => 'Failed Defrost Heater',      'description' => 'The defrost heater element that melts accumulated frost from the evaporator coil has burned out. Without the heater running during the defrost cycle, frost builds up continuously until airflow is blocked.' ],
-                    [ 'title' => 'Failed Defrost Thermostat',  'description' => 'The defrost thermostat monitors evaporator temperature and cuts power to the defrost heater when the coil reaches the defrost termination temperature. A failed thermostat prevents the heater from receiving power even when the defrost cycle runs.' ],
-                    [ 'title' => 'Defrost Control Board Fault','description' => 'The defrost timer or control board component that initiates defrost cycles has failed, so defrost cycles do not occur at all. The evaporator continuously frosts over without any periodic melting.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Manual defrost test',         'description' => 'Remove all food from both compartments and unplug the refrigerator for 24–48 hours with the doors open. If cooling returns after the ice melts and the unit is plugged back in, the defrost system has failed and requires professional repair.' ],
-                    [ 'title' => 'Check freezer back panel',    'description' => 'Remove the freezer back panel (held by screws) to inspect the evaporator coil. If the coil is encased in thick ice, the defrost system has failed. Manual defrost is a temporary fix only — the underlying component must be replaced.' ],
-                ],
-                '_ar_when_to_call'   => 'Defrost system failures require professional diagnosis to identify the specific failed component (heater, thermostat, or control board) before parts are ordered. Our technician identifies the fault and replaces only the failed component, completing the repair in a single visit.',
+        $base + ['title' => 'Viking Range F7 Fault Code', 'slug' => 'viking-range-f7-fault-code',
+            'meta_title' => 'Viking Range F7 Fault Code — Key Stuck on Control Panel',
+            'meta_desc'  => 'The Viking F7 fault code means a keypad button is registering as permanently pressed. Learn causes, DIY checks, and repair steps.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Range', '_ar_error_code' => 'F7',
+                '_ar_code_meaning'   => "F7 on a Viking range or wall oven means the ERC has detected a keypad button registering as permanently pressed — a shorted or stuck key. F7 is commonly caused by moisture damage to the membrane keypad from spills or steam, or physical damage to a keypad switch. The oven cannot accept commands while F7 is active.",
+                '_ar_causes'         => [['title' => 'Moisture in Keypad Membrane', 'description' => 'Liquid spilled on or near the control panel seeped into the keypad membrane and is causing a key contact to register as continuously pressed.'], ['title' => 'Damaged Keypad Switch', 'description' => 'Physical damage to the control panel has caused a keypad switch to stick in the pressed position.']],
+                '_ar_diy_steps'      => [['title' => 'Allow to Dry', 'description' => 'If F7 appeared after a spill or cleaning, turn off the oven and allow the control panel to dry completely (24–48 hours). Reset the breaker and check if F7 clears.'], ['title' => 'Circuit Breaker Reset', 'description' => 'Switch off the breaker for 60 seconds. If F7 clears and does not return, the issue was moisture-related.']],
+                '_ar_when_to_call'   => 'If F7 returns after the panel has dried and been reset, the keypad membrane or control panel assembly requires professional replacement.',
                 '_ar_cost_range'     => '$160 – $320',
-                '_ar_faqs'           => [
-                    [ 'question' => 'Why is my Viking refrigerator warm but the freezer is cold?', 'answer' => 'This is the classic symptom of a defrost system failure. The evaporator coil that cools both compartments is located in the freezer section. When the coil ices over due to a failed defrost component, cold air can no longer flow to the refrigerator compartment, while the freezer — in direct contact with the coil — remains cold.' ],
-                    [ 'question' => 'How quickly will food spoil with a defrost failure?', 'answer' => 'Refrigerator compartment temperature will typically rise above 40°F (the food safety limit) within 4–8 hours of the cooling failure becoming complete. Once the refrigerator warms above 40°F, perishables should be moved to a cooler with ice or another refrigerator immediately.' ],
-                ],
-            ],
-        ],
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Refrigerator Ice Maker Fault',
-            'slug'       => 'viking-refrigerator-ice-maker-fault',
-            'meta_title' => 'Viking Refrigerator Ice Maker Not Working — Diagnosis & Repair',
-            'meta_desc'  => 'Viking refrigerator ice maker not producing ice? Learn the most common causes and repair steps for Viking built-in and French door refrigerator ice makers.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Refrigerator' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Refrigerator',
-                '_ar_error_code'     => 'Ice Maker Fault',
-                '_ar_code_meaning'   => "A Viking refrigerator ice maker fault occurs when the ice maker assembly stops producing ice, produces ice in irregular quantities, or produces ice that is malformed (hollow, thin, or smaller than normal).\n\nViking refrigerators use an automatic ice maker assembly connected to a water inlet valve and a dedicated ice maker thermostat. When ice production stops completely, the cause is almost always a failed water inlet valve, a frozen water line, a failed ice maker thermostat, or a failed ice maker module itself.",
-                '_ar_causes'         => [
-                    [ 'title' => 'Failed Water Inlet Valve',     'description' => 'The solenoid water inlet valve that controls water flow to the ice maker has failed in the closed position. No water reaches the ice maker tray, so no ice is produced. Replacement with a genuine Viking OEM valve restores ice production.' ],
-                    [ 'title' => 'Frozen Water Supply Line',     'description' => 'The small water supply tube running from the inlet valve to the ice maker has frozen solid inside the freezer door or back panel. Defrosting the line restores water flow temporarily, but the root cause (freezer temperature too low, damaged insulation) should be addressed.' ],
-                    [ 'title' => 'Failed Ice Maker Thermostat',  'description' => 'The ice maker thermostat monitors the ice tray temperature to initiate the harvest cycle. A failed thermostat prevents ice from being released from the tray even after freezing.' ],
-                    [ 'title' => 'Failed Ice Maker Module',      'description' => 'The ice maker control module that sequences the fill, freeze, and harvest cycle has failed. The entire ice maker assembly typically requires replacement in this case.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Check the ice maker arm or switch', 'description' => 'Verify the ice maker on/off arm (wire arm) is in the down position and the ice maker switch (if equipped) is set to ON. An arm bumped to the up position stops ice production.' ],
-                    [ 'title' => 'Check water supply',               'description' => 'Verify the refrigerator water supply valve (under the sink or behind the unit) is fully open and the water line is not kinked.' ],
-                ],
-                '_ar_when_to_call'   => 'Persistent ice maker failure after confirming the supply valve is open and the arm is down requires professional diagnosis to identify whether the inlet valve, water line, thermostat, or ice maker module has failed.',
-                '_ar_cost_range'     => '$150 – $280',
-                '_ar_faqs'           => [
-                    [ 'question' => 'How do I reset the ice maker on a Viking refrigerator?', 'answer' => 'Locate the test button or reset switch on the ice maker module (usually on the side or underside of the assembly). Press and hold for 3–5 seconds until the ice maker starts a test cycle. If the test cycle runs but produces no ice within 24 hours, the ice maker or inlet valve requires service.' ],
-                ],
-            ],
-        ],
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Refrigerator Compressor Fault',
-            'slug'       => 'viking-refrigerator-compressor-fault',
-            'meta_title' => 'Viking Refrigerator Compressor Not Running — Diagnosis',
-            'meta_desc'  => 'Viking refrigerator not cooling at all with a silent compressor? Learn the causes of compressor faults and what repair options are available.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Refrigerator' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Refrigerator',
-                '_ar_error_code'     => 'Compressor Fault',
-                '_ar_code_meaning'   => "A Viking refrigerator compressor fault occurs when the compressor — the pump that circulates refrigerant through the sealed cooling system — is not running. A completely silent refrigerator (no compressor hum) that is warm in both compartments indicates a compressor, start relay, or sealed system fault.\n\nA compressor fault is distinct from a defrost failure: in a defrost failure, the freezer stays cold. In a compressor fault, both compartments are warm and no compressor sound is audible from the back or bottom of the unit.",
-                '_ar_causes'         => [
-                    [ 'title' => 'Failed Start Relay',      'description' => 'The compressor start relay (a small component plugged directly into the compressor) provides the initial current boost needed to start the compressor motor. A failed start relay is one of the most common causes of a silent compressor and is an inexpensive, straightforward repair.' ],
-                    [ 'title' => 'Failed Compressor',       'description' => 'The compressor motor itself has seized or failed internally. Compressor replacement is a major sealed-system repair requiring EPA certification and specialized equipment.' ],
-                    [ 'title' => 'Refrigerant Leak',        'description' => 'A refrigerant leak in the sealed system allows the refrigerant charge to escape. With insufficient refrigerant, the compressor runs but the system cannot cool. Refrigerant service requires an EPA-certified technician.' ],
-                    [ 'title' => 'Control Board Fault',     'description' => 'The refrigerator control board component that activates the compressor relay has failed, preventing the compressor from receiving power even though it is mechanically functional.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Listen for the start relay',  'description' => 'Unplug the refrigerator and shake the start relay (remove it from the compressor terminal — it unplugs). If you hear a rattle inside the relay, the relay has failed and requires replacement. This is an inexpensive DIY repair for those comfortable with basic appliance work.' ],
-                ],
-                '_ar_when_to_call'   => 'A failed start relay can be a DIY repair, but compressor failure, refrigerant leaks, and control board faults require professional service. Our technician performs a full sealed-system assessment before recommending the most economical course of action.',
-                '_ar_cost_range'     => '$95 – $650',
-                '_ar_faqs'           => [
-                    [ 'question' => 'Is it worth repairing a Viking refrigerator compressor?', 'answer' => 'Viking built-in refrigerators represent a significant investment and are engineered for 15–20+ year service life. For units under 12 years old, compressor repair or replacement is almost always more economical than replacement. Our technician will give you a transparent assessment before any work begins.' ],
-                ],
-            ],
-        ],
-    ];
-}
+                '_ar_faqs'           => [['question' => 'Can steam cause Viking F7?', 'answer' => 'Yes. Steam from boiling pots near the control panel is a common cause of F7. Allow the panel to dry completely and reset the breaker.']]]],
 
-// ─────────────────────────────────────────────────────────────────────────────
-// VIKING DISHWASHER DIAGNOSTIC FAULT INDICATORS
-// ─────────────────────────────────────────────────────────────────────────────
+        $base + ['title' => 'Viking Range F9 Fault Code', 'slug' => 'viking-range-f9-fault-code',
+            'meta_title' => 'Viking Range F9 Fault Code — Self-Clean Door Lock Failure',
+            'meta_desc'  => 'The Viking F9 fault code indicates the self-clean door lock did not engage or disengage. Learn causes, DIY checks, and repair steps.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Range', '_ar_error_code' => 'F9',
+                '_ar_code_meaning'   => "F9 on a Viking range or wall oven indicates the self-clean door lock mechanism failed to engage before the self-clean cycle could start, or failed to disengage after the cycle ended. Viking ovens require confirmed door lock engagement before the self-clean cycle runs. If F9 appears with the door locked, switch off the breaker for 5 minutes to reset the lock motor.",
+                '_ar_causes'         => [['title' => 'Failed Door Lock Motor Assembly', 'description' => 'The motor that drives the lock bolt has failed and cannot complete its travel to the locked or unlocked position.'], ['title' => 'Door Lock Switch Failure', 'description' => 'The switch that reports door lock position to the ERC has failed, even though the lock mechanism may have moved correctly.'], ['title' => 'Food Debris Obstruction', 'description' => 'Food residue in the door lock track is preventing the bolt from fully engaging. Clean the latch area and retry.']],
+                '_ar_diy_steps'      => [['title' => 'Clean the Lock Area', 'description' => 'Inspect and clean the door latch area of food debris. Retry the self-clean cycle after cleaning.'], ['title' => 'Breaker Reset (if door is locked)', 'description' => 'Switch off the breaker for 5 minutes to reset the lock motor, which should release the door. Never force a locked oven door.']],
+                '_ar_when_to_call'   => 'F9 that returns after cleaning and reset requires professional door lock motor replacement. Our technician replaces the assembly with a genuine Viking OEM part.',
+                '_ar_cost_range'     => '$150 – $270',
+                '_ar_faqs'           => [['question' => 'My Viking oven door is locked with F9 — how do I open it?', 'answer' => 'Switch off the circuit breaker for 5 minutes, then restore power. The lock motor should reset and release the door on power-up. If it remains locked, professional service is required.']]]],
 
-function ar_error_codes_viking_dishwasher(): array {
-    return [
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Dishwasher Drain Fault',
-            'slug'       => 'viking-dishwasher-drain-fault',
-            'meta_title' => 'Viking Dishwasher Not Draining — Water in Tub Fault',
-            'meta_desc'  => 'Viking dishwasher leaving water in the tub after a cycle? Learn what causes drain faults in Viking Professional dishwashers and how they are repaired.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Dishwasher' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Dishwasher',
-                '_ar_error_code'     => 'Drain Fault',
-                '_ar_code_meaning'   => "A drain fault in a Viking dishwasher occurs when the dishwasher cannot drain wash water from the tub within the required time, leaving standing water at the end of the cycle. Some Viking dishwasher models indicate this condition with a visible indicator on the display, while others simply leave water in the tub without a specific code.\n\nDrain faults are among the most common Viking dishwasher complaints. The most frequent cause is a clogged filter assembly, which homeowners can often clear themselves. If the filter is clean and water remains, the drain pump motor has likely failed.",
-                '_ar_causes'         => [
-                    [ 'title' => 'Clogged Filter Assembly',   'description' => 'Viking dishwashers use a manual-clean filter system at the bottom of the tub. Food particles and grease accumulate in the filter basket and restrict drain pump suction. A clogged filter is the most common cause of drain faults and takes about five minutes to clean.' ],
-                    [ 'title' => 'Failed Drain Pump Motor',   'description' => 'The drain pump motor that expels water from the tub has failed mechanically or electrically. A failed pump typically produces a humming sound with no water movement, or complete silence during the drain phase.' ],
-                    [ 'title' => 'Blocked Drain Hose',        'description' => 'The drain hose connecting the dishwasher to the household drain or garbage disposal has kinked, collapsed, or become blocked with food debris.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Clean the filter assembly',  'description' => 'Remove the lower rack and pull out the cylindrical filter from the bottom of the tub (twist counter-clockwise to release). Rinse under running water, scrubbing away debris with a soft brush. Reinstall and run a drain cycle.' ],
-                    [ 'title' => 'Check the drain hose',       'description' => 'Pull the dishwasher out from the cabinet and inspect the drain hose (behind the unit) for kinks or blockages. The hose should have a high loop or air gap to prevent backflow.' ],
-                ],
-                '_ar_when_to_call'   => 'If the filter is clean and the hose is unobstructed but water remains in the tub, the drain pump motor requires professional replacement. Our technician carries Viking OEM drain pump assemblies and completes this repair in a single visit.',
-                '_ar_cost_range'     => '$160 – $280',
-                '_ar_faqs'           => [
-                    [ 'question' => 'How often should I clean the Viking dishwasher filter?', 'answer' => 'Viking recommends monthly cleaning under normal household use. In households where the dishwasher runs daily or where dishes are heavily soiled, every two weeks is advisable. A clogged filter is the single most preventable cause of drain faults and poor wash performance.' ],
-                ],
-            ],
-        ],
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Dishwasher Door Latch Fault',
-            'slug'       => 'viking-dishwasher-door-latch-fault',
-            'meta_title' => 'Viking Dishwasher Door Latch Fault — Will Not Start',
-            'meta_desc'  => 'Viking dishwasher not starting despite power being present? A door latch fault prevents the control board from confirming a secured door. Learn the causes and repair.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Dishwasher' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Dishwasher',
-                '_ar_error_code'     => 'Door Latch Fault',
-                '_ar_code_meaning'   => "A Viking dishwasher door latch fault occurs when the door latch assembly fails to signal the control board that the door is fully closed and secured. As a safety feature, Viking dishwashers will not start a wash cycle unless the control board receives confirmation of a latched door.\n\nA door latch fault typically presents as a dishwasher that will not respond to the Start button — the control panel may light up and accept program selections, but pressing Start produces no result. Some Viking dishwasher models may display an indicator or make a brief sound indicating the door is not confirmed as closed.",
-                '_ar_causes'         => [
-                    [ 'title' => 'Failed Door Latch Switch',      'description' => 'The micro-switch inside the latch assembly that signals door closure to the control board has failed. The door closes mechanically but the switch does not activate, so the board never receives the "door closed" signal.' ],
-                    [ 'title' => 'Worn or Broken Latch Mechanism', 'description' => 'The mechanical latch hook that engages the door strike has broken or worn to the point where it no longer generates enough closure force to activate the door switch reliably.' ],
-                    [ 'title' => 'Misaligned Door',               'description' => 'The dishwasher door has shifted out of alignment with the door strike, preventing the latch from engaging fully. This can occur after the dishwasher has been repositioned or after hinge wear.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Confirm door is closing fully', 'description' => 'Press the door closed firmly — a click or resistance should be felt as the latch engages. If the door does not click into place, inspect the latch mechanism for visible damage.' ],
-                    [ 'title' => 'Clean the latch area',         'description' => 'Food residue or debris around the door latch or strike plate can prevent full engagement. Clean both the latch and the strike plate thoroughly with a damp cloth.' ],
-                ],
-                '_ar_when_to_call'   => 'A failed door latch switch or broken latch mechanism requires professional replacement. The door latch assembly is a single replaceable component in Viking dishwashers, and this repair is completed in a single visit.',
-                '_ar_cost_range'     => '$110 – $200',
-                '_ar_faqs'           => [
-                    [ 'question' => 'My Viking dishwasher panel lights up but won\'t start — is it the door latch?', 'answer' => 'A control panel that accepts selections but ignores the Start button is the classic symptom of a door latch switch failure. The board is receiving power but not the door-closed signal. A door latch switch replacement typically resolves this.' ],
-                ],
-            ],
-        ],
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Dishwasher Wash Motor Fault',
-            'slug'       => 'viking-dishwasher-wash-motor-fault',
-            'meta_title' => 'Viking Dishwasher Wash Motor Fault — Not Cleaning, Cycle Interruption',
-            'meta_desc'  => 'Viking dishwasher not cleaning dishes properly or stopping mid-cycle? A wash motor fault reduces spray pressure and prevents proper cycle completion.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Dishwasher' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Dishwasher',
-                '_ar_error_code'     => 'Wash Motor Fault',
-                '_ar_code_meaning'   => "A Viking dishwasher wash motor (circulation pump) fault occurs when the motor that circulates water through the spray arms loses efficiency or fails entirely. A failing wash motor typically presents first as reduced wash performance — dishes come out with food residue — before progressing to cycle interruptions or complete failure to circulate water.",
-                '_ar_causes'         => [
-                    [ 'title' => 'Worn Wash Motor Bearings',  'description' => 'Over time, the circulation pump motor bearings wear, reducing pump efficiency and eventually causing motor failure. A worn motor often produces a humming or grinding sound during the wash phase.' ],
-                    [ 'title' => 'Foreign Object in Pump',    'description' => 'A small hard object (bone, glass fragment, fruit pit) that passed through the filter has lodged in the circulation pump impeller, restricting rotation and damaging the motor over time.' ],
-                    [ 'title' => 'Motor Winding Failure',     'description' => 'The motor windings have failed electrically, causing the motor to draw excessive current, overheat, and trigger the thermal overload protection — which interrupts the wash cycle.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Check and clean the filter first', 'description' => 'A heavily clogged filter can mimic wash motor failure by starving the pump of water. Clean the filter and run a test cycle before concluding the motor has failed.' ],
-                ],
-                '_ar_when_to_call'   => 'A failing or failed circulation pump motor requires professional diagnosis and replacement. Our technician can distinguish between a pump fault and a filter issue during the diagnostic visit.',
-                '_ar_cost_range'     => '$200 – $360',
-                '_ar_faqs'           => [
-                    [ 'question' => 'Can a Viking dishwasher wash motor be repaired?', 'answer' => 'Circulation pump motors are typically replaced rather than repaired. The replacement pump assembly includes the motor and impeller housing as a unit, and installation is completed in a single visit using a genuine Viking OEM component.' ],
-                ],
-            ],
-        ],
-    ];
-}
+        $base + ['title' => 'Viking Range Hot Surface Igniter Failure', 'slug' => 'viking-range-igniter-failure',
+            'meta_title' => 'Viking Range Oven Not Lighting — Hot Surface Igniter Failure',
+            'meta_desc'  => 'Viking gas range oven not lighting or taking too long to light? A failing hot surface igniter is the most common cause. Learn the diagnosis and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Range', '_ar_error_code' => 'Igniter Failure',
+                '_ar_code_meaning'   => "Viking gas ranges use a hot surface igniter to open the gas safety valve and light the oven burner. When the igniter glows orange but the oven does not light within 90 seconds, or the oven takes longer than usual to reach temperature, the igniter has weakened. A healthy igniter draws 3–3.5 amps to open the gas valve; a worn igniter draws less than this threshold and cannot open the valve even though it glows.\n\nHot surface igniter failure is one of the most common Viking range service calls.",
+                '_ar_causes'         => [['title' => 'Worn Igniter Element', 'description' => 'The silicon carbide igniter element degrades over time with repeated heat cycling, drawing progressively less current until it can no longer open the gas safety valve.'], ['title' => 'Cracked Igniter', 'description' => 'A physically cracked igniter element — from thermal shock or impact — cannot glow to the temperature required to open the gas valve.']],
+                '_ar_diy_steps'      => [['title' => 'Observe Igniter Operation', 'description' => 'Set the oven to Bake at 350°F and observe through the oven window. The igniter should begin to glow orange within 30–45 seconds. If it glows for more than 90 seconds without the burner lighting, the igniter has weakened and requires replacement.']],
+                '_ar_when_to_call'   => 'A weak or failed igniter requires professional replacement. Our technician replaces the igniter with a genuine Viking OEM component matched to your model in a single visit.',
+                '_ar_cost_range'     => '$140 – $250',
+                '_ar_faqs'           => [['question' => 'Can I replace a Viking oven igniter myself?', 'answer' => 'Igniter replacement involves working near the gas supply in the oven cavity. While some experienced homeowners perform this repair, we recommend professional service to ensure safe gas connection and proper OEM part matching.']]]],
 
-// ─────────────────────────────────────────────────────────────────────────────
-// VIKING COOKTOP DIAGNOSTIC FAULT INDICATORS
-// ─────────────────────────────────────────────────────────────────────────────
-
-function ar_error_codes_viking_cooktop(): array {
-    return [
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Cooktop Gas Ignition Fault',
-            'slug'       => 'viking-cooktop-ignition-fault',
-            'meta_title' => 'Viking Cooktop Gas Burner Not Igniting — Diagnosis & Repair',
-            'meta_desc'  => 'Viking gas cooktop burner not igniting or clicking continuously? Learn what causes ignition faults in Viking Professional cooktops and how they are repaired.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Cooktop' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Cooktop',
-                '_ar_error_code'     => 'Ignition Fault',
-                '_ar_code_meaning'   => "A gas ignition fault on a Viking cooktop occurs when one or more burners fail to ignite when the knob is turned to the ignite position, or when a burner continues to click after being lit (or when not in use). Viking Professional gas cooktops use a spark ignition system with individual spark electrodes at each burner position.\n\nIgnition faults are one of the most common Viking cooktop service calls. In the majority of cases, the cause is clogged burner ports or moisture around the electrode — both of which can often be resolved by the homeowner without a service call.",
-                '_ar_causes'         => [
-                    [ 'title' => 'Clogged Burner Cap Ports',      'description' => 'Food spills and grease clog the small flame ports around the burner cap, restricting gas flow and preventing the burner from igniting or burning evenly. Cleaning the burner cap and ports with a small brush resolves most ignition issues.' ],
-                    [ 'title' => 'Moisture Around the Electrode',  'description' => 'Liquid spillover onto the spark electrode or ignition module causes continuous clicking or ignition failure. Allow the cooktop to dry completely — never operate it immediately after cleaning with water.' ],
-                    [ 'title' => 'Failed Spark Electrode',         'description' => 'The ceramic spark electrode at the burner position has cracked or the spark tip has eroded, preventing a spark from jumping to the burner. Electrode replacement restores ignition.' ],
-                    [ 'title' => 'Failed Ignition Module',         'description' => 'The ignition control module that generates spark voltage has failed, affecting one or all burner positions. A failed module requires professional replacement.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Clean burner caps and ports',   'description' => 'Remove the burner caps and use a soft brush or toothpick to clear all flame ports of food residue. Rinse caps in warm soapy water, dry completely, and reinstall.' ],
-                    [ 'title' => 'Allow the cooktop to dry fully', 'description' => 'If the cooktop was recently cleaned or had a spill, continuous clicking is usually caused by moisture. Leave the cooktop unused for several hours with good ventilation to allow complete drying.' ],
-                    [ 'title' => 'Inspect the electrode',         'description' => 'With the burner cap removed, inspect the spark electrode tip. It should be porcelain-white and free of cracks. A yellowed, cracked, or eroded electrode tip requires replacement.' ],
-                ],
-                '_ar_when_to_call'   => 'If cleaning and drying do not resolve the ignition issue, or if the electrode is visibly damaged, professional service is required. Our technician replaces electrodes and ignition modules using genuine Viking OEM components.',
+        $base + ['title' => 'Viking Range Gas Burner Not Igniting', 'slug' => 'viking-range-burner-not-igniting',
+            'meta_title' => 'Viking Range Gas Burner Not Igniting — Spark Electrode Fault',
+            'meta_desc'  => 'Viking gas range burner not igniting or clicking continuously? Learn the most common causes including spark electrode and ignition module failures.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Range', '_ar_error_code' => 'Burner Ignition Fault',
+                '_ar_code_meaning'   => "Viking Professional gas ranges use spark ignition with individual electrodes at each burner position. Burner ignition faults present as a burner that will not ignite when the knob is turned, or as continuous clicking after a burner has been lit (or when no burner is in use).\n\nThe most common causes are clogged burner ports (self-serviceable), moisture around the electrode (usually resolves with drying), or a failed spark electrode or ignition module (requires professional service).",
+                '_ar_causes'         => [['title' => 'Clogged Burner Cap Ports', 'description' => 'Food spills block the flame ports in the burner cap, preventing ignition. Clean burner caps thoroughly with a small brush or toothpick.'], ['title' => 'Moisture Around Electrode', 'description' => 'Liquid on or near the electrode causes continuous clicking. Allow the cooktop to dry completely before use.'], ['title' => 'Failed Spark Electrode', 'description' => 'The ceramic electrode tip at the burner position has cracked, eroded, or grounded out, preventing a spark.'], ['title' => 'Failed Ignition Module', 'description' => 'The control module that generates spark voltage has failed, affecting one or all burner positions.']],
+                '_ar_diy_steps'      => [['title' => 'Clean Burner Caps and Ports', 'description' => 'Remove burner caps and clean all flame ports with a small brush or toothpick. Rinse, dry completely, and reinstall.'], ['title' => 'Allow to Dry After Spill', 'description' => 'If clicking started after a spill or cleaning, allow the cooktop to dry for several hours before use.']],
+                '_ar_when_to_call'   => 'If cleaning and drying do not resolve the issue, or if the spark electrode is visibly cracked, professional electrode or module replacement is required.',
                 '_ar_cost_range'     => '$110 – $240',
-                '_ar_faqs'           => [
-                    [ 'question' => 'Why does my Viking cooktop click continuously when not in use?', 'answer' => 'Continuous clicking when no burner is on is almost always caused by moisture or food residue around the spark electrode. The electrode is detecting a conductive path to ground from liquid contamination. Allow the cooktop to dry completely — this usually resolves within a few hours.' ],
-                ],
-            ],
-        ],
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Induction Cooktop Zone Fault',
-            'slug'       => 'viking-cooktop-induction-zone-fault',
-            'meta_title' => 'Viking Induction Cooktop Zone Not Working — Diagnosis',
-            'meta_desc'  => 'A Viking induction cooktop zone that won\'t heat may have an induction coil fault, control board issue, or incompatible cookware. Learn the causes and repair.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Cooktop' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Cooktop',
-                '_ar_error_code'     => 'Induction Zone Fault',
-                '_ar_code_meaning'   => "An induction zone fault on a Viking induction cooktop occurs when a cooking zone fails to heat despite the control panel appearing to function normally. Viking induction cooktops use electromagnetic induction coils beneath each zone — if the coil, its driver board, or the power electronics fail, the affected zone will not produce heat.\n\nViking induction cooktops may display error indicators when a zone fault is detected. Before concluding a fault exists, verify that the cookware being used is induction-compatible (magnetic base required).",
-                '_ar_causes'         => [
-                    [ 'title' => 'Non-Compatible Cookware',      'description' => 'Induction cooktops only heat magnetic cookware. Aluminum, copper, glass, and non-magnetic stainless steel pots will not heat on an induction zone regardless of settings. Test with a magnet — if it sticks to the pot base, the cookware is compatible.' ],
-                    [ 'title' => 'Failed Induction Coil',        'description' => 'The induction coil beneath the affected zone has failed. Individual coil replacement is a professional repair requiring board-level diagnosis to confirm coil failure.' ],
-                    [ 'title' => 'Control Board Zone Driver Fault','description' => 'The zone-specific driver circuit on the power control board has failed, preventing that zone from activating. Board diagnosis is required to confirm this cause.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Verify cookware compatibility', 'description' => 'Test cookware with a refrigerator magnet. If the magnet does not stick firmly to the bottom of the pot, the cookware is not induction-compatible and will not heat on any induction zone.' ],
-                    [ 'title' => 'Test another zone',             'description' => 'If one zone does not heat but others do with the same cookware, the fault is zone-specific. If no zones heat with confirmed induction cookware, the fault may be in the main power board.' ],
-                ],
-                '_ar_when_to_call'   => 'A zone fault that persists with confirmed induction-compatible cookware requires professional diagnosis. Our technician uses specialized test equipment to identify whether the coil, driver circuit, or main board requires replacement.',
-                '_ar_cost_range'     => '$180 – $420',
-                '_ar_faqs'           => [
-                    [ 'question' => 'How do I know if my cookware works on a Viking induction cooktop?', 'answer' => 'Test with a refrigerator magnet. Hold the magnet against the bottom of the pot — if it sticks firmly, the pot is induction-compatible. Pots specifically marketed as "induction-ready" will also work. Most cast iron and many stainless steel pots are induction-compatible, while aluminum, copper, and non-magnetic stainless are not.' ],
-                ],
-            ],
-        ],
-    ];
-}
+                '_ar_faqs'           => [['question' => 'Why does my Viking range click continuously even when off?', 'answer' => 'Continuous clicking when no burner is on is almost always caused by moisture or residue around the spark electrode. Allow the cooktop to dry completely — this usually resolves within a few hours.']]]],
 
-// ─────────────────────────────────────────────────────────────────────────────
-// VIKING WINE COOLER DIAGNOSTIC FAULT INDICATORS
-// ─────────────────────────────────────────────────────────────────────────────
+        $base + ['title' => 'Viking Range Bake Element Failure', 'slug' => 'viking-range-bake-element-failure',
+            'meta_title' => 'Viking Range Bake Element Failure — Dual-Fuel & Electric Ovens',
+            'meta_desc'  => 'Viking dual-fuel and electric range oven not heating? A failed bake element is the most common cause. Learn diagnosis and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Range', '_ar_error_code' => 'Bake Element Failure',
+                '_ar_code_meaning'   => "In Viking dual-fuel ranges (gas cooktop, electric oven) and Viking electric ranges, the bake element at the bottom of the oven cavity provides the primary heat for baking. A failed bake element results in an oven that will not heat on the Bake setting, though Broil may still work.\n\nSigns of bake element failure include visible breaks, blistering, or burn spots on the element coil, or the element simply not glowing when the oven is set to Bake.",
+                '_ar_causes'         => [['title' => 'Element Burnout', 'description' => 'The resistance wire inside the bake element has burned through, creating an open circuit. The element may show visible breaks, blistering, or dark spots at the failure point.'], ['title' => 'Thermal Cycling Fatigue', 'description' => 'Repeated heating and cooling cycles over time cause metal fatigue in the element coil, eventually leading to a break.']],
+                '_ar_diy_steps'      => [['title' => 'Visual Inspection', 'description' => 'Set the oven to Bake and observe the element at the bottom of the oven cavity. A healthy element glows red-orange evenly. An element that does not glow, has visible breaks, or shows burn spots has failed.']],
+                '_ar_when_to_call'   => 'Failed bake elements are a professional repair. Our technician replaces the element with a genuine Viking OEM component matched to your model and confirms oven temperature accuracy.',
+                '_ar_cost_range'     => '$130 – $240',
+                '_ar_faqs'           => [['question' => 'Will my Viking oven broil if the bake element fails?', 'answer' => 'Usually yes — the broil element is a separate component at the top of the oven. If the bake element has failed but the broil element is intact, the Broil function typically continues to work.']]]],
 
-function ar_error_codes_viking_wine_cooler(): array {
-    return [
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Wine Cooler Temperature Fault',
-            'slug'       => 'viking-wine-cooler-temperature-fault',
-            'meta_title' => 'Viking Wine Cooler Not Cooling — Temperature Fault Diagnosis',
-            'meta_desc'  => 'Viking wine cooler not maintaining the set temperature? Learn the causes of Viking wine cooler temperature faults and how they are diagnosed and repaired.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Wine Cooler' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Wine Cooler',
-                '_ar_error_code'     => 'Temperature Fault',
-                '_ar_code_meaning'   => "A temperature fault in a Viking wine cooler occurs when the unit cannot maintain the set storage temperature. Some Viking wine cooler models display a temperature warning indicator or alarm when the internal temperature rises significantly above or below the set point.\n\nTemperature faults can result from a failing compressor, a clogged condenser coil, a failed condenser fan, or a temperature sensor fault. Identifying the specific cause requires measuring actual temperatures and assessing the compressor and fan operation.",
-                '_ar_causes'         => [
-                    [ 'title' => 'Clogged Condenser Coil',       'description' => 'Dust and debris accumulating on the condenser coil at the back or bottom of the unit prevent heat dissipation. The compressor overheats and reduces output, causing the internal temperature to rise. Annual condenser cleaning prevents this fault.' ],
-                    [ 'title' => 'Failed Condenser Fan Motor',    'description' => 'The fan that pulls air through the condenser coil has failed, so heat from the cooling cycle cannot be expelled effectively. The compressor may run but the unit cannot cool.' ],
-                    [ 'title' => 'Failed Temperature Sensor',     'description' => 'The thermistor that measures internal temperature has failed and is reporting incorrect temperatures to the control board, causing the board to mismanage the compressor cycle.' ],
-                    [ 'title' => 'Failing or Failed Compressor',  'description' => 'The compressor is the most expensive component in the cooling system. A failing compressor progressively loses its ability to maintain temperature before failing completely.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Clean the condenser coil',   'description' => 'Unplug the wine cooler and vacuum the condenser coil (accessible from the rear or bottom grille) with a soft brush attachment. Dust buildup is the most common and most preventable cause of cooling degradation.' ],
-                    [ 'title' => 'Check door seals',           'description' => 'Inspect the door gasket for tears or gaps. Warm air infiltration through a damaged seal causes the compressor to run continuously and the temperature to fluctuate. Test by closing the door on a sheet of paper — it should hold the paper firmly.' ],
-                ],
-                '_ar_when_to_call'   => 'If cleaning the condenser does not restore proper cooling, professional diagnosis is required to identify the specific failed component. Our technician measures temperatures, tests the compressor, and inspects the fan motor to identify the root cause.',
-                '_ar_cost_range'     => '$150 – $480',
-                '_ar_faqs'           => [
-                    [ 'question' => 'How often should I clean the Viking wine cooler condenser?', 'answer' => 'Viking recommends annual condenser cleaning as routine maintenance. In homes with pets or in dusty environments, every six months is advisable. A clogged condenser is the most common and most preventable cause of Viking wine cooler temperature faults and compressor wear.' ],
-                    [ 'question' => 'What temperature should my Viking wine cooler be set to?', 'answer' => 'For long-term storage of red wines, 55°F (13°C) is widely considered optimal. White wines and sparkling wines benefit from slightly cooler storage at 45–50°F (7–10°C). Viking dual-zone wine coolers allow independent temperature settings for each zone.' ],
-                ],
-            ],
-        ],
-    ];
-}
+        $base + ['title' => 'Viking Range Broil Element Failure', 'slug' => 'viking-range-broil-element-failure',
+            'meta_title' => 'Viking Range Broil Element Failure — Dual-Fuel & Electric Models',
+            'meta_desc'  => 'Viking range not broiling? A failed broil element is the most common cause. Learn the diagnosis and repair for Viking dual-fuel and electric ovens.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Range', '_ar_error_code' => 'Broil Element Failure',
+                '_ar_code_meaning'   => "In Viking dual-fuel and electric ranges, the broil element at the top of the oven cavity provides high, direct heat for broiling. A failed broil element results in no heat on the Broil setting, though Bake may still work normally.\n\nBroil element failure often goes unnoticed until the Broil function is specifically used. The element can fail with or without visible damage.",
+                '_ar_causes'         => [['title' => 'Element Burnout', 'description' => 'The broil element resistance wire has burned through at a weak point, typically visible as a break in the coil, dark scorching, or blistering on the element surface.'], ['title' => 'Grease Contamination', 'description' => 'Grease splatter that falls on the broil element and burns can accelerate element degradation and lead to premature failure.']],
+                '_ar_diy_steps'      => [['title' => 'Test the Broil Setting', 'description' => 'Set the oven to Broil. If the broil element at the top of the oven does not glow or does not glow evenly, the element has failed. Compare against the bake element function to isolate the fault.']],
+                '_ar_when_to_call'   => 'Broil element replacement is a professional repair. Our technician replaces the element with a genuine Viking OEM component in a single visit.',
+                '_ar_cost_range'     => '$130 – $240',
+                '_ar_faqs'           => [['question' => 'Can I use my Viking oven to bake if the broil element fails?', 'answer' => 'Yes — the bake and broil elements are separate. If only the broil element has failed, the Bake function continues to work normally.']]]],
 
-// ─────────────────────────────────────────────────────────────────────────────
-// VIKING FREEZER DIAGNOSTIC FAULT INDICATORS
-// ─────────────────────────────────────────────────────────────────────────────
-
-function ar_error_codes_viking_freezer(): array {
-    return [
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Freezer Defrost System Fault',
-            'slug'       => 'viking-freezer-defrost-fault',
-            'meta_title' => 'Viking Freezer Frost Buildup — Defrost System Fault',
-            'meta_desc'  => 'Excessive frost or ice buildup in a Viking No Frost freezer indicates a failed defrost heater, thermostat, or control. Learn the causes and repair.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Freezer' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Freezer',
-                '_ar_error_code'     => 'Defrost Fault',
-                '_ar_code_meaning'   => "A defrost system fault in a Viking No Frost freezer occurs when the automatic defrost cycle fails to melt accumulated frost from the evaporator coil. Without periodic defrost, frost builds up on the coil until it blocks airflow entirely — the freezer temperature rises and eventually the unit can no longer maintain safe sub-zero temperatures.\n\nSome Viking freezer models display a temperature alarm when the internal temperature rises above a set threshold. The defrost system failure is the root cause — not a compressor or refrigerant problem.",
-                '_ar_causes'         => [
-                    [ 'title' => 'Failed Defrost Heater',      'description' => 'The electric heating element that melts frost from the evaporator coil during defrost cycles has burned out. Replacement with a genuine Viking OEM heater element restores automatic defrost operation.' ],
-                    [ 'title' => 'Failed Defrost Thermostat',  'description' => 'The bimetallic defrost thermostat that protects against overheating during the defrost cycle has failed open — preventing the heater from receiving power even when the defrost cycle is initiated.' ],
-                    [ 'title' => 'Defrost Timer or Board Fault','description' => 'The component that initiates defrost cycles (defrost timer or adaptive defrost control board) has failed, so defrost cycles do not occur at all.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Perform a manual defrost',   'description' => 'Remove all food, unplug the freezer, and leave the door open for 24–48 hours to melt all accumulated ice. If cooling resumes when the unit is plugged in, a defrost system component has failed and requires professional replacement.' ],
-                ],
-                '_ar_when_to_call'   => 'After confirming the defrost system has failed (frost buildup with a warm freezer compartment), professional diagnosis is required to identify the specific failed component. Our technician tests the heater, thermostat, and defrost control to identify the cause.',
+        $base + ['title' => 'Viking Range Convection Fan Motor Failure', 'slug' => 'viking-range-convection-fan-failure',
+            'meta_title' => 'Viking Range Convection Fan Not Working — Motor Failure',
+            'meta_desc'  => 'Viking range convection fan not running? A failed fan motor reduces baking performance and heat distribution. Learn the diagnosis and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Range', '_ar_error_code' => 'Convection Fan Fault',
+                '_ar_code_meaning'   => "Viking ranges equipped with TruConvec convection use a dedicated fan and third element at the back of the oven cavity to circulate heated air for even cooking. A failed convection fan motor results in uneven baking — food may underbake on one side or require significantly longer cooking times.\n\nThe convection fan can fail silently (no unusual noise before failure) or with an unusual sound during operation. On models that display a fault, the ERC may show an error. On others, poor cooking performance is the first sign.",
+                '_ar_causes'         => [['title' => 'Fan Motor Bearing Failure', 'description' => 'The fan motor bearing wears over time and eventually seizes, preventing the fan from spinning. Bearing failure often presents with increased noise before complete failure.'], ['title' => 'Motor Winding Failure', 'description' => 'The motor windings have burned out, typically from heat exposure or age.']],
+                '_ar_diy_steps'      => [['title' => 'Test in Convection Mode', 'description' => 'Set the oven to Convection Bake. With the oven door slightly ajar, listen for the fan sound from behind the oven back panel. Silence in Convection mode indicates a failed fan.']],
+                '_ar_when_to_call'   => 'Convection fan motor replacement requires access to the oven back panel and is a professional repair.',
                 '_ar_cost_range'     => '$160 – $290',
-                '_ar_faqs'           => [
-                    [ 'question' => 'My Viking freezer has thick ice on the back wall — is this normal?', 'answer' => 'No. Viking freezers use a No Frost evaporator system — visible frost or ice on the back wall of the freezer compartment indicates the automatic defrost cycle has stopped running. This is a defrost system fault that requires service.' ],
-                ],
-            ],
-        ],
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Freezer Temperature Alarm',
-            'slug'       => 'viking-freezer-temperature-alarm',
-            'meta_title' => 'Viking Freezer Temperature Alarm — Not Reaching Temperature',
-            'meta_desc'  => 'Viking freezer not reaching sub-zero temperature or showing a temperature alarm? Learn the most common causes and when to call for service.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Freezer' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Freezer',
-                '_ar_error_code'     => 'Temperature Alarm',
-                '_ar_code_meaning'   => "A temperature alarm on a Viking freezer indicates the internal temperature has risen above the safe storage threshold. Viking built-in column freezers and upright freezers are designed to maintain 0°F (-18°C) or below for long-term food preservation. When the internal temperature rises significantly above this setpoint, a temperature warning is indicated.\n\nThe temperature alarm itself is not a fault — it is a symptom of an underlying issue. The root cause must be identified: defrost system failure, door seal leak, evaporator fan failure, or compressor issue.",
-                '_ar_causes'         => [
-                    [ 'title' => 'Defrost System Failure',      'description' => 'See Viking Freezer Defrost System Fault. A failed defrost component is the most common cause of rising freezer temperature in No Frost units.' ],
-                    [ 'title' => 'Failed Evaporator Fan Motor', 'description' => 'The fan that circulates cold air from the evaporator coil through the freezer compartment has failed. Without airflow, the freezer temperature rises even though the compressor and coil are cold.' ],
-                    [ 'title' => 'Damaged Door Gasket',         'description' => 'A torn or failing door gasket allows warm room air to infiltrate the freezer continuously. The compressor runs almost constantly trying to overcome the heat load and eventually cannot maintain sub-zero temperature.' ],
-                    [ 'title' => 'Door Left Open',              'description' => 'A door that was left ajar — even partially — will allow significant warm air infiltration, causing a temperature rise and alarm. Check that the door is fully closed before calling for service.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Verify the door is fully closed', 'description' => 'Inspect the freezer door to confirm it is fully latched with no gap. Check that no food items are blocking the door from closing completely.' ],
-                    [ 'title' => 'Inspect the door gasket',         'description' => 'Run your hand around the entire door perimeter with the freezer at operating temperature. Any warmth felt indicates a gasket gap or tear allowing warm air infiltration.' ],
-                ],
-                '_ar_when_to_call'   => 'If the door is confirmed closed with an intact gasket but the temperature alarm persists, the defrost system, evaporator fan, or compressor requires professional diagnosis.',
-                '_ar_cost_range'     => '$130 – $380',
-                '_ar_faqs'           => [
-                    [ 'question' => 'How long does food stay safe in a Viking freezer that is not cooling?', 'answer' => 'If the freezer temperature rises above 32°F (0°C), previously frozen food will begin to thaw. Food can typically be safely refrozen if it still contains ice crystals. Once food has fully thawed and risen above 40°F, perishables should be discarded. Keep the freezer door closed as much as possible to slow the temperature rise.' ],
-                ],
-            ],
-        ],
+                '_ar_faqs'           => [['question' => 'Can I use my Viking range without the convection fan?', 'answer' => 'Yes — standard Bake and Broil functions do not use the convection fan. However, Convection Bake and Convection Roast modes will not heat evenly without a working fan motor.']]]],
+
     ];
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// VIKING VENT HOOD DIAGNOSTIC FAULT INDICATORS
-// ─────────────────────────────────────────────────────────────────────────────
-
-function ar_error_codes_viking_vent_hood(): array {
+// =============================================================================
+// VIKING WALL OVEN FAULT CODES — 11 entries (Same ERC F-Series as Range)
+// =============================================================================
+function ar_error_codes_viking_wall_oven(): array {
+    $base = ['post_type' => 'error_code', 'taxonomies' => ['brand' => 'Viking', 'appliance_type' => 'Wall Oven']];
     return [
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Vent Hood Blower Motor Fault',
-            'slug'       => 'viking-vent-hood-blower-fault',
-            'meta_title' => 'Viking Vent Hood Not Venting — Blower Motor Fault',
-            'meta_desc'  => 'Viking vent hood running but not removing smoke or odors effectively? A failing blower motor is the most common cause. Learn the diagnosis and repair.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Vent Hood' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Vent Hood',
-                '_ar_error_code'     => 'Blower Fault',
-                '_ar_code_meaning'   => "A blower motor fault in a Viking vent hood occurs when the centrifugal blower that creates suction in the exhaust duct fails to operate at full power or stops entirely. Viking Professional vent hoods use high-output blower motors designed for continuous operation over professional-grade cooking appliances.\n\nA failing blower motor typically presents first as reduced suction performance — smoke and odors are not removed effectively — before progressing to a complete failure to turn on. Unusual noise (humming, grinding, or rattling) during operation often accompanies a failing motor.",
-                '_ar_causes'         => [
-                    [ 'title' => 'Worn Blower Motor Bearings',  'description' => 'The blower motor bearings wear over time, reducing motor efficiency and eventually causing the motor to seize or fail completely. Bearing wear typically presents as increased operational noise before failure.' ],
-                    [ 'title' => 'Grease-Contaminated Blower', 'description' => 'Grease accumulation on the blower wheel (from cooking residue that passes through the filters) creates imbalance and adds load to the motor, accelerating bearing wear and eventual failure. Regular grease filter cleaning helps prevent this.' ],
-                    [ 'title' => 'Failed Motor Windings',       'description' => 'The motor windings have burned out, typically from extended operation under high load or from grease contamination reaching the motor. A burned-out motor produces no operation sound at all when the speed is selected.' ],
-                    [ 'title' => 'Failed Capacitor',            'description' => 'The start/run capacitor that provides the motor with its initial starting torque has failed. A failed capacitor typically results in a motor that hums but does not spin.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Clean grease filters',        'description' => 'Viking recommends monthly grease filter cleaning. Remove the stainless mesh filters and wash them in hot soapy water or the dishwasher. Clogged filters restrict airflow and add load to the blower motor.' ],
-                    [ 'title' => 'Test each speed setting',     'description' => 'Operate the vent hood on each speed setting. If lower speeds work but higher speeds do not (or vice versa), the issue may be with the speed control rather than the motor itself.' ],
-                ],
-                '_ar_when_to_call'   => 'A blower motor that hums without spinning, produces grinding noise, or fails to start on any speed setting requires professional replacement. Our technician carries Viking OEM blower motor assemblies and completes this repair in a single visit.',
-                '_ar_cost_range'     => '$200 – $360',
-                '_ar_faqs'           => [
-                    [ 'question' => 'Why is my Viking vent hood making more noise than usual?', 'answer' => 'Increased operational noise from a Viking vent hood is most commonly caused by grease buildup on the blower wheel creating imbalance (rattling or vibrating noise) or by worn blower motor bearings (grinding or humming noise). Clean the grease filters first, and if the noise persists, schedule service to inspect the blower assembly.' ],
-                ],
-            ],
-        ],
-        [
-            'post_type'  => 'error_code',
-            'title'      => 'Viking Vent Hood Lighting Fault',
-            'slug'       => 'viking-vent-hood-lighting-fault',
-            'meta_title' => 'Viking Vent Hood Lights Not Working — LED Module Fault',
-            'meta_desc'  => 'Viking vent hood lights not turning on? LED module failures and control board faults are the most common causes. Learn the diagnosis and repair.',
-            'taxonomies' => [ 'brand' => 'Viking', 'appliance_type' => 'Vent Hood' ],
-            'meta_fields' => [
-                '_ar_brand'          => 'Viking',
-                '_ar_appliance_type' => 'Vent Hood',
-                '_ar_error_code'     => 'Lighting Fault',
-                '_ar_code_meaning'   => "A lighting fault in a Viking vent hood occurs when the LED lighting modules that illuminate the cooking surface fail to operate. Viking Professional vent hoods use integrated LED modules designed for long service life, but LED modules, lighting control circuits, and dimmer components can fail.\n\nLighting failures do not affect exhaust ventilation performance but do eliminate the task lighting that is important for safe and comfortable cooking over a Viking professional range.",
-                '_ar_causes'         => [
-                    [ 'title' => 'Failed LED Module',           'description' => 'The LED module assembly has reached end-of-life or failed prematurely due to voltage spikes or heat exposure. Individual LED module replacement restores full-brightness task lighting.' ],
-                    [ 'title' => 'Failed Lighting Control Board','description' => 'The circuit board component that controls LED power and dimming has failed. The LEDs themselves may be functional, but the board no longer sends power to them.' ],
-                    [ 'title' => 'Failed Dimmer Component',     'description' => 'Viking vent hoods with adjustable lighting use a dimmer circuit. A failed dimmer may prevent lights from operating at any brightness level.' ],
-                ],
-                '_ar_diy_steps'      => [
-                    [ 'title' => 'Check the circuit breaker',  'description' => 'Verify the circuit breaker for the vent hood has not tripped. A tripped breaker cuts all power to the hood, including lighting and ventilation.' ],
-                    [ 'title' => 'Test lighting controls',     'description' => 'If the vent hood has adjustable lighting, test all brightness settings. If lights work on some settings but not others, the issue may be in the dimmer circuit rather than the LED modules.' ],
-                ],
-                '_ar_when_to_call'   => 'Failed LED modules, lighting control boards, and dimmer components require professional replacement. Our technician identifies the specific failed lighting component and installs a genuine Viking OEM replacement.',
+
+        $base + ['title' => 'Viking Wall Oven F1 Fault Code', 'slug' => 'viking-wall-oven-f1-fault-code',
+            'meta_title' => 'Viking Wall Oven F1 Fault Code — Control Board Failure',
+            'meta_desc'  => 'The Viking wall oven F1 fault code indicates a main control board failure. Learn causes, reset steps, and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wall Oven', '_ar_error_code' => 'F1',
+                '_ar_code_meaning'   => "F1 on a Viking wall oven indicates the Electronic Range Control (ERC) board has detected an internal fault. Viking wall ovens use the same ERC architecture as Viking ranges — F-codes are identical across both product types. Reset by switching off the circuit breaker for 60 seconds. If F1 returns, the control board requires professional replacement.",
+                '_ar_causes'         => [['title' => 'Control Board Internal Failure', 'description' => 'Failed relay, capacitor, or processor on the ERC due to age, heat, or voltage irregularity.'], ['title' => 'Power Surge', 'description' => 'A surge event damaged sensitive ERC components.']],
+                '_ar_diy_steps'      => [['title' => 'Circuit Breaker Reset', 'description' => 'Switch off the wall oven breaker for 60 seconds, then restore power.']],
+                '_ar_when_to_call'   => 'F1 codes that return after reset require professional ERC replacement.',
+                '_ar_cost_range'     => '$250 – $480',
+                '_ar_faqs'           => [['question' => 'Are Viking wall oven and range F-codes the same?', 'answer' => 'Yes. Viking wall ovens and ranges use the same ERC system. F-codes are identical in meaning and repaired the same way.']]]],
+
+        $base + ['title' => 'Viking Wall Oven F2 Fault Code', 'slug' => 'viking-wall-oven-f2-fault-code',
+            'meta_title' => 'Viking Wall Oven F2 Fault Code — Temperature Sensor Shorted',
+            'meta_desc'  => 'The Viking wall oven F2 fault code means the oven temperature sensor (RTD) is reading a short circuit. Learn causes and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wall Oven', '_ar_error_code' => 'F2',
+                '_ar_code_meaning'   => "F2 on a Viking wall oven indicates the oven RTD temperature sensor is reading a short circuit (sensor resistance below the acceptable minimum). The ERC shuts down the oven as a safety measure. Do not use the oven with F2 active. Replacement with a Viking OEM sensor probe resolves F2 in most cases.",
+                '_ar_causes'         => [['title' => 'Failed RTD Sensor Probe', 'description' => 'The sensor probe has failed internally with an electrical short. Replace with a genuine Viking OEM probe.'], ['title' => 'Wiring Short', 'description' => 'The sensor wiring has developed a short circuit, typically from chafing against the oven cavity.']],
+                '_ar_diy_steps'      => [['title' => 'Reset the Oven', 'description' => 'Switch off the breaker for 60 seconds. If F2 does not return, monitor for recurrence.']],
+                '_ar_when_to_call'   => 'F2 codes that return after reset require professional sensor replacement.',
+                '_ar_cost_range'     => '$130 – $230',
+                '_ar_faqs'           => [['question' => 'Can I use my Viking wall oven with F2 active?', 'answer' => 'No. F2 means the oven cannot accurately regulate temperature. Do not use the oven until the sensor has been replaced.']]]],
+
+        $base + ['title' => 'Viking Wall Oven F3 Fault Code', 'slug' => 'viking-wall-oven-f3-fault-code',
+            'meta_title' => 'Viking Wall Oven F3 Fault Code — Temperature Sensor Open Circuit',
+            'meta_desc'  => 'The Viking wall oven F3 fault code indicates the oven temperature sensor circuit is open. Learn the causes and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wall Oven', '_ar_error_code' => 'F3',
+                '_ar_code_meaning'   => "F3 on a Viking wall oven indicates the oven temperature sensor circuit is open — the sensor probe has broken internally or its connector is disconnected. The ERC shuts down the oven. Our technician tests sensor resistance and checks the wiring connector before replacing the probe.",
+                '_ar_causes'         => [['title' => 'Failed RTD Sensor Probe (Open)', 'description' => 'The sensor element has broken, reading infinite resistance.'], ['title' => 'Disconnected Sensor Connector', 'description' => 'The wiring connector at the sensor or ERC has come loose.']],
+                '_ar_diy_steps'      => [['title' => 'Reset the Oven', 'description' => 'Switch off the breaker for 60 seconds. If F3 does not return, monitor for recurrence.']],
+                '_ar_when_to_call'   => 'F3 codes that return after reset require professional diagnosis to confirm the failure point.',
+                '_ar_cost_range'     => '$130 – $230',
+                '_ar_faqs'           => [['question' => 'Is F3 on a Viking wall oven the same as F3 on a Viking range?', 'answer' => 'Yes. Viking wall ovens use the same ERC as ranges. F3 means the same thing in both products.']]]],
+
+        $base + ['title' => 'Viking Wall Oven F4 Fault Code', 'slug' => 'viking-wall-oven-f4-fault-code',
+            'meta_title' => 'Viking Wall Oven F4 Fault Code — Oven Temperature Runaway',
+            'meta_desc'  => 'The Viking wall oven F4 fault code triggers when the oven overheats past the set point by more than 50°F. Learn the causes and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wall Oven', '_ar_error_code' => 'F4',
+                '_ar_code_meaning'   => "F4 on a Viking wall oven triggers when the oven temperature exceeds the set point by more than 50°F. The ERC detects runaway heating and shuts down as a safety measure. F4 is typically caused by a stuck-closed relay on the ERC keeping the bake element on continuously. Do not use the oven with an F4 fault.",
+                '_ar_causes'         => [['title' => 'Stuck Closed ERC Relay', 'description' => 'The relay powering the bake element has stuck closed, keeping the element on until the oven overheats.'], ['title' => 'False Low Sensor Reading', 'description' => 'A failing temperature sensor reports a lower temperature than actual, causing the board to overheat the oven.']],
+                '_ar_diy_steps'      => [['title' => 'Do Not Use the Oven', 'description' => 'F4 is a safety fault. Do not use the wall oven until professionally diagnosed and repaired.']],
+                '_ar_when_to_call'   => 'F4 requires immediate professional service. Our technician diagnoses whether the ERC relay or sensor is the root cause.',
+                '_ar_cost_range'     => '$180 – $480',
+                '_ar_faqs'           => [['question' => 'Should I be concerned about F4 on my Viking wall oven?', 'answer' => 'Yes. F4 indicates the oven overheated past a safe threshold. Do not use the oven until it has been professionally repaired.']]]],
+
+        $base + ['title' => 'Viking Wall Oven F7 Fault Code', 'slug' => 'viking-wall-oven-f7-fault-code',
+            'meta_title' => 'Viking Wall Oven F7 Fault Code — Key Stuck on Control Panel',
+            'meta_desc'  => 'The Viking wall oven F7 fault code means a keypad button is registering as permanently pressed. Learn causes and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wall Oven', '_ar_error_code' => 'F7',
+                '_ar_code_meaning'   => "F7 on a Viking wall oven means the ERC has detected a keypad button registering as permanently pressed. F7 is commonly caused by moisture from steam or spills reaching the membrane keypad. Allow the panel to dry for 24–48 hours after a spill before calling for service.",
+                '_ar_causes'         => [['title' => 'Moisture in Keypad Membrane', 'description' => 'Liquid or steam reached the membrane keypad, causing a key contact to register as continuously pressed.'], ['title' => 'Physically Damaged Keypad', 'description' => 'A stuck or damaged keypad switch registers permanently as pressed.']],
+                '_ar_diy_steps'      => [['title' => 'Allow Panel to Dry', 'description' => 'Turn off the oven and allow the control panel to dry completely (24–48 hours). Reset the breaker and check if F7 clears.']],
+                '_ar_when_to_call'   => 'If F7 returns after drying and reset, the keypad membrane or control panel assembly requires professional replacement.',
+                '_ar_cost_range'     => '$160 – $320',
+                '_ar_faqs'           => [['question' => 'Can cooking steam cause F7 on a Viking wall oven?', 'answer' => 'Yes. Steam from cooking on a nearby range can reach the wall oven control panel. Allow the panel to dry completely and reset the breaker.']]]],
+
+        $base + ['title' => 'Viking Wall Oven F9 Fault Code', 'slug' => 'viking-wall-oven-f9-fault-code',
+            'meta_title' => 'Viking Wall Oven F9 Fault Code — Self-Clean Door Lock Failure',
+            'meta_desc'  => 'The Viking wall oven F9 fault code means the self-clean door lock failed to engage or disengage. Learn causes, DIY checks, and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wall Oven', '_ar_error_code' => 'F9',
+                '_ar_code_meaning'   => "F9 on a Viking wall oven indicates the self-clean door lock mechanism failed to engage before the self-clean cycle could start, or failed to disengage after the cycle ended. If the door is locked, switch off the circuit breaker for 5 minutes to reset the lock motor.",
+                '_ar_causes'         => [['title' => 'Failed Door Lock Motor Assembly', 'description' => 'The motor that drives the lock bolt cannot complete its travel.'], ['title' => 'Door Lock Switch Failure', 'description' => 'The switch reporting lock position to the ERC has failed.']],
+                '_ar_diy_steps'      => [['title' => 'Breaker Reset', 'description' => 'Switch off the breaker for 5 minutes to reset the lock motor. Never force a locked oven door.']],
+                '_ar_when_to_call'   => 'F9 that returns after reset requires professional door lock motor replacement.',
+                '_ar_cost_range'     => '$150 – $270',
+                '_ar_faqs'           => [['question' => 'How do I open my locked Viking wall oven with F9?', 'answer' => 'Switch off the circuit breaker for 5 minutes, then restore power. The lock motor should reset and release the door. If it remains locked, professional service is required.']]]],
+
+        $base + ['title' => 'Viking Wall Oven Bake Element Failure', 'slug' => 'viking-wall-oven-bake-element-failure',
+            'meta_title' => 'Viking Wall Oven Bake Element Failure — Not Heating on Bake',
+            'meta_desc'  => 'Viking wall oven not heating on the Bake setting? A failed bake element is the most common cause. Learn diagnosis and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wall Oven', '_ar_error_code' => 'Bake Element Failure',
+                '_ar_code_meaning'   => "In Viking electric and dual-power wall ovens, the bake element at the bottom of the oven cavity provides heat for baking. A failed bake element results in an oven that will not heat on Bake, though Broil may still work. Signs of failure include visible breaks, blistering, or burn marks on the element, or the element simply not glowing when Bake is selected.",
+                '_ar_causes'         => [['title' => 'Element Burnout', 'description' => 'The resistance wire inside the element has burned through, creating an open circuit.'], ['title' => 'Thermal Cycling Fatigue', 'description' => 'Repeated heating and cooling cycles cause metal fatigue in the element coil over years of use.']],
+                '_ar_diy_steps'      => [['title' => 'Visual Inspection', 'description' => 'With the oven set to Bake, observe the element. A healthy element glows red-orange evenly. Visible breaks or failure to glow indicates element failure.']],
+                '_ar_when_to_call'   => 'Failed bake elements require professional replacement with a genuine Viking OEM component.',
+                '_ar_cost_range'     => '$130 – $250',
+                '_ar_faqs'           => [['question' => 'Can I still use my Viking wall oven to broil if the bake element fails?', 'answer' => 'Usually yes — bake and broil elements are independent. If only the bake element has failed, the Broil function typically continues to work.']]]],
+
+        $base + ['title' => 'Viking Wall Oven Broil Element Failure', 'slug' => 'viking-wall-oven-broil-element-failure',
+            'meta_title' => 'Viking Wall Oven Broil Element Failure — Not Heating on Broil',
+            'meta_desc'  => 'Viking wall oven not heating on the Broil setting? A failed broil element is the most common cause. Learn diagnosis and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wall Oven', '_ar_error_code' => 'Broil Element Failure',
+                '_ar_code_meaning'   => "In Viking electric and dual-power wall ovens, the broil element at the top of the oven cavity provides high direct heat for broiling. A failed broil element results in no heat on the Broil setting, though Bake may continue to work. The broil element can fail with or without visible damage to the coil.",
+                '_ar_causes'         => [['title' => 'Element Burnout', 'description' => 'The broil element resistance wire has burned through at a weak point.'], ['title' => 'Grease Contamination', 'description' => 'Grease splatter on the broil element accelerates degradation and can cause premature failure.']],
+                '_ar_diy_steps'      => [['title' => 'Test Broil Setting', 'description' => 'Set the oven to Broil. If the upper element does not glow, the broil element has failed.']],
+                '_ar_when_to_call'   => 'Broil element replacement requires professional service with a genuine Viking OEM part.',
+                '_ar_cost_range'     => '$130 – $250',
+                '_ar_faqs'           => [['question' => 'Can I use Viking wall oven Bake if the broil element fails?', 'answer' => 'Yes — the bake function continues to work normally if only the broil element has failed.']]]],
+
+        $base + ['title' => 'Viking Wall Oven Convection Fan Motor Failure', 'slug' => 'viking-wall-oven-convection-fan-failure',
+            'meta_title' => 'Viking Wall Oven Convection Fan Not Working — Motor Failure',
+            'meta_desc'  => 'Viking wall oven convection fan not running? Uneven baking and longer cook times indicate a failed convection fan motor. Learn repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wall Oven', '_ar_error_code' => 'Convection Fan Fault',
+                '_ar_code_meaning'   => "Viking wall ovens with TruConvec convection use a fan and third heating element at the back of the oven cavity to circulate heated air evenly. A failed convection fan motor results in uneven baking, longer cook times, and failure of the convection mode to provide the expected performance improvement over standard bake.",
+                '_ar_causes'         => [['title' => 'Fan Motor Bearing Failure', 'description' => 'The motor bearing wears over time and eventually seizes, preventing the fan from spinning.'], ['title' => 'Motor Winding Failure', 'description' => 'The motor windings have burned out from heat exposure or age.']],
+                '_ar_diy_steps'      => [['title' => 'Test in Convection Mode', 'description' => 'Set the oven to Convection Bake and listen for fan sound. Silence indicates fan failure.']],
+                '_ar_when_to_call'   => 'Convection fan motor replacement requires access to the oven back panel and is a professional repair.',
+                '_ar_cost_range'     => '$160 – $290',
+                '_ar_faqs'           => [['question' => 'Can I use my Viking wall oven without the convection fan working?', 'answer' => 'Yes — standard Bake and Broil modes do not use the convection fan. Only Convection Bake and Convection Roast require the fan.']]]],
+
+        $base + ['title' => 'Viking Wall Oven Door Not Sealing Properly', 'slug' => 'viking-wall-oven-door-seal-failure',
+            'meta_title' => 'Viking Wall Oven Door Not Sealing — Heat Escaping, Long Preheat',
+            'meta_desc'  => 'Viking wall oven taking too long to preheat or losing heat? A damaged door gasket or misaligned hinge is the most common cause.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wall Oven', '_ar_error_code' => 'Door Seal Failure',
+                '_ar_code_meaning'   => "A Viking wall oven door that does not seal properly allows heat to escape, resulting in extended preheat times, uneven baking performance, and higher energy consumption. The most common cause is a worn or damaged door gasket (the fibrous or rubber seal around the oven door opening) or misaligned or worn door hinges that prevent the door from closing flush against the oven frame.",
+                '_ar_causes'         => [['title' => 'Worn Door Gasket', 'description' => 'The door gasket that seals the oven opening has worn flat, torn, or hardened, creating gaps that allow heat to escape.'], ['title' => 'Damaged Door Hinge', 'description' => 'A worn or broken door hinge prevents the door from closing flush, leaving a gap at one edge of the door.']],
+                '_ar_diy_steps'      => [['title' => 'Paper Test', 'description' => 'Close the oven door on a sheet of paper and try to pull it out. If the paper slides out easily at any point around the door perimeter, the seal is inadequate.']],
+                '_ar_when_to_call'   => 'Door gasket and hinge replacement are professional repairs. Our technician identifies the specific cause and replaces the affected component.',
+                '_ar_cost_range'     => '$140 – $280',
+                '_ar_faqs'           => [['question' => 'How do I know if my Viking wall oven door gasket needs replacement?', 'answer' => 'Signs include extended preheat times, heat felt near the door edges during operation, food taking longer than expected to cook, and visible wear, cracks, or separation of the door gasket material.']]]],
+
+        $base + ['title' => 'Viking Wall Oven Self-Clean Cycle Not Starting', 'slug' => 'viking-wall-oven-self-clean-not-starting',
+            'meta_title' => 'Viking Wall Oven Self-Clean Not Starting — Lock and Temperature Issues',
+            'meta_desc'  => 'Viking wall oven self-clean cycle not starting? Learn the most common causes including door lock faults, temperature issues, and ERC problems.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wall Oven', '_ar_error_code' => 'Self-Clean Start Fault',
+                '_ar_code_meaning'   => "A Viking wall oven self-clean cycle that will not start can be caused by several conditions: the door lock not confirming engagement (F9 code), the oven being too warm to start self-clean, a control board condition preventing self-clean activation, or a safety thermostat that has tripped.\n\nBefore calling for service, allow the oven to cool completely to room temperature and retry the self-clean cycle.",
+                '_ar_causes'         => [['title' => 'Door Lock Not Confirmed (F9)', 'description' => 'The door lock mechanism did not engage, triggering F9 and preventing self-clean from starting.'], ['title' => 'Oven Too Warm', 'description' => 'The self-clean cycle requires the oven to be below a certain temperature before it will start. Allow the oven to cool completely.'], ['title' => 'Control Board Condition', 'description' => 'The ERC is preventing self-clean activation due to a stored fault code or a board condition.']],
+                '_ar_diy_steps'      => [['title' => 'Allow Full Cooling', 'description' => 'Ensure the oven is completely cool (at room temperature) before attempting to start self-clean.'], ['title' => 'Check for Active Fault Codes', 'description' => 'If any F-code is displayed, address that fault before attempting self-clean.']],
+                '_ar_when_to_call'   => 'If the oven is cool and no F-code is displayed but self-clean still will not start, professional diagnosis is required.',
+                '_ar_cost_range'     => '$130 – $380',
+                '_ar_faqs'           => [['question' => 'How long should I wait after cooking before running self-clean on a Viking wall oven?', 'answer' => 'Allow the oven to cool completely to room temperature before initiating self-clean. Attempting to start self-clean while the oven is still warm can prevent the cycle from starting.']]]],
+
+    ];
+}
+
+// =============================================================================
+// VIKING REFRIGERATOR FAULT INDICATORS — 11 entries
+// =============================================================================
+function ar_error_codes_viking_refrigerator(): array {
+    $base = ['post_type' => 'error_code', 'taxonomies' => ['brand' => 'Viking', 'appliance_type' => 'Refrigerator']];
+    return [
+
+        $base + ['title' => 'Viking Refrigerator Defrost System Fault', 'slug' => 'viking-refrigerator-defrost-fault',
+            'meta_title' => 'Viking Refrigerator Defrost Fault — Fridge Warm, Freezer Cold',
+            'meta_desc'  => 'Viking refrigerator compartment warm while the freezer stays cold? A failed defrost component is the cause. Learn diagnosis and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Refrigerator', '_ar_error_code' => 'Defrost Fault',
+                '_ar_code_meaning'   => "A defrost system fault in a Viking refrigerator occurs when the automatic defrost cycle fails, allowing ice to build up on the evaporator coil and block airflow to the refrigerator compartment. The freezer stays cold because it is in direct contact with the iced-over coil, while the refrigerator section gradually warms. Defrost system failure is one of the most common Viking refrigerator faults.",
+                '_ar_causes'         => [['title' => 'Failed Defrost Heater', 'description' => 'The heater element that melts frost from the evaporator coil during each defrost cycle has burned out.'], ['title' => 'Failed Defrost Thermostat', 'description' => 'The bimetallic thermostat that controls heater power has failed open, preventing the heater from receiving power.'], ['title' => 'Defrost Control Fault', 'description' => 'The adaptive defrost control or timer has failed, preventing defrost cycles from occurring.']],
+                '_ar_diy_steps'      => [['title' => 'Manual Defrost Test', 'description' => 'Remove all food, unplug the refrigerator for 24-48 hours with doors open. If cooling returns, the defrost system has failed and requires professional repair.']],
+                '_ar_when_to_call'   => 'Defrost system failures require professional diagnosis to identify the specific failed component (heater, thermostat, or control) before parts are ordered.',
+                '_ar_cost_range'     => '$160 – $320',
+                '_ar_faqs'           => [['question' => 'Why is my Viking refrigerator warm but the freezer is cold?', 'answer' => 'This is the classic symptom of defrost system failure. Ice buildup on the evaporator blocks airflow to the refrigerator section while the freezer remains cold.']]]],
+
+        $base + ['title' => 'Viking Refrigerator Ice Maker Not Producing Ice', 'slug' => 'viking-refrigerator-ice-maker-no-ice',
+            'meta_title' => 'Viking Refrigerator Ice Maker Not Making Ice — Diagnosis',
+            'meta_desc'  => 'Viking refrigerator ice maker not producing ice? Learn the most common causes including water inlet valve failure, frozen water lines, and ice maker module faults.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Refrigerator', '_ar_error_code' => 'Ice Maker No Production',
+                '_ar_code_meaning'   => "A Viking refrigerator ice maker that stops producing ice is one of the most common service calls. The automatic ice maker assembly produces ice through a fill-freeze-harvest cycle controlled by a thermostat and motor. Common causes include a failed water inlet valve, a frozen water supply line, a failed ice maker thermostat, or a failed ice maker module.",
+                '_ar_causes'         => [['title' => 'Failed Water Inlet Valve', 'description' => 'The solenoid valve controlling water flow to the ice maker has failed in the closed position.'], ['title' => 'Frozen Water Supply Line', 'description' => 'The small water tube running from the inlet valve to the ice maker has frozen solid.'], ['title' => 'Failed Ice Maker Thermostat', 'description' => 'The thermostat that controls the harvest cycle has failed.'], ['title' => 'Ice Maker Arm or Switch Off', 'description' => 'The ice maker on/off arm has been bumped to the up (off) position, or the ice maker switch is turned off.']],
+                '_ar_diy_steps'      => [['title' => 'Check the Ice Maker Arm', 'description' => 'Ensure the ice maker arm is in the down position and the ice maker switch is set to ON.'], ['title' => 'Check Water Supply Valve', 'description' => 'Verify the water supply valve behind or under the refrigerator is fully open.']],
+                '_ar_when_to_call'   => 'Persistent ice maker failure after confirming the arm and supply valve are correct requires professional diagnosis.',
+                '_ar_cost_range'     => '$150 – $280',
+                '_ar_faqs'           => [['question' => 'How do I reset the ice maker on a Viking refrigerator?', 'answer' => 'Press and hold the test button on the ice maker module (usually on the side or underside of the assembly) for 3-5 seconds until a test cycle starts. If no ice is produced within 24 hours, the ice maker requires service.']]]],
+
+        $base + ['title' => 'Viking Refrigerator Compressor Not Running', 'slug' => 'viking-refrigerator-compressor-fault',
+            'meta_title' => 'Viking Refrigerator Compressor Not Running — Both Sections Warm',
+            'meta_desc'  => 'Viking refrigerator both sections warm with a silent compressor? Learn the causes of compressor faults and what repair options are available.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Refrigerator', '_ar_error_code' => 'Compressor Fault',
+                '_ar_code_meaning'   => "A Viking refrigerator compressor fault occurs when the compressor is not running — both the refrigerator and freezer are warm, and no compressor hum or vibration is detectable. A completely silent refrigerator that is warm in both sections indicates a compressor, start relay, or sealed system fault. This is distinct from a defrost failure, where only the refrigerator section warms.",
+                '_ar_causes'         => [['title' => 'Failed Start Relay', 'description' => 'The start relay provides the initial current to start the compressor. A failed relay is an inexpensive, straightforward repair.'], ['title' => 'Failed Compressor Motor', 'description' => 'The compressor motor has seized or failed. Compressor replacement is a major sealed-system repair.'], ['title' => 'Refrigerant Leak', 'description' => 'A refrigerant leak leaves the system without sufficient charge to cool. Requires an EPA-certified sealed-system technician.']],
+                '_ar_diy_steps'      => [['title' => 'Check the Start Relay', 'description' => 'Unplug the refrigerator, remove the start relay from the compressor terminal, and shake it. A rattling sound inside indicates a failed relay — an inexpensive replacement.']],
+                '_ar_when_to_call'   => 'Any compressor-related fault requires professional sealed-system assessment. Our technician evaluates all repair options before recommending a course of action.',
+                '_ar_cost_range'     => '$95 – $650',
+                '_ar_faqs'           => [['question' => 'Is it worth repairing a Viking refrigerator compressor?', 'answer' => 'Viking refrigerators have a 15-20+ year service life. For units under 12 years old, repair is almost always more economical than replacement.']]]],
+
+        $base + ['title' => 'Viking Refrigerator Evaporator Fan Motor Failure', 'slug' => 'viking-refrigerator-evaporator-fan-failure',
+            'meta_title' => 'Viking Refrigerator Evaporator Fan Failure — Warm Fridge, Buzzing Sound',
+            'meta_desc'  => 'Viking refrigerator not cooling properly with a buzzing or humming sound from the freezer? A failed evaporator fan motor is the likely cause.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Refrigerator', '_ar_error_code' => 'Evaporator Fan Fault',
+                '_ar_code_meaning'   => "The evaporator fan motor circulates cold air from the evaporator coil through both the freezer and refrigerator compartments. A failed evaporator fan motor results in the refrigerator section not cooling properly (or not at all) while the freezer may remain marginally cold. A buzzing, humming, or grinding sound from the freezer back panel area often accompanies a failing motor.",
+                '_ar_causes'         => [['title' => 'Motor Bearing Failure', 'description' => 'The fan motor bearing wears over time. Bearing failure typically presents with increased noise before the motor stops spinning entirely.'], ['title' => 'Ice Buildup on Fan Blades', 'description' => 'Ice accumulation from a partial defrost failure can prevent the fan blades from rotating, causing the motor to hum without spinning.'], ['title' => 'Motor Winding Failure', 'description' => 'The motor windings have burned out, stopping the fan entirely.']],
+                '_ar_diy_steps'      => [['title' => 'Listen for Fan Operation', 'description' => 'Open the refrigerator door and tape over the door switch (so the light stays off and any fan-off door-open function is bypassed). Listen for fan sound from the freezer back panel area. Silence or buzzing without airflow indicates a fan motor problem.']],
+                '_ar_when_to_call'   => 'Evaporator fan motor replacement requires access to the freezer back panel and is a professional repair.',
+                '_ar_cost_range'     => '$140 – $260',
+                '_ar_faqs'           => [['question' => 'Why is my Viking refrigerator humming loudly from the freezer area?', 'answer' => 'A loud buzzing or humming from the freezer section typically indicates the evaporator fan motor is struggling — either from ice buildup on the blades or from a failing motor bearing.']]]],
+
+        $base + ['title' => 'Viking Refrigerator Condenser Fan Motor Failure', 'slug' => 'viking-refrigerator-condenser-fan-failure',
+            'meta_title' => 'Viking Refrigerator Condenser Fan Failure — Warm or Overheating',
+            'meta_desc'  => 'Viking refrigerator not cooling or running hot? A failed condenser fan prevents heat dissipation and overloads the compressor. Learn the repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Refrigerator', '_ar_error_code' => 'Condenser Fan Fault',
+                '_ar_code_meaning'   => "The condenser fan motor draws air over the condenser coil at the bottom rear of the refrigerator to dissipate heat from the refrigeration cycle. If the condenser fan motor fails, heat cannot be expelled, causing the compressor to overwork and eventually the entire cooling system to underperform or fail. The refrigerator may also feel unusually hot at the rear or bottom.",
+                '_ar_causes'         => [['title' => 'Motor Bearing Failure', 'description' => 'Condenser fan motor bearings wear from continuous operation and eventually seize.'], ['title' => 'Debris Blockage', 'description' => 'Dust, pet hair, or debris accumulated in the condenser fan area can jam the fan blades.']],
+                '_ar_diy_steps'      => [['title' => 'Access the Condenser Area', 'description' => 'Unplug the refrigerator and pull it from the wall. The condenser fan is typically at the rear bottom near the compressor. Check for debris blockage and clean if present.'], ['title' => 'Annual Condenser Cleaning', 'description' => 'Viking recommends cleaning the condenser coil and fan area annually to prevent dust buildup.']],
+                '_ar_when_to_call'   => 'If cleaning the condenser area does not resolve the issue, the condenser fan motor requires professional replacement.',
+                '_ar_cost_range'     => '$130 – $240',
+                '_ar_faqs'           => [['question' => 'How often should I clean my Viking refrigerator condenser coil?', 'answer' => 'At least once a year. In homes with pets or dusty environments, every six months. A clean condenser is essential for efficient cooling and compressor longevity.']]]],
+
+        $base + ['title' => 'Viking Refrigerator Water Dispenser Not Working', 'slug' => 'viking-refrigerator-water-dispenser-fault',
+            'meta_title' => 'Viking Refrigerator Water Dispenser Not Working — Diagnosis',
+            'meta_desc'  => 'Viking refrigerator water dispenser not dispensing water? Learn the causes including frozen water lines, failed inlet valve, and dispenser switch issues.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Refrigerator', '_ar_error_code' => 'Water Dispenser Fault',
+                '_ar_code_meaning'   => "A Viking refrigerator water dispenser that stops working despite the ice maker continuing to produce ice typically has a frozen water line in the door (the line that feeds the dispenser specifically), a failed door water valve, or a failed dispenser paddle switch or control board.",
+                '_ar_causes'         => [['title' => 'Frozen Water Line in Door', 'description' => 'The water line running through the freezer door to the dispenser has frozen solid. This is common if the freezer temperature is set too low.'], ['title' => 'Failed Water Inlet Valve (Dispenser Port)', 'description' => 'The specific solenoid port on the water inlet valve that feeds the dispenser has failed.'], ['title' => 'Failed Dispenser Switch', 'description' => 'The paddle or button switch actuator that signals the control board to dispense water has failed.']],
+                '_ar_diy_steps'      => [['title' => 'Check Freezer Temperature Setting', 'description' => 'If the freezer is set below 0°F, water lines in the door can freeze. Raise the freezer set point slightly and allow 24 hours to thaw.']],
+                '_ar_when_to_call'   => 'If adjusting the freezer temperature does not restore dispenser function, professional diagnosis is required.',
+                '_ar_cost_range'     => '$95 – $240',
+                '_ar_faqs'           => [['question' => 'My Viking refrigerator makes ice but does not dispense water — what is wrong?', 'answer' => 'If ice production is normal but water does not dispense, the water line specifically feeding the dispenser has likely frozen, or the dispenser valve port or switch has failed.']]]],
+
+        $base + ['title' => 'Viking Refrigerator Ice Maker Not Dispensing Ice', 'slug' => 'viking-refrigerator-ice-dispenser-fault',
+            'meta_title' => 'Viking Refrigerator Ice Maker Produces Ice But Will Not Dispense',
+            'meta_desc'  => 'Viking refrigerator ice maker making ice but not dispensing from the door? Learn the causes including auger motor failure and ice bridge formation.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Refrigerator', '_ar_error_code' => 'Ice Dispenser Fault',
+                '_ar_code_meaning'   => "A Viking refrigerator ice maker that produces ice but will not dispense through the door chute has a different fault than one that stops producing ice. Common causes include an ice bridge (clumped ice blocking the dispenser chute), a failed auger motor that drives ice from the bin to the chute, or a failed dispenser door flapper.",
+                '_ar_causes'         => [['title' => 'Ice Bridge in Bin', 'description' => 'Ice cubes have clumped together in the ice bin, forming a solid mass that blocks the auger. Break up the ice bridge manually.'], ['title' => 'Failed Auger Motor', 'description' => 'The motor that drives the ice auger from the storage bin to the dispenser chute has failed.'], ['title' => 'Failed Dispenser Door Flapper', 'description' => 'The flapper at the end of the dispenser chute that opens to release ice has become stuck or broken.']],
+                '_ar_diy_steps'      => [['title' => 'Break Up Ice Bridge', 'description' => 'Remove the ice bin and check for clumped ice. Break up any ice bridge manually and return the bin. Allow 24 hours for ice production to resume.']],
+                '_ar_when_to_call'   => 'If breaking up the ice bridge does not restore dispensing, the auger motor or dispenser flapper requires professional replacement.',
                 '_ar_cost_range'     => '$120 – $250',
-                '_ar_faqs'           => [
-                    [ 'question' => 'Can I replace the bulbs in a Viking vent hood myself?', 'answer' => 'Viking Professional vent hoods use integrated LED modules rather than individual replaceable bulbs. LED module replacement requires access to the hood interior and is best performed by a technician familiar with Viking vent hood construction to avoid damage to the surrounding finish and wiring.' ],
-                ],
-            ],
-        ],
+                '_ar_faqs'           => [['question' => 'Why does my Viking refrigerator make ice but not dispense it?', 'answer' => 'Ice that makes but does not dispense is usually caused by an ice bridge (clumped ice) blocking the auger, or a failed auger motor.']]]],
+
+        $base + ['title' => 'Viking Refrigerator Door Gasket Failure', 'slug' => 'viking-refrigerator-door-gasket-failure',
+            'meta_title' => 'Viking Refrigerator Door Gasket Failure — Warm Compartment, Condensation',
+            'meta_desc'  => 'Viking refrigerator not maintaining temperature or showing condensation? A worn door gasket may be allowing warm air infiltration. Learn diagnosis and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Refrigerator', '_ar_error_code' => 'Door Gasket Failure',
+                '_ar_code_meaning'   => "A worn, torn, or deformed door gasket on a Viking refrigerator or freezer door allows warm, humid room air to infiltrate the cabinet continuously. Signs of gasket failure include the compressor running almost continuously, higher-than-set internal temperatures, visible condensation or frost inside the cabinet near the door, and visible gaps or tears in the rubber gasket material.",
+                '_ar_causes'         => [['title' => 'Normal Wear and Deformation', 'description' => 'Door gaskets naturally harden, flatten, or tear over years of use, losing their ability to create an airtight seal.'], ['title' => 'Physical Damage', 'description' => 'The gasket has been torn or cut by contact with sharp objects or improper cleaning methods.']],
+                '_ar_diy_steps'      => [['title' => 'Paper Test', 'description' => 'Close the refrigerator door on a sheet of paper. If the paper slides out easily at any point around the door perimeter, the gasket seal is inadequate at that location.']],
+                '_ar_when_to_call'   => 'Door gasket replacement with a genuine Viking OEM gasket is recommended for a correct fit and seal.',
+                '_ar_cost_range'     => '$120 – $220',
+                '_ar_faqs'           => [['question' => 'Can I clean and restore a Viking refrigerator gasket?', 'answer' => 'Cleaning a gasket can temporarily improve its flexibility. However, a gasket that is torn, cracked, or permanently deformed cannot be restored and must be replaced.']]]],
+
+        $base + ['title' => 'Viking Refrigerator Water Leaking Inside', 'slug' => 'viking-refrigerator-water-leak-inside',
+            'meta_title' => 'Viking Refrigerator Water Pooling Inside — Defrost Drain Blockage',
+            'meta_desc'  => 'Water pooling at the bottom of your Viking refrigerator? A blocked defrost drain tube is the most common cause. Learn diagnosis and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Refrigerator', '_ar_error_code' => 'Internal Water Leak',
+                '_ar_code_meaning'   => "Water pooling inside a Viking refrigerator — typically in the crisper drawer area or at the bottom of the fresh food compartment — is almost always caused by a blocked or frozen defrost drain tube. During each defrost cycle, meltwater from the evaporator coil flows through a drain tube to a drip pan at the bottom of the refrigerator. If this tube becomes blocked with food debris or ice, meltwater overflows into the refrigerator interior.",
+                '_ar_causes'         => [['title' => 'Blocked Defrost Drain Tube', 'description' => 'Food particles, mold, or ice have accumulated in the defrost drain tube, preventing meltwater from draining properly.'], ['title' => 'Frozen Defrost Drain', 'description' => 'Ice has formed in the drain opening, preventing meltwater from draining.']],
+                '_ar_diy_steps'      => [['title' => 'Locate and Clear the Drain', 'description' => 'The defrost drain is typically accessible through the freezer back panel. Pour warm water into the drain to clear any blockage.']],
+                '_ar_when_to_call'   => 'If manual clearing does not resolve the water pooling, or if the drain freezes repeatedly, professional service is required to address the root cause.',
+                '_ar_cost_range'     => '$95 – $180',
+                '_ar_faqs'           => [['question' => 'Is water in the bottom of my Viking refrigerator dangerous?', 'answer' => 'A small amount of water at the very bottom is usually a blocked defrost drain — not a health hazard but should be addressed promptly to prevent mold growth and floor damage.']]]],
+
+        $base + ['title' => 'Viking Refrigerator Overcooling — Too Cold', 'slug' => 'viking-refrigerator-overcooling',
+            'meta_title' => 'Viking Refrigerator Too Cold — Food Freezing in Fridge Section',
+            'meta_desc'  => 'Viking refrigerator freezing food in the fresh food section? Overcooling is caused by a failed thermistor, damper, or control board. Learn diagnosis.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Refrigerator', '_ar_error_code' => 'Overcooling Fault',
+                '_ar_code_meaning'   => "A Viking refrigerator that is too cold in the fresh food section — causing food to freeze or the section to run near or below 32°F — has a fault in the temperature sensing or air flow control system. A failed refrigerator thermistor reporting a higher temperature than actual causes the control board to cool more aggressively. A stuck-open air damper allows excessive cold air from the freezer section into the refrigerator.",
+                '_ar_causes'         => [['title' => 'Failed Refrigerator Thermistor', 'description' => 'The thermistor monitoring fresh food compartment temperature is reporting a higher temperature than actual, causing the board to overcool.'], ['title' => 'Stuck-Open Air Damper', 'description' => 'The damper that controls cold air flow from the freezer into the refrigerator section has stuck open, allowing excessive cooling.']],
+                '_ar_diy_steps'      => [['title' => 'Adjust Temperature Setting', 'description' => 'First verify the refrigerator temperature is set to the recommended 37°F. If already set correctly and food is still freezing, a component fault is present.']],
+                '_ar_when_to_call'   => 'Overcooling that persists despite correct temperature settings requires professional diagnosis of the thermistor or damper.',
+                '_ar_cost_range'     => '$130 – $260',
+                '_ar_faqs'           => [['question' => 'What temperature should my Viking refrigerator be set to?', 'answer' => 'Viking recommends 37°F for the fresh food compartment and 0°F for the freezer for optimal food preservation.']]]],
+
+        $base + ['title' => 'Viking Refrigerator Excessive Noise', 'slug' => 'viking-refrigerator-excessive-noise',
+            'meta_title' => 'Viking Refrigerator Making Loud Noise — Buzzing, Rattling, or Clicking',
+            'meta_desc'  => 'Viking refrigerator making unusual loud noises? Learn the most common causes of buzzing, rattling, humming, and clicking in Viking refrigerators.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Refrigerator', '_ar_error_code' => 'Excessive Noise',
+                '_ar_code_meaning'   => "Unusual noise from a Viking refrigerator is a diagnostic indicator pointing to a specific failing component. Each noise type has characteristic causes: buzzing from the freezer section suggests an evaporator fan struggling against ice buildup; rattling from the rear suggests a loose condenser fan blade or debris; clicking during startup suggests a failing compressor start relay; and loud continuous hum suggests the compressor is working harder than normal due to a condenser or airflow issue.",
+                '_ar_causes'         => [['title' => 'Evaporator Fan Ice Buildup', 'description' => 'Ice on the evaporator fan blades causes buzzing and intermittent thumping. This is a sign of defrost system failure and should be addressed promptly.'], ['title' => 'Condenser Fan Debris', 'description' => 'Dust, pet hair, or a foreign object near the condenser fan causes rattling at the rear of the unit.'], ['title' => 'Compressor Start Relay Clicking', 'description' => 'Repeated clicking at startup indicates the compressor is failing to start — typically caused by a failed start relay.']],
+                '_ar_diy_steps'      => [['title' => 'Locate the Noise Source', 'description' => 'Determine whether noise is coming from the freezer back panel (evaporator fan), rear bottom of unit (condenser area), or compressor. Each location points to a different component.'], ['title' => 'Clean Condenser Area', 'description' => 'Unplug the refrigerator, pull from wall, and vacuum the condenser coil and fan area to remove debris.']],
+                '_ar_when_to_call'   => 'Persistent or worsening unusual noise should be professionally diagnosed. Many noise sources indicate components that will fail completely if not addressed.',
+                '_ar_cost_range'     => '$95 – $380',
+                '_ar_faqs'           => [['question' => 'Is it normal for a Viking refrigerator to make some noise?', 'answer' => 'Yes — normal Viking refrigerator sounds include a quiet compressor hum, water flowing during ice making, and the evaporator fan. Unusual buzzing, clicking, rattling, or loud continuous humming indicate a fault that should be diagnosed.']]]],
+
+    ];
+}
+
+// =============================================================================
+// VIKING DISHWASHER FAULT INDICATORS — 11 entries
+// =============================================================================
+function ar_error_codes_viking_dishwasher(): array {
+    $base = ['post_type' => 'error_code', 'taxonomies' => ['brand' => 'Viking', 'appliance_type' => 'Dishwasher']];
+    return [
+
+        $base + ['title' => 'Viking Dishwasher Drain Fault', 'slug' => 'viking-dishwasher-drain-fault',
+            'meta_title' => 'Viking Dishwasher Not Draining — Water in Tub After Cycle',
+            'meta_desc'  => 'Viking dishwasher leaving water in the tub at end of cycle? Learn the causes including clogged filter, failed drain pump, and blocked drain hose.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Dishwasher', '_ar_error_code' => 'Drain Fault',
+                '_ar_code_meaning'   => "A Viking dishwasher drain fault occurs when standing water remains in the tub after a cycle completes. The most common cause — and the one homeowners can address themselves — is a clogged filter assembly. If the filter is clean and water remains, the drain pump motor has likely failed.",
+                '_ar_causes'         => [['title' => 'Clogged Filter Assembly', 'description' => 'Food particles clog the filter at the bottom of the tub, blocking drain pump suction. Monthly filter cleaning prevents most drain faults.'], ['title' => 'Failed Drain Pump Motor', 'description' => 'The drain pump motor has failed mechanically or electrically.'], ['title' => 'Blocked Drain Hose', 'description' => 'The drain hose has kinked, collapsed, or is blocked with debris.']],
+                '_ar_diy_steps'      => [['title' => 'Clean the Filter', 'description' => 'Remove the lower rack, pull out the cylindrical filter (twist counter-clockwise), rinse under running water, and reinstall.'], ['title' => 'Check Drain Hose', 'description' => 'Pull the dishwasher out and inspect the drain hose for kinks or blockages.']],
+                '_ar_when_to_call'   => 'If the filter is clean and the hose is unobstructed but water remains, the drain pump requires professional replacement.',
+                '_ar_cost_range'     => '$160 – $280',
+                '_ar_faqs'           => [['question' => 'How often should I clean the Viking dishwasher filter?', 'answer' => 'Monthly under normal use. More frequently if the dishwasher runs daily or dishes are heavily soiled.']]]],
+
+        $base + ['title' => 'Viking Dishwasher Door Latch Fault', 'slug' => 'viking-dishwasher-door-latch-fault',
+            'meta_title' => 'Viking Dishwasher Will Not Start — Door Latch Fault',
+            'meta_desc'  => 'Viking dishwasher panel lights up but will not start? A failed door latch switch is preventing the cycle from initiating. Learn diagnosis and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Dishwasher', '_ar_error_code' => 'Door Latch Fault',
+                '_ar_code_meaning'   => "A Viking dishwasher will not start a wash cycle unless the control board confirms the door is fully latched. A door latch fault presents as a dishwasher that accepts program selections but ignores the Start button. The most common cause is a failed door latch micro-switch inside the latch assembly.",
+                '_ar_causes'         => [['title' => 'Failed Door Latch Switch', 'description' => 'The micro-switch inside the latch assembly has failed, preventing the board from receiving the door-closed signal.'], ['title' => 'Worn Latch Mechanism', 'description' => 'The latch hook has worn to the point where it does not generate enough force to activate the door switch.']],
+                '_ar_diy_steps'      => [['title' => 'Press Door Firmly', 'description' => 'Press the dishwasher door firmly closed — a click should be felt as the latch engages. If no click occurs, inspect the latch for visible damage.'], ['title' => 'Clean Latch Area', 'description' => 'Food residue around the latch or strike plate can prevent full engagement. Clean both surfaces thoroughly.']],
+                '_ar_when_to_call'   => 'A failed door latch switch or worn latch mechanism requires professional replacement with a Viking OEM assembly.',
+                '_ar_cost_range'     => '$110 – $200',
+                '_ar_faqs'           => [['question' => 'My Viking dishwasher panel lights up but the Start button does nothing — is it the door latch?', 'answer' => 'Yes — a control panel that accepts selections but ignores Start is the classic symptom of a door latch switch failure.']]]],
+
+        $base + ['title' => 'Viking Dishwasher Wash Motor Fault', 'slug' => 'viking-dishwasher-wash-motor-fault',
+            'meta_title' => 'Viking Dishwasher Wash Motor Fault — Poor Cleaning, Cycle Interruption',
+            'meta_desc'  => 'Viking dishwasher not cleaning dishes or stopping mid-cycle? A failing circulation pump motor reduces spray pressure. Learn diagnosis and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Dishwasher', '_ar_error_code' => 'Wash Motor Fault',
+                '_ar_code_meaning'   => "A Viking dishwasher wash motor (circulation pump) fault occurs when the pump that circulates water through the spray arms loses efficiency or fails. A failing motor typically presents first as reduced wash performance — dishes come out with residue — before progressing to cycle interruptions.",
+                '_ar_causes'         => [['title' => 'Worn Motor Bearings', 'description' => 'Motor bearing wear reduces pump efficiency and eventually causes motor failure.'], ['title' => 'Foreign Object in Pump', 'description' => 'A hard object (bone, glass fragment) lodged in the pump impeller restricts rotation.']],
+                '_ar_diy_steps'      => [['title' => 'Clean Filter First', 'description' => 'A clogged filter can mimic wash motor failure by starving the pump of water. Clean the filter and run a test cycle before concluding motor failure.']],
+                '_ar_when_to_call'   => 'A failing or failed circulation pump motor requires professional replacement.',
+                '_ar_cost_range'     => '$200 – $360',
+                '_ar_faqs'           => [['question' => 'Can a Viking dishwasher wash motor be repaired?', 'answer' => 'Circulation pump motors are typically replaced as a unit assembly rather than repaired internally.']]]],
+
+        $base + ['title' => 'Viking Dishwasher Heating Element Failure', 'slug' => 'viking-dishwasher-heating-element-failure',
+            'meta_title' => 'Viking Dishwasher Not Heating Water or Drying — Element Failure',
+            'meta_desc'  => 'Viking dishwasher not heating water or dishes not drying? A failed heating element is the cause. Learn the diagnosis and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Dishwasher', '_ar_error_code' => 'Heating Element Fault',
+                '_ar_code_meaning'   => "Viking Professional dishwashers use a heating element to heat wash water to the required temperature (typically 120°F minimum for effective cleaning) and to heat the tub interior for drying. A failed heating element results in poor wash performance (grease and food residue not dissolving), dishes that come out wet, and cycle interruptions if the cycle requires a minimum temperature to progress.",
+                '_ar_causes'         => [['title' => 'Element Burnout', 'description' => 'The element resistance wire has burned through, creating an open circuit.'], ['title' => 'Limescale Buildup', 'description' => 'In hard water areas, limescale accumulation on the element can cause hot spots and premature burnout.']],
+                '_ar_diy_steps'      => [['title' => 'Check Wash and Dry Performance', 'description' => 'If dishes are not coming out hot at the end of a cycle, the heating element is likely failed.']],
+                '_ar_when_to_call'   => 'Failed heating elements require professional replacement with a Viking OEM component.',
+                '_ar_cost_range'     => '$130 – $260',
+                '_ar_faqs'           => [['question' => 'Will my Viking dishwasher clean dishes without a working heating element?', 'answer' => 'Somewhat — the dishwasher will still spray water and run cycles, but without heated water, grease and food residue will not dissolve effectively and dishes will not dry.']]]],
+
+        $base + ['title' => 'Viking Dishwasher Water Inlet Valve Fault', 'slug' => 'viking-dishwasher-water-inlet-fault',
+            'meta_title' => 'Viking Dishwasher Not Filling With Water — Inlet Valve Fault',
+            'meta_desc'  => 'Viking dishwasher not filling with water or filling too slowly? A failed water inlet valve is the most common cause. Learn diagnosis and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Dishwasher', '_ar_error_code' => 'Water Inlet Fault',
+                '_ar_code_meaning'   => "A Viking dishwasher water inlet valve fault occurs when the solenoid valve that controls water entry into the dishwasher tub fails to open fully or at all. A failed inlet valve results in a dishwasher that starts but has very little or no water in the tub, leading to a dry cycle that cleans nothing and may trigger a fault or cycle abort.",
+                '_ar_causes'         => [['title' => 'Failed Inlet Valve Solenoid', 'description' => 'The solenoid coil on the inlet valve has failed, preventing the valve from opening.'], ['title' => 'Clogged Inlet Screen', 'description' => 'A small mesh screen at the inlet valve water connection has clogged with debris, restricting water flow.']],
+                '_ar_diy_steps'      => [['title' => 'Check House Water Pressure', 'description' => 'Verify the household water supply valve feeding the dishwasher is fully open.'], ['title' => 'Inspect Inlet Screen', 'description' => 'Disconnect the water supply line and inspect the mesh screen at the inlet valve for debris clogging.']],
+                '_ar_when_to_call'   => 'A failed inlet valve solenoid requires professional replacement.',
+                '_ar_cost_range'     => '$110 – $200',
+                '_ar_faqs'           => [['question' => 'How do I know if my Viking dishwasher is filling with water?', 'answer' => 'After starting a cycle, wait 3-5 minutes and open the door briefly. You should see water in the tub. No water indicates a fill fault.']]]],
+
+        $base + ['title' => 'Viking Dishwasher Control Panel Fault', 'slug' => 'viking-dishwasher-control-panel-fault',
+            'meta_title' => 'Viking Dishwasher Control Panel Not Responding or Erratic',
+            'meta_desc'  => 'Viking dishwasher control panel buttons not responding or behaving erratically? Learn the causes including control board and panel faults.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Dishwasher', '_ar_error_code' => 'Control Panel Fault',
+                '_ar_code_meaning'   => "A Viking dishwasher control panel fault presents as buttons that do not respond when pressed, erratic behavior (random cycles starting or stopping), or a completely blank display despite the dishwasher having power. Control panel faults can originate from the user interface panel, the ribbon cable connecting the panel to the control board, or the control board itself.",
+                '_ar_causes'         => [['title' => 'Failed User Interface Panel', 'description' => 'The membrane switch panel has failed due to moisture damage or normal wear.'], ['title' => 'Loose or Failed Ribbon Cable', 'description' => 'The ribbon cable between the UI panel and control board has come loose or been damaged.'], ['title' => 'Control Board Failure', 'description' => 'The main control board has failed, preventing normal panel response.']],
+                '_ar_diy_steps'      => [['title' => 'Check Power and Reset', 'description' => 'Verify the dishwasher has power and try switching off the circuit breaker for 60 seconds to reset the control board.']],
+                '_ar_when_to_call'   => 'Control panel and board faults require professional diagnosis to identify the specific failed component.',
+                '_ar_cost_range'     => '$150 – $380',
+                '_ar_faqs'           => [['question' => 'Can moisture damage the Viking dishwasher control panel?', 'answer' => 'Yes. Steam and moisture during operation can reach the control panel if the door seal or vent is compromised, causing erratic behavior or complete panel failure.']]]],
+
+        $base + ['title' => 'Viking Dishwasher Float Switch Overfill Fault', 'slug' => 'viking-dishwasher-float-switch-fault',
+            'meta_title' => 'Viking Dishwasher Overfill Protection — Float Switch Fault',
+            'meta_desc'  => 'Viking dishwasher not filling correctly or activating overfill protection? A stuck float switch may be preventing normal operation. Learn diagnosis.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Dishwasher', '_ar_error_code' => 'Float Switch Fault',
+                '_ar_code_meaning'   => "Viking dishwashers use a float switch at the bottom of the tub as an overfill safety device. When the water level exceeds a safe threshold, the float rises and the switch cuts power to the inlet valve. A float switch that is stuck in the raised position will prevent the dishwasher from filling at all — the machine will start but the tub will remain empty. A stuck-down float allows overfilling.",
+                '_ar_causes'         => [['title' => 'Float Stuck in Raised Position', 'description' => 'Debris or detergent residue under the float dome has caused the float to stick in the raised (overfill detected) position, preventing water from entering the tub.'], ['title' => 'Failed Float Switch', 'description' => 'The micro-switch operated by the float has failed in the tripped (overfill) position.']],
+                '_ar_diy_steps'      => [['title' => 'Locate and Test the Float', 'description' => 'The float assembly is typically located at the front corner of the tub floor. Clean around the float and test that it moves freely up and down.']],
+                '_ar_when_to_call'   => 'If cleaning the float does not restore normal filling, the float switch requires professional replacement.',
+                '_ar_cost_range'     => '$90 – $180',
+                '_ar_faqs'           => [['question' => 'Where is the float switch on a Viking dishwasher?', 'answer' => 'The float is a small dome-shaped component at the front corner of the dishwasher tub floor. It rises with the water level and activates the overfill protection switch.']]]],
+
+        $base + ['title' => 'Viking Dishwasher Spray Arm Obstruction', 'slug' => 'viking-dishwasher-spray-arm-obstruction',
+            'meta_title' => 'Viking Dishwasher Spray Arm Not Rotating — Poor Cleaning',
+            'meta_desc'  => 'Viking dishwasher not cleaning dishes evenly? Blocked spray arm jets or a rack item obstructing rotation are common causes. Learn diagnosis.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Dishwasher', '_ar_error_code' => 'Spray Arm Obstruction',
+                '_ar_code_meaning'   => "Viking Professional dishwashers use multi-level spray arms to distribute wash water throughout the tub. A spray arm that cannot rotate freely — due to a rack item blocking its path — or one whose jet holes are clogged with limescale or food debris will produce uneven cleaning with some areas of the load consistently coming out dirty.",
+                '_ar_causes'         => [['title' => 'Rack Item Blocking Rotation', 'description' => 'A tall item in the lower or upper rack is physically blocking the spray arm from completing its rotation.'], ['title' => 'Clogged Spray Arm Jets', 'description' => 'Limescale, food particles, or hard water deposits have blocked individual jet holes in the spray arm.']],
+                '_ar_diy_steps'      => [['title' => 'Check Loading Pattern', 'description' => 'Remove all items from the racks and spin each spray arm by hand — they should rotate freely without resistance.'], ['title' => 'Clean Spray Arm Jets', 'description' => 'Remove the spray arms and use a toothpick to clear any blocked jet holes. Rinse under running water.']],
+                '_ar_when_to_call'   => 'If spray arms rotate freely and jets are clear but poor cleaning continues, the wash motor or pump may be failing.',
+                '_ar_cost_range'     => '$0 – $160',
+                '_ar_faqs'           => [['question' => 'How do I remove Viking dishwasher spray arms for cleaning?', 'answer' => 'Lower spray arms typically unscrew counter-clockwise or lift straight up after pressing a release tab. Upper spray arms usually lift off their mount. Consult your Viking model documentation for specific removal instructions.']]]],
+
+        $base + ['title' => 'Viking Dishwasher Detergent Dispenser Failure', 'slug' => 'viking-dishwasher-detergent-dispenser-failure',
+            'meta_title' => 'Viking Dishwasher Detergent Dispenser Not Opening',
+            'meta_desc'  => 'Viking dishwasher detergent dispenser not opening during the wash cycle? A failed dispenser spring or wax motor is the cause. Learn diagnosis and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Dishwasher', '_ar_error_code' => 'Detergent Dispenser Fault',
+                '_ar_code_meaning'   => "A Viking dishwasher detergent dispenser that fails to open during the main wash cycle results in dishes being washed with only pre-wash detergent or hot water — cleaning performance will be poor. The dispenser door is typically opened by a wax actuator or spring mechanism triggered by the control board at the correct point in the wash cycle.",
+                '_ar_causes'         => [['title' => 'Failed Wax Actuator', 'description' => 'The wax motor or bi-metal actuator that opens the dispenser door at the correct point in the cycle has failed.'], ['title' => 'Dispenser Door Spring Failure', 'description' => 'The spring that flips the dispenser door open has broken or lost tension.'], ['title' => 'Detergent Buildup', 'description' => 'Caked detergent residue around the dispenser door is preventing it from opening. Clean the dispenser area with warm water.']],
+                '_ar_diy_steps'      => [['title' => 'Clean Dispenser Area', 'description' => 'Clean the detergent dispenser compartment and door hinge area with warm water and a brush to remove caked detergent. Test if the door opens freely by hand.']],
+                '_ar_when_to_call'   => 'Failed wax actuators and dispenser spring assemblies require professional replacement.',
+                '_ar_cost_range'     => '$90 – $190',
+                '_ar_faqs'           => [['question' => 'How do I know if my Viking dishwasher dispenser is opening?', 'answer' => 'After a complete wash cycle, the detergent compartment should be empty and the door should be open. If detergent remains, the dispenser did not open.']]]],
+
+        $base + ['title' => 'Viking Dishwasher Door Gasket Leak', 'slug' => 'viking-dishwasher-door-gasket-leak',
+            'meta_title' => 'Viking Dishwasher Leaking From Door — Door Gasket Failure',
+            'meta_desc'  => 'Water leaking from the front of your Viking dishwasher door? A worn door gasket is the most common cause. Learn diagnosis and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Dishwasher', '_ar_error_code' => 'Door Gasket Leak',
+                '_ar_code_meaning'   => "Water leaking from the front edge of a Viking dishwasher door during a wash cycle indicates the door gasket (the rubber seal around the dishwasher door opening) has worn, torn, or deformed. The door gasket creates a watertight seal when the door is latched; any gap allows water to escape during the high-pressure wash cycle.",
+                '_ar_causes'         => [['title' => 'Worn Door Gasket', 'description' => 'The gasket rubber has hardened, flattened, or torn from normal use and age, leaving gaps in the seal.'], ['title' => 'Door Misalignment', 'description' => 'The dishwasher door has shifted out of alignment with the tub opening, creating a gap that the gasket cannot bridge.']],
+                '_ar_diy_steps'      => [['title' => 'Inspect Gasket Condition', 'description' => 'With the door open, inspect the gasket running around the entire perimeter of the door opening. Look for visible cracks, tears, flattening, or areas where the gasket is pulling away from its channel.']],
+                '_ar_when_to_call'   => 'A worn door gasket requires replacement with a genuine Viking OEM gasket matched to your model.',
+                '_ar_cost_range'     => '$100 – $190',
+                '_ar_faqs'           => [['question' => 'Can I seal a Viking dishwasher door gasket with silicone?', 'answer' => 'Silicone sealant is not a long-term solution for a dishwasher door gasket. The replacement gasket provides the correct seal geometry and material for the water pressure involved.']]]],
+
+        $base + ['title' => 'Viking Dishwasher Cycle Not Completing', 'slug' => 'viking-dishwasher-cycle-not-completing',
+            'meta_title' => 'Viking Dishwasher Stopping Mid-Cycle — Cycle Interruption Fault',
+            'meta_desc'  => 'Viking dishwasher stopping mid-cycle or not completing? Learn the causes including failed heating element, door latch, and control board issues.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Dishwasher', '_ar_error_code' => 'Cycle Interruption',
+                '_ar_code_meaning'   => "A Viking dishwasher that stops mid-cycle has a fault condition that interrupted the automated cycle sequence. Common causes include the door being accidentally opened (which pauses most cycles), a heating element failure that prevents the cycle from reaching the required temperature to progress, a water fill fault, or a drain fault that triggers a protective stop.",
+                '_ar_causes'         => [['title' => 'Door Opened During Cycle', 'description' => 'Opening the door mid-cycle will pause or stop the cycle on most Viking dishwasher models.'], ['title' => 'Heating Element Failure', 'description' => 'The cycle requires water to reach a minimum temperature before progressing. If the heating element fails, the cycle stalls at the heating phase.'], ['title' => 'Control Board Fault', 'description' => 'An ERC condition caused the control board to abort the cycle.']],
+                '_ar_diy_steps'      => [['title' => 'Restart the Cycle', 'description' => 'Close the door firmly and press Start to attempt to resume or restart the cycle.'], ['title' => 'Note Where the Cycle Stopped', 'description' => 'The phase where the cycle stops (wash, rinse, dry) provides diagnostic information. Stopping during the wash phase suggests a fill or heating fault; stopping during drain suggests a drain fault.']],
+                '_ar_when_to_call'   => 'Persistent cycle interruptions require professional diagnosis to identify the specific component fault.',
+                '_ar_cost_range'     => '$130 – $360',
+                '_ar_faqs'           => [['question' => 'What happens if I open my Viking dishwasher mid-cycle?', 'answer' => 'Opening the door pauses the cycle on most Viking models. Close the door and press Start to resume. Some models require a new cycle to be selected.']]]],
+
+    ];
+}
+
+// =============================================================================
+// VIKING COOKTOP FAULT INDICATORS — 11 entries
+// =============================================================================
+function ar_error_codes_viking_cooktop(): array {
+    $base = ['post_type' => 'error_code', 'taxonomies' => ['brand' => 'Viking', 'appliance_type' => 'Cooktop']];
+    return [
+
+        $base + ['title' => 'Viking Cooktop Gas Burner Not Igniting', 'slug' => 'viking-cooktop-burner-not-igniting',
+            'meta_title' => 'Viking Gas Cooktop Burner Not Igniting — Spark Electrode Fault',
+            'meta_desc'  => 'Viking gas cooktop burner not igniting or clicking continuously? Learn the causes including electrode faults, moisture, and module failure.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Cooktop', '_ar_error_code' => 'Burner Ignition Fault',
+                '_ar_code_meaning'   => "Viking Professional gas cooktops use spark ignition with individual electrodes at each burner position. Ignition faults present as a burner that will not ignite, or as continuous clicking after a burner is lit or when no burner is in use. Clogged burner ports and moisture are the most common causes — both often self-serviceable.",
+                '_ar_causes'         => [['title' => 'Clogged Burner Cap Ports', 'description' => 'Food spills clog flame ports, preventing ignition.'], ['title' => 'Moisture Around Electrode', 'description' => 'Liquid near the electrode causes continuous clicking. Allow to dry completely.'], ['title' => 'Failed Spark Electrode', 'description' => 'The electrode tip is cracked or eroded, preventing a spark.'], ['title' => 'Failed Ignition Module', 'description' => 'The ignition control module has failed.']],
+                '_ar_diy_steps'      => [['title' => 'Clean Burner Caps', 'description' => 'Remove and clean burner caps, clearing all flame ports with a small brush or toothpick.'], ['title' => 'Allow to Dry', 'description' => 'If clicking started after a spill, allow the cooktop to dry for several hours.']],
+                '_ar_when_to_call'   => 'If cleaning and drying do not resolve the issue, electrode or module replacement is required.',
+                '_ar_cost_range'     => '$110 – $240',
+                '_ar_faqs'           => [['question' => 'Why does my Viking cooktop click continuously when off?', 'answer' => 'Continuous clicking with no burner on is almost always caused by moisture near the spark electrode. Allow the cooktop to dry completely.']]]],
+
+        $base + ['title' => 'Viking Induction Cooktop Zone Not Heating', 'slug' => 'viking-cooktop-induction-zone-fault',
+            'meta_title' => 'Viking Induction Cooktop Zone Not Working — Zone Fault',
+            'meta_desc'  => 'A Viking induction cooktop zone not heating may have a failed coil, control board issue, or incompatible cookware. Learn the diagnosis.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Cooktop', '_ar_error_code' => 'Induction Zone Fault',
+                '_ar_code_meaning'   => "An induction zone fault on a Viking induction cooktop occurs when a zone fails to heat despite the control panel functioning normally. Before concluding a fault, verify the cookware is induction-compatible (requires a magnetic base). If compatible cookware is confirmed and the zone still fails, the induction coil or zone driver circuit has failed.",
+                '_ar_causes'         => [['title' => 'Non-Compatible Cookware', 'description' => 'Aluminum, copper, and non-magnetic stainless pots will not heat on induction. Test with a refrigerator magnet — if it sticks firmly to the pot base, the cookware is compatible.'], ['title' => 'Failed Induction Coil', 'description' => 'The electromagnetic induction coil beneath the zone has failed.'], ['title' => 'Zone Driver Circuit Fault', 'description' => 'The zone-specific driver circuit on the power board has failed.']],
+                '_ar_diy_steps'      => [['title' => 'Test Cookware Compatibility', 'description' => 'Hold a refrigerator magnet to the bottom of the pot. If it sticks firmly, the cookware is induction-compatible.']],
+                '_ar_when_to_call'   => 'Zone faults that persist with confirmed induction cookware require professional coil or board diagnosis.',
+                '_ar_cost_range'     => '$180 – $420',
+                '_ar_faqs'           => [['question' => 'Does Viking make induction cooktops for the USA market?', 'answer' => 'Yes. Viking offers induction cooktops in the Professional Series for the US market. These require magnetic cookware to function.']]]],
+
+        $base + ['title' => 'Viking Gas Cooktop Burner Flame Not Holding', 'slug' => 'viking-cooktop-flame-not-holding',
+            'meta_title' => 'Viking Gas Cooktop Flame Extinguishes After Lighting',
+            'meta_desc'  => 'Viking gas cooktop burner lights but flame goes out immediately? A thermocouple or thermopile fault is the most common cause. Learn diagnosis.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Cooktop', '_ar_error_code' => 'Flame Hold Fault',
+                '_ar_code_meaning'   => "Some Viking professional rangetop and cooktop models use thermocouples or thermopiles as flame safety sensors. If the burner lights but the flame immediately extinguishes when the knob is released from the ignite position, the thermocouple or thermopile is not generating sufficient millivolt output to hold the gas valve open. This is a distinct fault from the electrode not sparking at all.",
+                '_ar_causes'         => [['title' => 'Weak or Failed Thermocouple', 'description' => 'The thermocouple element has weakened and no longer generates sufficient millivoltage to hold the gas safety valve open when the knob is released.'], ['title' => 'Thermocouple Not Positioned Correctly', 'description' => 'The thermocouple tip must be in the flame path. If it has shifted, it may not heat sufficiently to generate the holding voltage.']],
+                '_ar_diy_steps'      => [['title' => 'Hold the Knob Longer', 'description' => 'After lighting, hold the knob pressed in for 15-30 seconds to allow the thermocouple to heat fully before releasing. If the flame still extinguishes immediately, the thermocouple requires replacement.']],
+                '_ar_when_to_call'   => 'Thermocouple replacement is a professional repair requiring the correct Viking OEM part for your cooktop model.',
+                '_ar_cost_range'     => '$130 – $250',
+                '_ar_faqs'           => [['question' => 'Does my Viking cooktop have a thermocouple?', 'answer' => 'Not all Viking cooktop models use thermocouples — it depends on the specific model and configuration. Rangetops and some professional models with sealed burners may include flame safety sensors.']]]],
+
+        $base + ['title' => 'Viking Cooktop Burner Cap Misalignment', 'slug' => 'viking-cooktop-cap-misalignment',
+            'meta_title' => 'Viking Gas Cooktop Burner Cap Misaligned — Uneven or Yellow Flame',
+            'meta_desc'  => 'Viking gas cooktop producing an uneven or yellow flame? Burner cap misalignment after cleaning is the most common cause. Learn how to correct it.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Cooktop', '_ar_error_code' => 'Burner Cap Misalignment',
+                '_ar_code_meaning'   => "Viking Professional gas cooktop burners require the burner cap to be correctly seated on the burner base for even flame distribution and reliable ignition. A burner cap that is tilted, offset, or not fully seated produces an uneven flame pattern, ignition difficulties, and sometimes a yellow or orange flame (indicating incomplete combustion at some ports). This most commonly occurs after cleaning when the cap is reinstalled incorrectly.",
+                '_ar_causes'         => [['title' => 'Cap Reinstalled Off-Center', 'description' => 'After cleaning, the burner cap was reinstalled tilted or offset from its correct position.'], ['title' => 'Debris Under Cap', 'description' => 'Food debris under the burner cap is lifting one edge, preventing it from seating flush.']],
+                '_ar_diy_steps'      => [['title' => 'Reseat the Burner Cap', 'description' => 'Remove the burner cap, clean the burner base and cap seating surface, and reinstall the cap so it sits flush and flat on the burner base with no rocking.']],
+                '_ar_when_to_call'   => 'If reseating the cap does not resolve uneven flame, the burner head or electrode may require professional inspection.',
+                '_ar_cost_range'     => '$0 – $130',
+                '_ar_faqs'           => [['question' => 'How do I know if my Viking cooktop burner cap is correctly seated?', 'answer' => 'A correctly seated Viking burner cap sits flush and flat on the burner base with no rocking or tilting. If the cap wobbles or rocks when placed, it is not correctly seated.']]]],
+
+        $base + ['title' => 'Viking Gas Cooktop Spark Electrode Failure', 'slug' => 'viking-cooktop-spark-electrode-failure',
+            'meta_title' => 'Viking Gas Cooktop No Spark at One Burner — Electrode Failure',
+            'meta_desc'  => 'One Viking gas cooktop burner not sparking while others work? A failed spark electrode at that burner position is the cause. Learn repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Cooktop', '_ar_error_code' => 'Spark Electrode Failure',
+                '_ar_code_meaning'   => "When a single Viking gas cooktop burner does not spark while all other burners spark normally, the spark electrode at that specific burner position has failed. Each burner position has its own ceramic spark electrode. A cracked electrode porcelain, eroded spark tip, or electrode that has become grounded to the burner cap will not produce a spark.",
+                '_ar_causes'         => [['title' => 'Cracked Electrode Ceramic', 'description' => 'The ceramic insulator surrounding the electrode wire has cracked, allowing the electrical path to ground through the crack rather than through the air gap to produce a spark.'], ['title' => 'Eroded Spark Tip', 'description' => 'The electrode tip has worn away from repeated arcing and can no longer produce a strong spark.']],
+                '_ar_diy_steps'      => [['title' => 'Inspect Electrode Visually', 'description' => 'With the burner cap removed, inspect the electrode. A healthy electrode has a white ceramic body and a small metal tip pointed toward the burner. A cracked, discolored, or eroded electrode requires replacement.']],
+                '_ar_when_to_call'   => 'Spark electrode replacement requires sourcing the correct Viking OEM electrode for your cooktop model and configuration.',
+                '_ar_cost_range'     => '$90 – $190',
+                '_ar_faqs'           => [['question' => 'Can I clean a Viking cooktop spark electrode?', 'answer' => 'Clean the electrode gently with a dry cloth or cotton swab to remove grease and food residue. Do not use water or liquid cleaners on the electrode.']]]],
+
+        $base + ['title' => 'Viking Gas Cooktop Ignition Module Failure', 'slug' => 'viking-cooktop-ignition-module-failure',
+            'meta_title' => 'Viking Gas Cooktop No Spark at Any Burner — Ignition Module Failure',
+            'meta_desc'  => 'Viking gas cooktop not sparking at any burner? A failed ignition module is the cause when all burners fail simultaneously. Learn diagnosis and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Cooktop', '_ar_error_code' => 'Ignition Module Failure',
+                '_ar_code_meaning'   => "When no burner on a Viking gas cooktop produces a spark when the knob is turned to the ignite position, the spark ignition module (the electronic module that generates the high-voltage spark pulse) has failed. A module failure affects all burners simultaneously, distinguishing it from a single electrode failure that affects only one burner position.",
+                '_ar_causes'         => [['title' => 'Module Winding Failure', 'description' => 'The internal components of the ignition module have failed, preventing spark generation to all burner positions.'], ['title' => 'Power Supply Interruption', 'description' => 'A loose electrical connection to the ignition module is preventing it from receiving power.']],
+                '_ar_diy_steps'      => [['title' => 'Test All Burner Positions', 'description' => 'Turn each knob to the ignite position. If no burner sparks, the module has likely failed. If one burner sparks but others do not, individual electrode failures are more likely.']],
+                '_ar_when_to_call'   => 'Ignition module replacement is a professional repair.',
+                '_ar_cost_range'     => '$130 – $280',
+                '_ar_faqs'           => [['question' => 'Can I still use my Viking cooktop burners without the spark ignition?', 'answer' => 'Viking gas burners can be manually lit with a long-reach lighter while the knob is held in the low position. However, continuous clicking without ignition wastes battery and indicates a fault that should be repaired.']]]],
+
+        $base + ['title' => 'Viking Electric Cooktop Surface Element Failure', 'slug' => 'viking-cooktop-surface-element-failure',
+            'meta_title' => 'Viking Electric Cooktop Element Not Heating — Element Failure',
+            'meta_desc'  => 'A Viking electric or radiant cooktop zone not heating? A failed surface element is the most common cause. Learn diagnosis and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Cooktop', '_ar_error_code' => 'Surface Element Failure',
+                '_ar_code_meaning'   => "Viking electric and radiant cooktops use surface heating elements beneath a ceramic glass cooktop surface. A failed surface element results in one or more cooking zones not heating at all or heating intermittently. The element can fail with or without visible damage to the glass surface above it.",
+                '_ar_causes'         => [['title' => 'Element Burnout', 'description' => 'The resistance wire inside the surface element has burned through, creating an open circuit.'], ['title' => 'Element Connection Failure', 'description' => 'The electrical connection at one or both terminals of the element has burned or corroded.']],
+                '_ar_diy_steps'      => [['title' => 'Identify the Affected Zone', 'description' => 'Identify which zone does not heat and at what temperature setting. Intermittent heating suggests a partial failure or connection issue.']],
+                '_ar_when_to_call'   => 'Surface element replacement on a ceramic glass cooktop requires professional access to the underside of the cooktop.',
+                '_ar_cost_range'     => '$140 – $280',
+                '_ar_faqs'           => [['question' => 'Can a Viking electric cooktop zone be used on low heat if the high heat fails?', 'answer' => 'If the element is intermittently failing, it may still function at some settings but not others. However, an element showing any failure should be professionally replaced before it fails completely.']]]],
+
+        $base + ['title' => 'Viking Cooktop Gas Pressure Fault', 'slug' => 'viking-cooktop-gas-pressure-fault',
+            'meta_title' => 'Viking Gas Cooktop Low or Weak Flame — Gas Pressure Fault',
+            'meta_desc'  => 'Viking gas cooktop producing low, weak flames across all burners? Low gas pressure or a clogged regulator is the likely cause. Learn diagnosis.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Cooktop', '_ar_error_code' => 'Gas Pressure Fault',
+                '_ar_code_meaning'   => "A Viking gas cooktop that produces uniformly low or weak flames across all burners — particularly when other gas appliances in the home are functioning normally — has a gas pressure issue specific to the cooktop. Viking Professional gas cooktops include a gas pressure regulator that maintains the correct gas pressure to the burners. A failed or partially failed regulator restricts gas flow.",
+                '_ar_causes'         => [['title' => 'Failed Gas Pressure Regulator', 'description' => 'The regulator that maintains correct gas pressure to the burners has failed or is sticking, reducing gas flow below the required level.'], ['title' => 'Supply Line Kink or Blockage', 'description' => 'The flexible gas supply line to the cooktop has kinked or partially blocked, restricting flow.']],
+                '_ar_diy_steps'      => [['title' => 'Test Other Gas Appliances', 'description' => 'Check whether other gas appliances in the home (water heater, furnace, oven) are functioning normally. If all gas appliances are affected, the issue is with the household gas supply, not the cooktop.']],
+                '_ar_when_to_call'   => 'Gas pressure and regulator issues require a professional gas appliance technician due to the safety implications of gas work.',
+                '_ar_cost_range'     => '$140 – $280',
+                '_ar_faqs'           => [['question' => 'Can I adjust the gas pressure on my Viking cooktop myself?', 'answer' => 'Gas pressure adjustments must be performed by a qualified professional. Incorrect gas pressure creates fire and safety hazards.']]]],
+
+        $base + ['title' => 'Viking Cooktop Knob Valve Fault', 'slug' => 'viking-cooktop-knob-valve-fault',
+            'meta_title' => 'Viking Gas Cooktop Burner Valve Fault — Stuck or Gas Smell',
+            'meta_desc'  => 'Viking gas cooktop burner valve stuck, stiff, or gas detected after turning off? A failing gas valve requires immediate professional attention.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Cooktop', '_ar_error_code' => 'Burner Valve Fault',
+                '_ar_code_meaning'   => "Viking Professional gas cooktop burner valves control gas flow to each individual burner. A burner valve fault presents as a knob that is stiff, difficult to turn, produces a gas smell even when turned off (indicating the valve is not fully closing), or allows gas to flow without igniting (indicating the valve is stuck open). Gas valve faults are safety-critical and require prompt professional attention.",
+                '_ar_causes'         => [['title' => 'Worn Valve Seats', 'description' => 'The valve sealing surfaces have worn, allowing gas to bypass when the valve should be fully closed.'], ['title' => 'Grease Contamination', 'description' => 'Grease that has entered the valve body from spills has caused the valve to stick or seal improperly.']],
+                '_ar_diy_steps'      => [['title' => 'Safety First', 'description' => 'If you detect a gas smell with the burner turned off, turn off the gas supply to the cooktop at the shut-off valve, ventilate the area, and call for professional service immediately. Do not attempt to light burners.']],
+                '_ar_when_to_call'   => 'Any gas valve fault — including a stiff valve, gas smell after shutoff, or stuck-open valve — requires immediate professional service.',
+                '_ar_cost_range'     => '$160 – $320',
+                '_ar_faqs'           => [['question' => 'Is a Viking gas cooktop valve that smells of gas when off dangerous?', 'answer' => 'Yes. A gas valve that does not fully close allows gas to accumulate, creating a fire and explosion hazard. Turn off the gas supply immediately and contact a professional.']]]],
+
+        $base + ['title' => 'Viking Cooktop Yellow or Orange Flame', 'slug' => 'viking-cooktop-yellow-flame',
+            'meta_title' => 'Viking Gas Cooktop Yellow Flame — Combustion Issue',
+            'meta_desc'  => 'Viking gas cooktop producing a yellow or orange flame instead of blue? Learn the causes including air-to-gas ratio issues and burner port blockage.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Cooktop', '_ar_error_code' => 'Yellow Flame Fault',
+                '_ar_code_meaning'   => "A healthy Viking gas cooktop burner produces a blue flame with small orange tips at the outer edges. A flame that is predominantly yellow, orange, or produces significant soot indicates incomplete combustion — the gas-to-air ratio is incorrect. Yellow flames burn less efficiently, produce carbon monoxide, and can leave soot deposits on cookware. This is a combustion health and safety issue that should be addressed promptly.",
+                '_ar_causes'         => [['title' => 'Clogged Burner Ports', 'description' => 'Blocked flame ports prevent proper air mixing, producing yellow incomplete combustion.'], ['title' => 'Air Shutter Adjustment Needed', 'description' => 'The air intake shutter on the burner requires adjustment to achieve the correct air-to-gas ratio.'], ['title' => 'Gas Supply Issue', 'description' => 'Abnormally high or low gas pressure affects combustion quality.']],
+                '_ar_diy_steps'      => [['title' => 'Clean Burner Ports', 'description' => 'Remove and thoroughly clean all burner cap ports with a small brush. Clogged ports are the most common cause of yellow flame.']],
+                '_ar_when_to_call'   => 'If cleaning the burner ports does not restore a blue flame, the air shutter may need professional adjustment or gas pressure investigation.',
+                '_ar_cost_range'     => '$90 – $200',
+                '_ar_faqs'           => [['question' => 'Is a yellow flame on my Viking gas cooktop dangerous?', 'answer' => 'Yes. Yellow flames indicate incomplete combustion, which produces carbon monoxide gas. Ensure adequate kitchen ventilation and have the cooktop serviced promptly.']]]],
+
+        $base + ['title' => 'Viking Cooktop Control Panel Fault', 'slug' => 'viking-cooktop-control-panel-fault',
+            'meta_title' => 'Viking Cooktop Control Panel Not Responding or Showing Error',
+            'meta_desc'  => 'Viking induction or electric cooktop control panel not responding or showing an error code? Learn the causes and repair steps.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Cooktop', '_ar_error_code' => 'Control Panel Fault',
+                '_ar_code_meaning'   => "Viking induction and electric cooktop control panels can develop faults that prevent normal operation. Symptoms include controls that do not respond to touch, zones that activate without input, or error indicators on the display. Viking induction cooktops may display specific error codes when internal faults are detected, and these should be documented for the technician.",
+                '_ar_causes'         => [['title' => 'Touch Control Calibration', 'description' => 'Viking touch-sensitive controls can lose calibration or be affected by standing water on the cooktop surface. Dry the cooktop surface completely before retesting.'], ['title' => 'Control Board Failure', 'description' => 'The main control board has developed a fault preventing normal panel operation.']],
+                '_ar_diy_steps'      => [['title' => 'Dry the Cooktop Surface', 'description' => 'Ensure no water or moisture is on the cooktop surface near the control area. Touch controls are sensitive to water.'], ['title' => 'Power Cycle', 'description' => 'Switch off the circuit breaker for the cooktop for 60 seconds to reset the control board.']],
+                '_ar_when_to_call'   => 'Persistent control panel faults after power cycling and drying require professional diagnosis.',
+                '_ar_cost_range'     => '$150 – $420',
+                '_ar_faqs'           => [['question' => 'Why does my Viking induction cooktop show an error code?', 'answer' => 'Viking induction cooktops display error codes when internal faults are detected. Note the exact code displayed and contact us for diagnosis — each code points to a specific fault condition.']]]],
+
+    ];
+}
+
+// =============================================================================
+// VIKING WINE COOLER FAULT INDICATORS — 11 entries
+// =============================================================================
+function ar_error_codes_viking_wine_cooler(): array {
+    $base = ['post_type' => 'error_code', 'taxonomies' => ['brand' => 'Viking', 'appliance_type' => 'Wine Cooler']];
+    return [
+
+        $base + ['title' => 'Viking Wine Cooler Not Maintaining Temperature', 'slug' => 'viking-wine-cooler-temperature-fault',
+            'meta_title' => 'Viking Wine Cooler Not Cooling to Set Temperature',
+            'meta_desc'  => 'Viking wine cooler running but not maintaining the set temperature? Learn the causes from condenser issues to compressor failure.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wine Cooler', '_ar_error_code' => 'Temperature Fault',
+                '_ar_code_meaning'   => "A Viking wine cooler that cannot maintain the set storage temperature is a serious fault — temperature fluctuations damage wine quality. The most common and most preventable cause is a clogged condenser coil. If condenser cleaning does not restore proper cooling, a component failure (fan motor, sensor, or compressor) is present.",
+                '_ar_causes'         => [['title' => 'Clogged Condenser Coil', 'description' => 'Dust and debris on the condenser coil prevent heat dissipation. Annual cleaning prevents this fault.'], ['title' => 'Failed Condenser Fan Motor', 'description' => 'The fan that draws air through the condenser has failed, preventing heat dissipation.'], ['title' => 'Failing Compressor', 'description' => 'The compressor is weakening and can no longer maintain the required cooling output.']],
+                '_ar_diy_steps'      => [['title' => 'Clean the Condenser Coil', 'description' => 'Unplug the unit and vacuum the condenser coil at the rear or bottom. Annual cleaning prevents most temperature faults.'], ['title' => 'Check Door Seal', 'description' => 'Inspect the door gasket for gaps — warm air infiltration prevents the unit from maintaining temperature.']],
+                '_ar_when_to_call'   => 'If condenser cleaning and door seal inspection do not restore proper temperature, professional diagnosis is required.',
+                '_ar_cost_range'     => '$150 – $480',
+                '_ar_faqs'           => [['question' => 'What temperature should my Viking wine cooler be set to?', 'answer' => 'For long-term storage: 55°F for red wine, 45-50°F for whites. Viking dual-zone coolers allow independent zone settings.']]]],
+
+        $base + ['title' => 'Viking Wine Cooler Compressor Not Starting', 'slug' => 'viking-wine-cooler-compressor-fault',
+            'meta_title' => 'Viking Wine Cooler Compressor Not Running — Both Zones Warm',
+            'meta_desc'  => 'Viking wine cooler completely warm with no compressor sound? Learn the causes of compressor faults and repair options.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wine Cooler', '_ar_error_code' => 'Compressor Fault',
+                '_ar_code_meaning'   => "A Viking wine cooler with no compressor sound that is warm throughout has a compressor, start relay, or sealed system fault. The compressor should produce a quiet hum when running. Complete silence combined with warmth indicates the compressor is not starting.",
+                '_ar_causes'         => [['title' => 'Failed Start Relay', 'description' => 'The start relay that provides initial current to start the compressor has failed.'], ['title' => 'Failed Compressor Motor', 'description' => 'The compressor motor itself has failed.'], ['title' => 'Power Issue', 'description' => 'The unit is not receiving power or there is a control board fault preventing compressor activation.']],
+                '_ar_diy_steps'      => [['title' => 'Check Power Connection', 'description' => 'Verify the unit is plugged in, the outlet has power, and the circuit breaker has not tripped.']],
+                '_ar_when_to_call'   => 'Any compressor fault requires professional diagnosis. Our technician evaluates start relay, compressor, and control board before recommending the most economical repair.',
+                '_ar_cost_range'     => '$95 – $550',
+                '_ar_faqs'           => [['question' => 'Is it worth repairing a Viking wine cooler compressor?', 'answer' => 'Viking wine coolers are premium products with long service lives. A start relay replacement is inexpensive. Full compressor replacement requires evaluating the unit age and cost of replacement.']]]],
+
+        $base + ['title' => 'Viking Wine Cooler Condenser Fan Failure', 'slug' => 'viking-wine-cooler-fan-failure',
+            'meta_title' => 'Viking Wine Cooler Condenser Fan Not Running — Overheating',
+            'meta_desc'  => 'Viking wine cooler running but not cooling effectively? A failed condenser fan prevents heat dissipation. Learn diagnosis and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wine Cooler', '_ar_error_code' => 'Condenser Fan Fault',
+                '_ar_code_meaning'   => "The condenser fan in a Viking wine cooler draws air over the condenser coil to dissipate heat from the refrigeration cycle. A failed condenser fan motor causes the compressor to overwork and the unit to progressively lose its ability to maintain temperature. The exterior rear of the unit may feel unusually hot.",
+                '_ar_causes'         => [['title' => 'Motor Bearing Failure', 'description' => 'The condenser fan motor bearing has worn and seized, stopping the fan.'], ['title' => 'Debris Blockage', 'description' => 'Accumulated dust or debris in the fan area has jammed the fan blades.']],
+                '_ar_diy_steps'      => [['title' => 'Clean Condenser Area', 'description' => 'Unplug the unit, remove the rear access panel, and check the condenser fan for debris blockage. Clean thoroughly.']],
+                '_ar_when_to_call'   => 'If cleaning does not restore fan operation, the condenser fan motor requires professional replacement.',
+                '_ar_cost_range'     => '$140 – $260',
+                '_ar_faqs'           => [['question' => 'How often should I clean my Viking wine cooler condenser?', 'answer' => 'At least annually; every 6 months in dusty environments or homes with pets.']]]],
+
+        $base + ['title' => 'Viking Wine Cooler Temperature Sensor Fault', 'slug' => 'viking-wine-cooler-temperature-sensor-fault',
+            'meta_title' => 'Viking Wine Cooler Temperature Sensor Fault — Inaccurate Temperature',
+            'meta_desc'  => 'Viking wine cooler temperature reading inaccurate or displaying an error? A failed temperature sensor causes erratic cooling behavior.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wine Cooler', '_ar_error_code' => 'Temperature Sensor Fault',
+                '_ar_code_meaning'   => "The temperature sensor (thermistor) in a Viking wine cooler monitors internal temperature and reports to the control board to regulate compressor operation. A failed sensor may report an inaccurate temperature, causing the compressor to overcool or undercool the unit. Some Viking wine cooler models display a sensor-related error code when the sensor is out of range.",
+                '_ar_causes'         => [['title' => 'Failed Thermistor', 'description' => 'The temperature sensor element has failed, reporting an incorrect temperature to the control board.'], ['title' => 'Sensor Connection Issue', 'description' => 'The sensor wiring connector has come loose.']],
+                '_ar_diy_steps'      => [['title' => 'Use an Independent Thermometer', 'description' => 'Place an independent digital thermometer inside the wine cooler and compare its reading to the display. A significant discrepancy confirms a sensor fault.']],
+                '_ar_when_to_call'   => 'Temperature sensor replacement requires professional diagnosis to confirm the fault and source the correct OEM sensor.',
+                '_ar_cost_range'     => '$120 – $250',
+                '_ar_faqs'           => [['question' => 'How do I verify my Viking wine cooler temperature is accurate?', 'answer' => 'Use a dedicated wine storage thermometer placed in the center of the cooler at mid-height. The reading should be within 2-3 degrees of the set temperature.']]]],
+
+        $base + ['title' => 'Viking Wine Cooler Door Seal Failure', 'slug' => 'viking-wine-cooler-door-seal-failure',
+            'meta_title' => 'Viking Wine Cooler Door Gasket Failure — Temperature Fluctuation',
+            'meta_desc'  => 'Viking wine cooler temperature fluctuating or running continuously? A worn door gasket allows warm air infiltration. Learn diagnosis and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wine Cooler', '_ar_error_code' => 'Door Seal Failure',
+                '_ar_code_meaning'   => "A worn, torn, or deformed door gasket on a Viking wine cooler allows warm, humid room air to enter the cabinet continuously, causing temperature fluctuations, increased compressor runtime, and potentially excessive condensation inside the unit. Signs include the compressor running almost continuously, visible condensation at the door edge, and temperature consistently above the set point.",
+                '_ar_causes'         => [['title' => 'Normal Gasket Wear', 'description' => 'Door gaskets harden, flatten, or tear from normal use over years of operation.'], ['title' => 'Improper Cleaning', 'description' => 'Harsh cleaners or solvents applied to the gasket accelerate deterioration.']],
+                '_ar_diy_steps'      => [['title' => 'Paper Test', 'description' => 'Close the door on a piece of paper. If the paper slides out easily anywhere along the door perimeter, the gasket seal is inadequate at that location.']],
+                '_ar_when_to_call'   => 'Door gasket replacement with a genuine Viking OEM gasket provides the correct fit and seal for your wine cooler model.',
+                '_ar_cost_range'     => '$110 – $210',
+                '_ar_faqs'           => [['question' => 'Will a damaged door gasket damage my wine?', 'answer' => 'Over time, yes. Temperature fluctuations from warm air infiltration, along with the vibration of an overworked compressor, can adversely affect wine quality and accelerate aging.']]]],
+
+        $base + ['title' => 'Viking Wine Cooler Control Panel Unresponsive', 'slug' => 'viking-wine-cooler-control-panel-fault',
+            'meta_title' => 'Viking Wine Cooler Control Panel Not Working — Display or Button Fault',
+            'meta_desc'  => 'Viking wine cooler control panel buttons not responding or display blank? Learn the causes of Viking wine cooler control faults.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wine Cooler', '_ar_error_code' => 'Control Panel Fault',
+                '_ar_code_meaning'   => "A Viking wine cooler control panel that does not respond to button presses, shows a blank display, or behaves erratically has a control panel or control board fault. The control board manages temperature settings, compressor activation, and the display. A complete display failure may indicate a control board fault, or simply a power issue.",
+                '_ar_causes'         => [['title' => 'Control Board Failure', 'description' => 'The main control board has failed, preventing normal panel operation and compressor management.'], ['title' => 'Display Panel Failure', 'description' => 'The display panel or user interface board has failed, though the cooling system may still function.']],
+                '_ar_diy_steps'      => [['title' => 'Power Cycle', 'description' => 'Unplug the wine cooler for 60 seconds and plug back in to reset the control board.']],
+                '_ar_when_to_call'   => 'Persistent control panel faults after power cycling require professional diagnosis.',
+                '_ar_cost_range'     => '$150 – $380',
+                '_ar_faqs'           => [['question' => 'If my Viking wine cooler display goes blank but the unit still cools, is it serious?', 'answer' => 'If the unit is still maintaining temperature, the display panel may have failed independently of the control board. Professional service can replace the display component.']]]],
+
+        $base + ['title' => 'Viking Wine Cooler Dual-Zone Temperature Inconsistency', 'slug' => 'viking-wine-cooler-dual-zone-fault',
+            'meta_title' => 'Viking Dual-Zone Wine Cooler One Zone Wrong Temperature',
+            'meta_desc'  => 'Viking dual-zone wine cooler with one zone not maintaining its set temperature? Learn the causes of zone temperature inconsistency.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wine Cooler', '_ar_error_code' => 'Dual-Zone Fault',
+                '_ar_code_meaning'   => "Viking dual-zone wine coolers maintain separate temperature zones for different wine types. When one zone fails to maintain its set temperature independently — either running too warm or too cold — while the other zone is normal, the fault is typically in the zone temperature sensor, the zone air damper, or the zone control circuit.",
+                '_ar_causes'         => [['title' => 'Failed Zone Temperature Sensor', 'description' => 'The thermistor monitoring one zone temperature has failed, causing that zone to be mismanaged.'], ['title' => 'Stuck Zone Air Damper', 'description' => 'The damper that controls cold air distribution between zones has stuck in an incorrect position, overcooling or undercooling one zone.']],
+                '_ar_diy_steps'      => [['title' => 'Verify Zone Temperature Settings', 'description' => 'Confirm both zones are set to their intended temperatures and that no setting changes were made accidentally.']],
+                '_ar_when_to_call'   => 'Dual-zone faults require professional diagnosis to identify whether the sensor, damper, or control board is at fault.',
+                '_ar_cost_range'     => '$140 – $320',
+                '_ar_faqs'           => [['question' => 'What are the recommended zone temperatures for a Viking dual-zone wine cooler?', 'answer' => 'Typically, set the upper zone for whites at 45-50°F and the lower zone for reds at 55-60°F, or adjust to your specific storage preferences.']]]],
+
+        $base + ['title' => 'Viking Wine Cooler Interior Lighting Failure', 'slug' => 'viking-wine-cooler-lighting-failure',
+            'meta_title' => 'Viking Wine Cooler Interior Lights Not Working',
+            'meta_desc'  => 'Viking wine cooler interior lights not turning on? A failed LED module or door switch is the cause. Learn diagnosis and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wine Cooler', '_ar_error_code' => 'Lighting Fault',
+                '_ar_code_meaning'   => "Viking wine coolers use LED interior lighting to illuminate the wine storage shelves when the door is opened. A lighting failure does not affect cooling performance but reduces visibility when selecting wine. The cause is typically a failed LED module or a failed door switch that activates the light.",
+                '_ar_causes'         => [['title' => 'Failed LED Module', 'description' => 'The LED lighting assembly has reached end-of-life or failed prematurely.'], ['title' => 'Failed Door Switch', 'description' => 'The switch that activates the light when the door opens has failed.']],
+                '_ar_diy_steps'      => [['title' => 'Test Door Switch', 'description' => 'Manually press the door switch plunger (visible on the interior door frame when the door is open). If pressing and releasing the switch activates and deactivates the light, the switch is functional and the LED module has failed.']],
+                '_ar_when_to_call'   => 'LED module and door switch replacement are professional repairs to maintain the premium finish of the unit.',
+                '_ar_cost_range'     => '$90 – $200',
+                '_ar_faqs'           => [['question' => 'Does Viking wine cooler lighting failure affect wine storage?', 'answer' => 'No. Interior lighting is for convenience only and does not affect the temperature or humidity conditions for wine storage.']]]],
+
+        $base + ['title' => 'Viking Wine Cooler Condenser Coil Clogged', 'slug' => 'viking-wine-cooler-condenser-coil-clogged',
+            'meta_title' => 'Viking Wine Cooler Condenser Coil Dirty — Reduced Cooling Performance',
+            'meta_desc'  => 'Is your Viking wine cooler losing cooling performance gradually? A clogged condenser coil is the most preventable cause. Learn how to clean and maintain it.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wine Cooler', '_ar_error_code' => 'Condenser Coil Clog',
+                '_ar_code_meaning'   => "A gradually deteriorating Viking wine cooler that requires longer and longer times to reach the set temperature, or that can no longer quite reach the set temperature in warmer ambient conditions, has most likely accumulated dust and debris on its condenser coil. The condenser coil dissipates heat from the refrigeration cycle — when it is clogged, the entire cooling system becomes less efficient and the compressor works harder.",
+                '_ar_causes'         => [['title' => 'Dust and Debris Accumulation', 'description' => 'Household dust, pet hair, and lint accumulate on the condenser coil over time, insulating it and reducing heat transfer efficiency.']],
+                '_ar_diy_steps'      => [['title' => 'Locate and Clean the Condenser', 'description' => 'The condenser coil is accessible from the rear of the unit or through a bottom grille. Unplug the unit, use a vacuum with a brush attachment to gently clean the coil fins. Avoid bending the delicate fins.']],
+                '_ar_when_to_call'   => 'If cooling performance does not improve after condenser cleaning, a component failure requires professional diagnosis.',
+                '_ar_cost_range'     => '$0 – $150',
+                '_ar_faqs'           => [['question' => 'How often does the Viking wine cooler condenser need cleaning?', 'answer' => 'Annual cleaning is recommended. More frequently in dusty environments or homes with pets. A clean condenser is the most important preventive maintenance for Viking wine coolers.']]]],
+
+        $base + ['title' => 'Viking Wine Cooler Excessive Condensation Inside', 'slug' => 'viking-wine-cooler-condensation-fault',
+            'meta_title' => 'Viking Wine Cooler Excessive Condensation — Moisture Buildup',
+            'meta_desc'  => 'Viking wine cooler showing excessive moisture or water droplets inside? Learn the causes of condensation buildup in Viking wine coolers.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wine Cooler', '_ar_error_code' => 'Condensation Fault',
+                '_ar_code_meaning'   => "Visible condensation inside a Viking wine cooler — water droplets on the interior walls, shelves, or bottles — indicates excessive humidity infiltration. A small amount of condensation is normal when the door is opened frequently, but persistent condensation buildup suggests a door gasket failure, doors being opened too frequently in a humid environment, or the unit being stored in an inappropriately humid location.",
+                '_ar_causes'         => [['title' => 'Door Gasket Failure', 'description' => 'A worn or damaged door gasket allows humid room air to continuously infiltrate the cabinet, causing condensation on the cold interior surfaces.'], ['title' => 'Excessive Door Opening', 'description' => 'Frequent door opening in a humid environment allows significant moisture ingress.'], ['title' => 'High Ambient Humidity', 'description' => 'The wine cooler is installed in a location with very high ambient humidity (such as a humid basement or near a dishwasher).']],
+                '_ar_diy_steps'      => [['title' => 'Inspect Door Gasket', 'description' => 'A leaking door gasket is the most common cause. Perform the paper test to check seal integrity.'], ['title' => 'Limit Door Opening Frequency', 'description' => 'Plan wine selections before opening to minimize door-open time.']],
+                '_ar_when_to_call'   => 'If the door gasket is intact and condensation persists, professional diagnosis is recommended.',
+                '_ar_cost_range'     => '$0 – $210',
+                '_ar_faqs'           => [['question' => 'Is condensation in a Viking wine cooler harmful to wine?', 'answer' => 'Some condensation is normal. However, persistent excessive moisture can promote mold growth on labels and corks, and may indicate a seal issue that should be addressed.']]]],
+
+        $base + ['title' => 'Viking Wine Cooler Vibration Issue', 'slug' => 'viking-wine-cooler-vibration-issue',
+            'meta_title' => 'Viking Wine Cooler Excessive Vibration — Wine Storage Concern',
+            'meta_desc'  => 'Viking wine cooler vibrating excessively? Excessive vibration can disturb wine sediment and affect storage. Learn the causes and how to address them.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wine Cooler', '_ar_error_code' => 'Vibration Issue',
+                '_ar_code_meaning'   => "Viking wine coolers are designed with vibration-dampening features because excessive vibration can disturb wine sediment, affect the chemical processes in aging wine, and degrade wine quality over time. A Viking wine cooler that vibrates significantly more than normal may have a failing compressor, an unbalanced condenser fan, or the unit may simply require leveling.",
+                '_ar_causes'         => [['title' => 'Unit Not Level', 'description' => 'An unlevel unit causes the compressor and other components to vibrate more than designed.'], ['title' => 'Failing Compressor', 'description' => 'A compressor beginning to fail may vibrate more intensely than normal, transmitting vibration through the unit.'], ['title' => 'Unbalanced Condenser Fan', 'description' => 'A condenser fan with accumulated debris on the blades creates imbalance and vibration.']],
+                '_ar_diy_steps'      => [['title' => 'Level the Unit', 'description' => 'Use a spirit level to check that the wine cooler is perfectly level front-to-back and side-to-side. Adjust the leveling feet as needed.'], ['title' => 'Check Surface Under Unit', 'description' => 'Ensure the cooler is on a firm, stable surface. Soft flooring can amplify compressor vibration.']],
+                '_ar_when_to_call'   => 'If leveling and surface correction do not reduce vibration, a failing compressor or fan motor requires professional assessment.',
+                '_ar_cost_range'     => '$0 – $450',
+                '_ar_faqs'           => [['question' => 'How much vibration is normal from a Viking wine cooler?', 'answer' => 'A slight, barely perceptible vibration from the compressor when running is normal. Vibration visible from across the room, audible rattling, or vibration you can feel when touching the unit indicates a fault that should be addressed.']]]],
+
+    ];
+}
+
+// =============================================================================
+// VIKING FREEZER FAULT INDICATORS — 11 entries
+// =============================================================================
+function ar_error_codes_viking_freezer(): array {
+    $base = ['post_type' => 'error_code', 'taxonomies' => ['brand' => 'Viking', 'appliance_type' => 'Freezer']];
+    return [
+
+        $base + ['title' => 'Viking Freezer Defrost System Fault', 'slug' => 'viking-freezer-defrost-fault',
+            'meta_title' => 'Viking No Frost Freezer Frost Buildup — Defrost System Fault',
+            'meta_desc'  => 'Viking No Frost freezer showing frost or ice buildup inside? The defrost system has failed. Learn the causes and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Freezer', '_ar_error_code' => 'Defrost Fault',
+                '_ar_code_meaning'   => "Visible frost or ice buildup inside a Viking No Frost freezer means the automatic defrost cycle has stopped working. Without periodic defrost, ice accumulates on the evaporator coil until it blocks airflow and the freezer can no longer maintain temperature. Manual defrosting is only a temporary fix — the failed defrost component must be replaced.",
+                '_ar_causes'         => [['title' => 'Failed Defrost Heater', 'description' => 'The heater element that melts frost from the evaporator coil has burned out.'], ['title' => 'Failed Defrost Thermostat', 'description' => 'The bimetallic thermostat controlling heater power has failed open.'], ['title' => 'Failed Defrost Control', 'description' => 'The adaptive defrost control or timer has failed, preventing defrost cycles.']],
+                '_ar_diy_steps'      => [['title' => 'Manual Defrost Test', 'description' => 'Remove all food, unplug for 24-48 hours with door open. If cooling returns when plugged back in, the defrost system has failed and requires professional repair.']],
+                '_ar_when_to_call'   => 'Defrost system failure requires professional diagnosis to identify the specific failed component before ordering parts.',
+                '_ar_cost_range'     => '$160 – $300',
+                '_ar_faqs'           => [['question' => 'Is frost buildup in a Viking No Frost freezer ever normal?', 'answer' => 'No. Viking No Frost freezers are designed to prevent visible frost accumulation. Any frost buildup indicates the defrost system has failed.']]]],
+
+        $base + ['title' => 'Viking Freezer Temperature Alarm', 'slug' => 'viking-freezer-temperature-alarm',
+            'meta_title' => 'Viking Freezer Temperature Alarm — Not Reaching Set Temperature',
+            'meta_desc'  => 'Viking freezer showing a temperature alarm or not reaching sub-zero temperature? Learn the causes and when to call for service.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Freezer', '_ar_error_code' => 'Temperature Alarm',
+                '_ar_code_meaning'   => "A Viking freezer temperature alarm indicates the internal temperature has risen above the safe threshold (typically above -5°F on a unit set to 0°F). The alarm itself is a symptom — the root cause may be defrost system failure, door seal leak, evaporator fan failure, or compressor issue. First check that the door is fully closed before calling for service.",
+                '_ar_causes'         => [['title' => 'Door Left Ajar', 'description' => 'A door not fully latched allows warm air ingress and temperature rise. Check and close the door.'], ['title' => 'Defrost System Failure', 'description' => 'The most common cause — see Viking Freezer Defrost System Fault.'], ['title' => 'Evaporator Fan Failure', 'description' => 'A failed evaporator fan prevents cold air circulation.']],
+                '_ar_diy_steps'      => [['title' => 'Verify Door is Closed', 'description' => 'Inspect the freezer door to confirm it is fully latched. Check that no items are blocking complete closure.']],
+                '_ar_when_to_call'   => 'If the door is closed and the alarm persists, professional diagnosis is required immediately to protect food.',
+                '_ar_cost_range'     => '$130 – $380',
+                '_ar_faqs'           => [['question' => 'How long does food stay safe in a warming Viking freezer?', 'answer' => 'Food begins to thaw above 32°F. Keep the door closed to slow the temperature rise. If food still contains ice crystals throughout, it can be safely refrozen. Fully thawed perishables above 40°F should be discarded.']]]],
+
+        $base + ['title' => 'Viking Freezer Evaporator Fan Motor Failure', 'slug' => 'viking-freezer-evaporator-fan-failure',
+            'meta_title' => 'Viking Freezer Not Circulating Cold Air — Evaporator Fan Failure',
+            'meta_desc'  => 'Viking freezer temperature rising with compressor running? A failed evaporator fan motor is preventing cold air circulation. Learn diagnosis.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Freezer', '_ar_error_code' => 'Evaporator Fan Fault',
+                '_ar_code_meaning'   => "The evaporator fan motor circulates cold air from the evaporator coil throughout the freezer compartment. A failed evaporator fan motor results in the freezer temperature rising even though the compressor is running and the evaporator coil is cold. The absence of airflow prevents heat exchange and causes the food storage area to warm.",
+                '_ar_causes'         => [['title' => 'Motor Bearing Failure', 'description' => 'Fan motor bearings wear over time and eventually seize, stopping the fan.'], ['title' => 'Ice Buildup on Fan Blades', 'description' => 'Ice accumulation from partial defrost failure can prevent fan blade rotation.']],
+                '_ar_diy_steps'      => [['title' => 'Listen for Fan Operation', 'description' => 'Open the freezer and listen for fan sound from the back panel. Silence or buzzing without airflow indicates a fan problem.']],
+                '_ar_when_to_call'   => 'Evaporator fan motor replacement requires access to the freezer back panel and is a professional repair.',
+                '_ar_cost_range'     => '$140 – $270',
+                '_ar_faqs'           => [['question' => 'How do I know if the evaporator fan in my Viking freezer has failed?', 'answer' => 'Open the freezer door — you should hear the evaporator fan running. Silence or buzzing without air movement indicates fan failure or ice blockage.']]]],
+
+        $base + ['title' => 'Viking Freezer Door Gasket Failure', 'slug' => 'viking-freezer-door-gasket-failure',
+            'meta_title' => 'Viking Freezer Door Seal Failure — Temperature Loss and Frost',
+            'meta_desc'  => 'Viking freezer door seal worn or damaged? Warm air infiltration causes temperature rise and frost buildup near the door. Learn diagnosis.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Freezer', '_ar_error_code' => 'Door Gasket Failure',
+                '_ar_code_meaning'   => "A worn or damaged door gasket on a Viking freezer allows warm, humid room air to continuously enter the freezer compartment, causing temperature rise and frost formation near the door frame. Signs include frost deposits around the door opening, the compressor running almost continuously, and temperatures that cannot maintain 0°F in warm ambient conditions.",
+                '_ar_causes'         => [['title' => 'Normal Gasket Wear', 'description' => 'Gasket rubber hardens and cracks over years of extreme temperature cycling.'], ['title' => 'Physical Damage', 'description' => 'The gasket has been torn or deformed from food containers pressing against it.']],
+                '_ar_diy_steps'      => [['title' => 'Paper Test', 'description' => 'Close the freezer door on a sheet of paper. If the paper pulls out easily at any point, the gasket is not sealing at that location.']],
+                '_ar_when_to_call'   => 'Door gasket replacement with a genuine Viking OEM gasket provides the correct seal for sub-zero operation.',
+                '_ar_cost_range'     => '$120 – $230',
+                '_ar_faqs'           => [['question' => 'How often should Viking freezer door gaskets be replaced?', 'answer' => 'Gaskets typically last 5-10 years depending on use. Inspect annually for cracks, hardening, or visible gaps.']]]],
+
+        $base + ['title' => 'Viking Freezer Start Relay Failure', 'slug' => 'viking-freezer-start-relay-failure',
+            'meta_title' => 'Viking Freezer Compressor Not Starting — Start Relay Failure',
+            'meta_desc'  => 'Viking freezer completely warm with clicking sounds at startup? A failed start relay is preventing the compressor from starting. Learn diagnosis.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Freezer', '_ar_error_code' => 'Start Relay Failure',
+                '_ar_code_meaning'   => "The compressor start relay is a small component that plugs directly into the compressor and provides the initial electrical current needed to start the compressor motor. A failed start relay is one of the most common and most inexpensive causes of a non-functioning compressor. Signs include a freezer that is completely warm with clicking sounds at compressor startup attempts.",
+                '_ar_causes'         => [['title' => 'Failed Relay Element', 'description' => 'The internal relay element has burned out or failed. Shaking the relay — if it rattles — confirms failure.']],
+                '_ar_diy_steps'      => [['title' => 'Rattle Test', 'description' => 'Unplug the freezer. The start relay unplugs directly from the compressor terminals. Remove it and shake it near your ear. A rattling sound inside indicates a failed relay.']],
+                '_ar_when_to_call'   => 'A failed start relay is an inexpensive professional repair. If relay replacement does not restore compressor operation, the compressor itself requires assessment.',
+                '_ar_cost_range'     => '$85 – $180',
+                '_ar_faqs'           => [['question' => 'Can I replace a Viking freezer start relay myself?', 'answer' => 'The start relay replacement is mechanically straightforward (it plugs and unplugs from the compressor terminals) but requires sourcing the correct Viking OEM part for safe compressor operation.']]]],
+
+        $base + ['title' => 'Viking Freezer Defrost Drain Blockage', 'slug' => 'viking-freezer-defrost-drain-blocked',
+            'meta_title' => 'Viking Freezer Water Pooling Inside — Defrost Drain Blockage',
+            'meta_desc'  => 'Water pooling at the bottom of your Viking freezer? A blocked defrost drain tube is the cause. Learn how to clear it.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Freezer', '_ar_error_code' => 'Defrost Drain Blocked',
+                '_ar_code_meaning'   => "During each defrost cycle in a Viking No Frost freezer, meltwater from the evaporator coil flows through a drain tube to a drip pan below the unit where it evaporates. If the drain tube becomes blocked with food debris or ice, meltwater overflows into the freezer compartment and pools at the bottom or on shelves.",
+                '_ar_causes'         => [['title' => 'Food Debris Blockage', 'description' => 'Small food particles have accumulated in the drain tube over time and created a blockage.'], ['title' => 'Frozen Drain', 'description' => 'Ice has formed in the drain opening, preventing meltwater from flowing during defrost cycles.']],
+                '_ar_diy_steps'      => [['title' => 'Clear the Drain', 'description' => 'Access the drain opening (usually visible behind or below the evaporator coil). Use warm water to flush the drain tube. A turkey baster works well for targeted flushing.']],
+                '_ar_when_to_call'   => 'If manual clearing does not resolve the issue, or if the drain freezes repeatedly, professional service is needed to address the root cause.',
+                '_ar_cost_range'     => '$95 – $180',
+                '_ar_faqs'           => [['question' => 'How do I prevent the defrost drain in my Viking freezer from blocking?', 'answer' => 'Annual flushing of the defrost drain with warm water helps prevent accumulation. Ensure food items do not directly contact the evaporator coil, which can shed particles into the drain.']]]],
+
+        $base + ['title' => 'Viking Freezer Temperature Sensor Fault', 'slug' => 'viking-freezer-temperature-sensor-fault',
+            'meta_title' => 'Viking Freezer Temperature Sensor Failure — Overcooling or Undercooling',
+            'meta_desc'  => 'Viking freezer not maintaining correct temperature despite compressor running? A failed temperature sensor causes erratic temperature control.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Freezer', '_ar_error_code' => 'Temperature Sensor Fault',
+                '_ar_code_meaning'   => "The temperature sensor (thermistor) in a Viking freezer monitors internal temperature and provides this data to the control board for compressor management. A failed sensor may report an incorrect temperature, causing the board to overcool (food freezes rock solid below normal freezer temperature) or undercool (temperature cannot reach 0°F).",
+                '_ar_causes'         => [['title' => 'Failed Thermistor', 'description' => 'The resistance temperature sensor has failed and is reporting an incorrect temperature.'], ['title' => 'Sensor Connection Issue', 'description' => 'The sensor wiring connection has come loose or corroded.']],
+                '_ar_diy_steps'      => [['title' => 'Use an Independent Thermometer', 'description' => 'Place a digital thermometer in the center of the freezer and compare it to the set point. A significant deviation with normal compressor operation suggests a sensor fault.']],
+                '_ar_when_to_call'   => 'Temperature sensor replacement requires professional diagnosis to confirm the fault.',
+                '_ar_cost_range'     => '$120 – $240',
+                '_ar_faqs'           => [['question' => 'What temperature should my Viking freezer maintain?', 'answer' => '0°F (-18°C) is the recommended temperature for long-term food preservation in a Viking freezer.']]]],
+
+        $base + ['title' => 'Viking Freezer Overcooling', 'slug' => 'viking-freezer-overcooling',
+            'meta_title' => 'Viking Freezer Too Cold — Food Over-Frozen, Temperature Too Low',
+            'meta_desc'  => 'Viking freezer temperature too far below the set point? A failed temperature sensor or stuck thermostat is the cause. Learn diagnosis.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Freezer', '_ar_error_code' => 'Overcooling Fault',
+                '_ar_code_meaning'   => "A Viking freezer that runs significantly below the set temperature — dropping to -20°F or lower when set to 0°F — has a fault in the temperature sensing or compressor control system. Food items may become extremely hard or crystallize more than expected. The control board is not receiving an accurate temperature reading to cycle the compressor off at the correct point.",
+                '_ar_causes'         => [['title' => 'Failed Temperature Sensor', 'description' => 'The thermistor is reporting a higher temperature than actual, causing the board to keep the compressor running past the set point.'], ['title' => 'Control Board Relay Fault', 'description' => 'The compressor relay on the control board has stuck closed, keeping the compressor running continuously.']],
+                '_ar_diy_steps'      => [['title' => 'Verify Temperature Settings', 'description' => 'Confirm the freezer is set to 0°F and not a lower setting. Use an independent thermometer to verify actual internal temperature.']],
+                '_ar_when_to_call'   => 'Persistent overcooling despite correct settings requires professional diagnosis of the sensor or control board.',
+                '_ar_cost_range'     => '$130 – $380',
+                '_ar_faqs'           => [['question' => 'Can overcooling damage food in a Viking freezer?', 'answer' => 'Extreme overcooling can accelerate freezer burn and cause textural changes in some foods. Meats, in particular, may develop more extensive ice crystal formation.']]]],
+
+        $base + ['title' => 'Viking Freezer Condenser Fan Motor Failure', 'slug' => 'viking-freezer-condenser-fan-failure',
+            'meta_title' => 'Viking Freezer Condenser Fan Not Running — Reduced Cooling',
+            'meta_desc'  => 'Viking freezer losing cooling efficiency or rear feeling unusually hot? A failed condenser fan is the cause. Learn diagnosis and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Freezer', '_ar_error_code' => 'Condenser Fan Fault',
+                '_ar_code_meaning'   => "The condenser fan motor in a Viking freezer draws air over the condenser coil to dissipate heat from the refrigeration cycle. A failed condenser fan motor causes the compressor to overwork, run hotter than normal, and progressively lose cooling efficiency until the freezer can no longer maintain sub-zero temperatures. The area near the compressor and condenser (typically the rear bottom of the unit) will feel unusually hot.",
+                '_ar_causes'         => [['title' => 'Motor Bearing Failure', 'description' => 'Condenser fan motor bearings wear from continuous operation and seize.'], ['title' => 'Debris Blockage', 'description' => 'Dust, pet hair, or debris in the condenser fan area has jammed the fan blades.']],
+                '_ar_diy_steps'      => [['title' => 'Access and Inspect Condenser Area', 'description' => 'Unplug the freezer and pull from wall. The condenser fan is typically near the compressor at the rear bottom. Check for debris and clean the fan area.']],
+                '_ar_when_to_call'   => 'If cleaning does not restore fan operation, the motor requires professional replacement.',
+                '_ar_cost_range'     => '$130 – $250',
+                '_ar_faqs'           => [['question' => 'How do I know if my Viking freezer condenser fan has failed?', 'answer' => 'With the freezer running, you should be able to hear and feel air movement from the rear of the unit. No air movement from the condenser area with the compressor running indicates fan failure.']]]],
+
+        $base + ['title' => 'Viking Freezer Power Interruption Temperature Alarm', 'slug' => 'viking-freezer-power-interruption-alarm',
+            'meta_title' => 'Viking Freezer Temperature Alarm After Power Outage',
+            'meta_desc'  => 'Viking freezer temperature alarm triggered after a power outage? Learn how to respond and when the alarm clears on its own.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Freezer', '_ar_error_code' => 'Power Interruption Alarm',
+                '_ar_code_meaning'   => "Viking freezers with temperature monitoring will activate a temperature alarm when a power interruption causes the internal temperature to rise above the safe threshold. This alarm persists even after power is restored until the freezer has returned to the set temperature. This is normal behavior after a power outage and does not indicate a fault with the freezer.",
+                '_ar_causes'         => [['title' => 'Power Outage', 'description' => 'A power interruption caused the freezer temperature to rise above the alarm threshold.'], ['title' => 'Extended Door Opening', 'description' => 'The freezer door was left open long enough to raise the temperature above the alarm threshold.']],
+                '_ar_diy_steps'      => [['title' => 'Allow the Freezer to Return to Temperature', 'description' => 'After restoring power, keep the door closed. The freezer should return to set temperature and the alarm should clear within 2-4 hours.'], ['title' => 'Check Food Safety', 'description' => 'Check food for signs of thawing. Food still containing ice crystals can be safely refrozen. Fully thawed meat and perishables above 40°F should be discarded.']],
+                '_ar_when_to_call'   => 'If the alarm does not clear within 4-6 hours after power restoration with the door closed, there may be an underlying fault requiring professional diagnosis.',
+                '_ar_cost_range'     => '$0 – $350',
+                '_ar_faqs'           => [['question' => 'My Viking freezer alarm went off during a power outage — is the food safe?', 'answer' => 'Keep the door closed. A fully loaded freezer maintains safe temperatures for 24-48 hours without power. Check food for ice crystals when power returns — food that still has ice crystals throughout can be safely refrozen.']]]],
+
+        $base + ['title' => 'Viking Freezer Ice Buildup Around Door Frame', 'slug' => 'viking-freezer-door-frame-ice',
+            'meta_title' => 'Viking Freezer Ice Around Door Frame — Door Seal or Drain Issue',
+            'meta_desc'  => 'Ice forming around the door frame of your Viking freezer? A failing door gasket or blocked drain is causing moisture accumulation. Learn the fix.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Freezer', '_ar_error_code' => 'Door Frame Ice Buildup',
+                '_ar_code_meaning'   => "Ice forming around the door frame or door opening of a Viking No Frost freezer indicates that warm, humid air is infiltrating through the door area and condensing on the cold surfaces near the door opening. The condensed moisture then freezes, creating ice deposits around the door frame. This is typically caused by a door gasket that is not sealing properly.",
+                '_ar_causes'         => [['title' => 'Worn Door Gasket', 'description' => 'A gasket not sealing properly at one or more points around the door allows warm humid air to enter and freeze around the door frame.'], ['title' => 'Door Not Closing Fully', 'description' => 'A hinge issue or item blocking the door from closing fully creates a gap through which warm air enters.']],
+                '_ar_diy_steps'      => [['title' => 'Inspect and Clean Gasket', 'description' => 'Clean the door gasket and door frame with warm water. Check for visible tears or hardening. Perform the paper test to identify seal gaps.']],
+                '_ar_when_to_call'   => 'Persistent door frame ice buildup after gasket inspection requires professional evaluation of the gasket, door alignment, and hinges.',
+                '_ar_cost_range'     => '$120 – $260',
+                '_ar_faqs'           => [['question' => 'Is ice around a Viking freezer door dangerous?', 'answer' => 'While not immediately dangerous, ice around the door frame indicates air infiltration that will cause temperature fluctuations, increase energy consumption, and accelerate compressor wear if not addressed.']]]],
+
+    ];
+}
+
+
+
+// =============================================================================
+// VIKING VENT HOOD FAULT CODES — 11 entries (verified diagnostic faults)
+// =============================================================================
+function ar_error_codes_viking_vent_hood(): array {
+    $base = ['post_type' => 'error_code', 'taxonomies' => ['brand' => 'Viking', 'appliance_type' => 'Vent Hood']];
+    return [
+
+        $base + ['title' => 'Viking Vent Hood Blower Motor Not Running', 'slug' => 'viking-vent-hood-blower-motor-not-running',
+            'meta_title' => 'Viking Vent Hood Blower Motor Not Running — Diagnosis & Repair',
+            'meta_desc'  => 'Viking vent hood fan not running? A failed blower motor, capacitor, or power issue is usually the cause. Learn to diagnose and when to call for repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Vent Hood', '_ar_error_code' => 'Blower Motor Failure',
+                '_ar_code_meaning'   => "The blower motor is the core component of a Viking professional range hood — it draws air up through the filters and expels it through the duct. When the blower motor fails, the hood produces no airflow even when the control panel responds normally (lights work, speed buttons respond). Viking Professional Series hoods use single or dual blower assemblies rated 900–1200 CFM. Motor failure typically occurs from prolonged exposure to grease-laden air, overheating, or bearing wear over time.",
+                '_ar_causes'         => [['title' => 'Motor Bearing Wear', 'description' => 'Over years of operation, the motor bearings wear, causing the motor to seize or run intermittently before failing completely.'], ['title' => 'Capacitor Failure', 'description' => 'Many Viking hood motors use a run capacitor to maintain torque. A failed capacitor causes the motor to hum but not spin, or fail to start.'], ['title' => 'Thermal Overload Tripped', 'description' => 'Viking motors include a thermal overload protector that trips if the motor overheats due to blocked filters or prolonged high-speed operation. Overload may reset after cooling.']],
+                '_ar_diy_steps'      => [['title' => 'Check Power and Controls', 'description' => 'Confirm the hood is powered and the control panel is responsive. If lights work but the fan does not, the issue is in the motor circuit.'], ['title' => 'Clean Grease Filters', 'description' => 'Clogged grease filters increase motor load and can trigger the thermal overload. Remove and clean filters, then allow the hood to cool for 20 minutes before retrying.'], ['title' => 'Listen for Motor Hum', 'description' => 'If the motor hums but does not spin, the capacitor has likely failed. If there is complete silence, the motor or its circuit has failed.']],
+                '_ar_when_to_call'   => 'A Viking vent hood with no fan operation after filter cleaning and power confirmation requires professional inspection of the blower motor, capacitor, and motor circuit wiring. Our technicians carry Viking-compatible blower assemblies for same-day repair.',
+                '_ar_cost_range'     => '$220 – $420',
+                '_ar_faqs'           => [['question' => 'Can I replace a Viking vent hood blower motor myself?', 'answer' => 'Motor replacement requires disassembling the hood interior and working with electrical connections. It is a serviceable repair but requires comfort with appliance electrical work and the correct replacement part for your specific Viking model.'], ['question' => 'My Viking hood makes a humming sound but no air moves — what does that mean?', 'answer' => 'A hum without airflow almost always indicates a failed run capacitor. The motor receives power but cannot develop torque to spin. Capacitor replacement is a straightforward repair for a trained technician.']]]],
+
+        $base + ['title' => 'Viking Vent Hood Fan Speed Control Not Working', 'slug' => 'viking-vent-hood-fan-speed-not-working',
+            'meta_title' => 'Viking Vent Hood Fan Speed Control Not Responding',
+            'meta_desc'  => 'Viking range hood stuck on one speed or speed buttons not responding? Learn the causes and repair options for Viking Professional hood speed controls.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Vent Hood', '_ar_error_code' => 'Fan Speed Control Failure',
+                '_ar_code_meaning'   => "Viking Professional Series range hoods offer multiple fan speeds (typically 4 speeds plus boost mode) controlled through a touch-sensitive or push-button control board. When the speed control fails, the hood may be stuck at one speed, completely unresponsive, or activate erratically. The speed control function is managed by the main control board, which sends variable-frequency or stepped voltage signals to the motor speed controller.",
+                '_ar_causes'         => [['title' => 'Control Board Failure', 'description' => 'The main PCB that processes speed button inputs and sends commands to the motor controller can fail due to grease contamination, voltage spikes, or age.'], ['title' => 'Speed Controller Module Failure', 'description' => 'Viking hoods use a separate speed controller (often a TRIAC or electronic module) between the control board and motor. This component can fail, causing the hood to operate on only one speed or none.'], ['title' => 'Touch Panel Delamination', 'description' => 'On touch-panel models, the touch-sensitive overlay can delaminate or develop dead zones from grease infiltration, causing unresponsive buttons.']],
+                '_ar_diy_steps'      => [['title' => 'Power Cycle the Hood', 'description' => 'Switch off the hood at the wall switch or circuit breaker for 30 seconds, then restore power. Touch control panels can lock up and may reset with a power cycle.'], ['title' => 'Clean the Control Panel', 'description' => 'Grease buildup on the control panel surface can interfere with touch-sensitive controls. Clean with a damp cloth and mild degreaser.']],
+                '_ar_when_to_call'   => 'Persistent speed control issues that do not resolve with a power cycle require professional diagnosis of the control board and speed controller module. Our technicians carry Viking-compatible PCBs and speed controllers for most Professional Series models.',
+                '_ar_cost_range'     => '$180 – $380',
+                '_ar_faqs'           => [['question' => 'My Viking hood is stuck on high speed — is it safe to use?', 'answer' => 'A hood stuck on high speed is functional but uses more energy and is noisier than necessary. It is generally safe to continue using briefly, but the speed control should be repaired to prevent further PCB degradation.'], ['question' => 'Can grease damage the Viking hood control board?', 'answer' => 'Yes. Viking range hoods operate in high-grease environments and the control board is vulnerable to grease infiltration over time. Regular cleaning of the hood interior and filters significantly extends board life.']]]],
+
+        $base + ['title' => 'Viking Vent Hood Lights Not Working', 'slug' => 'viking-vent-hood-lights-not-working',
+            'meta_title' => 'Viking Vent Hood Lights Not Working — Bulb or Control Issue',
+            'meta_desc'  => 'Viking range hood lighting not working? Learn if it is a bulb, socket, or control board issue for Viking Professional Series LED and halogen hoods.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Vent Hood', '_ar_error_code' => 'Lighting System Failure',
+                '_ar_code_meaning'   => "Viking Professional Series range hoods use halogen or LED cooktop lighting, with some models featuring dimmable LED task lights. Lighting failure is one of the most common Viking hood service calls. Depending on the model year, lighting may be controlled by the same PCB as the fan or by a separate lighting control circuit. Most Viking hood lights are accessible from below the hood by pressing or unscrewing a lamp cover.",
+                '_ar_causes'         => [['title' => 'Burned-Out Bulb', 'description' => 'Halogen bulbs in Viking hoods have a finite lifespan (typically 2,000 hours) and require replacement. LED modules last much longer but can fail.'], ['title' => 'Faulty Bulb Socket', 'description' => 'Grease contamination or heat can corrode the bulb socket contacts, causing intermittent or no lighting even with a new bulb.'], ['title' => 'Lighting Control Board Failure', 'description' => 'On PCB-controlled models, the lighting relay or control circuit on the PCB can fail independently of the fan controls.']],
+                '_ar_diy_steps'      => [['title' => 'Replace the Bulb', 'description' => 'Check your model manual for the correct halogen or LED replacement bulb specification. Viking halogen hoods typically use G8 or G9 base bi-pin bulbs. Replace with the correct wattage.'], ['title' => 'Check Socket Contacts', 'description' => 'After replacing the bulb, if lights still do not work, inspect the socket contacts for corrosion or debris.']],
+                '_ar_when_to_call'   => 'If bulb replacement does not restore lighting, the socket or lighting control circuit requires professional diagnosis.',
+                '_ar_cost_range'     => '$45 – $240',
+                '_ar_faqs'           => [['question' => 'What bulbs does a Viking range hood use?', 'answer' => "Viking Professional Series hoods use G8 or G9 bi-pin halogen bulbs (20W or 35W depending on model) or integrated LED modules on newer models. Always check your model's use and care manual for the correct replacement bulb specification."], ['question' => 'Can I upgrade my Viking hood to LED lighting?', 'answer' => 'Some Viking halogen hoods can accept LED replacement bulbs that fit the G8 or G9 socket. Confirm LED compatibility with the socket and dimmer circuit before purchasing LED replacements.']]]],
+
+        $base + ['title' => 'Viking Vent Hood Damper Not Opening or Closing', 'slug' => 'viking-vent-hood-damper-not-opening',
+            'meta_title' => 'Viking Vent Hood Damper Not Opening or Stuck Closed',
+            'meta_desc'  => 'Viking range hood not exhausting properly? A stuck or malfunctioning damper is a common cause. Learn how to diagnose Viking hood damper issues.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Vent Hood', '_ar_error_code' => 'Damper Malfunction',
+                '_ar_code_meaning'   => "Viking professional range hoods duct to the exterior through a damper (also called a backdraft damper or flapper). The damper is a one-way valve — it opens when the fan creates positive pressure and closes when the fan is off to prevent outdoor air from entering the kitchen. A stuck-closed damper severely restricts airflow even at full fan speed, dramatically reducing ventilation effectiveness. A stuck-open damper allows cold outdoor air, insects, and odors to enter the kitchen when the hood is not in use.",
+                '_ar_causes'         => [['title' => 'Grease Accumulation on Damper Flapper', 'description' => 'Grease builds up on the damper flapper over time, eventually causing it to stick closed or prevent full opening.'], ['title' => 'Bird Nest or Debris in Duct', 'description' => 'Birds and small animals can nest in roof or wall duct caps, blocking the damper from opening. This is a common cause of sudden airflow reduction.'], ['title' => 'Damper Spring Failure', 'description' => 'The spring that returns the damper to the closed position can fatigue and fail, leaving the damper stuck open or unable to close properly.']],
+                '_ar_diy_steps'      => [['title' => 'Check Duct Cap from Exterior', 'description' => 'Inspect the exterior duct cap (roof or wall) for obvious blockage such as bird nests, leaves, or debris. Clear visible obstructions.'], ['title' => 'Test Airflow at Hood', 'description' => 'Hold a tissue at the front of the hood filters with the fan on high. Strong suction indicates a working damper. Weak suction suggests a blocked or stuck damper.']],
+                '_ar_when_to_call'   => 'Interior damper cleaning and replacement, and ductwork inspection, require professional service.',
+                '_ar_cost_range'     => '$120 – $280',
+                '_ar_faqs'           => [['question' => 'How do I know if my Viking hood damper is stuck?', 'answer' => 'Run the fan on high and hold a tissue at the filter opening. If suction is weak despite the blower running normally, the damper or ductwork has a blockage or restriction. Also check for cold drafts into the kitchen when the hood is off — this indicates a damper stuck open.'], ['question' => 'Can a stuck damper damage my Viking range hood?', 'answer' => 'A stuck-closed damper makes the motor work harder and can eventually cause overheating. Address damper issues promptly.']]]],
+
+        $base + ['title' => 'Viking Vent Hood Grease Filter Clogged — Reduced Airflow', 'slug' => 'viking-vent-hood-grease-filter-clogged',
+            'meta_title' => 'Viking Vent Hood Reduced Airflow — Grease Filter Clog',
+            'meta_desc'  => 'Viking range hood not pulling air? Clogged grease filters are the most common cause. Learn the correct cleaning procedure for Viking Professional hood filters.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Vent Hood', '_ar_error_code' => 'Grease Filter Clog',
+                '_ar_code_meaning'   => "Viking Professional Series range hoods use stainless-steel mesh or baffle grease filters that capture grease from cooking vapors before they enter the blower and ductwork. Over time, grease accumulates in the filter layers and significantly restricts airflow. A severely clogged filter can reduce ventilation effectiveness by 50–80% and cause the blower motor to overheat. Viking recommends cleaning grease filters monthly for heavy cooking use and every 2–3 months for normal use.",
+                '_ar_causes'         => [['title' => 'Infrequent Filter Cleaning', 'description' => 'The most common cause of restricted airflow is simply not cleaning the grease filters on schedule.'], ['title' => 'Heavy Cooking Use', 'description' => 'Frequent high-heat cooking with frying, searing, and wok cooking deposits grease much faster than low-heat cooking.']],
+                '_ar_diy_steps'      => [['title' => 'Remove and Clean Filters', 'description' => 'Slide or unhook grease filters from the hood (refer to your model manual). Wash in a dishwasher on the hottest cycle with a full detergent pod, or soak in hot water with degreaser for 15-30 minutes. Rinse thoroughly and allow to dry before reinstalling.'], ['title' => 'Inspect Filter Condition', 'description' => 'Viking baffle and mesh filters are durable but can become permanently deformed or have mesh pulled loose. Damaged filters should be replaced rather than reinstalled.']],
+                '_ar_when_to_call'   => 'If cleaning the filters does not restore normal airflow, the blower motor or ductwork may require professional inspection.',
+                '_ar_cost_range'     => '$0 – $150',
+                '_ar_faqs'           => [['question' => 'How often should I clean Viking range hood filters?', 'answer' => 'Viking recommends monthly cleaning for households that cook frequently with high heat. For light cooking use, every 2-3 months is typical. Filters that look visibly saturated with grease need immediate cleaning.'], ['question' => 'Can I put Viking hood filters in the dishwasher?', 'answer' => 'Yes. Viking stainless steel baffle and mesh filters are dishwasher safe. Use the hottest cycle setting and a full detergent for best results.']]]],
+
+        $base + ['title' => 'Viking Vent Hood Excessive Noise or Vibration', 'slug' => 'viking-vent-hood-excessive-noise',
+            'meta_title' => 'Viking Vent Hood Making Loud Noise or Vibrating',
+            'meta_desc'  => 'Viking range hood making unusual rattling or vibrating noises? Learn the most common causes and fixes for excessive noise in Viking Professional hoods.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Vent Hood', '_ar_error_code' => 'Excessive Noise / Vibration',
+                '_ar_code_meaning'   => "Viking Professional Series range hoods are designed for relatively quiet operation despite their high CFM output. Abnormal noise such as rattling, vibration, or a grinding sound indicates a mechanical issue that should be diagnosed. Some noise at high speed is normal, but rattling or vibrating noises at any speed, or new grinding sounds from the blower housing, represent service conditions.",
+                '_ar_causes'         => [['title' => 'Loose Filter or Filter Frame', 'description' => 'A grease filter that is not fully seated or has a warped frame will rattle against the hood at any fan speed.'], ['title' => 'Motor Bearing Wear', 'description' => 'Worn motor bearings produce a grinding or rumbling sound that worsens over time and increases with fan speed.'], ['title' => 'Debris in Blower Wheel', 'description' => 'A small piece of debris (carbonized grease, broken filter mesh) caught in the blower wheel creates rattling or ticking noises synchronized with fan speed.'], ['title' => 'Loose Hood Body Fasteners', 'description' => 'Vibration over time can loosen internal screws and mounting hardware, causing the hood body panels to rattle.']],
+                '_ar_diy_steps'      => [['title' => 'Check and Reseat Filters', 'description' => 'Remove and carefully reinstall all grease filters, ensuring they are fully seated in their channels. Test at multiple speeds.'], ['title' => 'Inspect the Blower Area', 'description' => 'With the hood off, look into the filter opening with a flashlight for visible debris in the blower wheel area.']],
+                '_ar_when_to_call'   => 'Grinding or rumbling noises from the motor, or rattling that does not resolve after filter reseating, require professional disassembly and motor or blower wheel inspection.',
+                '_ar_cost_range'     => '$90 – $380',
+                '_ar_faqs'           => [['question' => 'Is it normal for a Viking range hood to vibrate?', 'answer' => 'Slight vibration at maximum speed is normal. Vibration or rattling at low speeds, or vibration that shakes surrounding cabinetry, indicates a loose component, worn motor bearings, or blower wheel imbalance that should be professionally inspected.'], ['question' => 'Why does my Viking hood squeak?', 'answer' => 'Squeaking from a Viking hood is usually caused by motor bearing wear or a loose component rubbing against a moving part. This should be inspected before the bearing fails completely.']]]],
+
+        $base + ['title' => 'Viking Vent Hood Control Panel Unresponsive', 'slug' => 'viking-vent-hood-control-panel-unresponsive',
+            'meta_title' => 'Viking Vent Hood Control Panel Not Responding',
+            'meta_desc'  => 'Viking range hood buttons or touch controls not responding? Learn how to diagnose control panel lockout, board failure, and panel issues.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Vent Hood', '_ar_error_code' => 'Control Panel Failure',
+                '_ar_code_meaning'   => "Viking Professional Series hoods use either push-button or touch-sensitive control panels. When the control panel becomes completely unresponsive — no lights, no fan response to any button — the issue may be a tripped child lock, loss of power to the PCB, or a failed control board. Partial unresponsiveness (some buttons work, others do not) typically indicates a touch panel defect or localized PCB failure.",
+                '_ar_causes'         => [['title' => 'Child Lock / Control Lock Engaged', 'description' => 'Many Viking hoods include a child lock feature that disables all controls. On some models this is activated by holding the light button for 3-5 seconds. Check if the lock indicator is illuminated.'], ['title' => 'Control Board Failure', 'description' => 'The main PCB that processes button inputs and controls the hood can fail from grease contamination, voltage irregularities, or age.'], ['title' => 'Power Supply Issue', 'description' => 'A failed transformer or power supply component on the PCB can cause complete panel unresponsiveness while the hood has power.']],
+                '_ar_diy_steps'      => [['title' => 'Check for Control Lock', 'description' => "Consult your Viking hood model manual to determine if a control lock is active. The unlock procedure varies by model but typically involves holding a specific button for 3-5 seconds."], ['title' => 'Power Cycle', 'description' => 'Turn off the wall switch or circuit breaker for the hood for 60 seconds, then restore power. This can clear a PCB error state.']],
+                '_ar_when_to_call'   => 'If the control panel remains unresponsive after checking for control lock and performing a power cycle, professional control board diagnosis and replacement is required.',
+                '_ar_cost_range'     => '$200 – $420',
+                '_ar_faqs'           => [['question' => 'How do I unlock a Viking vent hood control panel?', 'answer' => "The control lock procedure varies by Viking model. Typically, press and hold the light button or a designated lock button for 3-5 seconds. Refer to your model's use and care guide for the specific unlock procedure."], ['question' => 'Why did my Viking hood suddenly stop responding?', 'answer' => 'Sudden complete unresponsiveness is often caused by a control lock being accidentally activated, a circuit breaker trip, or wall switch being turned off. Check these before assuming board failure.']]]],
+
+        $base + ['title' => 'Viking Vent Hood Not Venting to Exterior', 'slug' => 'viking-vent-hood-not-venting-exterior',
+            'meta_title' => 'Viking Vent Hood Not Removing Smoke or Odors Effectively',
+            'meta_desc'  => 'Viking range hood not removing smoke or odors? Ductwork disconnection, a blocked duct, or operating in recirculation mode may be the cause.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Vent Hood', '_ar_error_code' => 'Ventilation Effectiveness Failure',
+                '_ar_code_meaning'   => "Viking Professional Series hoods are designed as ducted exhaust systems for exterior venting. When smoke and cooking odors are not removed effectively despite the fan running normally, the issue is typically in the ductwork rather than the hood itself: a disconnected duct joint, blocked duct run, or closed damper is preventing the exhausted air from reaching the exterior. On recirculation (ductless) installations, this indicates the charcoal filters need replacement.",
+                '_ar_causes'         => [['title' => 'Disconnected Duct Joint', 'description' => 'Flex duct or rigid duct joints can separate inside the ceiling or cabinet space, causing the hood to exhaust into the cavity rather than to the exterior.'], ['title' => 'Blocked Exterior Duct Cap', 'description' => 'The exterior duct termination cap (on roof, soffit, or wall) can become blocked by bird nests, insect nests, or debris.'], ['title' => 'Charcoal Filters Need Replacement (Ductless)', 'description' => 'Ductless/recirculation Viking hoods use charcoal filters that absorb odors. These require replacement every 3-6 months; exhausted charcoal filters allow odors to recirculate.']],
+                '_ar_diy_steps'      => [['title' => 'Check Exterior Duct Cap', 'description' => 'Locate the exterior duct termination (on wall, soffit, or roof) and inspect for visible blockage. Run the fan on high and check for airflow from the exterior cap.'], ['title' => 'Verify Duct Configuration', 'description' => 'Confirm the installation is ducted (not ductless). A ducted hood with the blower running but no exterior airflow indicates a duct disconnection or blockage.']],
+                '_ar_when_to_call'   => 'Duct inspections inside walls or ceilings, reconnecting separated duct runs, and clearing duct blockages are professional service tasks.',
+                '_ar_cost_range'     => '$130 – $320',
+                '_ar_faqs'           => [['question' => 'How do I know if my Viking hood is ducted or ductless?', 'answer' => 'Check the original installation paperwork or look for a duct connection exiting the top or rear of the hood housing going into the cabinet or wall. A ductless installation will have charcoal filter packs in addition to grease filters.'], ['question' => 'Can I convert my ductless Viking hood to ducted?', 'answer' => 'Viking does not recommend or support converting factory-ducted Professional Series hoods to ductless operation. If your hood was installed ductless, consult with our technician about proper ducted installation options.']]]],
+
+        $base + ['title' => 'Viking Vent Hood Thermal Cutout Tripped — Fan Shuts Off', 'slug' => 'viking-vent-hood-thermal-cutout-tripped',
+            'meta_title' => 'Viking Vent Hood Shuts Off Unexpectedly — Thermal Overload',
+            'meta_desc'  => 'Viking range hood shutting off on its own during use? The thermal cutout may have tripped due to overheating. Learn the cause and how to address it.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Vent Hood', '_ar_error_code' => 'Thermal Cutout Tripped',
+                '_ar_code_meaning'   => "Viking Professional Series range hoods incorporate a thermal cutout (thermal fuse or overload protector) in the motor circuit. This safety device shuts the fan off automatically if the motor temperature exceeds safe operating limits. The thermal cutout is designed to prevent motor damage and fire. After tripping, the hood will not restart until the motor has cooled sufficiently (typically 20-30 minutes) and, on some models, a manual reset is required.",
+                '_ar_causes'         => [['title' => 'Severely Clogged Grease Filters', 'description' => 'Clogged filters force the motor to work harder against restricted airflow, causing the motor to overheat and trip the thermal cutout.'], ['title' => 'Blocked Ductwork', 'description' => 'A blocked duct run increases back pressure, causing motor overheating.'], ['title' => 'Motor Nearing End of Life', 'description' => 'An aging motor with increased internal resistance will run hotter than normal, eventually tripping the thermal cutout under normal operating conditions.'], ['title' => 'Defective Thermal Cutout', 'description' => 'A thermal cutout that trips at normal operating temperatures has failed and requires replacement.']],
+                '_ar_diy_steps'      => [['title' => 'Allow Hood to Cool', 'description' => 'Turn off the hood and allow 20-30 minutes of cooling. Clean grease filters thoroughly before attempting to restart.'], ['title' => 'Check Filter Condition', 'description' => 'Inspect grease filters — severely clogged filters are the most common trigger. Clean or replace them before restarting the hood.']],
+                '_ar_when_to_call'   => 'If the hood trips the thermal cutout repeatedly after cleaning filters, or fails to restart after cooling, professional motor and thermal cutout inspection is required.',
+                '_ar_cost_range'     => '$140 – $380',
+                '_ar_faqs'           => [['question' => 'Why does my Viking hood keep shutting off?', 'answer' => 'Repeated thermal cutout trips are most commonly caused by severely clogged grease filters or a blocked duct restricting airflow and causing motor overheating. Clean filters and check ductwork first. If shutdowns continue, the motor or thermal cutout requires professional inspection.'], ['question' => 'Is it safe to keep using a Viking hood that shuts off on its own?', 'answer' => 'No. Repeated thermal cutout trips indicate a condition that is stressing the motor. Continued use without addressing the cause will shorten motor life significantly. Have the hood inspected promptly.']]]],
+
+        $base + ['title' => 'Viking Vent Hood Has No Power', 'slug' => 'viking-vent-hood-no-power',
+            'meta_title' => 'Viking Vent Hood Has No Power — Troubleshooting Guide',
+            'meta_desc'  => 'Viking range hood completely dead with no power? Check the wall switch, circuit breaker, and power connection before calling for service.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Vent Hood', '_ar_error_code' => 'No Power',
+                '_ar_code_meaning'   => "A Viking Professional Series range hood with no power — no lights, no fan response, no control panel illumination — has lost its power supply. Unlike appliances with internal electronic faults, a completely dead hood is almost always caused by an external power supply issue: a wall switch, circuit breaker, or hardwired connection. Viking hoods are hardwired (not plug-in), so a tripped breaker or failed wall switch is the first item to diagnose.",
+                '_ar_causes'         => [['title' => 'Wall Switch Turned Off or Failed', 'description' => 'Most Viking hood installations include a dedicated wall switch. A switch turned off accidentally or a failed switch interrupts power to the entire hood.'], ['title' => 'Circuit Breaker Tripped', 'description' => 'The dedicated circuit breaker for the hood may have tripped due to a momentary overload or a wiring fault.'], ['title' => 'Hardwired Connection Failure', 'description' => 'The electrical junction box connection feeding the hood can develop a loose wire or failed wire nut over time.'], ['title' => 'Internal Power Supply Failure', 'description' => 'If wall switch and breaker are confirmed good, the internal transformer or power supply board on the hood PCB has failed.']],
+                '_ar_diy_steps'      => [['title' => 'Check Wall Switch', 'description' => 'Confirm the wall switch for the hood is in the ON position. Try toggling it off and on.'], ['title' => 'Check Circuit Breaker', 'description' => 'Locate the breaker for the range hood circuit (often labeled "Hood" or "Kitchen" in the panel). If tripped, reset it by switching fully off then back on.']],
+                '_ar_when_to_call'   => 'If the wall switch and circuit breaker are confirmed functioning and the hood remains completely dead, the hardwired connection or internal power supply requires professional diagnosis.',
+                '_ar_cost_range'     => '$95 – $360',
+                '_ar_faqs'           => [['question' => 'My Viking hood was working yesterday and is completely dead today — what happened?', 'answer' => 'A circuit breaker trip is the most common cause of sudden complete failure. Check your electrical panel for a tripped breaker on the kitchen or hood circuit. A tripped breaker appears in the middle position — switch it fully off then back on.'], ['question' => 'Can a Viking vent hood blow a fuse?', 'answer' => 'Viking hoods are hardwired and protected by a circuit breaker, not a replaceable fuse. The motor does have an internal thermal overload protector. If the breaker is not tripped and the hood is still dead, an internal power supply issue is likely.']]]],
+
+        $base + ['title' => 'Viking Vent Hood Grease Dripping From Hood', 'slug' => 'viking-vent-hood-grease-dripping',
+            'meta_title' => 'Viking Vent Hood Dripping Grease — Saturated Filters or Drain Issue',
+            'meta_desc'  => 'Grease dripping from your Viking range hood? Saturated grease filters or a blocked grease drain cup are the most common causes. Learn how to fix it.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Vent Hood', '_ar_error_code' => 'Grease Dripping',
+                '_ar_code_meaning'   => "Grease dripping from the bottom of a Viking Professional Series range hood indicates that the grease collection system has been overwhelmed. Viking hoods capture grease through filters that drain into a grease tray or cup. When filters are severely saturated with accumulated grease, they can no longer hold additional grease and it drips from the filter surface onto the cooktop below — a potential fire hazard that requires immediate attention.",
+                '_ar_causes'         => [['title' => 'Severely Saturated Grease Filters', 'description' => 'Filters that have not been cleaned for an extended period become fully saturated and allow liquid grease to drip through.'], ['title' => 'Full Grease Collection Cup', 'description' => 'The grease drip cup or tray below the filters (on models so equipped) is full and overflowing.'], ['title' => 'Grease Pooled in Hood Interior', 'description' => 'On hoods without regular cleaning, grease can accumulate on internal surfaces above the filters and eventually drip down.']],
+                '_ar_diy_steps'      => [['title' => 'Remove and Clean Filters Immediately', 'description' => 'Remove filters carefully to avoid dripping grease. Clean thoroughly in a dishwasher or hot degreaser soak. Empty and clean the grease collection cup if present.'], ['title' => 'Clean Hood Interior', 'description' => 'With filters removed, inspect the hood interior for grease accumulation and clean with a commercial degreaser.']],
+                '_ar_when_to_call'   => 'If grease dripping continues after thorough filter cleaning, or grease buildup in the hood interior requires professional degreasing to address fire risk.',
+                '_ar_cost_range'     => '$95 – $220',
+                '_ar_faqs'           => [['question' => 'Is grease dripping from a range hood a fire hazard?', 'answer' => 'Yes. Accumulated grease in and around a range hood is a documented fire risk. Grease fires in range hoods are one of the leading causes of kitchen fires. Clean saturated filters immediately and address the source of grease accumulation.'], ['question' => 'How do I prevent grease buildup in my Viking hood?', 'answer' => 'Clean grease filters monthly for heavy cooking use (bi-monthly for light use). Wipe down the hood exterior and visible interior surfaces monthly with a damp degreaser cloth.']]]],
+
+        $base + ['title' => 'Viking Vent Hood Delay-Off Not Working', 'slug' => 'viking-vent-hood-delay-off-not-working',
+            'meta_title' => 'Viking Vent Hood Auto Delay-Off Feature Not Functioning',
+            'meta_desc'  => 'Viking Professional range hood delay-off or auto-shutoff not working? Learn about the delay-off feature and what causes it to stop functioning.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Vent Hood', '_ar_error_code' => 'Delay-Off / Auto-Shutoff Failure',
+                '_ar_code_meaning'   => "Viking Professional Series range hoods include a delay-off (keep-on) function that keeps the fan running at reduced speed for a set period after the main cooking cycle is complete, ensuring residual steam and odors are fully exhausted. When this feature fails — either the fan stays on indefinitely or the delay-off does not engage — the fault is in the control PCB logic that manages the timer function.",
+                '_ar_causes'         => [['title' => 'Control Board Timer Circuit Failure', 'description' => 'The PCB-based timer that controls the delay-off interval can fail, causing either no delay (fan shuts off immediately) or infinite delay (fan runs continuously).'], ['title' => 'Firmware / PCB Programming Error', 'description' => 'A power surge or data corruption event can cause the PCB to lose its programmed timing parameters.']],
+                '_ar_diy_steps'      => [['title' => 'Power Cycle the Hood', 'description' => 'Switch off the circuit breaker for 60 seconds and restore power. A PCB reset may restore the delay-off timing function.'], ['title' => 'Consult the Model Manual', 'description' => "Confirm the delay-off feature is enabled in your model's setup menu if applicable. Some Viking models allow enabling or disabling the delay-off function through a setup procedure."]],
+                '_ar_when_to_call'   => 'If the delay-off function remains non-functional after a power cycle and settings check, the control board requires professional diagnosis.',
+                '_ar_cost_range'     => '$180 – $380',
+                '_ar_faqs'           => [['question' => 'What is the Viking vent hood delay-off feature?', 'answer' => 'The delay-off feature keeps the fan running at low speed for 5-15 minutes after you turn the hood off. This ensures lingering cooking vapors, steam, and odors are fully exhausted from the kitchen — a useful feature after high-heat cooking sessions.'], ['question' => 'My Viking hood fan stays on indefinitely and will not shut off — is this the delay-off feature stuck?', 'answer' => 'Yes. A fan that runs continuously without shutting off is typically caused by the delay-off timer circuit being stuck in the active state on the control PCB. A power cycle may clear it; if not, the board requires professional service.']]]],
+
     ];
 }
