@@ -12,12 +12,12 @@ $phone_link = ar_phone_link();
 $biz        = ar_get_business_name();
 
 $appliances = [
-    ['icon' => 'range',       'label' => 'Range Repair',         'service_slug' => 'viking-range-repair',         'img' => 'washer.jpg',              'desc' => 'Viking Professional and Tuscany Series gas and dual-fuel ranges. Burner ignition failures, oven calibration, and control board faults resolved same day.'],
+    ['icon' => 'range',       'label' => 'Range Repair',         'service_slug' => 'viking-range-repair',         'img' => 'gas-range.jpg',           'desc' => 'Viking Professional and Tuscany Series gas and dual-fuel ranges. Burner ignition failures, oven calibration, and control board faults resolved same day.'],
     ['icon' => 'fridge',      'label' => 'Refrigerator Repair',  'service_slug' => 'viking-refrigerator-repair',  'img' => 'product-refrigerator.jpg', 'desc' => 'Viking built-in and French Door refrigerators. Ice maker failures, compressor issues, cooling faults, and door seal replacements — all covered.'],
     ['icon' => 'dishwasher',  'label' => 'Dishwasher Repair',    'service_slug' => 'viking-dishwasher-repair',    'img' => 'product-dishwasher.jpg',   'desc' => 'Viking dishwashers not cleaning, draining, or starting. Control board faults, door latch issues, and spray arm failures resolved quickly.'],
     ['icon' => 'cooktop',     'label' => 'Cooktop Repair',       'service_slug' => 'viking-cooktop-repair',       'img' => 'gas-range.jpg',            'desc' => 'Viking gas, electric, and induction cooktops. Burner ignition, spark module, and surface element failures fixed with genuine OEM parts.'],
     ['icon' => 'oven',        'label' => 'Wall Oven Repair',     'service_slug' => 'viking-wall-oven-repair',     'img' => 'wall-oven.jpg',            'desc' => 'Viking single and double wall ovens. Temperature inaccuracies, bake/broil element failures, door lock faults, and control panel issues.'],
-    ['icon' => 'wine',        'label' => 'Wine Cooler Repair',   'service_slug' => 'viking-wine-cooler-repair',   'img' => 'microwave.jpg',            'desc' => 'Viking wine coolers not maintaining temperature or displaying fault codes. Compressor, thermostat, and cooling fan repairs done right.'],
+    ['icon' => 'wine',        'label' => 'Wine Cooler Repair',   'service_slug' => 'viking-wine-cooler-repair',   'img' => 'product-refrigerator.jpg', 'desc' => 'Viking wine coolers not maintaining temperature or displaying fault codes. Compressor, thermostat, and cooling fan repairs done right.'],
 ];
 
 $hiw_steps = [

@@ -465,11 +465,11 @@ get_header();
     <div class="container">
 
         <div class="as-section-header">
-            <p class="as-eyebrow"><?php echo $active_data ? esc_html('viking ' . $active_data['label'] . ' Repair') : 'All Repair Services'; ?></p>
-            <h2 class="as-section-title">
+            <p class=”as-eyebrow”><?php echo $active_data ? esc_html('Viking ' . $active_data['label'] . ' Repair') : 'All Repair Services'; ?></p>
+            <h2 class=”as-section-title”>
                 <?php echo $active_data
-                    ? esc_html('viking ' . $active_data['label'] . ' Repair â€” What We Cover')
-                    : 'Viking Appliance Repair â€” All Services'; ?>
+                    ? esc_html('Viking ' . $active_data['label'] . ' Repair — What We Cover')
+                    : 'Viking Appliance Repair — All Services'; ?>
             </h2>
             <?php if ($active_data): ?>
             <p class="as-section-intro"><?php echo esc_html($active_data['intro']); ?></p>
@@ -482,13 +482,14 @@ get_header();
         <div class="as-grid">
             <?php
             $image_map = [
-                'viking-washer-repair'       => '/assets/images/washer.jpg',
-                'viking-dryer-repair'        => '/assets/images/dryer.jpg',
+                'viking-range-repair'        => '/assets/images/gas-range.jpg',
                 'viking-refrigerator-repair' => '/assets/images/product-refrigerator.jpg',
                 'viking-dishwasher-repair'   => '/assets/images/product-dishwasher.jpg',
-                'viking-oven-repair'         => '/assets/images/gas-range.jpg',
-                'viking-microwave-repair'    => '/assets/images/microwave.jpg',
+                'viking-cooktop-repair'      => '/assets/images/gas-range.jpg',
                 'viking-wall-oven-repair'    => '/assets/images/wall-oven.jpg',
+                'viking-wine-cooler-repair'  => '/assets/images/product-refrigerator.jpg',
+                'viking-freezer-repair'      => '/assets/images/product-refrigerator.jpg',
+                'viking-vent-hood-repair'    => '/assets/images/kitchen-set-2.webp',
             ];
             while ($services_query->have_posts()): $services_query->the_post();
                 $pid        = get_the_ID();
@@ -504,7 +505,7 @@ get_header();
                     <img src="<?php echo esc_url($card_img); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" loading="lazy">
                 </div>
                 <div class="as-card__body">
-                    <p class="as-card__label">viking <?php echo esc_html($appliance); ?></p>
+                    <p class="as-card__label">Viking <?php echo esc_html($appliance); ?></p>
                     <h3 class="as-card__title"><?php the_title(); ?></h3>
                     <p class="as-card__desc"><?php echo esc_html(wp_trim_words($excerpt, 20)); ?></p>
                     <div class="as-card__footer">
@@ -523,7 +524,7 @@ get_header();
             ?>
             <a href="<?php echo esc_url(home_url('/services/' . $ap['slug'] . '/')); ?>" class="as-card">
                 <div class="as-card__img">
-                    <img src="<?php echo esc_url($card_img); ?>" alt="viking <?php echo esc_attr($ap['label']); ?> Repair" loading="lazy">
+                    <img src="<?php echo esc_url($card_img); ?>" alt="Viking <?php echo esc_attr($ap['label']); ?> Repair" loading="lazy">
                 </div>
                 <div class="as-card__body">
                     <p class="as-card__label">viking <?php echo esc_html($ap['label']); ?></p>

@@ -107,8 +107,10 @@ add_filter('robots_txt',function(string $output,bool $public):string{
 /* ── Permanent Redirects for removed/renamed pages ── */
 add_action('template_redirect', function() {
     $redirects = [
-        '/services/bosch-washer-repair/' => '/services/bosch-dishwasher-repair/',
-        '/services/bosch-dryer-repair/'  => '/services/bosch-dishwasher-repair/',
+        '/services/viking-oven-repair/'      => '/services/viking-range-repair/',
+        '/services/viking-washer-repair/'    => '/services/viking-range-repair/',
+        '/services/viking-dryer-repair/'     => '/services/viking-range-repair/',
+        '/services/viking-microwave-repair/' => '/services/viking-wine-cooler-repair/',
     ];
     $path = wp_parse_url( add_query_arg([]), PHP_URL_PATH );
     if ( isset( $redirects[ $path ] ) ) {

@@ -38,13 +38,12 @@ function ec_severity(string $cost): array {
 
 /* Appliance icons */
 $ap_icons = [
-    'washer'       => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="12" cy="13" r="5"/><circle cx="12" cy="13" r="2.5"/><line x1="7" y1="6" x2="8" y2="6"/><line x1="10" y1="6" x2="11" y2="6"/></svg>',
-    'dryer'        => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="12" cy="13" r="5"/><path d="M10 11 Q12 9 14 11"/><line x1="7" y1="6" x2="9" y2="6"/></svg>',
+    'range'        => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="17" rx="2"/><rect x="6" y="9" width="12" height="9" rx="1"/><circle cx="7" cy="3" r="1"/><circle cx="12" cy="3" r="1"/><circle cx="17" cy="3" r="1"/></svg>',
     'refrigerator' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="4" y1="10" x2="20" y2="10"/><line x1="9" y1="6" x2="9" y2="9"/><line x1="9" y1="13" x2="9" y2="18"/></svg>',
     'dishwasher'   => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="2" width="18" height="20" rx="2"/><line x1="3" y1="8" x2="21" y2="8"/><circle cx="12" cy="15" r="4"/><path d="M9 15 Q12 12 15 15"/></svg>',
-    'oven'         => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="17" rx="2"/><rect x="6" y="9" width="12" height="9" rx="1"/><circle cx="7" cy="3" r="1"/><circle cx="12" cy="3" r="1"/><circle cx="17" cy="3" r="1"/></svg>',
-    'microwave'    => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"/><rect x="4" y="7" width="13" height="10" rx="1"/><circle cx="20" cy="12" r="1"/><line x1="19" y1="9" x2="21" y2="9"/><line x1="19" y1="15" x2="21" y2="15"/></svg>',
+    'cooktop'      => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="12" r="2.5"/><circle cx="16" cy="12" r="2.5"/></svg>',
     'wall-oven'    => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="2" width="18" height="20" rx="2"/><rect x="6" y="6" width="12" height="7" rx="1"/><rect x="6" y="16" width="12" height="4" rx="1"/><line x1="9" y1="4" x2="9" y2="5"/><line x1="15" y1="4" x2="15" y2="5"/></svg>',
+    'wine-cooler'  => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="4" y1="10" x2="20" y2="10"/></svg>',
     'default'      => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>',
 ];
 

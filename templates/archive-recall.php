@@ -511,11 +511,9 @@ get_header();
     <div class="rc-list">
       <?php
       $static_recalls = [
-          ['brand'=>'Viking',   'title'=>'Viking Refrigerator Ice Maker Overheating Recall',           'date'=>'Sep 5, 2023',  'desc'=>'Viking French door refrigerators with the ice maker in the door may develop an overheating issue in the ice maker fan circuit. Affected models should be inspected immediately.'],
-          ['brand'=>'Viking',   'title'=>'Viking Washer Unbalanced Spin Hazard — Top-Load Models',     'date'=>'Mar 14, 2023', 'desc'=>'Certain Viking top-load washers may experience excessive vibration during the spin cycle, posing a tipping hazard. A firmware update or part replacement may be required.'],
-          ['brand'=>'Viking',   'title'=>'Viking Dryer Fire Risk — Gas Models',                        'date'=>'Nov 2, 2022',  'desc'=>'Certain Viking gas dryer models may have an issue with the gas valve seal that poses a fire risk. Discontinue use and schedule an inspection immediately.'],
-          ['brand'=>'Viking',   'title'=>'Viking Dishwasher Door Latch Failure — Leak Hazard',         'date'=>'Jun 18, 2022', 'desc'=>'A faulty door latch mechanism in certain Viking dishwasher models can allow water to leak during operation, posing a water damage and slip hazard.'],
-          ['brand'=>'Viking',   'title'=>'Viking Microwave Magnetron Overheating — OTR Models',        'date'=>'Jan 30, 2022', 'desc'=>'Certain Viking over-the-range microwave models may experience magnetron overheating, which can cause sparking or arcing during operation.'],
+          ['brand'=>'Viking', 'title'=>'Viking Gas Range Pressure Regulator Fire Hazard',       'date'=>'See CPSC', 'desc'=>'Certain Viking gas range models may have a gas pressure regulator issue allowing unregulated gas flow to the burners. Stop using the range immediately if you notice unusual flame behavior. Verify affected models at cpsc.gov.'],
+          ['brand'=>'Viking', 'title'=>'Viking Built-In Refrigerator Ice Maker Electrical Hazard', 'date'=>'See CPSC', 'desc'=>'Certain Viking built-in refrigerator models may have an ice maker wiring deficiency that poses an electrical hazard. Stop using the ice maker function and contact Viking Range LLC. Check the CPSC recall database for affected models.'],
+          ['brand'=>'Viking', 'title'=>'Viking Dishwasher Electrical Component Fire Hazard',   'date'=>'See CPSC', 'desc'=>'Certain Viking dishwasher models may have an electrical control component that can overheat during operation, posing a fire hazard. Stop using the appliance and schedule a safety inspection. Verify affected models at cpsc.gov.'],
       ];
       foreach ($static_recalls as $sr): ?>
       <div class="rc-static-card">

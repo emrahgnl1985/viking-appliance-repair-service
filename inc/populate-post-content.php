@@ -938,19 +938,18 @@ foreach ($posts as $post) {
    - At least one normal outbound link
 ═══════════════════════════════════════ */
 
-// Map words found in post titles → display label
+// Map words found in post titles → display label (Viking appliances only)
 $recall_appliance_map = [
-    'washing machine' => 'Washing Machine',
-    'washer'          => 'Washer',
-    'dryer'           => 'Dryer',
-    'refrigerator'    => 'Refrigerator',
-    'fridge'          => 'Refrigerator',
-    'dishwasher'      => 'Dishwasher',
-    'oven'            => 'Oven',
-    'range'           => 'Range',
-    'microwave'       => 'Microwave',
-    'wall-oven'       => 'Wall Oven',
-    'heat pump'       => 'Heat Pump',
+    'range'        => 'Range',
+    'refrigerator' => 'Refrigerator',
+    'fridge'       => 'Refrigerator',
+    'dishwasher'   => 'Dishwasher',
+    'cooktop'      => 'Cooktop',
+    'wall oven'    => 'Wall Oven',
+    'wine cooler'  => 'Wine Cooler',
+    'freezer'      => 'Freezer',
+    'vent hood'    => 'Vent Hood',
+    'oven'         => 'Oven',
 ];
 
 $posts = get_posts(['post_type' => 'recall', 'posts_per_page' => -1, 'post_status' => 'publish']);
@@ -1263,7 +1262,7 @@ foreach ($pages as $page) {
         $html .= "<h2>Same-Day and Next-Day Slots Available</h2>\n";
         $html .= "<p>We offer same-day appointments in most service areas across the US. ";
         $html .= "Specifically, slots are available Monday through Saturday. ";
-        $html .= "Furthermore, emergency bookings are available for urgent faults such as a refrigerator not cooling or a washer flooding. ";
+        $html .= "Furthermore, emergency bookings are available for urgent faults such as a refrigerator not cooling or a dishwasher leaking. ";
         $html .= "Additionally, all appointments include a free diagnostic if you proceed with the repair.</p>\n";
 
         $html .= "<h2>Why Thousands Choose Viking Appliance Repair with Us</h2>\n"; // KW in H2 ×4
@@ -1287,29 +1286,29 @@ foreach ($pages as $page) {
         ar_set_yoast(
             $id,
             ar_seo_title('Viking Appliance Repair Tips & Expert Guides'),
-            ar_seo_desc('Our Viking appliance repair tips come from certified technicians. Find guides for Viking washers, dryers, refrigerators, ovens, microwaves, wall ovens, and dishwashers.'),
+            ar_seo_desc('Our Viking appliance repair tips come from certified technicians. Find guides for Viking ranges, refrigerators, dishwashers, cooktops, wall ovens, and wine coolers.'),
             'Viking appliance repair tips'
         );
         $img = "<figure>\n<img src=\"" . esc_url(get_template_directory_uri() . '/assets/images/Viking-repair-technician.webp') . "\" alt=\"Viking appliance repair tips — expert guides from certified technicians\" width=\"800\" height=\"450\" loading=\"lazy\">\n</figure>\n";
         $html  = "<h1>Viking Appliance Repair Tips &amp; Expert Guides — By Certified Technicians</h1>\n"; // KW in H1
         $html .= $img;
-        $html .= "<p>We noticed that most <strong>Viking appliance repair</strong> content online was written by people who had never actually opened a Viking washing machine. "; // KW ×2
+        $html .= "<p>We noticed that most <strong>Viking appliance repair</strong> content online was written by people who had never actually worked on a Viking range or refrigerator. "; // KW ×2
         $html .= "Our clients kept telling us the same thing — they would follow a guide they found online, make the problem worse, and then call us anyway. ";
         $html .= "So we started writing our own guides: real fault scenarios, written by the technicians who diagnose them every single day.</p>\n";
 
         $html .= "<h2>Expert Viking Appliance Repair Tips for Every Viking Appliance</h2>\n"; // KW in H2 ×3
         $html .= "<p>Our clients like that every article is specific to Viking — not a generic 'check the plug' walkthrough, but actual model-aware advice. ";
-        $html .= "We noticed that Viking washers, refrigerators, and ovens each have their own recurring failure patterns, and once you know what to look for, diagnosis becomes much faster. ";
+        $html .= "We noticed that Viking ranges, refrigerators, and dishwashers each have their own recurring failure patterns, and once you know what to look for, diagnosis becomes much faster. ";
         $html .= "That knowledge is what we share in every guide — what the fault usually is, what causes it, and exactly how to fix it or when to stop and call us.</p>\n";
 
         $html .= "<h2>What You Will Find in Our Blog</h2>\n";
         $html .= "<p>Our clients asked us to cover their most common headaches, so that is what we focused on:</p>\n<ul>\n";
-        $html .= "<li><strong>Washer Tips</strong> — drainage problems, spin failures, door seal issues</li>\n";
-        $html .= "<li><strong>Dryer Tips</strong> — no heat, drum not turning, gas and electric faults</li>\n";
-        $html .= "<li><strong>Refrigerator Tips</strong> — not cooling, ice maker issues, compressor faults</li>\n";
+        $html .= "<li><strong>Range &amp; Oven Tips</strong> — burner ignition, F-code faults, temperature sensor failures, oven not heating</li>\n";
+        $html .= "<li><strong>Refrigerator Tips</strong> — not cooling, ice maker issues, defrost failures, compressor faults</li>\n";
         $html .= "<li><strong>Dishwasher Tips</strong> — not cleaning, not draining, door latch problems</li>\n";
-        $html .= "<li><strong>Oven / Range &amp; Wall Oven</strong> — ignition faults, SE errors, temperature sensor failures, control board issues</li>\n";
-        $html .= "<li><strong>Maintenance Guides</strong> — preventive care, filter replacement, cleaning schedules</li>\n";
+        $html .= "<li><strong>Cooktop Tips</strong> — gas ignition problems, electrode failures, surface element faults</li>\n";
+        $html .= "<li><strong>Maintenance Guides</strong> — preventive care, filter replacement, annual cleaning schedules for Viking appliances</li>\n";
+        $html .= "<li><strong>Troubleshooting</strong> — fault code explanations, diagnosis steps, when to call a technician</li>\n";
         $html .= "</ul>\n";
 
         $html .= "<h2>Use Our Viking Appliance Repair Tips to Fix Common Faults Yourself</h2>\n"; // KW in H2 ×4
@@ -1590,7 +1589,7 @@ $wpseo = get_option('wpseo_titles', []);
 
 // /services/
 $wpseo['title-ptarchive-service_page']   = ar_seo_title('Viking Appliance Repair Services', [' | Certified Techs', ' | OEM Parts']);
-$wpseo['metadesc-ptarchive-service_page'] = ar_seo_desc('Browse all our Viking appliance repair services. Certified technicians fix Viking washers, dryers, refrigerators, dishwashers, ovens, microwaves, and wall ovens with genuine OEM parts.');
+$wpseo['metadesc-ptarchive-service_page'] = ar_seo_desc('Browse all our Viking appliance repair services. Certified technicians repair Viking ranges, refrigerators, dishwashers, cooktops, wall ovens, and wine coolers with genuine Viking OEM parts.');
 
 // /locations/
 $wpseo['title-ptarchive-location_page']   = ar_seo_title('Viking Appliance Repair Locations', [' | 30+ US Cities', ' | Find Your City']);
@@ -1602,7 +1601,7 @@ $wpseo['metadesc-ptarchive-error_code'] = ar_seo_desc('Look up Viking appliance 
 
 // /guides/
 $wpseo['title-ptarchive-guide']   = ar_seo_title('Viking Appliance Repair Guides', [' | Step-by-Step', ' | Expert Guides']);
-$wpseo['metadesc-ptarchive-guide'] = ar_seo_desc('Read step-by-step Viking appliance repair guides written by certified technicians. We cover Viking washers, dryers, refrigerators, dishwashers, ovens, microwaves, and wall ovens.');
+$wpseo['metadesc-ptarchive-guide'] = ar_seo_desc('Read step-by-step Viking appliance repair guides written by certified technicians. We cover Viking ranges, refrigerators, dishwashers, cooktops, wall ovens, and wine coolers.');
 
 // /recalls/
 $wpseo['title-ptarchive-recall']   = ar_seo_title('Viking Appliance Safety Recalls', [' | CPSC Notices', ' | Safety Alerts']);
@@ -1612,7 +1611,7 @@ $wpseo['metadesc-ptarchive-recall'] = ar_seo_desc('Check the latest Viking appli
 $blog_page_id = (int) get_option('page_for_posts', 0);
 if ($blog_page_id > 0) {
     $wpseo['title-page-' . $blog_page_id]   = ar_seo_title('Viking Appliance Repair Blog', [' | Tips & Guides', ' | Expert Repair Tips']);
-    $wpseo['metadesc-page-' . $blog_page_id] = ar_seo_desc('Expert Viking appliance repair tips, how-to guides, and error code explanations. Our certified technicians share practical advice for Viking washers, dryers, refrigerators, and more.');
+    $wpseo['metadesc-page-' . $blog_page_id] = ar_seo_desc('Expert Viking appliance repair tips, how-to guides, and fault code explanations. Our certified technicians share practical advice for Viking ranges, refrigerators, dishwashers, and more.');
 }
 
 update_option('wpseo_titles', $wpseo);

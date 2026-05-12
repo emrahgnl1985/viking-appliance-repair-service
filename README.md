@@ -1,6 +1,6 @@
-﻿# Viking Appliance Repair — WordPress Theme
+﻿# Viking Appliance Repair Service — WordPress Theme
 
-A WordPress theme for independent appliance repair businesses operating in the US market. Covers multiple brands (Bosch, Electrolux, Frigidaire, KitchenAid, LG, Maytag, Viking, Whirlpool) and appliance types (Washer, Dryer, Dishwasher, Refrigerator, Oven/Range). Built with pure PHP/CSS/JS — no build tools required.
+A WordPress theme exclusively for Viking appliance repair service businesses operating in the US market. Covers Viking appliances only. Built with pure PHP/CSS/JS — no build tools required.
 
 ---
 
@@ -8,25 +8,25 @@ A WordPress theme for independent appliance repair businesses operating in the U
 
 | Item | Detail |
 |------|--------|
-| Theme Name | Viking Appliance Repair |
+| Theme Name | Viking Appliance Repair Service |
 | WordPress | 6.0+ |
 | PHP | 8.0+ |
 | Build step | None — edit files directly |
 | Required plugins | Advanced Custom Fields (ACF), Yoast SEO or RankMath |
 | Markets | United States only |
 
-### Brands Covered
+### Brand Covered
 
-- Bosch, Electrolux, Frigidaire, KitchenAid, LG, Maytag, Viking, Whirlpool
+- Viking (Viking Range LLC, USA) — Professional Series, Tuscany, Virtuoso
 
 ### Appliance Types
 
-- Washer, Dryer, Dishwasher, Refrigerator, Oven/Range
+- Range, Refrigerator, Dishwasher, Cooktop, Wall Oven, Wine Cooler, Freezer, Vent Hood
 
 ### Content at a Glance
 
-- **Services pages** — one per brand × appliance type combination (e.g., Bosch Dishwasher Repair, LG Washer Repair)
-- **Error code pages** — one per error code per brand (e.g., Bosch E22, Viking 4E, LG OE)
+- **Services pages** — one per Viking appliance type (Viking Range Repair, Viking Refrigerator Repair, etc.)
+- **Fault code pages** — documented Viking F-series fault codes (F1–F9 for ranges and wall ovens)
 - **Location pages** — one per service city
 - **Guides** — how-to repair and maintenance articles
 - **Recalls** — CPSC-sourced recall notices
@@ -160,7 +160,7 @@ Error code pages use a two-level URL:
 ```
 /error-codes/{appliance-slug}/{error-code-slug}/
 ```
-Example: `/error-codes/dishwasher/bosch-e22-error-code/`
+Example: `/error-codes/range/viking-range-f2-fault-code/`
 
 This is handled by custom rewrite rules registered in `functions.php`. After adding new appliance types, always flush rewrite rules at **Settings → Permalinks → Save Changes**.
 
@@ -170,7 +170,7 @@ This is handled by custom rewrite rules registered in `functions.php`. After add
 
 | Taxonomy | Type | Used By | Description |
 |----------|------|---------|-------------|
-| `brand` | Flat | `service_page`, `error_code`, `guide`, `recall` | Appliance brand (Bosch, LG, etc.) |
+| `brand` | Flat | `service_page`, `error_code`, `guide`, `recall` | Appliance brand (Viking) |
 | `appliance_type` | Hierarchical | `service_page`, `error_code`, `guide` | Appliance category (Washer, Dryer, etc.) |
 | `city` | Hierarchical | `location_page` | Service city |
 | `blog_category` | Flat | `guide` | Guide category |
@@ -405,10 +405,10 @@ Schema is always output independently of SEO plugins via `ar_output_schema()`:
 | `template-recall.php` | `NewsArticle`, `BreadcrumbList` |
 | `front-page.php` | `LocalBusiness`, `FAQPage` |
 
-### Brand-Specific US Market Notes
+### Viking US Market Notes
 
-- **Bosch**: Exited US washer/dryer market in 2013 — no Bosch Washer Repair or Bosch Dryer Repair service pages
-- All error codes reference US model numbers (e.g., SHPM88Z75N, KFWE505ESS)
+- **Viking** does not manufacture washers, dryers, or microwaves — services are limited to: ranges, refrigerators, dishwashers, cooktops, wall ovens, wine coolers, freezers, and vent hoods
+- All fault codes reference documented Viking F-series codes (F1–F9 for ranges and wall ovens)
 - Cost ranges are in USD, calibrated for US labor rates
 
 ---
@@ -445,7 +445,7 @@ ar_faq_section($faqs_array, 'Frequently Asked Questions');
 ### Disclaimer
 
 ```php
-ar_disclaimer('Bosch');
+ar_disclaimer('Viking');
 ar_disclaimer(); // generic version
 // Echoes: <aside class="disclaimer disclaimer--prominent" ...>
 // Required on every template
@@ -681,4 +681,5 @@ RewriteRule . /index.php [L]
 ## License
 
 This theme is proprietary software for Viking Appliance Repair. All brand names, trademarks, and model numbers referenced throughout this theme are the property of their respective manufacturers and are used solely for identification purposes. This business is an independent service provider and is not affiliated with, authorized by, or endorsed by any appliance manufacturer.
+
 

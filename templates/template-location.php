@@ -166,8 +166,8 @@ ar_output_schema($_schema_data);
         <?php if ( $intro ) : ?>
             <div style="margin-top:var(--space-6);"><?php echo wp_kses_post( wpautop( $intro ) ); ?></div>
         <?php else : ?>
-            <p style="margin-top:var(--space-6);">Our certified technicians bring professional appliance repair directly to your door across <?php echo esc_html( $city ); ?> and the surrounding communities. When your refrigerator stops cooling, your washer won't drain, or your dishwasher is leaving dishes dirty, you need a service that can respond quickly and fix the problem right the first time.</p>
-            <p>We maintain same-day and next-day appointment availability in most <?php echo esc_html( $city ); ?> zip codes. Our technicians arrive in fully-stocked service vans, carry a comprehensive parts inventory for all major appliance brands, and provide an upfront quote before any work begins.</p>
+            <p style="margin-top:var(--space-6);">Our certified Viking technicians bring professional appliance repair directly to your door across <?php echo esc_html( $city ); ?> and the surrounding communities. When your Viking range won't heat, your refrigerator stops cooling, or your dishwasher leaves dishes dirty, you need a specialist who knows Viking appliances — not a generalist who services everything and nothing particularly well.</p>
+            <p>We maintain same-day and next-day appointment availability in most <?php echo esc_html( $city ); ?> zip codes. Our technicians arrive in fully-stocked service vans, carry a comprehensive genuine Viking OEM parts inventory, and provide an upfront quote before any work begins.</p>
         <?php endif; ?>
 
         <?php ar_disclaimer(); ?>

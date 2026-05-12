@@ -4,8 +4,8 @@
  * Viking Appliance Repair Service Theme
  *
  * ACF Fields used:
- *   _ar_brand            — string  e.g. "Bosch"
- *   _ar_appliance_type   — string  e.g. "Washer"
+ *   _ar_brand            — string  e.g. "Viking"
+ *   _ar_appliance_type   — string  e.g. "Range"
  *   _ar_hero_subtitle    — string
  *   _ar_body_intro       — textarea (paragraphs)
  *   _ar_common_issues    — repeater: [ title, description ]
