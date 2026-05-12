@@ -1,0 +1,46 @@
+{
+  "key": "group_recall_fields",
+  "title": "Recall Fields",
+  "fields": [
+    {
+      "key": "field_rc_brand",
+      "label": "Brand",
+      "name": "_ar_brand",
+      "type": "select",
+      "choices": {
+        "Samsung": "Samsung"
+      }
+    },
+    {
+      "key": "field_rc_recall_date",
+      "label": "Recall Date",
+      "name": "_ar_recall_date",
+      "type": "date_picker"
+    },
+    {
+      "key": "field_rc_affected_models",
+      "label": "Affected Models",
+      "name": "_ar_affected_models",
+      "type": "textarea",
+      "rows": 3,
+      "instructions": "One model per line"
+    },
+    {
+      "key": "field_rc_cpsc_url",
+      "label": "CPSC URL",
+      "name": "_ar_cpsc_url",
+      "type": "url",
+      "instructions": "Link to official CPSC recall page"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "recall"
+      }
+    ]
+  ],
+  "active": true
+}

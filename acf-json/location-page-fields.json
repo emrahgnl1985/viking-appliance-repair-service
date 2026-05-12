@@ -1,0 +1,148 @@
+{
+  "key": "group_location_page",
+  "title": "Location Page Fields",
+  "fields": [
+    {
+      "key": "field_lp_city",
+      "label": "City",
+      "name": "_ar_city",
+      "type": "text",
+      "required": 1
+    },
+    {
+      "key": "field_lp_state",
+      "label": "State Code",
+      "name": "_ar_state",
+      "type": "text",
+      "required": 1,
+      "instructions": "e.g. IL, CA, TX"
+    },
+    {
+      "key": "field_lp_state_full",
+      "label": "State Full",
+      "name": "_ar_state_full",
+      "type": "text",
+      "instructions": "e.g. Illinois, California"
+    },
+    {
+      "key": "field_lp_hero_headline",
+      "label": "Hero H1",
+      "name": "_ar_hero_headline",
+      "type": "text"
+    },
+    {
+      "key": "field_lp_hero_sub",
+      "label": "Hero Sub",
+      "name": "_ar_hero_sub",
+      "type": "textarea",
+      "rows": 2
+    },
+    {
+      "key": "field_lp_intro_p1",
+      "label": "Intro Paragraph 1",
+      "name": "_ar_intro_p1",
+      "type": "wysiwyg"
+    },
+    {
+      "key": "field_lp_intro_p2",
+      "label": "Intro Paragraph 2",
+      "name": "_ar_intro_p2",
+      "type": "wysiwyg"
+    },
+    {
+      "key": "field_lp_zip_codes",
+      "label": "ZIP Codes (comma-separated)",
+      "name": "_ar_zip_codes",
+      "type": "textarea",
+      "rows": 3,
+      "instructions": "e.g. 60614, 60622, 60647"
+    },
+    {
+      "key": "field_lp_neighborhoods",
+      "label": "Neighborhoods / Suburbs",
+      "name": "_ar_neighborhoods",
+      "type": "repeater",
+      "layout": "table",
+      "sub_fields": [
+        {
+          "key": "field_lp_nb_name",
+          "label": "Name",
+          "name": "name",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "key": "field_lp_reviews",
+      "label": "Customer Reviews",
+      "name": "_ar_reviews",
+      "type": "repeater",
+      "instructions": "Leave empty to use auto-generated example reviews.",
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_lp_rv_name",
+          "label": "Name",
+          "name": "name",
+          "type": "text"
+        },
+        {
+          "key": "field_lp_rv_location",
+          "label": "Location",
+          "name": "location",
+          "type": "text",
+          "instructions": "e.g. Lincoln Park"
+        },
+        {
+          "key": "field_lp_rv_text",
+          "label": "Review",
+          "name": "text",
+          "type": "textarea",
+          "rows": 3
+        }
+      ]
+    },
+    {
+      "key": "field_lp_faqs",
+      "label": "FAQs",
+      "name": "_ar_faqs",
+      "type": "repeater",
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_lp_faq_q",
+          "label": "Question",
+          "name": "q",
+          "type": "text"
+        },
+        {
+          "key": "field_lp_faq_a",
+          "label": "Answer",
+          "name": "a",
+          "type": "textarea",
+          "rows": 3
+        }
+      ]
+    },
+    {
+      "key": "field_lp_featured_services",
+      "label": "Featured Services",
+      "name": "_ar_featured_services",
+      "type": "relationship",
+      "post_type": [
+        "service_page"
+      ],
+      "max": 8
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "location_page"
+      }
+    ]
+  ],
+  "active": true
+}

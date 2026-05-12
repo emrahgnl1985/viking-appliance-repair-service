@@ -1,0 +1,185 @@
+/* =========================================
+   TEMPLATES.CSS — Per-template specific styles
+   ========================================= */
+
+/* ── Two-column responsive helper ── */
+@media (max-width: 768px) {
+    .two-col-responsive {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+}
+
+/* ── Homepage hero H2 sizing ── */
+.hero h2 { font-size: var(--text-xl); font-weight: var(--weight-bold); color: #fff; }
+
+/* ── Archive filter bar ── */
+.archive-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-light);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+}
+.archive-filters select {
+    padding: 0.5rem 2.5rem 0.5rem 1rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    background: var(--color-white);
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748B' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+.archive-filters select:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(26,58,92,0.1);
+}
+
+/* ── Hero info stats row ── */
+.hero-stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.hero-stat {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    text-align: center;
+}
+.hero-stat__label {
+    font-size: .75rem;
+    color: rgba(255,255,255,.6);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin-bottom: .4rem;
+}
+.hero-stat__value {
+    font-size: 1.375rem;
+    font-weight: 800;
+    color: #fff;
+}
+.hero-stat__sub {
+    font-size: .75rem;
+    color: rgba(255,255,255,.55);
+    margin-top: .25rem;
+}
+
+/* ── Service page common issues card with icon ── */
+.issue-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.issue-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+}
+.issue-card__title {
+    font-weight: var(--weight-semibold);
+    font-size: var(--text-base);
+    margin-bottom: var(--space-2);
+    color: var(--color-text-primary);
+}
+.issue-card__desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+/* ── Error code page: content sidebar layout fixes ── */
+.error-quick-info th,
+.error-quick-info td {
+    padding: .6rem 1rem;
+    font-size: .875rem;
+    border-bottom: 1px solid var(--color-border);
+}
+.error-quick-info th {
+    font-weight: 600;
+    color: var(--color-text-muted);
+    background: var(--color-bg-light);
+    width: 40%;
+}
+.error-quick-info tr:last-child th,
+.error-quick-info tr:last-child td {
+    border-bottom: none;
+}
+
+/* ── Location page suburb chips ── */
+.suburb-chip {
+    display: inline-block;
+    padding: .2rem .75rem;
+    background: var(--color-bg-light);
+    border-radius: var(--radius-full);
+    font-size: .8125rem;
+    color: var(--color-text-body);
+    margin: .2rem;
+}
+
+/* ── Pagination ── */
+.nav-links {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.nav-links a,
+.nav-links span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 .75rem;
+    border-radius: var(--radius-md);
+    font-size: .875rem;
+    font-weight: 600;
+    border: 1.5px solid var(--color-border);
+    color: var(--color-text-body);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+.nav-links a:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background: var(--color-bg-light);
+}
+.nav-links .current {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #fff;
+}
+
+/* ── 404 page ── */
+.error-404 {
+    text-align: center;
+    padding: 5rem 0;
+}
+.error-404 h1 {
+    font-size: 8rem;
+    font-weight: 800;
+    color: var(--color-border);
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+.error-404 h2 { margin-bottom: 1rem; }
+.error-404 p  { color: var(--color-text-muted); margin-bottom: 2rem; }
+
+/* ── Print styles ── */
+@media print {
+    .site-header, .site-footer, .sticky-call, .appt-form, .trust-bar { display: none !important; }
+    .content-with-sidebar { display: block !important; }
+    .sidebar { display: none !important; }
+}

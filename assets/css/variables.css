@@ -1,0 +1,116 @@
+﻿/* ============================================================
+   DESIGN TOKENS — Samsung Appliance Repair
+   ============================================================ */
+:root {
+  /* Brand Colors — Professional red for Samsung appliance repair */
+  --color-primary:       #BE1622;
+  --color-primary-dark:  #0d1b2e;
+  --color-primary-light: #E57373;
+  --color-accent:        #BE1622;
+  --color-accent-dark:   #9B1119;
+  --color-accent-light:  #FFEBEE;
+
+  /* Neutrals */
+  --color-white:         #FFFFFF;
+  --color-bg-light:      #f8f6f3;
+  --color-bg-section:    #f2f0ed;
+  --color-border:        #e4e2dd;
+  --color-border-dark:   #c8c5be;
+
+  /* Text */
+  --color-text-body:     #1a1a1a;
+  --color-text-muted:    #6b7280;
+  --color-text-light:    #9ca3af;
+  --color-text-white:    #FFFFFF;
+
+  /* Semantic */
+  --color-success:       #16A34A;
+  --color-success-bg:    #DCFCE7;
+  --color-warning:       #D97706;
+  --color-warning-bg:    #FEF3C7;
+  --color-danger:        #dc2626;
+  --color-danger-bg:     #fee2e2;
+  --color-info:          #2563EB;
+  --color-info-bg:       #DBEAFE;
+
+  /* Typography */
+  --font-heading: 'Barlow Condensed', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body:    'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Barlow Condensed', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+
+  /* Font Scale — slightly increased for better readability */
+  --text-xs:   0.8125rem;
+  --text-sm:   0.9375rem;
+  --text-base: 1.125rem;
+  --text-lg:   1.1875rem;
+  --text-xl:   1.3125rem;
+  --text-2xl:  1.625rem;
+  --text-3xl:  2rem;
+  --text-4xl:  2.5rem;
+  --text-5xl:  3.25rem;
+  --text-6xl:  4rem;
+
+  /* Font Weights */
+  --weight-normal:    400;
+  --weight-medium:    500;
+  --weight-semibold:  600;
+  --weight-bold:      700;
+
+  /* Line Heights */
+  --leading-tight:   1.25;
+  --leading-snug:    1.375;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose:   1.75;
+
+  /* Spacing Scale (4px base) */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-14: 3.5rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Border Radius */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-2xl:  24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-xs:  0 1px 2px rgba(0,0,0,0.05);
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:  0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-lg:  0 10px 15px rgba(0,0,0,0.08), 0 4px 6px rgba(0,0,0,0.04);
+  --shadow-xl:  0 20px 25px rgba(0,0,0,0.08), 0 8px 10px rgba(0,0,0,0.04);
+  --shadow-card: 0 2px 8px rgba(26,58,92,0.08), 0 0 1px rgba(26,58,92,0.12);
+
+  /* Layout */
+  --container-max:    1200px;
+  --container-narrow: 800px;
+  --container-wide:   1400px;
+
+  /* Transitions */
+  --transition-fast:   150ms ease;
+  --transition-base:   250ms ease;
+  --transition-slow:   350ms ease;
+
+  /* Z-index Scale */
+  --z-base:     1;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-toast:    500;
+}

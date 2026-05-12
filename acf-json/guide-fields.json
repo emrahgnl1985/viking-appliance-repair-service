@@ -1,0 +1,48 @@
+{
+  "key": "group_guide_fields",
+  "title": "Guide Fields",
+  "fields": [
+    {
+      "key": "field_gd_related_services",
+      "label": "Related Services",
+      "name": "_ar_related_services",
+      "type": "relationship",
+      "post_type": [
+        "service_page"
+      ],
+      "max": 4
+    },
+    {
+      "key": "field_gd_faqs",
+      "label": "FAQs",
+      "name": "_ar_faqs",
+      "type": "repeater",
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_gd_faq_q",
+          "label": "Question",
+          "name": "q",
+          "type": "text"
+        },
+        {
+          "key": "field_gd_faq_a",
+          "label": "Answer",
+          "name": "a",
+          "type": "textarea",
+          "rows": 3
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "guide"
+      }
+    ]
+  ],
+  "active": true
+}

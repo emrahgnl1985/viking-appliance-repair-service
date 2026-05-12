@@ -1,0 +1,148 @@
+{
+  "key": "group_service_page",
+  "title": "Service Page Fields",
+  "fields": [
+    {
+      "key": "field_sp_brand",
+      "label": "Brand",
+      "name": "_ar_brand",
+      "type": "select",
+      "choices": {
+        "Samsung": "Samsung"
+      },
+      "required": 1
+    },
+    {
+      "key": "field_sp_appliance",
+      "label": "Appliance Type",
+      "name": "_ar_appliance",
+      "type": "select",
+      "choices": {
+        "Washer": "Washer",
+        "Dryer": "Dryer",
+        "Refrigerator": "Refrigerator",
+        "Dishwasher": "Dishwasher",
+        "Oven / Range": "Oven / Range",
+        "Microwave": "Microwave",
+        "Wall Oven": "Wall Oven"
+      },
+      "required": 1
+    },
+    {
+      "key": "field_sp_city_context",
+      "label": "City Context (optional)",
+      "name": "_ar_city_context",
+      "type": "text",
+      "instructions": "e.g. 'Chicago' \u2014 used in SEO title and meta description if this is a geo-specific service page."
+    },
+    {
+      "key": "field_sp_hero_headline",
+      "label": "Hero Headline (H1)",
+      "name": "_ar_hero_headline",
+      "type": "text",
+      "instructions": "Leave blank to auto-generate from Brand + Appliance."
+    },
+    {
+      "key": "field_sp_hero_sub",
+      "label": "Hero Subheadline",
+      "name": "_ar_hero_sub",
+      "type": "textarea",
+      "rows": 2
+    },
+    {
+      "key": "field_sp_body_intro",
+      "label": "Body Intro Copy (3 paragraphs)",
+      "name": "_ar_body_intro",
+      "type": "wysiwyg",
+      "instructions": "Leave blank to use auto-generated copy."
+    },
+    {
+      "key": "field_sp_common_issues",
+      "label": "Common Issues (repair cards)",
+      "name": "_ar_common_issues",
+      "type": "repeater",
+      "min": 0,
+      "max": 9,
+      "layout": "table",
+      "sub_fields": [
+        {
+          "key": "field_sp_issue_title",
+          "label": "Issue Title",
+          "name": "title",
+          "type": "text"
+        },
+        {
+          "key": "field_sp_issue_desc",
+          "label": "Description",
+          "name": "desc",
+          "type": "textarea",
+          "rows": 2
+        }
+      ]
+    },
+    {
+      "key": "field_sp_faqs",
+      "label": "FAQs",
+      "name": "_ar_faqs",
+      "type": "repeater",
+      "instructions": "Leave empty to use auto-generated FAQs for this brand/appliance.",
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_sp_faq_q",
+          "label": "Question",
+          "name": "q",
+          "type": "text"
+        },
+        {
+          "key": "field_sp_faq_a",
+          "label": "Answer",
+          "name": "a",
+          "type": "textarea",
+          "rows": 3
+        }
+      ]
+    },
+    {
+      "key": "field_sp_related_services",
+      "label": "Related Services",
+      "name": "_ar_related_services",
+      "type": "relationship",
+      "post_type": [
+        "service_page"
+      ],
+      "filters": [
+        "search"
+      ],
+      "max": 6
+    },
+    {
+      "key": "field_sp_related_locations",
+      "label": "Related Locations",
+      "name": "_ar_related_locations",
+      "type": "relationship",
+      "post_type": [
+        "location_page"
+      ],
+      "filters": [
+        "search"
+      ],
+      "max": 6
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "service_page"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true
+}

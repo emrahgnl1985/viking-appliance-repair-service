@@ -1,0 +1,59 @@
+﻿/* =========================================
+   EDITOR.CSS — Block editor styles (mirrors front-end)
+   ========================================= */
+
+.editor-styles-wrapper {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #2D3748;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #1A202C;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+.editor-styles-wrapper h2 { font-size: 1.75rem; }
+.editor-styles-wrapper h3 { font-size: 1.375rem; }
+.editor-styles-wrapper h4 { font-size: 1.125rem; }
+.editor-styles-wrapper p  { margin-bottom: 1.25rem; }
+.editor-styles-wrapper a  { color: #1B3A6B; }
+.editor-styles-wrapper ul,
+.editor-styles-wrapper ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+.editor-styles-wrapper li { margin-bottom: .4rem; }
+.editor-styles-wrapper blockquote {
+    border-left: 3px solid #1B3A6B;
+    padding-left: 1.25rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #64748B;
+}
+.editor-styles-wrapper strong { font-weight: 700; }
+.editor-styles-wrapper code  {
+    background: #EEF2F7;
+    padding: .15em .4em;
+    border-radius: 4px;
+    font-size: .875em;
+    font-family: monospace;
+}
+.editor-styles-wrapper pre {
+    background: #1A202C;
+    color: #E2E8F0;
+    padding: 1.25rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: monospace;
+    font-size: .875rem;
+    margin: 1.5rem 0;
+}

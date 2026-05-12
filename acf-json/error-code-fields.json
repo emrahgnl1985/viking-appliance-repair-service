@@ -1,0 +1,161 @@
+{
+  "key": "group_error_code",
+  "title": "Error Code Fields",
+  "fields": [
+    {
+      "key": "field_ec_brand",
+      "label": "Brand",
+      "name": "_ar_brand",
+      "type": "select",
+      "choices": {
+        "Samsung": "Samsung"
+      },
+      "required": 1
+    },
+    {
+      "key": "field_ec_appliance",
+      "label": "Appliance Type",
+      "name": "_ar_appliance",
+      "type": "select",
+      "choices": {
+        "Washer": "Washer",
+        "Dryer": "Dryer",
+        "Refrigerator": "Refrigerator",
+        "Dishwasher": "Dishwasher",
+        "Oven / Range": "Oven / Range",
+        "Microwave": "Microwave",
+        "Wall Oven": "Wall Oven"
+      },
+      "required": 1
+    },
+    {
+      "key": "field_ec_code",
+      "label": "Error Code",
+      "name": "_ar_error_code",
+      "type": "text",
+      "required": 1,
+      "instructions": "e.g. E15, OE, F21"
+    },
+    {
+      "key": "field_ec_meaning",
+      "label": "What It Means",
+      "name": "_ar_code_meaning",
+      "type": "wysiwyg",
+      "instructions": "Plain-English explanation (1 paragraph)."
+    },
+    {
+      "key": "field_ec_dangerous",
+      "label": "Is It Dangerous?",
+      "name": "_ar_is_dangerous",
+      "type": "select",
+      "choices": {
+        "no": "No",
+        "yes": "Yes \u2014 act promptly"
+      }
+    },
+    {
+      "key": "field_ec_cost_low",
+      "label": "Est. Repair Cost (low)",
+      "name": "_ar_repair_cost_low",
+      "type": "number",
+      "instructions": "e.g. 80"
+    },
+    {
+      "key": "field_ec_cost_high",
+      "label": "Est. Repair Cost (high)",
+      "name": "_ar_repair_cost_high",
+      "type": "number",
+      "instructions": "e.g. 350"
+    },
+    {
+      "key": "field_ec_causes",
+      "label": "Common Causes",
+      "name": "_ar_causes",
+      "type": "repeater",
+      "layout": "table",
+      "sub_fields": [
+        {
+          "key": "field_ec_cause_title",
+          "label": "Cause Title",
+          "name": "title",
+          "type": "text"
+        },
+        {
+          "key": "field_ec_cause_desc",
+          "label": "Description",
+          "name": "desc",
+          "type": "textarea",
+          "rows": 2
+        }
+      ]
+    },
+    {
+      "key": "field_ec_diy_steps",
+      "label": "DIY Troubleshooting Steps",
+      "name": "_ar_diy_steps",
+      "type": "repeater",
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_ec_step_title",
+          "label": "Step Title",
+          "name": "title",
+          "type": "text"
+        },
+        {
+          "key": "field_ec_step_desc",
+          "label": "Step Description",
+          "name": "desc",
+          "type": "textarea",
+          "rows": 3
+        }
+      ]
+    },
+    {
+      "key": "field_ec_related_codes",
+      "label": "Related Error Codes",
+      "name": "_ar_related_error_codes",
+      "type": "relationship",
+      "post_type": [
+        "error_code"
+      ],
+      "filters": [
+        "search"
+      ],
+      "max": 5
+    },
+    {
+      "key": "field_ec_faqs",
+      "label": "FAQs",
+      "name": "_ar_faqs",
+      "type": "repeater",
+      "instructions": "Leave empty to use auto-generated FAQs.",
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_ec_faq_q",
+          "label": "Question",
+          "name": "q",
+          "type": "text"
+        },
+        {
+          "key": "field_ec_faq_a",
+          "label": "Answer",
+          "name": "a",
+          "type": "textarea",
+          "rows": 3
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "error_code"
+      }
+    ]
+  ],
+  "active": true
+}
