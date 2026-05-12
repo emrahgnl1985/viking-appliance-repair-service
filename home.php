@@ -299,12 +299,11 @@ get_header();
     justify-content: center;
 }
 .bl-card__img img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
     display: block;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: center;
 }
 
 .bl-card__img-icon {
@@ -579,7 +578,7 @@ get_header();
     align-items: center;
     justify-content: center;
 }
-.bl-recent-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.bl-recent-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .bl-recent-title {
     font-size: .8125rem;
     font-weight: 600;

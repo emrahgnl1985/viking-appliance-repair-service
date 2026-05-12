@@ -14,27 +14,21 @@ $phone_raw = ar_phone_link();
 .footer-logo-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
     text-decoration: none;
 }
 
-.footer-logo-icon {
-    width: 36px;
-    height: 36px;
-    background: var(--color-accent);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.footer-logo-link img {
+    height: 52px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+    display: block;
+    /* Brighten logo slightly on the dark footer background */
+    filter: brightness(1.1);
+    transition: opacity .2s ease;
 }
 
-.footer-logo-text {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #fff;
-    font-family: 'Playfair Display', Georgia, serif;
-    letter-spacing: -.01em;
-}
+.footer-logo-link:hover img { opacity: 0.85; }
 
 .footer-brand__desc {
     color: rgba(255,255,255,0.65);
@@ -93,21 +87,12 @@ $phone_raw = ar_phone_link();
             <!-- Brand Column -->
             <div class="footer-brand">
                 <div class="footer-brand__logo">
-                    <a href="<?php echo esc_url(home_url('/')); ?>" class="footer-logo-link">
-                        <div class="footer-logo-icon">
-                            <!-- Range/cooktop icon -->
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <rect x="3" y="6" width="18" height="14" rx="2"
-                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M3 11h18"
-                                    stroke="white" stroke-width="2" stroke-linecap="round"/>
-                                <circle cx="8"  cy="8.5" r="1" fill="white"/>
-                                <circle cx="12" cy="8.5" r="1" fill="white"/>
-                                <circle cx="16" cy="8.5" r="1" fill="white"/>
-                            </svg>
-                        </div>
-                        <span class="footer-logo-text"><?php bloginfo('name'); ?></span>
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="footer-logo-link" aria-label="<?php bloginfo('name'); ?> — Home">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo.png'); ?>"
+                             alt="<?php bloginfo('name'); ?>"
+                             width="160"
+                             height="52"
+                             loading="lazy">
                     </a>
                 </div>
 

@@ -13,11 +13,16 @@
     <meta name="theme-color" content="#1A2B42">
 
     <?php
-    $site_icon_url = get_site_icon_url(32);
-    if ($site_icon_url):
+    /* Favicon — prefer WordPress site icon, fall back to theme logo.png */
+    $favicon_32  = get_site_icon_url(32)  ?: get_template_directory_uri() . '/assets/images/logo.png';
+    $favicon_180 = get_site_icon_url(180) ?: get_template_directory_uri() . '/assets/images/logo.png';
+    $favicon_192 = get_site_icon_url(192) ?: get_template_directory_uri() . '/assets/images/logo.png';
     ?>
-    <link rel="icon" href="<?php echo esc_url($site_icon_url); ?>" sizes="32x32">
-    <?php endif; ?>
+    <link rel="icon"             href="<?php echo esc_url($favicon_32); ?>"  sizes="32x32"     type="image/png">
+    <link rel="icon"             href="<?php echo esc_url($favicon_192); ?>" sizes="192x192"   type="image/png">
+    <link rel="apple-touch-icon" href="<?php echo esc_url($favicon_180); ?>" sizes="180x180">
+    <meta name="msapplication-TileImage" content="<?php echo esc_url($favicon_192); ?>">
+    <meta name="msapplication-TileColor" content="#1A2B42">
 
     <?php wp_head(); ?>
 </head>
@@ -38,29 +43,12 @@
             <a href="<?php echo esc_url(home_url('/')); ?>"
                class="site-logo"
                aria-label="<?php bloginfo('name'); ?> — Home">
-
-                <div class="site-logo__mark" aria-hidden="true">
-                    <!-- Viking-inspired flame/range burner icon -->
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <rect x="3" y="6" width="18" height="14" rx="2"
-                              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M3 11h18"
-                              stroke="white" stroke-width="2" stroke-linecap="round"/>
-                        <circle cx="8"  cy="8.5" r="1" fill="white"/>
-                        <circle cx="12" cy="8.5" r="1" fill="white"/>
-                        <circle cx="16" cy="8.5" r="1" fill="white"/>
-                    </svg>
-                </div>
-
-                <div class="site-logo__text">
-                    <span class="site-logo__name">
-                        <?php bloginfo('name'); ?>
-                    </span>
-                    <span class="site-logo__tagline">
-                        Certified Viking Repair Specialists
-                    </span>
-                </div>
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo.png'); ?>"
+                     alt="<?php bloginfo('name'); ?>"
+                     class="site-logo__img"
+                     width="160"
+                     height="52"
+                     loading="eager">
             </a>
 
             <!-- ================= PRIMARY NAV ================= -->
@@ -74,12 +62,14 @@
                     <div class="dropdown-menu" role="menu">
                         <?php
                         $ec_appliances = [
-                            'Range &amp; Oven' => 'range',
-                            'Refrigerator'     => 'refrigerator',
-                            'Dishwasher'       => 'dishwasher',
-                            'Cooktop'          => 'cooktop',
-                            'Wall Oven'        => 'wall-oven',
-                            'Wine Cooler'      => 'wine-cooler',
+                            'Range'        => 'range',
+                            'Refrigerator' => 'refrigerator',
+                            'Dishwasher'   => 'dishwasher',
+                            'Cooktop'      => 'cooktop',
+                            'Wall Oven'    => 'wall-oven',
+                            'Wine Cooler'  => 'wine-cooler',
+                            'Freezer'      => 'freezer',
+                            'Vent Hood'    => 'vent-hood',
                         ];
                         foreach ($ec_appliances as $ec_name => $ec_slug):
                             $ec_url = add_query_arg('appliance', $ec_slug, home_url('/error-codes/'));

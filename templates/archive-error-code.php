@@ -725,7 +725,7 @@ get_header();
     <div class="ec-hero__inner">
       <p class="ec-hero__eyebrow">Diagnostic Library</p>
       <h1 class="ec-hero__title">Viking <em>Fault Code</em> Library</h1>
-      <p class="ec-hero__subtitle">Find what your Viking appliance's fault code means, how serious it is, and exactly what to do next &mdash; covering ranges, wall ovens, refrigerators, dishwashers, cooktops, and wine coolers.</p>
+      <p class="ec-hero__subtitle">Find what your Viking appliance's fault code means, how serious it is, and exactly what to do next &mdash; covering ranges, wall ovens, refrigerators, dishwashers, cooktops, wine coolers, freezers, and vent hoods.</p>
 
       <div class="ec-hero__search" id="ec-hero-search">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
@@ -739,7 +739,7 @@ get_header();
           <div class="ec-stat__label">Error Codes</div>
         </div>
         <div>
-          <div class="ec-stat__num"><?php echo count($appliances) ?: '6'; ?></div>
+          <div class="ec-stat__num"><?php echo count($appliances) ?: '8'; ?></div>
           <div class="ec-stat__label">Appliance Types</div>
         </div>
         <div>
@@ -764,6 +764,8 @@ get_header();
     'cooktop'      => 'Viking cooktop fault indicators relate to ignition module failures, spark electrode faults, surface element failures on electric models, or induction coil issues. Most cooktop faults are diagnosed by observing which zone or burner is affected.',
     'wall-oven'    => 'Viking wall oven fault codes use the same F-series architecture as Viking ranges. F2 and F3 indicate temperature sensor faults; F4 signals temperature runaway; F9 is a self-clean door lock failure. F1 indicates a main control board fault.',
     'wine-cooler'  => 'Viking wine cooler fault displays indicate temperature sensing failures, compressor issues, or fan motor faults. Temperature inconsistency in a wine cooler risks wine quality — schedule service promptly when a fault code appears.',
+    'freezer'      => 'Viking freezer faults include defrost system failures, evaporator and condenser fan failures, temperature sensor faults, and door gasket deterioration. A freezer fault left unresolved risks complete food loss — schedule service at the first sign of temperature inconsistency.',
+    'vent-hood'    => 'Viking Professional Series vent hood faults include blower motor failures, fan speed control issues, damper problems, and thermal cutout trips from clogged grease filters. Prompt service prevents motor burnout and maintains kitchen ventilation safety.',
   ];
 ?>
 <section class="ec-sections" id="ec-appliance-sections">

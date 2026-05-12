@@ -127,44 +127,29 @@
 .site-logo {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
   text-decoration: none;
   flex-shrink: 0;
 }
 
-.site-logo__mark {
-  width: 38px;
-  height: 38px;
-  background-color: var(--color-accent);
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.site-logo__img {
+  display: block;
+  height: 48px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  transition: opacity var(--transition-fast);
 }
 
-.site-logo__text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
+.site-logo:hover .site-logo__img {
+  opacity: 0.85;
 }
 
-.site-logo__name {
-  font-family: var(--font-heading);
-  font-size: var(--text-lg);
-  font-weight: var(--weight-bold);
-  color: #1a1a1a;
-  transition: color var(--transition-fast);
+@media (max-width: 640px) {
+  .site-logo__img {
+    height: 38px;
+    max-width: 140px;
+  }
 }
-
-.site-logo__tagline {
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
-  font-weight: var(--weight-medium);
-  transition: color var(--transition-fast);
-}
-
-.scrolled .site-logo__name,
-.scrolled .site-logo__tagline { color: var(--color-white); }
 
 /* Primary Navigation */
 .primary-nav { display: flex; align-items: center; gap: var(--space-1); }
