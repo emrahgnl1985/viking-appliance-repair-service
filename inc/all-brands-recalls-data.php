@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Viking Appliance Repair Service — Recall Page Content Data
  *
@@ -29,7 +29,7 @@ function ar_recalls_viking(): array {
             'meta_title' => 'Viking Gas Range Recall — Gas Pressure Regulator Fire Hazard',
             'meta_desc'  => 'Viking Range LLC recalled certain gas ranges due to a fire hazard from a gas pressure regulator that can fail and allow unregulated gas flow. Check your model.',
             'taxonomies' => [ 'brand' => 'Viking' ],
-            'meta_fields' => [ '_ar_brand' => 'Viking', '_ar_hero_image' => get_template_directory_uri() . '/assets/images/gas-range.jpg' ],
+            'meta_fields' => [ '_ar_brand' => 'Viking', '_ar_hero_image' => get_template_directory_uri() . '/assets/images/48InductionHomepageSlide2025-2-1536x691.png' ],
             'content'    => '<h2>Recall Summary</h2>
 <p>Viking Range LLC recalled certain professional-style gas ranges due to a fire hazard. The gas pressure regulator in the affected models can fail, allowing unregulated gas flow to the burners and oven. Unregulated gas flow poses a risk of fire and burn injuries to consumers.</p>
 
@@ -57,7 +57,7 @@ function ar_recalls_viking(): array {
             'meta_title' => 'Viking Refrigerator Recall — Ice Maker Electrical Hazard',
             'meta_desc'  => 'Viking Range LLC recalled certain built-in refrigerators due to an electrical hazard from the ice maker assembly. Check your model for affected units.',
             'taxonomies' => [ 'brand' => 'Viking' ],
-            'meta_fields' => [ '_ar_brand' => 'Viking', '_ar_hero_image' => get_template_directory_uri() . '/assets/images/product-refrigerator.jpg' ],
+            'meta_fields' => [ '_ar_brand' => 'Viking', '_ar_hero_image' => get_template_directory_uri() . '/assets/images/pexels-pixabay-373548.jpg' ],
             'content'    => '<h2>Recall Summary</h2>
 <p>Viking Range LLC recalled certain built-in refrigerator models due to an electrical hazard associated with the ice maker assembly. A wiring issue in the ice maker can cause an electrical fault, posing a risk of fire and electrical shock to consumers.</p>
 
@@ -85,7 +85,7 @@ function ar_recalls_viking(): array {
             'meta_title' => 'Viking Dishwasher Recall — Electrical Component Fire Hazard',
             'meta_desc'  => 'Viking recalled certain dishwasher models due to an electrical component that can overheat and pose a fire hazard. Check your model number.',
             'taxonomies' => [ 'brand' => 'Viking' ],
-            'meta_fields' => [ '_ar_brand' => 'Viking', '_ar_hero_image' => get_template_directory_uri() . '/assets/images/product-dishwasher.jpg' ],
+            'meta_fields' => [ '_ar_brand' => 'Viking', '_ar_hero_image' => get_template_directory_uri() . '/assets/images/5_Series_Kitchen_HQ-new.jpg' ],
             'content'    => '<h2>Recall Summary</h2>
 <p>Viking Range LLC recalled certain dishwasher models due to a fire hazard from an electrical component in the control system. The component can overheat during normal operation, posing a risk of fire to the dishwasher and surrounding cabinetry.</p>
 
@@ -105,3 +105,5 @@ function ar_recalls_viking(): array {
 
     ]; // end return
 }
+
+

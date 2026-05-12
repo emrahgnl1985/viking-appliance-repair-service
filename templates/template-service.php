@@ -150,20 +150,20 @@ $_schema_data = [
 $current_slug = get_post_field( 'post_name', get_the_ID() );
 
 $image_map = [
-    'viking-range-repair'        => '/assets/images/gas-range.jpg',
-    'viking-refrigerator-repair' => '/assets/images/product-refrigerator.jpg',
-    'viking-dishwasher-repair'   => '/assets/images/product-dishwasher.jpg',
-    'viking-cooktop-repair'      => '/assets/images/gas-range.jpg',
-    'viking-wall-oven-repair'    => '/assets/images/wall-oven.jpg',
-    'viking-wine-cooler-repair'  => '/assets/images/product-refrigerator.jpg',
-    'viking-freezer-repair'      => '/assets/images/product-refrigerator.jpg',
-    'viking-vent-hood-repair'    => '/assets/images/kitchen-set-2.webp',
+    'viking-range-repair'        => '/assets/images/48InductionHomepageSlide2025-2-1536x691.png',
+    'viking-refrigerator-repair' => '/assets/images/pexels-pixabay-373548.jpg',
+    'viking-dishwasher-repair'   => '/assets/images/5_Series_Kitchen_HQ-new.jpg',
+    'viking-cooktop-repair'      => '/assets/images/48InductionHomepageSlide2025-2-1536x691.png',
+    'viking-wall-oven-repair'    => '/assets/images/smiley-old-woman-opening-door-oven.jpg',
+    'viking-wine-cooler-repair'  => '/assets/images/pexels-pixabay-373548.jpg',
+    'viking-freezer-repair'      => '/assets/images/pexels-pixabay-373548.jpg',
+    'viking-vent-hood-repair'    => '/assets/images/5_Series_Kitchen_HQ-new.jpg',
 ];
 
 // fallback image
 $image_path = isset($image_map[$current_slug])
     ? $image_map[$current_slug]
-    : '/assets/images/kitchen-set-1.webp';
+    : '/assets/images/ICONICbackground-desktop.jpg';
 
 get_header();
 ar_output_schema($_schema_data);
@@ -172,7 +172,7 @@ ar_output_schema($_schema_data);
 <style>
     /* ── Hero ── */
 .s-hero {
-    background: url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/kitchen_1.jpg'); ?>') no-repeat center center;
+    background: url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/5_Series_Kitchen_HQ-new.jpg'); ?>') no-repeat center center;
     background-size: cover;
     position: relative;
     overflow: hidden;
@@ -750,4 +750,6 @@ endif;
 </section>
 
 <?php get_footer(); ?>
+
+
 
