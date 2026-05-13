@@ -13,16 +13,25 @@
     <meta name="theme-color" content="#1A2B42">
 
     <?php
-    /* Favicon — prefer WordPress site icon, fall back to theme logo.png */
-    $favicon_32  = get_site_icon_url(32)  ?: get_template_directory_uri() . '/assets/images/logo.png';
-    $favicon_180 = get_site_icon_url(180) ?: get_template_directory_uri() . '/assets/images/logo.png';
-    $favicon_192 = get_site_icon_url(192) ?: get_template_directory_uri() . '/assets/images/logo.png';
+    /*
+     * Favicon — only output fallback tags when no Site Icon is configured in WordPress.
+     * When a site icon IS set (Appearance → Customize → Site Identity → Site Icon),
+     * wp_head() outputs the correct icon tags automatically; we defer to avoid duplicates.
+     *
+     * Fallback stack:
+     *   1. favicon.svg  — primary, scales perfectly at every size (16px–512px)
+     *   2. logo.png     — fallback for older browsers and Apple touch icon (iOS)
+     */
+    if ( ! has_site_icon() ) :
+        $svg = esc_url( get_template_directory_uri() . '/assets/images/favicon.svg' );
+        $png = esc_url( get_template_directory_uri() . '/assets/images/logo.png' );
     ?>
-    <link rel="icon"             href="<?php echo esc_url($favicon_32); ?>"  sizes="32x32"     type="image/png">
-    <link rel="icon"             href="<?php echo esc_url($favicon_192); ?>" sizes="192x192"   type="image/png">
-    <link rel="apple-touch-icon" href="<?php echo esc_url($favicon_180); ?>" sizes="180x180">
-    <meta name="msapplication-TileImage" content="<?php echo esc_url($favicon_192); ?>">
+    <link rel="icon"             href="<?php echo $svg; ?>" type="image/svg+xml">
+    <link rel="icon"             href="<?php echo $png; ?>" type="image/png" sizes="any">
+    <link rel="apple-touch-icon" href="<?php echo $png; ?>">
+    <meta name="msapplication-TileImage" content="<?php echo $svg; ?>">
     <meta name="msapplication-TileColor" content="#1A2B42">
+    <?php endif; ?>
 
     <?php wp_head(); ?>
 </head>

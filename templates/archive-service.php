@@ -525,7 +525,7 @@ get_header();
                     <h3 class="as-card__title"><?php the_title(); ?></h3>
                     <p class="as-card__desc"><?php echo esc_html(wp_trim_words($excerpt, 20)); ?></p>
                     <div class="as-card__footer">
-                        <span class="as-card__cta">View Service â†’</span>
+                        <span class="as-card__cta">View Service &rarr;</span>
                     </div>
                 </div>
             </a>
@@ -547,7 +547,7 @@ get_header();
                     <h3 class="as-card__title">viking <?php echo esc_html($ap['label']); ?> Repair</h3>
                     <p class="as-card__desc"><?php echo esc_html($ap['subtitle']); ?></p>
                     <div class="as-card__footer">
-                        <span class="as-card__cta">View Service â†’</span>
+                        <span class="as-card__cta">View Service &rarr;</span>
                     </div>
                 </div>
             </a>

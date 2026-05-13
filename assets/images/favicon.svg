@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+
+  <!-- Navy badge background with rounded corners -->
+  <rect width="512" height="512" rx="88" fill="#1A2B42"/>
+
+  <!-- Subtle gold inner border ring -->
+  <rect x="14" y="14" width="484" height="484" rx="76" fill="none" stroke="#C4943A" stroke-width="6" opacity="0.35"/>
+
+  <!--
+    Viking V mark — bold gold chevron
+    Arm width: 72px  |  Total span: 372px  |  Height: 352px
+    Points: outer-left-top → inner-left-top → inner-bottom → inner-right-top → outer-right-top → outer-bottom-tip
+  -->
+  <polygon
+    points="70,82 142,82 256,354 370,82 442,82 256,434"
+    fill="#C4943A"
+  />
+
+  <!-- Hairline gold base bar to ground the V -->
+  <rect x="156" y="420" width="200" height="10" rx="5" fill="#C4943A" opacity="0.5"/>
+
+</svg>
