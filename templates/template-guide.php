@@ -346,7 +346,7 @@ ar_output_schema($_schema_data);
     margin: 24px 0;
     font-size: 15px;
 }
-.gd-tip::before { content: '✓ '; color: var(--gd-green); font-weight: 700; }
+.gd-tip::before { content: '&#x2713; '; color: var(--gd-green); font-weight: 700; }
 
 /* Key takeaways box */
 .gd-takeaways {
@@ -678,7 +678,7 @@ ar_output_schema($_schema_data);
                     elseif ( $g_img_url ) : ?>
                         <img src="<?php echo esc_url( $g_img_url ); ?>" alt="<?php echo esc_attr( get_the_title( $g->ID ) ); ?> — Viking Appliance Repair Guide" loading="lazy">
                     <?php else : ?>
-                        <div class="gd-rcard__placeholder" aria-hidden="true">🔧</div>
+                        <div class="gd-rcard__placeholder" aria-hidden="true">&#x1F527;</div>
                     <?php endif; ?>
                 </div>
                 <div class="gd-rcard__body">

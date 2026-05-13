@@ -427,7 +427,7 @@ get_header();
 <div class="rc-notice">
   <div class="container">
     <div class="rc-notice__inner">
-      <span class="rc-notice__icon">⚠️</span>
+      <span class="rc-notice__icon">&#x26A0;️</span>
       <span>Always verify recall information with the <a href="https://www.cpsc.gov/Recalls" target="_blank" rel="noopener noreferrer">U.S. Consumer Product Safety Commission (CPSC)</a> or directly with the manufacturer. Manufacturers are required to provide free remedy (repair, replacement, or refund).</span>
     </div>
   </div>
@@ -437,7 +437,7 @@ get_header();
 <div class="rc-filters-bar">
   <div class="container">
     <div class="rc-filters-inner">
-      <input type="text" class="rc-filter-input" id="rc-search" placeholder="🔍  Search recalls by keyword…" aria-label="Search recalls">
+      <input type="text" class="rc-filter-input" id="rc-search" placeholder="&#x1F50D;  Search recalls by keyword…" aria-label="Search recalls">
       <?php if (!empty($brands)): ?>
       <select class="rc-filter-select" id="rc-brand" aria-label="Filter by brand">
         <option value="">All Brands</option>
@@ -447,7 +447,7 @@ get_header();
       </select>
       <?php endif; ?>
       <span class="rc-filter-count" id="rc-count"><?php echo $total ?: '0'; ?> recall<?php echo $total !== 1 ? 's' : ''; ?></span>
-      <button class="rc-filter-clear" id="rc-clear">✕ Clear</button>
+      <button class="rc-filter-clear" id="rc-clear">&#x2715; Clear</button>
     </div>
   </div>
 </div>
@@ -547,7 +547,7 @@ get_header();
     <h2 class="rc-cta__title">Get a Safety Inspection Today</h2>
     <p class="rc-cta__sub">Our certified technicians can inspect your appliance, verify whether a recall applies, and perform any required remediation work — same-day appointments available.</p>
     <div class="rc-cta__btns">
-      <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="rc-btn--red">📞 <?php echo esc_html($phone); ?></a>
+      <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="rc-btn--red">&#x1F4DE; <?php echo esc_html($phone); ?></a>
       <a href="/schedule/" class="rc-btn--ghost">Schedule Inspection →</a>
     </div>
   </div>

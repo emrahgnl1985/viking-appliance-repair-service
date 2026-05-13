@@ -45,9 +45,9 @@ if ( empty( $issues ) ) {
 
 if ( empty( $features ) ) {
     $features = [
-        [ 'icon' => '🔧', 'title' => 'Factory-Certified Parts', 'description' => "We use only factory-certified {$brand} replacement components — not generic alternatives — to preserve your appliance's performance and any remaining manufacturer's warranty." ],
-        [ 'icon' => '🎓', 'title' => 'Highly Trained Technicians', 'description' => "Our repair technicians receive ongoing technical training specific to {$brand} appliances, ensuring accurate diagnosis and correct repairs across all current models." ],
-        [ 'icon' => '🛡', 'title' => '30-Day Warranty', 'description' => 'Every repair is backed by our 30-day parts and labor warranty. If the repaired component fails within a month, we return and fix it at no additional charge.' ],
+        [ 'icon' => '&#x1F527;', 'title' => 'Factory-Certified Parts', 'description' => "We use only factory-certified {$brand} replacement components — not generic alternatives — to preserve your appliance's performance and any remaining manufacturer's warranty." ],
+        [ 'icon' => '&#x1F393;', 'title' => 'Highly Trained Technicians', 'description' => "Our repair technicians receive ongoing technical training specific to {$brand} appliances, ensuring accurate diagnosis and correct repairs across all current models." ],
+        [ 'icon' => '&#x1F6E1;', 'title' => '30-Day Warranty', 'description' => 'Every repair is backed by our 30-day parts and labor warranty. If the repaired component fails within a month, we return and fix it at no additional charge.' ],
     ];
 }
 
@@ -260,15 +260,15 @@ ar_output_schema($_schema_data);
 
             <div class="hero__cta-group">
                 <a href="tel:<?php echo esc_attr( $phone_raw ); ?>" class="btn btn--call btn--lg">
-                    📞 <?php echo esc_html( $phone ); ?>
+                    &#x1F4DE; <?php echo esc_html( $phone ); ?>
                 </a>
                 <a href="/schedule/" class="btn btn--outline-white btn--lg">Schedule Online</a>
             </div>
 
             <div class="hero__trust">
-                <div class="hero__trust-item"><span class="hero__trust-icon" aria-hidden="true">✓</span> Factory-Certified Parts</div>
-                <div class="hero__trust-item"><span class="hero__trust-icon" aria-hidden="true">⏰</span> Same-Day Service</div>
-                <div class="hero__trust-item"><span class="hero__trust-icon" aria-hidden="true">🛡</span> 30-Day Warranty</div>
+                <div class="hero__trust-item"><span class="hero__trust-icon" aria-hidden="true">&#x2713;</span> Factory-Certified Parts</div>
+                <div class="hero__trust-item"><span class="hero__trust-icon" aria-hidden="true">&#x23F0;</span> Same-Day Service</div>
+                <div class="hero__trust-item"><span class="hero__trust-icon" aria-hidden="true">&#x1F6E1;</span> 30-Day Warranty</div>
             </div>
         </div>
     </div>
@@ -316,7 +316,7 @@ ar_output_schema($_schema_data);
         <div class="grid grid-3">
             <?php foreach ( $issues as $issue ) : ?>
             <div class="service-card" style="text-decoration:none;">
-                <div class="service-card__icon" aria-hidden="true">🔧</div>
+                <div class="service-card__icon" aria-hidden="true">&#x1F527;</div>
                 <h3 class="service-card__title"><?php echo esc_html( $issue['title'] ); ?></h3>
                 <p class="service-card__desc"><?php echo esc_html( $issue['description'] ); ?></p>
             </div>
@@ -721,7 +721,7 @@ ar_output_schema($_schema_data);
             foreach ( $cities as $name => $slug ) :
             ?>
             <a href="<?php echo esc_url( home_url( "/locations/{$slug}/" ) ); ?>" class="zip-badge" style="color:var(--color-white);border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.08);">
-                📍 <?php echo esc_html( $name ); ?>
+                &#x1F4CD; <?php echo esc_html( $name ); ?>
             </a>
             <?php endforeach; ?>
         </div>

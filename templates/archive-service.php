@@ -559,17 +559,17 @@ get_header();
         <div class="as-trust">
             <div class="as-trust__grid">
                 <div class="as-trust__item">
-                    <span class="as-trust__icon">ðŸ”§</span>
+                    <span class="as-trust__icon">&#x1F527;</span>
                     <span class="as-trust__val">OEM</span>
                     <span class="as-trust__lbl">Genuine Viking Parts</span>
                 </div>
                 <div class="as-trust__item">
-                    <span class="as-trust__icon">ðŸ›¡</span>
+                    <span class="as-trust__icon">&#x1F6E1;</span>
                     <span class="as-trust__val">30 Day</span>
                     <span class="as-trust__lbl">Parts & Labor Warranty</span>
                 </div>
                 <div class="as-trust__item">
-                    <span class="as-trust__icon">â°</span>
+                    <span class="as-trust__icon">&#x23F0;</span>
                     <span class="as-trust__val">Same-Day</span>
                     <span class="as-trust__lbl">Service Available</span>
                 </div>

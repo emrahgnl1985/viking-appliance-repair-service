@@ -19,13 +19,13 @@ $total_guides = $guides->found_posts ?: 0;
 
 // Category browse topics — used even when no posts exist
 $categories = [
-    [ 'icon' => '🔄', 'title' => 'Repair vs Replace',       'desc' => 'Is it worth fixing or time to buy new? We break down the numbers.',          'slug' => '#repair-vs-replace' ],
-    [ 'icon' => '💰', 'title' => 'Cost Expectations',        'desc' => 'What appliance repairs actually cost — by brand, type, and complexity.',      'slug' => '#cost-expectations' ],
-    [ 'icon' => '⚙️', 'title' => 'Common Problems',          'desc' => 'The most frequent appliance faults explained in plain language.',              'slug' => '#common-problems'   ],
-    [ 'icon' => '🛡', 'title' => 'Safety & Risks',           'desc' => 'When an appliance fault is a safety hazard and what to do about it.',          'slug' => '#safety-risks'      ],
-    [ 'icon' => '🔧', 'title' => 'Maintenance & Prevention', 'desc' => 'Simple routines that extend appliance life and prevent costly repairs.',       'slug' => '#maintenance'       ],
-    [ 'icon' => '🚫', 'title' => 'When NOT to Repair',       'desc' => 'Signs that repair is no longer the right call — and how to tell.',             'slug' => '#when-not-to-repair'],
-    [ 'icon' => '📋', 'title' => 'Error Codes Explained',    'desc' => 'What the numbers on your display actually mean and how serious they are.',     'slug' => home_url('/error-codes/') ],
+    [ 'icon' => '&#x1F504;', 'title' => 'Repair vs Replace',       'desc' => 'Is it worth fixing or time to buy new? We break down the numbers.',          'slug' => '#repair-vs-replace' ],
+    [ 'icon' => '&#x1F4B0;', 'title' => 'Cost Expectations',        'desc' => 'What appliance repairs actually cost — by brand, type, and complexity.',      'slug' => '#cost-expectations' ],
+    [ 'icon' => '&#x2699;️', 'title' => 'Common Problems',          'desc' => 'The most frequent appliance faults explained in plain language.',              'slug' => '#common-problems'   ],
+    [ 'icon' => '&#x1F6E1;', 'title' => 'Safety & Risks',           'desc' => 'When an appliance fault is a safety hazard and what to do about it.',          'slug' => '#safety-risks'      ],
+    [ 'icon' => '&#x1F527;', 'title' => 'Maintenance & Prevention', 'desc' => 'Simple routines that extend appliance life and prevent costly repairs.',       'slug' => '#maintenance'       ],
+    [ 'icon' => '&#x1F6AB;', 'title' => 'When NOT to Repair',       'desc' => 'Signs that repair is no longer the right call — and how to tell.',             'slug' => '#when-not-to-repair'],
+    [ 'icon' => '&#x1F4CB;', 'title' => 'Error Codes Explained',    'desc' => 'What the numbers on your display actually mean and how serious they are.',     'slug' => home_url('/error-codes/') ],
 ];
 ?>
 
@@ -521,7 +521,7 @@ $categories = [
                     <?php elseif ( $ar_img_url ) : ?>
                         <img src="<?php echo esc_url( $ar_img_url ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?> — Viking Appliance Repair Guide" loading="lazy">
                     <?php else : ?>
-                        <div class="g-guide-card__img-placeholder" aria-hidden="true">🔧</div>
+                        <div class="g-guide-card__img-placeholder" aria-hidden="true">&#x1F527;</div>
                     <?php endif; ?>
                 </div>
             </a>

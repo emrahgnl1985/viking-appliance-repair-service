@@ -121,7 +121,7 @@ ar_output_schema($_schema_data);
     <div class="container">
         <div class="hero__content">
             <span class="hero__eyebrow">
-                <span aria-hidden="true">📍</span>
+                <span aria-hidden="true">&#x1F4CD;</span>
                 Serving <?php echo esc_html( $city ); ?>, <?php echo esc_html( $state ); ?>
             </span>
 
@@ -133,14 +133,14 @@ ar_output_schema($_schema_data);
 
             <div class="hero__cta-group">
                 <a href="tel:<?php echo esc_attr( $phone_raw ); ?>" class="btn btn--call btn--lg">
-                    📞 <?php echo esc_html( $phone ); ?>
+                    &#x1F4DE; <?php echo esc_html( $phone ); ?>
                 </a>
                 <a href="/schedule/" class="btn btn--outline-white btn--lg">Schedule Online</a>
             </div>
 
             <div class="hero__trust">
-                <div class="hero__trust-item"><span class="hero__trust-icon" aria-hidden="true">📍</span> Local <?php echo esc_html( $city ); ?> Technicians</div>
-                <div class="hero__trust-item"><span class="hero__trust-icon" aria-hidden="true">⏰</span> Same-Day Service</div>
+                <div class="hero__trust-item"><span class="hero__trust-icon" aria-hidden="true">&#x1F4CD;</span> Local <?php echo esc_html( $city ); ?> Technicians</div>
+                <div class="hero__trust-item"><span class="hero__trust-icon" aria-hidden="true">&#x23F0;</span> Same-Day Service</div>
             </div>
         </div>
     </div>
@@ -185,7 +185,7 @@ ar_output_schema($_schema_data);
                 <?php if ( ! empty( $local['neighborhoods'] ) ) : ?>
                 <div class="zip-grid">
                     <?php foreach ( $local['neighborhoods'] as $n ) : ?>
-                    <span class="zip-badge">📍 <?php echo esc_html( $n ); ?></span>
+                    <span class="zip-badge">&#x1F4CD; <?php echo esc_html( $n ); ?></span>
                     <?php endforeach; ?>
                 </div>
                 <?php endif; ?>
@@ -197,7 +197,7 @@ ar_output_schema($_schema_data);
                 <?php if ( ! empty( $local['suburbs'] ) ) : ?>
                 <div class="zip-grid">
                     <?php foreach ( $local['suburbs'] as $s ) : ?>
-                    <span class="zip-badge">📍 <?php echo esc_html( $s ); ?></span>
+                    <span class="zip-badge">&#x1F4CD; <?php echo esc_html( $s ); ?></span>
                     <?php endforeach; ?>
                 </div>
                 <?php endif; ?>

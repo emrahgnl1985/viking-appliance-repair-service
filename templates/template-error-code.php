@@ -793,7 +793,7 @@ get_header();
   <div class="container">
     <div class="ec-hero__inner">
       <div class="ec-hero__meta">
-        <span class="ec-hero__code-pill">⚠ <?php echo esc_html($code); ?></span>
+        <span class="ec-hero__code-pill">&#x26A0; <?php echo esc_html($code); ?></span>
         <span class="ec-sev <?php echo esc_attr($sev['cls']); ?>"><?php echo esc_html($sev['label']); ?> Severity</span>
         <span class="ec-hero__brand-chip"><?php echo esc_html("{$brand} {$appliance}"); ?></span>
       </div>
@@ -811,7 +811,7 @@ get_header();
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
           Try These Steps First
         </a>
-        <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="ec-btn--outline">📞 Call a Technician</a>
+        <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="ec-btn--outline">&#x1F4DE; Call a Technician</a>
       </div>
     </div>
   </div>
@@ -821,10 +821,10 @@ get_header();
 <div class="ec-trust">
   <div class="container">
     <div class="ec-trust__inner">
-      <div class="ec-trust__item">✓ <strong>Certified <?php echo esc_html($brand); ?> Technicians</strong></div>
-      <div class="ec-trust__item">✓ <strong>Same-Day</strong> Appointments</div>
-      <div class="ec-trust__item">✓ <strong>OEM Parts</strong> Only</div>
-      <div class="ec-trust__item">✓ <strong>30-Day</strong> Parts &amp; Labor Warranty</div>
+      <div class="ec-trust__item">&#x2713; <strong>Certified <?php echo esc_html($brand); ?> Technicians</strong></div>
+      <div class="ec-trust__item">&#x2713; <strong>Same-Day</strong> Appointments</div>
+      <div class="ec-trust__item">&#x2713; <strong>OEM Parts</strong> Only</div>
+      <div class="ec-trust__item">&#x2713; <strong>30-Day</strong> Parts &amp; Labor Warranty</div>
     </div>
   </div>
 </div>
@@ -877,7 +877,7 @@ get_header();
           <h2 class="ec-block__h2">How to Troubleshoot the <?php echo esc_html($code); ?> Error Code</h2>
 
           <div class="ec-warning">
-            <span class="ec-warning__icon">⚠️</span>
+            <span class="ec-warning__icon">&#x26A0;️</span>
             <p class="ec-warning__text"><strong>Safety First:</strong> Always disconnect the <?php echo esc_html($appliance); ?> from power before inspecting any internal components. Do not attempt electrical repairs. If in doubt, call a certified technician.</p>
           </div>
 
@@ -905,7 +905,7 @@ get_header();
           <p class="ec-block__eyebrow">Professional Service</p>
           <h2 class="ec-block__h2">When to Call a <?php echo esc_html($brand); ?> Technician</h2>
           <div class="ec-when-box">
-            <div class="ec-when-box__title">⚠ Stop DIY if any of these apply</div>
+            <div class="ec-when-box__title">&#x26A0; Stop DIY if any of these apply</div>
             <?php if ($when_call): ?>
               <p><?php echo esc_html($when_call); ?></p>
             <?php else: ?>
@@ -919,7 +919,7 @@ get_header();
               <div class="ec-cost-block__range"><?php echo esc_html($cost); ?></div>
               <div class="ec-cost-block__note">Exact quote before any work begins. No surprises.</div>
             </div>
-            <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="ec-btn--red">📞 <?php echo esc_html($phone); ?></a>
+            <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="ec-btn--red">&#x1F4DE; <?php echo esc_html($phone); ?></a>
           </div>
         </div>
 

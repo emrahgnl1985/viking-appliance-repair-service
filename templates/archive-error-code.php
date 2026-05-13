@@ -905,7 +905,7 @@ get_header();
 
     <!-- Filters -->
     <div class="ec-filters">
-      <input type="text" class="ec-filter-input" id="ec-dir-search" placeholder="🔍  Search by code or brand…" aria-label="Filter codes">
+      <input type="text" class="ec-filter-input" id="ec-dir-search" placeholder="&#x1F50D;  Search by code or brand…" aria-label="Filter codes">
       <select class="ec-filter-select" id="ec-brand-filter" aria-label="Filter by brand">
         <option value="">All Brands</option>
         <?php foreach ($brands as $b): ?>
@@ -924,7 +924,7 @@ get_header();
         <option value="medium">Medium</option>
         <option value="high">High</option>
       </select>
-      <button class="ec-filter-clear" id="ec-clear-filters" style="display:none;">✕ Clear filters</button>
+      <button class="ec-filter-clear" id="ec-clear-filters" style="display:none;">&#x2715; Clear filters</button>
     </div>
 
     <!-- Table -->
@@ -1009,7 +1009,7 @@ get_header();
     <h2 class="ec-cta__title">Speak Directly With a Technician</h2>
     <p class="ec-cta__sub">Our certified technicians can diagnose any error code over the phone or in person — same-day appointments available.</p>
     <div class="ec-cta__btns">
-      <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="ec-btn--red">📞 <?php echo esc_html($phone); ?></a>
+      <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="ec-btn--red">&#x1F4DE; <?php echo esc_html($phone); ?></a>
       <a href="/schedule/" class="ec-btn--ghost">Schedule Online →</a>
     </div>
   </div>

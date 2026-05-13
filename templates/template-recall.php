@@ -300,7 +300,7 @@ ar_output_schema($_schema_data);
       <h1 class="rc-hero__h1" id="rc-h1"><?php echo esc_html($title); ?></h1>
       <p class="rc-hero__sub">Important safety information. Check if your appliance is affected and follow the recommended steps immediately.</p>
       <div class="rc-hero__btns">
-        <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="rc-btn--red">📞 <?php echo esc_html($phone); ?></a>
+        <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="rc-btn--red">&#x1F4DE; <?php echo esc_html($phone); ?></a>
         <a href="https://www.cpsc.gov/Recalls" target="_blank" rel="noopener noreferrer" class="rc-btn--outline">CPSC Database ↗</a>
       </div>
       <div class="rc-hero__meta-row">
@@ -320,7 +320,7 @@ ar_output_schema($_schema_data);
 <div class="rc-notice">
   <div class="container">
     <div class="rc-notice__inner">
-      <span>⚠️</span>
+      <span>&#x26A0;️</span>
       <span>Always verify this recall directly with the <a href="https://www.cpsc.gov/Recalls" target="_blank" rel="noopener noreferrer">U.S. Consumer Product Safety Commission (CPSC)</a> or the manufacturer. Manufacturers are required to provide a free remedy — repair, replacement, or refund.</span>
     </div>
   </div>
@@ -394,7 +394,7 @@ ar_output_schema($_schema_data);
             <p>Our Viking-certified technicians can inspect your appliance, document the condition, and perform any additional service required. We carry genuine Viking OEM parts and back every repair with a 30-day parts and labor warranty.</p>
           </div>
           <div style="margin-top:20px;">
-            <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="rc-btn--red">📞 <?php echo esc_html($phone); ?></a>
+            <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="rc-btn--red">&#x1F4DE; <?php echo esc_html($phone); ?></a>
           </div>
         </div>
 
@@ -404,10 +404,10 @@ ar_output_schema($_schema_data);
       <aside class="rc-sidebar">
 
         <div class="rc-sb-cta">
-          <div class="rc-sb-cta__badge">⚠ Safety Recall</div>
+          <div class="rc-sb-cta__badge">&#x26A0; Safety Recall</div>
           <div class="rc-sb-cta__title">Need Help With Your <?php echo esc_html($brand ?: 'Appliance'); ?>?</div>
           <div class="rc-sb-cta__sub">Our certified technicians can inspect your appliance and perform post-recall service. Same-day available.</div>
-          <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="rc-sb-cta__phone">📞 <?php echo esc_html($phone); ?></a>
+          <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="rc-sb-cta__phone">&#x1F4DE; <?php echo esc_html($phone); ?></a>
           <a href="/schedule/" class="rc-sb-cta__book">Schedule online →</a>
         </div>
 
