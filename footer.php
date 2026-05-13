@@ -197,7 +197,6 @@ $phone_raw = ar_phone_link();
                         'Blog'        => '/blog/',
                         'Fault Codes' => '/error-codes/',
                         'Recalls'     => '/recalls/',
-                        'Contact Us'  => '/contact/',
                     ];
                     foreach ($company_links as $label => $url):
                         $href = home_url($url);

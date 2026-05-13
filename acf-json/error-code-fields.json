@@ -1,4 +1,4 @@
-﻿{
+{
   "key": "group_error_code",
   "title": "Error Code Fields",
   "fields": [
@@ -10,21 +10,23 @@
       "choices": {
         "Viking": "Viking"
       },
+      "default_value": "Viking",
       "required": 1
     },
     {
       "key": "field_ec_appliance",
       "label": "Appliance Type",
-      "name": "_ar_appliance",
+      "name": "_ar_appliance_type",
       "type": "select",
       "choices": {
-        "Washer": "Washer",
-        "Dryer": "Dryer",
+        "Range": "Range",
         "Refrigerator": "Refrigerator",
         "Dishwasher": "Dishwasher",
-        "Oven / Range": "Oven / Range",
-        "Microwave": "Microwave",
-        "Wall Oven": "Wall Oven"
+        "Cooktop": "Cooktop",
+        "Wall Oven": "Wall Oven",
+        "Wine Cooler": "Wine Cooler",
+        "Freezer": "Freezer",
+        "Vent Hood": "Vent Hood"
       },
       "required": 1
     },
@@ -34,14 +36,28 @@
       "name": "_ar_error_code",
       "type": "text",
       "required": 1,
-      "instructions": "e.g. E15, OE, F21"
+      "instructions": "e.g. F01, EC03, E10, CT06"
+    },
+    {
+      "key": "field_ec_severity",
+      "label": "Severity",
+      "name": "_ar_severity",
+      "type": "select",
+      "choices": {
+        "Low": "Low",
+        "Medium": "Medium",
+        "High": "High",
+        "Critical": "Critical"
+      },
+      "required": 1,
+      "instructions": "Low = basic troubleshooting resolves; Medium = professional repair recommended; High = stop use, call technician; Critical = immediate safety risk."
     },
     {
       "key": "field_ec_meaning",
       "label": "What It Means",
       "name": "_ar_code_meaning",
       "type": "wysiwyg",
-      "instructions": "Plain-English explanation (1 paragraph)."
+      "instructions": "Plain-English explanation (1–2 paragraphs). No HTML headings."
     },
     {
       "key": "field_ec_dangerous",
@@ -50,22 +66,23 @@
       "type": "select",
       "choices": {
         "no": "No",
-        "yes": "Yes \u2014 act promptly"
+        "yes": "Yes — act promptly"
       }
     },
     {
-      "key": "field_ec_cost_low",
-      "label": "Est. Repair Cost (low)",
-      "name": "_ar_repair_cost_low",
-      "type": "number",
-      "instructions": "e.g. 80"
+      "key": "field_ec_cost_range",
+      "label": "Est. Repair Cost Range",
+      "name": "_ar_cost_range",
+      "type": "text",
+      "instructions": "e.g. $180 – $450"
     },
     {
-      "key": "field_ec_cost_high",
-      "label": "Est. Repair Cost (high)",
-      "name": "_ar_repair_cost_high",
-      "type": "number",
-      "instructions": "e.g. 350"
+      "key": "field_ec_when_to_call",
+      "label": "When to Call a Technician",
+      "name": "_ar_when_to_call",
+      "type": "textarea",
+      "rows": 3,
+      "instructions": "Describe the conditions under which professional service is required for this specific code."
     },
     {
       "key": "field_ec_causes",
@@ -83,7 +100,7 @@
         {
           "key": "field_ec_cause_desc",
           "label": "Description",
-          "name": "desc",
+          "name": "description",
           "type": "textarea",
           "rows": 2
         }
@@ -105,7 +122,7 @@
         {
           "key": "field_ec_step_desc",
           "label": "Step Description",
-          "name": "desc",
+          "name": "description",
           "type": "textarea",
           "rows": 3
         }
@@ -135,13 +152,13 @@
         {
           "key": "field_ec_faq_q",
           "label": "Question",
-          "name": "q",
+          "name": "question",
           "type": "text"
         },
         {
           "key": "field_ec_faq_a",
           "label": "Answer",
-          "name": "a",
+          "name": "answer",
           "type": "textarea",
           "rows": 3
         }

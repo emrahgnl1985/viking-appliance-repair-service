@@ -55,32 +55,8 @@
             <nav class="primary-nav" aria-label="Primary navigation" role="navigation">
 
                 <!-- ERROR CODES -->
-                <div class="primary-nav__item primary-nav__item--dropdown">
-                    <a href="<?php echo esc_url(home_url('/error-codes/')); ?>" class="primary-nav__link">
-                        Fault Codes
-                    </a>
-                    <div class="dropdown-menu" role="menu">
-                        <?php
-                        $ec_appliances = [
-                            'Range'        => 'range',
-                            'Refrigerator' => 'refrigerator',
-                            'Dishwasher'   => 'dishwasher',
-                            'Cooktop'      => 'cooktop',
-                            'Wall Oven'    => 'wall-oven',
-                            'Wine Cooler'  => 'wine-cooler',
-                            'Freezer'      => 'freezer',
-                            'Vent Hood'    => 'vent-hood',
-                        ];
-                        foreach ($ec_appliances as $ec_name => $ec_slug):
-                            $ec_url = add_query_arg('appliance', $ec_slug, home_url('/error-codes/'));
-                        ?>
-                            <a href="<?php echo esc_url($ec_url); ?>"
-                               class="dropdown-menu__link"
-                               role="menuitem">
-                                <?php echo $ec_name; ?> Codes
-                            </a>
-                        <?php endforeach; ?>
-                    </div>
+                <div class="primary-nav__item">
+                    <a href="<?php echo esc_url(home_url('/error-codes/')); ?>" class="primary-nav__link">Fault Codes</a>
                 </div>
 
                 <!-- RECALLS -->

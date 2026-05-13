@@ -31,7 +31,7 @@ function ar_error_codes_viking(): array {
 }
 
 // =============================================================================
-// VIKING RANGE FAULT CODES — 11 entries (F-Series + key diagnostic faults)
+// VIKING RANGE FAULT CODES — 14 entries (F-Series + key diagnostic faults)
 // =============================================================================
 function ar_error_codes_viking_range(): array {
     $base = ['post_type' => 'error_code', 'taxonomies' => ['brand' => 'Viking', 'appliance_type' => 'Range']];
@@ -84,6 +84,42 @@ function ar_error_codes_viking_range(): array {
                 '_ar_cost_range'     => '$180 – $480',
                 '_ar_severity'       => 'Critical',
                 '_ar_faqs'           => [['question' => 'Is F4 dangerous?', 'answer' => 'Yes. F4 indicates the oven overheated past a safe threshold. Do not use the oven with an active or recurring F4 fault until professionally repaired.']]]],
+
+        $base + ['title' => 'Viking Range F5 Fault Code', 'slug' => 'viking-range-f5-fault-code',
+            'meta_title' => 'Viking Range F5 Fault Code — Door Latch Motor Circuit Failure',
+            'meta_desc'  => 'The Viking range F5 fault code indicates the door latch motor circuit failed or could not complete its travel cycle. Learn causes, reset steps, and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Range', '_ar_error_code' => 'F5',
+                '_ar_code_meaning'   => "F5 on a Viking range or wall oven indicates the door latch motor circuit failed to complete a latch or unlatch cycle within the ERC-allowed time window. This fault typically appears when initiating or exiting a self-clean cycle. If F5 appears with the door locked, switch off the circuit breaker for 5 minutes to attempt a motor reset before calling for service. Do not force a locked oven door.",
+                '_ar_causes'         => [['title' => 'Failed Door Latch Motor', 'description' => 'The latch motor has failed internally or is drawing excessive current during travel, preventing the cycle from completing within the ERC-allowed time.'], ['title' => 'Obstruction in Latch Mechanism', 'description' => 'Food debris or a deformed latch rod is blocking motor travel, causing the ERC to time out the motor circuit and register F5.'], ['title' => 'Open Motor Wiring Harness', 'description' => 'The wiring harness supplying the latch motor has developed an open circuit, preventing motor activation entirely.']],
+                '_ar_diy_steps'      => [['title' => 'Do Not Force the Oven Door', 'description' => 'If the door is locked when F5 appears, do not attempt to force it open. Forcing a locked latch mechanism can deform the latch rod and significantly increase repair costs.'], ['title' => 'Perform a Circuit Breaker Reset', 'description' => 'Switch off the range circuit breaker for 5 full minutes, then restore power. The latch motor may reset to the unlocked home position, releasing the door before the technician arrives.']],
+                '_ar_when_to_call'   => 'F5 that persists after a breaker reset, or any case where the door remains locked after reset, requires professional door latch motor assembly replacement with a genuine Viking OEM part.',
+                '_ar_cost_range'     => '$180 – $380',
+                '_ar_severity'       => 'High',
+                '_ar_faqs'           => [['question' => 'My Viking range door is locked and showing F5 — how do I open it?', 'answer' => 'Switch off the circuit breaker for 5 full minutes, then restore power. The latch motor should reset to the unlocked position on power-up. Do not force the door open — contact a Viking-authorized technician if the door remains locked after reset.']]]],
+
+        $base + ['title' => 'Viking Range F6 Fault Code', 'slug' => 'viking-range-f6-fault-code',
+            'meta_title' => 'Viking Range F6 Fault Code — Door Latch Position Switch Failure',
+            'meta_desc'  => 'The Viking range F6 fault code indicates the door latch position switch failed to confirm latch status to the control board. Learn causes and repair steps.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Range', '_ar_error_code' => 'F6',
+                '_ar_code_meaning'   => "F6 on a Viking range or wall oven indicates the door latch position switch has failed to confirm latch status to the ERC. Unlike F5 — which indicates the latch motor circuit failed to complete travel — F6 means the motor may have completed its travel correctly but the position-confirmation switch is not reporting the locked or unlocked state. Self-clean mode cannot start with F6 active, but normal baking and broiling typically remain available.",
+                '_ar_causes'         => [['title' => 'Failed Latch Position Switch', 'description' => 'The microswitch that reports latch position to the ERC has failed internally and cannot provide a confirmation signal in any latch position.'], ['title' => 'Misaligned Switch Actuator', 'description' => 'The physical actuator that triggers the position switch has shifted out of alignment, so the switch is never activated even when the latch bolt is fully engaged.'], ['title' => 'Corroded Switch Contacts', 'description' => 'Grease or moisture contamination of the switch contact surfaces prevents reliable continuity, causing intermittent or absent latch position signals to the ERC.']],
+                '_ar_diy_steps'      => [['title' => 'Perform a Circuit Breaker Reset', 'description' => 'Switch off the range circuit breaker for 60 seconds and restore power. An F6 that clears after reset and does not recur may have been triggered by a transient switch contact issue.'], ['title' => 'Test Self-Clean Initiation After Reset', 'description' => 'After reset, attempt to initiate a self-clean cycle. If F6 returns immediately on the latch sequence, the latch position switch requires professional replacement.']],
+                '_ar_when_to_call'   => 'F6 codes that return consistently after breaker reset require professional latch position switch diagnosis and replacement with a Viking OEM latch assembly.',
+                '_ar_cost_range'     => '$130 – $280',
+                '_ar_severity'       => 'Medium',
+                '_ar_faqs'           => [['question' => 'Can I still bake in my Viking range while the F6 fault code is active?', 'answer' => 'Yes — normal baking and broiling remain available with F6 active, as only self-clean mode requires a confirmed latch position signal from the switch. Schedule professional service promptly so the switch can be replaced before the fault worsens.']]]],
+
+        $base + ['title' => 'Viking Range F8 Fault Code', 'slug' => 'viking-range-f8-fault-code',
+            'meta_title' => 'Viking Range F8 Fault Code — Relay Board Failure',
+            'meta_desc'  => 'The Viking range F8 fault code indicates a relay board failure. The relay board controls power to the bake, broil, and convection elements. Learn causes and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Range', '_ar_error_code' => 'F8',
+                '_ar_code_meaning'   => "F8 on a Viking range indicates a relay board fault. Viking dual-fuel and electric ranges use a dedicated relay board — separate from the main ERC — that contains the high-current relays controlling the bake element, broil element, and convection element. A failed relay board results in oven elements not receiving power, or in certain failure modes, receiving continuous power and triggering an overtemperature condition. F8 requires immediate attention — a relay welded in the closed position presents a genuine safety hazard.",
+                '_ar_causes'         => [['title' => 'Relay Contacts Welded Closed', 'description' => 'One or more relays on the relay board have welded their contacts closed from arc damage, causing a heating element to receive continuous power until the ERC detects an overtemperature condition and shuts down.'], ['title' => 'Failed Relay Coil', 'description' => 'A relay coil has burned out, leaving its associated heating element permanently unable to receive power even when commanded by the ERC.'], ['title' => 'Power Surge Damage to Relay Board', 'description' => 'A voltage spike damaged relay board components, causing one or more relays to fail open or closed.']],
+                '_ar_diy_steps'      => [['title' => 'Turn Off the Range at the Breaker Immediately', 'description' => 'Switch off the range circuit breaker. F8 can indicate a relay welded closed, which means a heating element may be continuously energized and the oven will overheat.'], ['title' => 'Do Not Retry Until Professionally Diagnosed', 'description' => 'Allow the oven to cool fully, then restore power only for a brief test with a technician present. If F8 returns or the oven reheats on its own, the relay board must be replaced before further use.']],
+                '_ar_when_to_call'   => 'F8 requires immediate professional relay board inspection. A relay stuck in the closed position is a fire hazard. Do not operate the oven with a recurring F8 fault code.',
+                '_ar_cost_range'     => '$220 – $480',
+                '_ar_severity'       => 'High',
+                '_ar_faqs'           => [['question' => 'Is the relay board the same as the main control board on a Viking range?', 'answer' => 'No. Viking dual-fuel and electric ranges use two separate circuit boards: the main ERC (Electronic Range Control) that processes user input and manages cycle timing, and the relay board that switches high-current power to the heating elements. F1 indicates an ERC fault; F8 indicates a relay board fault — two different boards requiring different replacement parts.']]]],
 
         $base + ['title' => 'Viking Range F7 Fault Code', 'slug' => 'viking-range-f7-fault-code',
             'meta_title' => 'Viking Range F7 Fault Code — Key Stuck on Control Panel',
@@ -173,7 +209,7 @@ function ar_error_codes_viking_range(): array {
 }
 
 // =============================================================================
-// VIKING WALL OVEN FAULT CODES — 11 entries (Same ERC F-Series as Range)
+// VIKING WALL OVEN FAULT CODES — 14 entries (Same ERC F-Series as Range)
 // =============================================================================
 function ar_error_codes_viking_wall_oven(): array {
     $base = ['post_type' => 'error_code', 'taxonomies' => ['brand' => 'Viking', 'appliance_type' => 'Wall Oven']];
@@ -226,6 +262,42 @@ function ar_error_codes_viking_wall_oven(): array {
                 '_ar_cost_range'     => '$180 – $480',
                 '_ar_severity'       => 'Critical',
                 '_ar_faqs'           => [['question' => 'Should I be concerned about F4 on my Viking wall oven?', 'answer' => 'Yes. F4 indicates the oven overheated past a safe threshold. Do not use the oven until it has been professionally repaired.']]]],
+
+        $base + ['title' => 'Viking Wall Oven F5 Fault Code', 'slug' => 'viking-wall-oven-f5-fault-code',
+            'meta_title' => 'Viking Wall Oven F5 Fault Code — Door Latch Motor Circuit Failure',
+            'meta_desc'  => 'The Viking wall oven F5 fault code indicates the door latch motor circuit failed or could not complete its travel. Learn causes and repair steps.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wall Oven', '_ar_error_code' => 'F5',
+                '_ar_code_meaning'   => "F5 on a Viking wall oven indicates the door latch motor circuit failed to complete a latch or unlatch cycle within the ERC-allowed time. Viking wall ovens use the same ERC architecture as Viking ranges — F5 has identical meaning across both product types. This fault typically appears when initiating or exiting a self-clean cycle. If the door is locked when F5 appears, switch off the circuit breaker for 5 minutes before calling for service.",
+                '_ar_causes'         => [['title' => 'Failed Door Latch Motor', 'description' => 'The latch motor has failed internally or is drawing excessive current during travel, preventing the cycle from completing within the ERC-allowed time window.'], ['title' => 'Obstruction in Latch Mechanism', 'description' => 'Food debris or a deformed latch rod is blocking motor travel, causing the ERC to time out and register F5.'], ['title' => 'Open Motor Wiring Harness', 'description' => 'The wiring harness supplying the latch motor has developed an open circuit, preventing motor activation.']],
+                '_ar_diy_steps'      => [['title' => 'Do Not Force the Oven Door', 'description' => 'If the wall oven door is locked when F5 appears, do not attempt to force it open. Forcing a locked latch mechanism can deform the latch rod and significantly increase repair costs.'], ['title' => 'Perform a Circuit Breaker Reset', 'description' => 'Switch off the wall oven circuit breaker for 5 full minutes, then restore power. The latch motor may reset to the unlocked home position, allowing the door to open.']],
+                '_ar_when_to_call'   => 'F5 that persists after a breaker reset, or any case where the door remains locked, requires professional door latch motor assembly replacement with a genuine Viking OEM part.',
+                '_ar_cost_range'     => '$180 – $380',
+                '_ar_severity'       => 'High',
+                '_ar_faqs'           => [['question' => 'Are Viking wall oven and Viking range F5 codes the same?', 'answer' => 'Yes. Viking wall ovens and ranges use identical ERC systems. F5 means the same thing in both products: the door latch motor circuit failed to complete its travel cycle. The repair procedure is the same.']]]],
+
+        $base + ['title' => 'Viking Wall Oven F6 Fault Code', 'slug' => 'viking-wall-oven-f6-fault-code',
+            'meta_title' => 'Viking Wall Oven F6 Fault Code — Door Latch Position Switch Failure',
+            'meta_desc'  => 'The Viking wall oven F6 fault code indicates the door latch position switch failed to confirm latch status to the control board. Learn causes and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wall Oven', '_ar_error_code' => 'F6',
+                '_ar_code_meaning'   => "F6 on a Viking wall oven indicates the door latch position switch has failed to confirm latch status to the ERC. Viking wall ovens use the same ERC as Viking ranges — F6 is identical across both product types. Unlike F5 (motor circuit failure), F6 means the latch motor may have completed its travel but the position-confirmation switch is not reporting the correct state. Self-clean mode cannot start with F6 active; normal baking and broiling typically remain available.",
+                '_ar_causes'         => [['title' => 'Failed Latch Position Switch', 'description' => 'The microswitch reporting latch position to the ERC has failed internally and cannot provide a confirmation signal.'], ['title' => 'Misaligned Switch Actuator', 'description' => 'The actuator triggering the position switch has shifted, so the switch is never activated even when the latch bolt is fully engaged.'], ['title' => 'Corroded Switch Contacts', 'description' => 'Grease or moisture contamination on the switch contact surfaces prevents reliable continuity, causing absent or intermittent latch position signals to the ERC.']],
+                '_ar_diy_steps'      => [['title' => 'Perform a Circuit Breaker Reset', 'description' => 'Switch off the wall oven circuit breaker for 60 seconds and restore power. An F6 that clears after reset and does not recur may have been caused by a transient switch contact issue.'], ['title' => 'Test Self-Clean Initiation After Reset', 'description' => 'After reset, attempt to initiate a self-clean cycle. If F6 returns immediately on the latch sequence, the latch position switch requires professional replacement.']],
+                '_ar_when_to_call'   => 'F6 codes that return consistently after reset require professional latch position switch diagnosis and replacement with a Viking OEM latch assembly.',
+                '_ar_cost_range'     => '$130 – $280',
+                '_ar_severity'       => 'Medium',
+                '_ar_faqs'           => [['question' => 'Can I use my Viking wall oven on Bake while the F6 fault is active?', 'answer' => 'Yes — normal baking and broiling remain available with F6 active, as only self-clean mode requires a confirmed latch position signal. Schedule service promptly so the latch switch can be replaced before the fault worsens.']]]],
+
+        $base + ['title' => 'Viking Wall Oven F8 Fault Code', 'slug' => 'viking-wall-oven-f8-fault-code',
+            'meta_title' => 'Viking Wall Oven F8 Fault Code — Relay Board Failure',
+            'meta_desc'  => 'The Viking wall oven F8 fault code indicates a relay board failure. The relay board controls power to bake, broil, and convection elements. Learn causes and repair.',
+            'meta_fields' => ['_ar_brand' => 'Viking', '_ar_appliance_type' => 'Wall Oven', '_ar_error_code' => 'F8',
+                '_ar_code_meaning'   => "F8 on a Viking wall oven indicates a relay board fault. Viking electric and dual-power wall ovens use a dedicated relay board that contains the high-current relays controlling the bake element, broil element, and convection element. A failed relay board results in oven elements not receiving power, or receiving continuous power and triggering an overtemperature condition. F8 requires immediate attention — a relay welded in the closed position presents an overtemperature safety hazard.",
+                '_ar_causes'         => [['title' => 'Relay Contacts Welded Closed', 'description' => 'One or more relays have welded their contacts closed from arc damage, causing a heating element to receive continuous power until the ERC detects an overtemperature condition.'], ['title' => 'Failed Relay Coil', 'description' => 'A relay coil has burned out, leaving its associated heating element permanently unable to receive power when commanded by the ERC.'], ['title' => 'Power Surge Damage to Relay Board', 'description' => 'A voltage spike damaged relay board components, causing relays to fail open or closed.']],
+                '_ar_diy_steps'      => [['title' => 'Turn Off the Wall Oven at the Breaker Immediately', 'description' => 'Switch off the wall oven circuit breaker. F8 can indicate a relay welded closed, meaning a heating element may be continuously energized and the oven will overheat.'], ['title' => 'Do Not Retry Until Professionally Diagnosed', 'description' => 'Allow the oven to cool fully before restoring power for a diagnostic test. If F8 returns or the oven heats on its own, the relay board must be replaced before the oven is used again.']],
+                '_ar_when_to_call'   => 'F8 requires immediate professional relay board inspection. A relay stuck in the closed position is an overtemperature hazard. Do not operate the wall oven with a recurring F8 fault.',
+                '_ar_cost_range'     => '$220 – $480',
+                '_ar_severity'       => 'High',
+                '_ar_faqs'           => [['question' => 'Is the relay board the same as the main control board on a Viking wall oven?', 'answer' => 'No. Viking electric wall ovens use two circuit boards: the main ERC that processes user commands, and the relay board that switches high-current power to heating elements. F1 indicates an ERC fault; F8 indicates a relay board fault. Both are separate components requiring different replacement parts.']]]],
 
         $base + ['title' => 'Viking Wall Oven F7 Fault Code', 'slug' => 'viking-wall-oven-f7-fault-code',
             'meta_title' => 'Viking Wall Oven F7 Fault Code — Key Stuck on Control Panel',
