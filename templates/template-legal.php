@@ -87,7 +87,7 @@ ar_output_schema($_schema_data);
 /* ── Hero ── */
 .lp-hero {
     background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
-    padding: 3.5rem 0 2.5rem;
+    padding: 5rem 0 2.5rem;
     position: relative;
     overflow: hidden;
 }
@@ -652,7 +652,7 @@ ar_output_schema($_schema_data);
     }
 }
 @media (max-width: 640px) {
-    .lp-hero { padding: 2.5rem 0 0; }
+    .lp-hero { padding: 5rem 0 2rem; }
     .lp-hero__title { font-size: 1.75rem; }
     .lp-article__header,
     .lp-article__body { padding: 1.25rem; }

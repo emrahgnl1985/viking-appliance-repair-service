@@ -215,7 +215,7 @@ ar_output_schema($_schema_data);
     font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(36px, 5vw, 58px);
     font-weight: 400;
-    color: var(--g-ink);
+    color: #fff;
     line-height: 1.08;
     letter-spacing: -.03em;
     margin: 0 0 18px;
@@ -238,6 +238,14 @@ ar_output_schema($_schema_data);
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
+}
+@media (max-width: 767px) {
+    .s-hero {
+        padding: 84px 0 48px;
+        align-items: flex-start;
+        min-height: 0;
+        overflow: visible;
+    }
 }
 </style>
 <!-- ── HERO ────────────────────────────────────────────── -->

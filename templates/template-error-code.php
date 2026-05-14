@@ -762,7 +762,7 @@ get_header();
   .ec-sb-cta { grid-column: 1 / -1; }
 }
 @media (max-width: 600px) {
-  .ec-hero { padding: 40px 0 36px; }
+  .ec-hero { padding: 80px 0 36px; }
   .ec-layout { padding: 36px 0 56px; }
   .ec-block { padding: 22px 18px; }
   .ec-sidebar { grid-template-columns: 1fr; }

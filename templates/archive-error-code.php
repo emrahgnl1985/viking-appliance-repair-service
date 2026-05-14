@@ -702,7 +702,7 @@ get_header();
 
 /* ── Responsive ───────────────────────────────────────── */
 @media (max-width: 768px) {
-  .ec-hero { padding: 48px 0 40px; }
+  .ec-hero { padding: 80px 0 40px; }
   .ec-hero__stats { gap: 20px; flex-wrap: wrap; }
   .ec-browse, .ec-dir, .ec-cta { padding: 48px 0; }
   .ec-ap-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }

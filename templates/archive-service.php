@@ -130,7 +130,7 @@ get_header();
     border-bottom: 1px solid var(--clr-border);
     background-color: var(--clr-page);
     padding: 72px 0 64px;
-    height: 500px;
+    min-height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -431,7 +431,7 @@ get_header();
     .as-trust__item { padding: 20px; }
 }
 @media(max-width:640px){
-    .as-hero { padding:56px 0 48px; min-height:auto; }
+    .s-hero { padding:80px 0 48px; min-height:0; }
     .as-grid { grid-template-columns: 1fr; }
     .as-trust__grid { grid-template-columns: repeat(2, 1fr); }
     .as-filter-tab { padding: 14px 16px; font-size: .8rem; }

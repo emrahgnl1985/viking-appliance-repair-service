@@ -523,8 +523,8 @@ img { display: block; max-width: 100%; }
     .hero__inner { padding: 80px 0 72px; }
 }
 @media (max-width: 640px) {
-    .hero { min-height: auto; }
-    .hero__inner { padding: 64px 0 60px; }
+    .hero { min-height: auto; overflow: visible; }
+    .hero__inner { padding: 84px 0 60px; }
     .hero__h1  { font-size: 38px; }
     .hero__sub { font-size: 15.5px; }
     .hero__actions .btn--xl { padding: 14px 22px; font-size: 15px; }

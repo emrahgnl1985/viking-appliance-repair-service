@@ -389,7 +389,7 @@ get_header();
 .rc-btn--ghost:hover { background:rgba(255,255,255,.08); }
 
 @media(max-width:640px){
-  .rc-hero{ padding:48px 0 40px; }
+  .rc-hero{ padding:80px 0 40px; }
   .rc-hero__cpsc{ margin-left:0; }
   .rc-card{ flex-direction:column; }
   .rc-card__thumb{ width:100%; height:180px; }

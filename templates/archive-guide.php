@@ -409,7 +409,7 @@ $categories = [
     .g-guides-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 640px) {
-    .g-hero { padding: 48px 0 44px; }
+    .g-hero { padding: 80px 0 44px; }
     .g-guides-grid { grid-template-columns: 1fr; }
     .g-cat-grid { grid-template-columns: repeat(2, 1fr); }
     .g-hero__stats { gap: 20px; }

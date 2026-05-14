@@ -254,10 +254,6 @@
 /* ---------------------------
    Mobile menu (optional)
 --------------------------- */
-.mobile-menu {
-  display: none; /* hidden by default, shown via JS toggle */
-}
-
 .mobile-menu__link,
 .mobile-nav__phone {
   display: block;
@@ -1387,6 +1383,21 @@
   .mobile-menu-toggle { display: flex; }
   .primary-nav { display: none; }
   .header-cta { display: none; }
+}
+
+/* Hero — reduce padding and min-height on mobile so content is never clipped */
+@media (max-width: 767px) {
+  .hero {
+    min-height: 0;
+    padding-top: calc(72px + var(--space-10));
+    padding-bottom: var(--space-10);
+    overflow: visible;
+  }
+  .hero--error-code,
+  .hero--guide {
+    padding-top: calc(72px + var(--space-8));
+    padding-bottom: var(--space-8);
+  }
 }
 
 /* Footer stacks to single column on small phones */

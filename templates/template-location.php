@@ -111,6 +111,17 @@ $_schema_data = [
 get_header();
 ar_output_schema($_schema_data);
 ?>
+<style>
+.loc-area-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: start;
+}
+@media (max-width: 767px) {
+    .loc-area-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+}
+</style>
 
 <!-- ── HERO ────────────────────────────────────────────── -->
 <section class="hero hero--location" aria-labelledby="hero-h1">
@@ -177,7 +188,7 @@ ar_output_schema($_schema_data);
 <!-- ── SERVICE AREA MAP (ZIP CODES) ───────────────────── -->
 <section class="section section--bg-light">
     <div class="container">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-12);align-items:start;">
+        <div class="loc-area-grid">
             <div>
                 <span class="section-header__eyebrow">Service Area</span>
                 <h2 style="margin-bottom:var(--space-5);"><?php echo esc_html( $city ); ?> Neighborhoods We Serve</h2>

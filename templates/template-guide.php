@@ -509,7 +509,7 @@ ar_output_schema($_schema_data);
     .gd-article { padding: 28px 24px; }
 }
 @media (max-width: 640px) {
-    .gd-hero { padding: 36px 0 32px; }
+    .gd-hero { padding: 80px 0 32px; }
     .gd-related-grid { grid-template-columns: 1fr; }
     .gd-article { padding: 22px 18px; }
 }
