@@ -1382,10 +1382,15 @@
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 600px) {
-  .footer-grid { grid-template-columns: 1fr; }
+/* Mobile nav: phones + tablets up to 767px */
+@media (max-width: 767px) {
   .mobile-menu-toggle { display: flex; }
   .primary-nav { display: none; }
-  .header-phone { display: none; }
+  .header-cta { display: none; }
+}
+
+/* Footer stacks to single column on small phones */
+@media (max-width: 600px) {
+  .footer-grid { grid-template-columns: 1fr; }
 }
 
