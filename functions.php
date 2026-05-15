@@ -182,7 +182,7 @@ function ar_disclaimer(string $brand=''):void{
     $brand  = $brand ?: 'the manufacturer';
     $biz    = ar_get_business_name();
     // Pick a variation based on the current post ID for consistency (not random on each load)
-    $seed   = abs(crc32(get_the_ID() . $brand)) % 4;
+    $seed   = abs(crc32(strval((int) get_the_ID()) . $brand)) % 4;
     $variations = [
         /* 0 */ '<strong>Independent Service Notice:</strong> ' . esc_html($biz) . ' are an independent appliance repair company. We are not affiliated with, authorized by, or endorsed by ' . esc_html($brand) . '. All brand names, trademarks, and model numbers are the property of their respective manufacturers and are used solely for identification purposes.',
         /* 1 */ '<strong>Disclaimer:</strong> ' . esc_html($biz) . ' provide independent repair services and is not an authorized service agent of ' . esc_html($brand) . ' or any appliance manufacturer. Our technicians are independently trained and certified. Brand names and logos are trademarks of their respective owners.',

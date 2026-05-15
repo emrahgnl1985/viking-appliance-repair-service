@@ -82,16 +82,16 @@ $active_data      = $filter_appliance && isset($appliance_data[$filter_appliance
                     ? $appliance_data[$filter_appliance]
                     : null;
 
-// Hero content — appliance-specific if filtered
-$hero_title    = $active_data
-    ? 'Viking ' . $active_data['label'] . ' Repair Service'
-    : 'Viking Appliance Repair Services';
-$hero_subtitle = $active_data
-    ? 'Certified Viking ' . $active_data['label'] . ' repair — genuine Viking OEM parts, 30-day warranty, same-day service available.'
-    : 'Genuine Viking OEM parts — certified technicians — 30-day warranty on every repair.';
-$hero_image    = $active_data
-    ? get_template_directory_uri() . $active_data['image']
-    : get_template_directory_uri() . '/assets/images/5_Series_Kitchen_HQ-new.jpg';
+// Hero content - appliance-specific if filtered
+if ( $active_data ) {
+    $hero_title    = 'Viking ' . $active_data['label'] . ' Repair Service';
+    $hero_subtitle = 'Certified Viking ' . $active_data['label'] . ' repair - genuine Viking OEM parts, 30-day warranty, same-day service available.';
+    $hero_image    = get_template_directory_uri() . $active_data['image'];
+} else {
+    $hero_title    = 'Viking Appliance Repair Services';
+    $hero_subtitle = 'Genuine Viking OEM parts - certified technicians - 30-day warranty on every repair.';
+    $hero_image    = get_template_directory_uri() . '/assets/images/5_Series_Kitchen_HQ-new.jpg';
+}
 
 // WP_Query
 $tax_query = [['taxonomy' => 'brand', 'field' => 'slug', 'terms' => 'viking']];
