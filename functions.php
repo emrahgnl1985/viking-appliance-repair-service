@@ -200,8 +200,8 @@ function ar_output_schema(array $schema):void{echo "\n<script type=\"application
 /* ── Yoast SEO: feed ACF meta content for analysis ── */
 add_filter('wpseo_pre_analysis_post_content', function(string $content, $post): string {
     if (!empty(trim(strip_tags($content)))) return $content;
-    $id = $post->ID ?? 0;
-    $pt = $post->post_type ?? '';
+    $id = ($post instanceof WP_Post) ? (int) $post->ID        : 0;
+    $pt = ($post instanceof WP_Post) ? (string) $post->post_type : '';
     $parts = [];
     if ($pt === 'service_page') {
         $parts[] = get_post_meta($id, '_ar_intro',        true);
@@ -248,7 +248,7 @@ add_filter('wpseo_title', function(string $title): string {
         'recall'        => 'Viking Appliance Safety Recalls | CPSC Notices',
     ];
     if (is_post_type_archive()) {
-        $pt = get_queried_object()->name ?? '';
+        $obj = get_queried_object(); $pt = ($obj && isset($obj->name)) ? $obj->name : '';
         if (isset($map[$pt])) return $map[$pt];
     }
     return $title;
@@ -263,7 +263,7 @@ add_filter('wpseo_metadesc', function(string $desc): string {
         'recall'        => 'Check the latest Viking appliance safety recalls. Find CPSC notices, hazard details, remedies, and how to book a post-recall inspection.',
     ];
     if (is_post_type_archive()) {
-        $pt = get_queried_object()->name ?? '';
+        $obj = get_queried_object(); $pt = ($obj && isset($obj->name)) ? $obj->name : '';
         if (isset($map[$pt])) return $map[$pt];
     }
     return $desc;
@@ -275,7 +275,8 @@ function ar_output_seo_meta():void{
     if(defined('WPSEO_VERSION')||defined('RANK_MATH_VERSION'))return;
     global $post;
     if(!is_singular()&&!is_post_type_archive()&&!is_tax()&&!is_home())return;
-    $id=$post->ID??0;$pt=get_post_type();$title='';$desc='';$img='';
+    $id = ($post instanceof WP_Post) ? (int) $post->ID : 0;
+    $pt=get_post_type();$title='';$desc='';$img='';
     // Singular CPTs
     if(is_singular()){
         if($pt==='service_page'){$b=ar_meta($id,'_ar_brand','');$a=ar_meta($id,'_ar_appliance_type','');$title="$b $a Repair | Certified Technicians &amp; 30-Day Warranty";$desc="Expert $b $a repair. Genuine Viking OEM parts, 30-day warranty, same-day service.";}
