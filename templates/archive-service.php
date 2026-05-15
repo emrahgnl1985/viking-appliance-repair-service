@@ -111,14 +111,14 @@ get_header();
 
 /* Hero */
 .s-hero {
-    background: url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/5_Series_Kitchen_HQ-new.jpg'); ?>') no-repeat center center;
+    background: url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/5_Series_Kitchen_HQ-new.jpg'); ?>') no-repeat center 25%;
     background-size: cover;
     position: relative;
     overflow: hidden;
     border-bottom: 1px solid rgba(0,0,0,.08);
     background-color: #1A2B42;
-    padding: 72px 0 64px;
-    min-height: 380px;
+    padding: 100px 0 80px;
+    min-height: 460px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -189,34 +189,77 @@ get_header();
     border-bottom-color: var(--as-blue);
 }
 
-/* Common Issues */
+/* Common Issues — redesigned */
 .as-issues {
-    background: #1A2B42;
-    padding: 20px 0;
+    background: #fff;
+    border-top: 1px solid #e8e2d8;
+    border-bottom: 1px solid #e8e2d8;
+    padding: 44px 0;
 }
-.as-issues__inner {
+.as-issues__header {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
     align-items: center;
+    gap: 10px;
+    margin-bottom: 22px;
 }
-.as-issues__label {
+.as-issues__heading {
     font-size: .72rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: .1em;
-    color: rgba(255,255,255,.55);
-    margin-right: 4px;
+    letter-spacing: .14em;
+    color: #C4943A;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.as-issues__heading::before {
+    content: '';
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #C4943A;
     flex-shrink: 0;
 }
-.as-issues__tag {
-    font-size: .8rem;
+.as-issues__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+.as-issues__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #FAF7F2;
+    border: 1.5px solid #e8e2d8;
+    border-left: 3px solid #C4943A;
+    border-radius: 8px;
+    padding: 13px 16px;
+    font-size: .875rem;
     font-weight: 600;
-    color: #fff;
-    background: rgba(255,255,255,.12);
-    border: 1px solid rgba(255,255,255,.2);
-    padding: 5px 14px;
-    border-radius: 20px;
+    color: #1A2B42;
+    line-height: 1.3;
+    transition: border-color .18s, background .18s, box-shadow .18s;
+}
+.as-issues__item:hover {
+    border-color: #C4943A;
+    background: #FDF8F0;
+    box-shadow: 0 2px 10px rgba(196,148,58,.12);
+}
+.as-issues__item-check {
+    color: #C4943A;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1;
+    flex-shrink: 0;
+}
+@media (max-width: 900px) {
+    .as-issues__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+    .as-issues { padding: 32px 0; }
+    .as-issues__grid { grid-template-columns: 1fr; gap: 8px; }
+    .as-issues__item { padding: 11px 14px; font-size: .8125rem; }
 }
 
 /* Main content */
@@ -411,7 +454,8 @@ get_header();
     .as-trust__item { padding: 20px; }
 }
 @media(max-width:640px){
-    .s-hero { padding:80px 0 48px; min-height:0; }
+    .s-hero { padding: 88px 0 56px; min-height: 320px; }
+    .s-hero__title { font-size: clamp(24px, 7vw, 36px); }
     .as-grid { grid-template-columns: 1fr; }
     .as-trust__grid { grid-template-columns: 1fr; }
     .as-filter-tab { padding: 14px 16px; font-size: .8rem; }
@@ -419,10 +463,22 @@ get_header();
 </style>
 
 <!-- HERO -->
-<section class="s-hero s-hero--info" aria-labelledby="svc-arch-h1">
+<?php
+if ($active_data) {
+    $s_hero_img = get_template_directory_uri() . $active_data['image'];
+    $s_hero_h1  = 'Viking ' . $active_data['label'] . ' Repair Service';
+    $s_hero_sub = 'Certified Viking ' . $active_data['label'] . ' repair. Genuine OEM parts, 30-day warranty, same-day service available.';
+} else {
+    $s_hero_img = get_template_directory_uri() . '/assets/images/5_Series_Kitchen_HQ-new.jpg';
+    $s_hero_h1  = 'Viking Appliance Repair Services';
+    $s_hero_sub = 'Genuine Viking OEM parts - certified technicians - 30-day warranty on every repair.';
+}
+?>
+<section class="s-hero s-hero--info" aria-labelledby="svc-arch-h1"
+         style="background-image:url('<?php echo esc_url($s_hero_img); ?>'); background-position:center 25%;">
     <div class="container">
-        <h1 id="svc-arch-h1" class="s-hero__title">Viking Appliance Repair Services</h1>
-        <p class="s-hero__sub">Genuine Viking OEM parts &mdash; certified technicians &mdash; 30-day warranty on every repair.</p>
+        <h1 id="svc-arch-h1" class="s-hero__title"><?php echo esc_html($s_hero_h1); ?></h1>
+        <p class="s-hero__sub"><?php echo esc_html($s_hero_sub); ?></p>
     </div>
 </section>
 
@@ -444,16 +500,21 @@ get_header();
 
 <!-- COMMON ISSUES (filtered only) -->
 <?php if ($active_data): ?>
-<div class="as-issues">
+<section class="as-issues" aria-label="Common <?php echo esc_attr($active_data['label']); ?> issues we repair">
     <div class="container">
-        <div class="as-issues__inner">
-            <span class="as-issues__label">Common Issues We Fix:</span>
+        <div class="as-issues__header">
+            <p class="as-issues__heading">Common Viking <?php echo esc_html($active_data['label']); ?> Issues We Fix</p>
+        </div>
+        <div class="as-issues__grid">
             <?php foreach ($active_data['issues'] as $issue): ?>
-            <span class="as-issues__tag"><?php echo esc_html($issue); ?></span>
+            <div class="as-issues__item">
+                <span class="as-issues__item-check" aria-hidden="true">&#x2713;</span>
+                <?php echo esc_html($issue); ?>
+            </div>
             <?php endforeach; ?>
         </div>
     </div>
-</div>
+</section>
 <?php endif; ?>
 
 <!-- MAIN CONTENT -->
