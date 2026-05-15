@@ -121,52 +121,56 @@ get_header();
   --as-radius: 12px;
 }
 
-/* â”€â”€ Hero (original preserved) â”€â”€ */
+/* â”€â”€ Hero â”€â”€ */
 .s-hero {
-    background: url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/5_Series_Kitchen_HQ-new.jpg'); ?>') no-repeat center center;
     background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #1A2B42;
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid var(--color-border);
-    background-color: var(--color-primary-dark);
-    padding: 72px 0 64px;
-    min-height: 500px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    padding: 80px 0 64px;
+    min-height: 420px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
+.s-hero--filtered {
+    padding: 56px 0 44px;
+    min-height: 260px;
+}
+.s-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(26,43,66,.70) 0%, rgba(26,43,66,.50) 55%, rgba(26,43,66,.75) 100%);
+    z-index: 0;
+}
 .s-hero .container {
-    position: relative;
-    z-index: 1;
     color: #fff;
-    max-width: var(--g-wrap);
+    max-width: 860px;
     margin: 0 auto;
     padding: 0 24px;
     text-align: center;
 }
-.s-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.35);
-    z-index: 0;
-}
 .s-hero__title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(36px, 5vw, 58px);
-    font-weight: 400;
+    font-size: clamp(28px, 4.5vw, 52px);
+    font-weight: 700;
     color: #fff;
-    line-height: 1.08;
-    letter-spacing: -.03em;
-    margin: 0 0 18px;
+    line-height: 1.1;
+    letter-spacing: -.02em;
+    margin: 0 0 14px;
 }
 .s-hero__sub {
-    font-size: 20px;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-    color: #fff;
-    line-height: 1.7;
-    margin: 0 0 36px;
+    font-size: clamp(15px, 1.8vw, 18px);
+    color: rgba(255,255,255,.80);
+    line-height: 1.65;
+    margin: 0;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Filter tabs */
@@ -223,7 +227,7 @@ get_header();
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #C4943A;
+    font-size: 18px;
     flex-shrink: 0;
 }
 .as-issues__heading {
@@ -262,7 +266,9 @@ get_header();
 .as-issues__item-icon {
     color: #C4943A;
     flex-shrink: 0;
-    width: 16px; height: 16px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
 }
 @media (max-width: 900px) {
     .as-issues__grid { grid-template-columns: repeat(2, 1fr); }
@@ -319,8 +325,8 @@ get_header();
 /* Service cards grid */
 .as-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
 }
 .as-card {
     background: var(--as-white);
@@ -330,31 +336,38 @@ get_header();
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    transition: transform .2s, box-shadow .2s, border-color .2s;
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    box-shadow: 0 1px 4px rgba(0,0,0,.05);
 }
 .as-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 32px rgba(0,0,0,.09);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(0,0,0,.12);
     border-color: var(--as-blue);
 }
 .as-card__img {
     width: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 4/3;
     overflow: hidden;
-    background: #f0f2f5;
+    background: #1A2B42;
     flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+}
+.as-card__img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(26,43,66,.55) 100%);
+    pointer-events: none;
 }
 .as-card__img img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     display: block;
+    transition: transform .45s ease;
 }
+.as-card:hover .as-card__img img { transform: scale(1.05); }
 .as-card__body {
     padding: 22px 24px;
     flex: 1;
@@ -362,25 +375,34 @@ get_header();
     flex-direction: column;
 }
 .as-card__label {
-    font-size: .72rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: .7rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: .08em;
+    letter-spacing: .1em;
     color: var(--as-blue);
-    margin-bottom: 8px;
+    background: rgba(196,148,58,.10);
+    border: 1px solid rgba(196,148,58,.22);
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 12px;
 }
 .as-card__title {
-    font-size: 1.0625rem;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.125rem;
     font-weight: 700;
     color: var(--as-text);
     margin: 0 0 10px;
-    line-height: 1.3;
+    line-height: 1.25;
+    letter-spacing: -.01em;
 }
 .as-card:hover .as-card__title { color: var(--as-blue); }
 .as-card__desc {
     font-size: .875rem;
     color: var(--as-muted);
-    line-height: 1.6;
+    line-height: 1.65;
     margin: 0 0 18px;
     flex: 1;
 }
@@ -395,15 +417,16 @@ get_header();
     font-size: .82rem;
     font-weight: 700;
     color: var(--as-blue);
+    letter-spacing: .01em;
 }
 .as-card__badge {
-    font-size: .72rem;
+    font-size: .7rem;
     font-weight: 600;
-    color: var(--as-muted);
-    background: var(--as-bg);
+    color: #15803d;
+    background: #dcfce7;
     padding: 3px 10px;
     border-radius: 20px;
-    border: 1px solid var(--as-border);
+    border: 1px solid #bbf7d0;
 }
 
 /* Why us strip */
@@ -464,7 +487,40 @@ get_header();
 .as-cta__title { font-size:clamp(1.6rem,3vw,2.4rem); font-weight:800; color:#fff; margin:0 0 12px; }
 .as-cta__sub { color:rgba(255,255,255,.7); font-size:.9375rem; max-width:520px; margin:0 auto 32px; line-height:1.65; }
 .as-cta__btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.as-btn--red {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #fff;
+    color: #C4943A;
+    border: 2px solid #fff;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-size: .9375rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background .2s, color .2s;
+}
+.as-btn--red:hover { background: rgba(255,255,255,.88); }
+.as-btn--outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255,255,255,.5);
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-size: .9375rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: border-color .2s, background .2s;
+}
+.as-btn--outline:hover { border-color: #fff; background: rgba(255,255,255,.08); }
 
+@media(max-width:960px){
+    .as-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
 @media(max-width:900px){
     .as-trust__grid { grid-template-columns: repeat(2, 1fr); }
     .as-trust__item:nth-child(2) { border-right: none; }
@@ -473,17 +529,23 @@ get_header();
     .as-trust__item { padding: 20px; }
 }
 @media(max-width:640px){
-    .s-hero { padding:80px 0 48px; min-height:0; }
-    .as-grid { grid-template-columns: 1fr; }
+    .s-hero { padding: 80px 0 40px; min-height: 0; }
+    .as-grid { grid-template-columns: 1fr; gap: 16px; }
     .as-trust__grid { grid-template-columns: repeat(2, 1fr); }
-    .as-filter-tab { padding: 14px 16px; font-size: .8rem; }
+    .as-filter-tab { padding: 12px 14px; font-size: .78rem; }
+    .as-card__img { aspect-ratio: 16/9; }
+    .as-issues { padding: 24px 0; }
+    .as-issues__grid { grid-template-columns: 1fr; }
+    .as-main { padding: 36px 0 56px; }
 }
 </style>
 
 <!-- â”€â”€ HERO (original) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
-<section class="s-hero s-hero--info" aria-labelledby="svc-arch-h1"
-     style="background-image: url('<?php echo esc_url($hero_image); ?>');">
-    <div class="container">
+<?php $hero_class = $active_data ? 's-hero s-hero--filtered' : 's-hero'; ?>
+<section class="<?php echo esc_attr($hero_class); ?>" aria-labelledby="svc-arch-h1"
+     style="background-image:url('<?php echo esc_url($hero_image); ?>');">
+    <div class="s-hero__overlay"></div>
+    <div class="container" style="position:relative;z-index:1;">
         <h1 id="svc-arch-h1" class="s-hero__title"><?php echo esc_html($hero_title); ?></h1>
         <p class="s-hero__sub"><?php echo esc_html($hero_subtitle); ?></p>
     </div>
@@ -511,16 +573,14 @@ get_header();
     <div class=”container”>
 
         <div class=”as-issues__header”>
-            <div class=”as-issues__header-icon” aria-hidden=”true”>
-                <svg width=”18” height=”18” viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”2” stroke-linecap=”round” stroke-linejoin=”round”><path d=”M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z”/></svg>
-            </div>
+            <div class=”as-issues__header-icon” aria-hidden=”true”>&#x1F527;</div>
             <p class=”as-issues__heading”>Common Viking <?php echo esc_html($active_data['label']); ?> Issues We Fix</p>
         </div>
 
         <div class=”as-issues__grid”>
             <?php foreach ($active_data['issues'] as $issue): ?>
             <div class=”as-issues__item”>
-                <svg class=”as-issues__item-icon” viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”2.5” stroke-linecap=”round” stroke-linejoin=”round” aria-hidden=”true”><polyline points=”20 6 9 17 4 12”/></svg>
+                <span class=”as-issues__item-icon” aria-hidden=”true”>&#x2713;</span>
                 <?php echo esc_html($issue); ?>
             </div>
             <?php endforeach; ?>
@@ -534,17 +594,15 @@ get_header();
 <section class="as-main">
     <div class="container">
 
-        <div class="as-section-header">
-            <p class=”as-eyebrow”><?php echo $active_data ? esc_html('Viking ' . $active_data['label'] . ' Repair') : 'All Repair Services'; ?></p>
-            <h2 class=”as-section-title”>
-                <?php echo $active_data
-                    ? esc_html('Viking ' . $active_data['label'] . ' Repair — What We Cover')
-                    : 'Viking Appliance Repair — All Services'; ?>
-            </h2>
+        <div class=”as-section-header”>
             <?php if ($active_data): ?>
-            <p class="as-section-intro"><?php echo esc_html($active_data['intro']); ?></p>
+            <p class=”as-eyebrow”>Viking <?php echo esc_html($active_data['label']); ?> Repair</p>
+            <h2 class=”as-section-title”>Viking <?php echo esc_html($active_data['label']); ?> Repair &mdash; What We Cover</h2>
+            <p class=”as-section-intro”><?php echo esc_html($active_data['intro']); ?></p>
             <?php else: ?>
-            <p class="as-section-sub">Select an appliance above to view specific services and detailed repair information, or browse our full Viking repair service range below.</p>
+            <p class=”as-eyebrow”>All Repair Services</p>
+            <h2 class=”as-section-title”>Viking Appliance Repair &mdash; All Services</h2>
+            <p class=”as-section-sub”>Select an appliance above to view specific services and detailed repair information, or browse our full Viking repair service range below.</p>
             <?php endif; ?>
         </div>
 
@@ -572,14 +630,16 @@ get_header();
             ?>
             <a href="<?php the_permalink(); ?>" class="as-card">
                 <div class="as-card__img">
-                    <img src="<?php echo esc_url($card_img); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" loading="lazy">
+                    <img src="<?php echo esc_url($card_img); ?>"
+                         alt="Viking <?php echo esc_attr($appliance); ?> Repair — <?php echo esc_attr(get_the_title()); ?>">
                 </div>
                 <div class="as-card__body">
                     <p class="as-card__label">Viking <?php echo esc_html($appliance); ?></p>
                     <h3 class="as-card__title"><?php the_title(); ?></h3>
-                    <p class="as-card__desc"><?php echo esc_html(wp_trim_words($excerpt, 20)); ?></p>
+                    <p class="as-card__desc"><?php echo esc_html(wp_trim_words($excerpt, 18)); ?></p>
                     <div class="as-card__footer">
                         <span class="as-card__cta">View Service &rarr;</span>
+                        <span class="as-card__badge">Same-Day</span>
                     </div>
                 </div>
             </a>
@@ -594,14 +654,16 @@ get_header();
             ?>
             <a href="<?php echo esc_url(home_url('/services/' . $ap['slug'] . '/')); ?>" class="as-card">
                 <div class="as-card__img">
-                    <img src="<?php echo esc_url($card_img); ?>" alt="Viking <?php echo esc_attr($ap['label']); ?> Repair" loading="lazy">
+                    <img src="<?php echo esc_url($card_img); ?>"
+                         alt="Viking <?php echo esc_attr($ap['label']); ?> Repair Service">
                 </div>
                 <div class="as-card__body">
                     <p class="as-card__label">Viking <?php echo esc_html($ap['label']); ?></p>
                     <h3 class="as-card__title">Viking <?php echo esc_html($ap['label']); ?> Repair</h3>
-                    <p class="as-card__desc"><?php echo esc_html($ap['subtitle']); ?></p>
+                    <p class="as-card__desc"><?php echo esc_html($ap['intro']); ?></p>
                     <div class="as-card__footer">
                         <span class="as-card__cta">View Service &rarr;</span>
+                        <span class="as-card__badge">Same-Day</span>
                     </div>
                 </div>
             </a>
@@ -638,7 +700,11 @@ get_header();
     <div class="container">
         <div class="as-cta__inner">
             <p class="as-cta__eyebrow">Ready to Book?</p>
-            <h2 class="as-cta__title">Get Your Viking <?php echo $active_data ? esc_html($active_data['label']) : 'Appliance'; ?> Repaired Today</h2>
+            <?php if ($active_data): ?>
+            <h2 class="as-cta__title">Get Your Viking <?php echo esc_html($active_data['label']); ?> Repaired Today</h2>
+            <?php else: ?>
+            <h2 class="as-cta__title">Get Your Viking Appliance Repaired Today</h2>
+            <?php endif; ?>
             <p class="as-cta__sub">Same-day and next-day appointments available. Our technician arrives fully equipped to diagnose and fix your appliance in a single visit.</p>
             <div class="as-cta__btns">
                 <a href=”<?php echo esc_url($phone_raw); ?>” class=”as-btn--red”>&#x1F4DE; <?php echo esc_html($phone); ?></a>
@@ -647,8 +713,6 @@ get_header();
         </div>
     </div>
 </section>
-
-<?php ar_appointment_form('service-archive', 'Book Your Viking Repair Today'); ?>
 
 <?php ar_disclaimer(); ?>
 
