@@ -16,7 +16,7 @@ $recalls = new WP_Query([
 
 $total     = $recalls->found_posts;
 $phone     = ar_get_phone();
-$phone_raw = get_option('ar_phone_raw', '+18000000000');
+$phone_raw = ar_phone_link();
 $biz       = ar_get_business_name();
 $brands    = get_terms(['taxonomy' => 'brand', 'hide_empty' => true, 'orderby' => 'name']);
 
@@ -25,7 +25,7 @@ get_header();
 <style>
 /* ── Recalls Archive — Scoped Styles ────────────────────── */
 :root{
-  --rc-red:    #1B3A6B;
+  --rc-red:    #C4943A;
   --rc-dark:   #1a1a1a;
   --rc-warm:   #f8f6f3;
   --rc-alt:    #f2f0ed;
@@ -40,7 +40,7 @@ get_header();
 /* ── Hero ──────────────────────────────────────────────── */
 .rc-hero {
   background-size: cover;
-  border-bottom: 1px solid var(--clr-border);
+  border-bottom: 1px solid var(--color-border);
   background:  linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
   padding: 72px 0 56px;
   position: relative;
@@ -54,7 +54,7 @@ get_header();
   pointer-events: none;
   z-index: 0;
   background: rgba(0,0,0,0.35);
-  /* background: radial-gradient(ellipse 70% 60% at 65% 40%, rgba(27,58,107,.15) 0%, transparent 65%); */
+  /* background: radial-gradient(ellipse 70% 60% at 65% 40%, rgba(196,148,58,.15) 0%, transparent 65%); */
 }
 .rc-hero__inner {
    max-width: 780px;
@@ -243,7 +243,7 @@ get_header();
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(27,58,107,.07);
+  background: rgba(196,148,58,.07);
   color: var(--rc-red);
 }
 .rc-card__content {
@@ -267,13 +267,13 @@ get_header();
 .rc-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 24px rgba(0,0,0,.09);
-  border-color: rgba(27,58,107,.2);
+  border-color: rgba(196,148,58,.2);
 }
 .rc-card:hover::before { transform: scaleY(1); }
 .rc-card__icon {
   flex-shrink: 0;
   width: 44px; height: 44px;
-  background: rgba(27,58,107,.08);
+  background: rgba(196,148,58,.08);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -296,7 +296,7 @@ get_header();
   text-transform: uppercase;
   letter-spacing: .08em;
   color: var(--rc-red);
-  background: rgba(27,58,107,.08);
+  background: rgba(196,148,58,.08);
   padding: 3px 9px;
   border-radius: 20px;
 }
@@ -376,7 +376,7 @@ get_header();
 .rc-cta::before {
   content: '';
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(27,58,107,.12) 0%, transparent 70%);
+  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(196,148,58,.12) 0%, transparent 70%);
   pointer-events: none;
 }
 .rc-cta__eyebrow { font-size:.7rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--rc-red); margin-bottom:10px; }
@@ -437,15 +437,7 @@ get_header();
 <div class="rc-filters-bar">
   <div class="container">
     <div class="rc-filters-inner">
-      <input type="text" class="rc-filter-input" id="rc-search" placeholder="&#x1F50D;  Search recalls by keyword…" aria-label="Search recalls">
-      <?php if (!empty($brands)): ?>
-      <select class="rc-filter-select" id="rc-brand" aria-label="Filter by brand">
-        <option value="">All Brands</option>
-        <?php foreach ($brands as $b): ?>
-        <option value="<?php echo esc_attr(strtolower($b->name)); ?>"><?php echo esc_html($b->name); ?></option>
-        <?php endforeach; ?>
-      </select>
-      <?php endif; ?>
+      <input type="text" class="rc-filter-input" id="rc-search" placeholder="&#x1F50D;  Search Viking recalls by keyword…" aria-label="Search recalls">
       <span class="rc-filter-count" id="rc-count"><?php echo $total ?: '0'; ?> recall<?php echo $total !== 1 ? 's' : ''; ?></span>
       <button class="rc-filter-clear" id="rc-clear">&#x2715; Clear</button>
     </div>
@@ -547,7 +539,7 @@ get_header();
     <h2 class="rc-cta__title">Get a Safety Inspection Today</h2>
     <p class="rc-cta__sub">Our certified technicians can inspect your appliance, verify whether a recall applies, and perform any required remediation work — same-day appointments available.</p>
     <div class="rc-cta__btns">
-      <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="rc-btn--red">&#x1F4DE; <?php echo esc_html($phone); ?></a>
+      <a href="<?php echo esc_url($phone_raw); ?>" class="rc-btn--red">&#x1F4DE; <?php echo esc_html($phone); ?></a>
       <a href="/schedule/" class="rc-btn--ghost">Schedule Inspection →</a>
     </div>
   </div>
@@ -562,22 +554,19 @@ get_header();
 <script>
 (function(){
   const searchEl = document.getElementById('rc-search');
-  const brandEl  = document.getElementById('rc-brand');
   const clearBtn = document.getElementById('rc-clear');
   const countEl  = document.getElementById('rc-count');
   const emptyEl  = document.getElementById('rc-empty');
   const cards    = document.querySelectorAll('#rc-list .rc-card');
 
   function filter(){
-    const q     = (searchEl?.value || '').toLowerCase().trim();
-    const brand = (brandEl?.value  || '').toLowerCase();
-    const hasF  = q || brand;
+    const q    = (searchEl?.value || '').toLowerCase().trim();
+    const hasF = !!q;
     if (clearBtn) clearBtn.style.display = hasF ? 'inline-block' : 'none';
     let visible = 0;
     cards.forEach(c => {
-      const ms = c.dataset.search || '';
-      const mb = c.dataset.brand  || '';
-      const show = (!q || ms.includes(q)) && (!brand || mb.includes(brand));
+      const ms   = c.dataset.search || '';
+      const show = !q || ms.includes(q);
       c.style.display = show ? '' : 'none';
       if (show) visible++;
     });
@@ -586,10 +575,8 @@ get_header();
   }
 
   if (searchEl) searchEl.addEventListener('input', filter);
-  if (brandEl)  brandEl.addEventListener('change', filter);
   if (clearBtn) clearBtn.addEventListener('click', () => {
     if (searchEl) searchEl.value = '';
-    if (brandEl)  brandEl.value  = '';
     filter();
   });
 })();

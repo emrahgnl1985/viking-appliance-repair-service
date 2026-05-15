@@ -24,11 +24,17 @@ $brands     = get_terms(['taxonomy' => 'brand',         'hide_empty' => true, 'o
 $appliances = get_terms(['taxonomy' => 'appliance_type','hide_empty' => true, 'orderby' => 'name']);
 $total      = $all_codes->found_posts;
 $phone      = ar_get_phone();
-$phone_raw  = get_option('ar_phone_raw', '+18000000000');
+$phone_raw  = ar_phone_link();
 $biz        = ar_get_business_name();
 
-/* Severity helper based on cost range */
-function ec_severity(string $cost): array {
+/* Severity helper — reads _ar_severity meta first, falls back to cost-range derivation */
+function ec_severity(string $cost, string $meta_sev = ''): array {
+    $meta = strtolower(trim($meta_sev));
+    if ($meta === 'critical') return ['label' => 'Critical', 'cls' => 'ec-sev--critical'];
+    if ($meta === 'high')     return ['label' => 'High',     'cls' => 'ec-sev--high'];
+    if ($meta === 'medium')   return ['label' => 'Medium',   'cls' => 'ec-sev--med'];
+    if ($meta === 'low')      return ['label' => 'Low',      'cls' => 'ec-sev--low'];
+    // Fallback: derive from repair cost range
     preg_match('/\$(\d+)/', $cost, $m);
     $start = (int)($m[1] ?? 0);
     if ($start >= 200) return ['label' => 'High',   'cls' => 'ec-sev--high'];
@@ -274,13 +280,13 @@ get_header();
 .ec-ap-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--ec-shadow-md);
-  border-color: rgba(27,58,107,.2);
+  border-color: rgba(196,148,58,.2);
 }
 .ec-ap-card:hover::before { transform: scaleY(1); }
 .ec-ap-card__icon {
   width: 40px;
   height: 40px;
-  background: rgba(27,58,107,.08);
+  background: rgba(196,148,58,.08);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -413,7 +419,7 @@ get_header();
 .ec-code-badge {
   display: inline-flex;
   align-items: center;
-  background: rgba(27,58,107,.08);
+  background: rgba(196,148,58,.08);
   color: var(--ec-red);
   font-size: .8rem;
   font-weight: 800;
@@ -421,7 +427,7 @@ get_header();
   letter-spacing: .03em;
   padding: 4px 10px;
   border-radius: 6px;
-  border: 1px solid rgba(27,58,107,.15);
+  border: 1px solid rgba(196,148,58,.15);
   white-space: nowrap;
 }
 .ec-brand-chip {
@@ -470,12 +476,15 @@ get_header();
   width: 6px; height: 6px;
   border-radius: 50%;
 }
-.ec-sev--low    { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
-.ec-sev--low::before    { background: #15803d; }
-.ec-sev--med    { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
-.ec-sev--med::before    { background: #b45309; }
-.ec-sev--high   { background: #fff1f2; color: #1B3A6B; border: 1px solid #fecdd3; }
-.ec-sev--high::before   { background: #1B3A6B; }
+.ec-sev--low      { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+.ec-sev--low::before      { background: #15803d; }
+.ec-sev--med      { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+.ec-sev--med::before      { background: #b45309; }
+.ec-sev--high     { background: #FFFBEB; color: #92400E; border: 1px solid #FCD34D; }
+.ec-sev--high::before     { background: #F59E0B; }
+.ec-sev--critical { background: #fef2f2; color: #991b1b; border: 1px solid #fca5a5; animation: ec-pulse 2s ease-in-out infinite; }
+.ec-sev--critical::before { background: #ef4444; }
+@keyframes ec-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .7; } }
 
 .ec-view-link {
   color: var(--ec-red);
@@ -529,7 +538,7 @@ get_header();
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(27,58,107,.12) 0%, transparent 70%);
+  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(196,148,58,.12) 0%, transparent 70%);
   pointer-events: none;
 }
 .ec-cta__eyebrow {
@@ -640,7 +649,7 @@ get_header();
 .ec-ap-section__icon {
   width: 48px;
   height: 48px;
-  background: rgba(27,58,107,.08);
+  background: rgba(196,148,58,.08);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -706,14 +715,19 @@ get_header();
   .ec-hero__stats { gap: 20px; flex-wrap: wrap; }
   .ec-browse, .ec-dir, .ec-cta { padding: 48px 0; }
   .ec-ap-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .ec-table td:nth-child(2),
-  .ec-table th:nth-child(2) { display: none; } /* Hide brand col on mobile */
+  /* Directory table (5-col): hide Fault Description (col 3) */
+  .ec-table:not(.ec-ap-table) td:nth-child(3),
+  .ec-table:not(.ec-ap-table) th:nth-child(3) { display: none; }
+  /* Per-appliance table (4-col): hide Fault Description (col 2) */
+  .ec-ap-table td:nth-child(2),
+  .ec-ap-table th:nth-child(2) { display: none; }
   .ec-dir__head { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 480px) {
   .ec-ap-grid { grid-template-columns: 1fr 1fr; }
-  .ec-table td:nth-child(3),
-  .ec-table th:nth-child(3) { display: none; } /* Hide appliance col on very small screens */
+  /* Directory table: also hide Appliance (col 2) on very small screens */
+  .ec-table:not(.ec-ap-table) td:nth-child(2),
+  .ec-table:not(.ec-ap-table) th:nth-child(2) { display: none; }
   .ec-hero__search { flex-direction: column; border-radius: 14px; padding: 12px; }
   .ec-hero__search button { width: 100%; text-align: center; border-radius: 8px; padding: 12px; }
 }
@@ -735,7 +749,7 @@ get_header();
 
       <div class="ec-hero__stats">
         <div>
-          <div class="ec-stat__num"><?php echo $total ?: '40+'; ?></div>
+          <div class="ec-stat__num"><?php echo $total ?: '100+'; ?></div>
           <div class="ec-stat__label">Error Codes</div>
         </div>
         <div>
@@ -830,7 +844,7 @@ get_header();
         <div class="ec-ap-section__icon"><?php echo $icon_html; ?></div>
         <div class="ec-ap-section__meta">
           <h3 class="ec-ap-section__title"><?php echo esc_html($ap_name); ?> Error Codes</h3>
-          <p class="ec-ap-section__count"><?php echo $ap_count; ?> error code<?php echo $ap_count !== 1 ? 's' : ''; ?> &mdash; <?php echo count($ap_brands); ?> brand<?php echo count($ap_brands) !== 1 ? 's' : ''; ?></p>
+          <p class="ec-ap-section__count"><?php echo $ap_count; ?> error code<?php echo $ap_count !== 1 ? 's' : ''; ?> &mdash; Viking</p>
         </div>
         <div class="ec-ap-section__toggle">
           <span class="ec-ap-section__toggle-label">Expand</span>
@@ -846,7 +860,6 @@ get_header();
             <thead>
               <tr>
                 <th>Error Code</th>
-                <th>Brand</th>
                 <th>Fault Description</th>
                 <th>Severity</th>
                 <th></th>
@@ -860,7 +873,8 @@ get_header();
                 $code       = get_post_meta($pid, '_ar_error_code',    true) ?: '';
                 $meaning    = get_post_meta($pid, '_ar_code_meaning',  true) ?: get_the_excerpt();
                 $cost       = get_post_meta($pid, '_ar_cost_range',    true) ?: '';
-                $sev        = ec_severity($cost);
+                $meta_sev   = get_post_meta($pid, '_ar_severity',      true) ?: '';
+                $sev        = ec_severity($cost, $meta_sev);
                 $title      = get_the_title();
                 $url        = get_permalink();
                 $fault_desc = wp_strip_all_tags($meaning);
@@ -868,7 +882,6 @@ get_header();
             ?>
             <tr>
               <td><a href="<?php echo esc_url($url); ?>" class="ec-code-badge"><?php echo esc_html($code ?: $title); ?></a></td>
-              <td><span class="ec-brand-chip"><?php echo esc_html($brand); ?></span></td>
               <td>
                 <div class="ec-fault-text">
                   <span class="ec-fault-title"><?php echo esc_html($title); ?></span>
@@ -905,13 +918,7 @@ get_header();
 
     <!-- Filters -->
     <div class="ec-filters">
-      <input type="text" class="ec-filter-input" id="ec-dir-search" placeholder="&#x1F50D;  Search by code or brand…" aria-label="Filter codes">
-      <select class="ec-filter-select" id="ec-brand-filter" aria-label="Filter by brand">
-        <option value="">All Brands</option>
-        <?php foreach ($brands as $b): ?>
-        <option value="<?php echo esc_attr(strtolower($b->name)); ?>"><?php echo esc_html($b->name); ?></option>
-        <?php endforeach; ?>
-      </select>
+      <input type="text" class="ec-filter-input" id="ec-dir-search" placeholder="&#x1F50D;  Search by fault code or appliance type…" aria-label="Search fault codes">
       <select class="ec-filter-select" id="ec-ap-filter" aria-label="Filter by appliance">
         <option value="">All Appliances</option>
         <?php foreach ($appliances as $ap): ?>
@@ -923,6 +930,7 @@ get_header();
         <option value="low">Low</option>
         <option value="medium">Medium</option>
         <option value="high">High</option>
+        <option value="critical">Critical</option>
       </select>
       <button class="ec-filter-clear" id="ec-clear-filters" style="display:none;">&#x2715; Clear filters</button>
     </div>
@@ -933,7 +941,6 @@ get_header();
         <thead>
           <tr>
             <th>Error Code</th>
-            <th>Brand</th>
             <th>Appliance</th>
             <th>Fault Description</th>
             <th>Severity</th>
@@ -950,7 +957,8 @@ get_header();
               $code     = get_post_meta($pid, '_ar_error_code',    true) ?: '';
               $meaning  = get_post_meta($pid, '_ar_code_meaning',  true) ?: get_the_excerpt();
               $cost     = get_post_meta($pid, '_ar_cost_range',    true) ?: '';
-              $sev      = ec_severity($cost);
+              $meta_sev = get_post_meta($pid, '_ar_severity',      true) ?: '';
+              $sev      = ec_severity($cost, $meta_sev);
               $title    = get_the_title();
               $url      = get_permalink();
               // Short fault description from meaning
@@ -972,7 +980,6 @@ get_header();
             <td>
               <a href="<?php echo esc_url($url); ?>" class="ec-code-badge"><?php echo esc_html($code ?: '—'); ?></a>
             </td>
-            <td><span class="ec-brand-chip"><?php echo esc_html($brand); ?></span></td>
             <td><span class="ec-ap-chip"><?php echo esc_html($appliance); ?></span></td>
             <td>
               <div class="ec-fault-text">
@@ -988,7 +995,7 @@ get_header();
           <?php endwhile; wp_reset_postdata(); endif; ?>
         </tbody>
       </table>
-      <p class="ec-no-results" id="ec-no-results">No error codes match your search. <a href="tel:<?php echo esc_attr($phone_raw); ?>" style="color:var(--ec-red);">Call us directly →</a></p>
+      <p class="ec-no-results" id="ec-no-results">No error codes match your search. <a href="<?php echo esc_url($phone_raw); ?>" style="color:var(--ec-red);">Call us directly →</a></p>
     </div>
 
     <?php if ($total > 20): ?>
@@ -1009,7 +1016,7 @@ get_header();
     <h2 class="ec-cta__title">Speak Directly With a Technician</h2>
     <p class="ec-cta__sub">Our certified technicians can diagnose any error code over the phone or in person — same-day appointments available.</p>
     <div class="ec-cta__btns">
-      <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="ec-btn--red">&#x1F4DE; <?php echo esc_html($phone); ?></a>
+      <a href="<?php echo esc_url($phone_raw); ?>" class="ec-btn--red">&#x1F4DE; <?php echo esc_html($phone); ?></a>
       <a href="/schedule/" class="ec-btn--ghost">Schedule Online →</a>
     </div>
   </div>
@@ -1058,7 +1065,6 @@ document.addEventListener('DOMContentLoaded', function() {
 (function(){
   const searchInput  = document.getElementById('ec-search-input');
   const dirSearch    = document.getElementById('ec-dir-search');
-  const brandFilter  = document.getElementById('ec-brand-filter');
   const apFilter     = document.getElementById('ec-ap-filter');
   const sevFilter    = document.getElementById('ec-sev-filter');
   const clearBtn     = document.getElementById('ec-clear-filters');
@@ -1078,12 +1084,11 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function filterTable() {
-    const q    = (dirSearch?.value || searchInput?.value || '').toLowerCase().trim();
-    const brand= brandFilter?.value.toLowerCase() || '';
-    const ap   = apFilter?.value || '';
-    const sev  = sevFilter?.value || '';
+    const q   = (dirSearch?.value || searchInput?.value || '').toLowerCase().trim();
+    const ap  = apFilter?.value || '';
+    const sev = sevFilter?.value || '';
 
-    const hasFilter = q || brand || ap || sev;
+    const hasFilter = q || ap || sev;
     if (hasFilter && !allShown) showAllRows();
 
     if (clearBtn) clearBtn.style.display = hasFilter ? 'inline-block' : 'none';
@@ -1093,15 +1098,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     rows.forEach(row => {
       const rSearch = row.dataset.search || '';
-      const rBrand  = row.dataset.brand  || '';
       const rAp     = row.dataset.appliance || '';
       const rSev    = row.dataset.severity  || '';
 
-      const matchQ   = !q     || rSearch.includes(q);
-      const matchB   = !brand || rBrand.includes(brand);
-      const matchA   = !ap    || rAp === ap;
-      const matchS   = !sev   || rSev === sev;
-      const show     = matchQ && matchB && matchA && matchS;
+      const matchQ = !q   || rSearch.includes(q);
+      const matchA = !ap  || rAp === ap;
+      const matchS = !sev || rSev === sev;
+      const show   = matchQ && matchA && matchS;
 
       row.classList.toggle('ec-table-row--hidden', !show);
       if (show) visible++;
@@ -1122,16 +1125,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  if (dirSearch)   dirSearch.addEventListener('input',  filterTable);
-  if (brandFilter) brandFilter.addEventListener('change', filterTable);
-  if (apFilter)    apFilter.addEventListener('change',  filterTable);
+  if (dirSearch) dirSearch.addEventListener('input',  filterTable);
+  if (apFilter)  apFilter.addEventListener('change',  filterTable);
   if (sevFilter)   sevFilter.addEventListener('change', filterTable);
 
   if (clearBtn) {
     clearBtn.addEventListener('click', () => {
       if (dirSearch)   dirSearch.value   = '';
       if (searchInput) searchInput.value = '';
-      if (brandFilter) brandFilter.value = '';
       if (apFilter)    apFilter.value    = '';
       if (sevFilter)   sevFilter.value   = '';
       filterTable();
@@ -1145,13 +1146,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  /* Handle URL params (brand/appliance from appliance cards) */
+  /* Handle URL params (appliance from appliance cards) */
   const params = new URLSearchParams(window.location.search);
-  const pBrand = params.get('brand');
   const pAp    = params.get('appliance');
-  if (pBrand && brandFilter) { brandFilter.value = pBrand.toLowerCase(); }
-  if (pAp    && apFilter)    { apFilter.value    = pAp; }
-  if (pBrand || pAp) filterTable();
+  if (pAp && apFilter) { apFilter.value = pAp; }
+  if (pAp) filterTable();
 })();
 </script>
 

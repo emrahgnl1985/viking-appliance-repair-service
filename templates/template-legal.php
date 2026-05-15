@@ -96,8 +96,8 @@ ar_output_schema($_schema_data);
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse 60% 50% at 100% 0%, rgba(27,58,107,.18) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 60% at 0% 100%, rgba(27,58,107,.08) 0%, transparent 60%);
+        radial-gradient(ellipse 60% 50% at 100% 0%, rgba(196,148,58,.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 0% 100%, rgba(196,148,58,.08) 0%, transparent 60%);
     pointer-events: none;
 }
 
@@ -124,9 +124,9 @@ ar_output_schema($_schema_data);
     display: inline-flex;
     align-items: center;
     gap: .5rem;
-    background: rgba(27,58,107,.25);
-    border: 1px solid rgba(27,58,107,.4);
-    color: #fca5a5;
+    background: rgba(196,148,58,.25);
+    border: 1px solid rgba(196,148,58,.4);
+    color: #D4B46A;
     font-size: .75rem;
     font-weight: 600;
     letter-spacing: .06em;
@@ -137,7 +137,7 @@ ar_output_schema($_schema_data);
 }
 .lp-hero__badge-dot {
     width: 6px; height: 6px;
-    background: #fca5a5;
+    background: #D4B46A;
     border-radius: 50%;
     animation: lp-pulse 2s infinite;
 }
@@ -349,7 +349,7 @@ ar_output_schema($_schema_data);
 .lp-content a {
     color: var(--color-accent);
     text-decoration: underline;
-    text-decoration-color: rgba(27,58,107,.3);
+    text-decoration-color: rgba(196,148,58,.3);
     text-underline-offset: 2px;
     transition: text-decoration-color var(--transition-fast);
 }
@@ -394,7 +394,7 @@ ar_output_schema($_schema_data);
     transition: background var(--transition-fast), color var(--transition-fast);
 }
 .lp-toc__link:hover {
-    background: rgba(27,58,107,.06);
+    background: rgba(196,148,58,.06);
     color: var(--color-accent);
     text-decoration: none;
 }
@@ -449,7 +449,7 @@ ar_output_schema($_schema_data);
 }
 .lp-cta-card__icon {
     width: 44px; height: 44px;
-    background: rgba(27,58,107,.25);
+    background: rgba(196,148,58,.25);
     border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
@@ -521,8 +521,8 @@ ar_output_schema($_schema_data);
     text-decoration: none;
 }
 .lp-policy-nav__link.active {
-    background: rgba(27,58,107,.05);
-    border-color: rgba(27,58,107,.2);
+    background: rgba(196,148,58,.05);
+    border-color: rgba(196,148,58,.2);
 }
 .lp-policy-nav__icon {
     width: 36px; height: 36px;
@@ -571,7 +571,7 @@ ar_output_schema($_schema_data);
 }
 .lp-trust-badge__icon {
     width: 32px; height: 32px;
-    background: rgba(27,58,107,.1);
+    background: rgba(196,148,58,.1);
     border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
@@ -791,7 +791,7 @@ ar_output_schema($_schema_data);
                 <!-- Dark CTA card -->
                 <div class="lp-cta-card">
                     <div class="lp-cta-card__icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M22 16.92V19.92C22 20.4704 21.7893 20.9996 21.4142 21.3747C21.0391 21.7498 20.5099 21.9605 19.96 21.96C16.4227 21.5611 13.0265 20.3373 10.05 18.39C7.27497 16.6106 4.9394 14.275 3.16 11.5C1.20003 8.50962 -0.024054 5.09613 0.0400001 1.54C0.0400001 0.990225 0.249768 0.461336 0.624844 0.0862588C1.00 -0.288818 1.5291 -0.499511 2.08 -0.5H5.08C6.09447 -0.510192 6.95261 0.195576 7.12 1.2C7.26001 2.05 7.49428 2.88 7.82 3.67C8.08985 4.35 7.92074 5.11972 7.39 5.64L6.09 6.94C7.73016 9.81384 10.1862 12.2699 13.06 13.91L14.36 12.61C14.8903 12.0793 15.66 11.9102 16.34 12.18C17.13 12.5057 17.96 12.74 18.81 12.88C19.8274 13.0495 20.5393 13.9265 20.52 14.95L22 16.92Z" fill="#1B3A6B"/></svg>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M22 16.92V19.92C22 20.4704 21.7893 20.9996 21.4142 21.3747C21.0391 21.7498 20.5099 21.9605 19.96 21.96C16.4227 21.5611 13.0265 20.3373 10.05 18.39C7.27497 16.6106 4.9394 14.275 3.16 11.5C1.20003 8.50962 -0.024054 5.09613 0.0400001 1.54C0.0400001 0.990225 0.249768 0.461336 0.624844 0.0862588C1.00 -0.288818 1.5291 -0.499511 2.08 -0.5H5.08C6.09447 -0.510192 6.95261 0.195576 7.12 1.2C7.26001 2.05 7.49428 2.88 7.82 3.67C8.08985 4.35 7.92074 5.11972 7.39 5.64L6.09 6.94C7.73016 9.81384 10.1862 12.2699 13.06 13.91L14.36 12.61C14.8903 12.0793 15.66 11.9102 16.34 12.18C17.13 12.5057 17.96 12.74 18.81 12.88C19.8274 13.0495 20.5393 13.9265 20.52 14.95L22 16.92Z" fill="#C4943A"/></svg>
                     </div>
                     <h3 class="lp-cta-card__title">Need Appliance Repair?</h3>
                     <p class="lp-cta-card__text">Certified technicians. Same-day service. 30-day warranty on every repair.</p>
@@ -852,7 +852,7 @@ ar_output_schema($_schema_data);
                         <div class="lp-trust-badges">
                             <div class="lp-trust-badge">
                                 <div class="lp-trust-badge__icon">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 6V11C3 15.418 6.582 19.478 11 21C11.333 21.13 11.667 21.25 12 21.333C12.333 21.25 12.667 21.13 13 21C17.418 19.478 21 15.418 21 11V6L12 2Z" stroke="#1B3A6B" stroke-width="2" stroke-linejoin="round"/><path d="M9 12L11 14L15 10" stroke="#1B3A6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 6V11C3 15.418 6.582 19.478 11 21C11.333 21.13 11.667 21.25 12 21.333C12.333 21.25 12.667 21.13 13 21C17.418 19.478 21 15.418 21 11V6L12 2Z" stroke="#1A2B42" stroke-width="2" stroke-linejoin="round"/><path d="M9 12L11 14L15 10" stroke="#1A2B42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                                 </div>
                                 <div class="lp-trust-badge__text">
                                     <strong>Your Data Is Safe</strong>
@@ -861,7 +861,7 @@ ar_output_schema($_schema_data);
                             </div>
                             <div class="lp-trust-badge">
                                 <div class="lp-trust-badge__icon">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#1B3A6B" stroke-width="2"/><path d="M12 6V12L15 15" stroke="#1B3A6B" stroke-width="2" stroke-linecap="round"/></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#1A2B42" stroke-width="2"/><path d="M12 6V12L15 15" stroke="#1A2B42" stroke-width="2" stroke-linecap="round"/></svg>
                                 </div>
                                 <div class="lp-trust-badge__text">
                                     <strong>Opt Out Anytime</strong>
@@ -870,7 +870,7 @@ ar_output_schema($_schema_data);
                             </div>
                             <div class="lp-trust-badge">
                                 <div class="lp-trust-badge__icon">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#1B3A6B" stroke-width="2" stroke-linecap="round"/></svg>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#1A2B42" stroke-width="2" stroke-linecap="round"/></svg>
                                 </div>
                                 <div class="lp-trust-badge__text">
                                     <strong>30-Day Warranty</strong>
@@ -965,7 +965,7 @@ ar_output_schema($_schema_data);
                 var activeLink = document.querySelector('.lp-toc__link[href="#' + active.id + '"]');
                 if (activeLink) {
                     activeLink.style.color = 'var(--color-accent)';
-                    activeLink.style.background = 'rgba(27,58,107,.06)';
+                    activeLink.style.background = 'rgba(196,148,58,.06)';
                     activeLink.style.fontWeight = '600';
                 }
             }

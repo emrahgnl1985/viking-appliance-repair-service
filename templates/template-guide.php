@@ -115,8 +115,8 @@ ar_output_schema($_schema_data);
     --gd-ink:     #1a1a1a;
     --gd-ink-mid: #3d3d3d;
     --gd-ink-muted: #6b6b6b;
-    --gd-accent:  #1B3A6B;
-    --gd-accent-dk: #122847;
+    --gd-accent:  #C4943A;
+    --gd-accent-dk: #9E7428;
     --gd-green:   #16a34a;
     --gd-radius:  10px;
     --gd-trans:   .2s ease;
@@ -330,7 +330,7 @@ ar_output_schema($_schema_data);
 /* Callout boxes */
 .gd-article-content .wp-block-pullquote,
 .gd-callout {
-    background: rgba(27,58,107,.05);
+    background: rgba(196,148,58,.05);
     border-left: 3px solid var(--gd-accent);
     border-radius: 0 8px 8px 0;
     padding: 16px 20px;
@@ -490,7 +490,7 @@ ar_output_schema($_schema_data);
     display: flex; flex-direction: column;
     transition: border-color var(--gd-trans), box-shadow var(--gd-trans), transform var(--gd-trans);
 }
-.gd-rcard:hover { border-color: rgba(27,58,107,.2); box-shadow: 0 6px 20px rgba(0,0,0,.07); transform: translateY(-2px); }
+.gd-rcard:hover { border-color: rgba(196,148,58,.2); box-shadow: 0 6px 20px rgba(0,0,0,.07); transform: translateY(-2px); }
 .gd-rcard__img { aspect-ratio: 16/9; overflow: hidden; background: var(--gd-alt); }
 .gd-rcard__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
 .gd-rcard:hover .gd-rcard__img img { transform: scale(1.04); }
@@ -608,7 +608,7 @@ ar_output_schema($_schema_data);
             <!-- CTA card -->
             <div class="gd-scard gd-scard--accent">
                 <p class="gd-scard__title">Need a Repair?</p>
-                <p class="gd-scard__body">Factory-certified parts, highly trained technicians, and a 30-day warranty on every repair.</p>
+                <p class="gd-scard__body">Genuine Viking OEM parts, Viking-trained technicians, and a 30-day warranty on every repair.</p>
                 <a href="<?php echo esc_url( $phone_link ); ?>" class="gd-scard__phone">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 9a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
                     <?php echo esc_html( $phone ); ?>

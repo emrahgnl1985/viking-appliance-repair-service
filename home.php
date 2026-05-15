@@ -41,8 +41,8 @@ get_header();
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse 50% 60% at 80% -10%, rgba(27,58,107,.2) 0%, transparent 65%),
-        radial-gradient(ellipse 30% 40% at 5% 100%, rgba(27,58,107,.08) 0%, transparent 60%);
+        radial-gradient(ellipse 50% 60% at 80% -10%, rgba(196,148,58,.10) 0%, transparent 65%),
+        radial-gradient(ellipse 30% 40% at 5% 100%, rgba(196,148,58,.06) 0%, transparent 60%);
     pointer-events: none;
 }
 .bl-hero__inner {
@@ -61,9 +61,9 @@ get_header();
     font-weight: 700;
     letter-spacing: .1em;
     text-transform: uppercase;
-    color: #fca5a5;
-    background: rgba(27,58,107,.2);
-    border: 1px solid rgba(27,58,107,.35);
+    color: #D4B46A;
+    background: rgba(196,148,58,.14);
+    border: 1px solid rgba(196,148,58,.40);
     padding: .3125rem .875rem;
     border-radius: var(--radius-full);
     margin-bottom: 1.25rem;
@@ -116,7 +116,7 @@ get_header();
     transition: border-color var(--transition-base), transform var(--transition-base);
 }
 .bl-hero__featured:hover {
-    border-color: rgba(27,58,107,.5);
+    border-color: rgba(196,148,58,.5);
     transform: translateY(-2px);
     text-decoration: none;
 }
@@ -131,7 +131,7 @@ get_header();
 .bl-hero__feat-img img { width: 100%; height: 100%; object-fit: cover; }
 .bl-hero__feat-img-placeholder {
     width: 56px; height: 56px;
-    background: rgba(27,58,107,.2);
+    background: rgba(196,148,58,.10);
     border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
@@ -166,7 +166,7 @@ get_header();
 .bl-hero__feat-badge {
     position: absolute;
     top: 1rem; left: 1rem;
-    background: rgba(27,58,107,.9);
+    background: rgba(26,43,66,.9);
     color: #fff;
     font-size: .6875rem;
     font-weight: 700;
@@ -284,7 +284,7 @@ get_header();
 }
 .bl-card:hover {
     box-shadow: var(--shadow-lg);
-    border-color: rgba(27,58,107,.2);
+    border-color: rgba(196,148,58,.22);
     transform: translateY(-2px);
     text-decoration: none;
 }
@@ -308,7 +308,7 @@ get_header();
 
 .bl-card__img-icon {
     width: 44px; height: 44px;
-    background: rgba(27,58,107,.1);
+    background: rgba(196,148,58,.08);
     border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
@@ -538,7 +538,7 @@ get_header();
     transition: background var(--transition-fast);
 }
 .bl-cat-list__link:hover { background: var(--color-bg-light); text-decoration: none; }
-.bl-cat-list__link.current { background: rgba(27,58,107,.06); }
+.bl-cat-list__link.current { background: rgba(196,148,58,.08); }
 .bl-cat-list__name {
     font-size: .875rem;
     color: var(--color-text-body);
@@ -710,7 +710,7 @@ get_header();
                                 <?php echo get_the_post_thumbnail( $sp->ID, 'card', [ 'alt' => esc_attr( $card_alt ) ] ); ?>
                             <?php else: ?>
                                 <div class="bl-card__img-icon">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 20H5a2 2 0 01-2-2V8a2 2 0 012-2h14a2 2 0 012 2v4M15 17h6m-3-3v6" stroke="#1B3A6B" stroke-width="2" stroke-linecap="round"/></svg>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 20H5a2 2 0 01-2-2V8a2 2 0 012-2h14a2 2 0 012 2v4M15 17h6m-3-3v6" stroke="#1A2B42" stroke-width="2" stroke-linecap="round"/></svg>
                                 </div>
                             <?php endif; ?>
                         </div>
@@ -745,7 +745,7 @@ get_header();
                 ?>
                 <div class="bl-empty">
                     <div class="bl-empty__icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 20H5a2 2 0 01-2-2V8a2 2 0 012-2h14a2 2 0 012 2v4M15 17h6m-3-3v6" stroke="#1B3A6B" stroke-width="2" stroke-linecap="round"/></svg>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 20H5a2 2 0 01-2-2V8a2 2 0 012-2h14a2 2 0 012 2v4M15 17h6m-3-3v6" stroke="#1A2B42" stroke-width="2" stroke-linecap="round"/></svg>
                     </div>
                     <h2 class="bl-empty__title">No articles yet</h2>
                     <p class="bl-empty__text">We're working on great content. Check back soon!</p>

@@ -4,7 +4,7 @@
  * Use this when posts already exist but have empty/missing ACF meta data.
  *
  * USAGE (from WordPress root):
- *   wp eval-file wp-content/themes/wp-appliancerepair-theme/inc/all-content-update.php
+ *   wp eval-file wp-content/themes/viking-appliance-repair-service/inc/all-content-update.php
  */
 
 defined( 'ABSPATH' ) || die( 'Run via WP-CLI only.' );

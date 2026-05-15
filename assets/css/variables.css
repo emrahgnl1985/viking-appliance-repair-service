@@ -114,5 +114,9 @@
   --z-overlay:  300;
   --z-modal:    400;
   --z-toast:    500;
+
+  /* Aliases for template compatibility */
+  --color-bg-card:     var(--color-bg-light);
+  --color-text-primary: var(--color-text-body);
 }
 

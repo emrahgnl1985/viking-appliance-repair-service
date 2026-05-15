@@ -4,14 +4,14 @@
  * Creates Home and Schedule pages, sets Reading options.
  *
  * USAGE (from WordPress root):
- *   wp eval-file wp-content/themes/wp-appliancerepair-theme/inc/setup-core-pages.php
+ *   wp eval-file wp-content/themes/viking-appliance-repair-service/inc/setup-core-pages.php
  */
 
 defined('ABSPATH') || die('Run via WP-CLI only.');
 
 WP_CLI::line('');
 WP_CLI::line('╔══════════════════════════════════════════════╗');
-WP_CLI::line('║     ApplianceRepair — Core Pages Setup       ║');
+WP_CLI::line('║  Viking Appliance Repair — Core Pages Setup  ║');
 WP_CLI::line('╚══════════════════════════════════════════════╝');
 
 $pages = [

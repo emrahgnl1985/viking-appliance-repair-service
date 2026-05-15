@@ -21,7 +21,7 @@ $when_call = get_post_meta($pid, '_ar_when_to_call',   true) ?: '';
 $cost      = get_post_meta($pid, '_ar_cost_range',     true) ?: '$80 – $250';
 $faqs      = get_post_meta($pid, '_ar_faqs',           true) ?: [];
 $phone     = ar_get_phone();
-$phone_raw = get_option('ar_phone_raw', '+18000000000');
+$phone_raw = ar_phone_link();
 $biz       = ar_get_business_name();
 $service_url = home_url('/services/' . strtolower($brand) . '-' . strtolower($appliance) . '-repair/');
 
@@ -56,7 +56,7 @@ switch ($severity_stored) {
 /* Fallbacks */
 if (empty($causes)) {
     $causes = [
-        ['title' => 'Component failure',          'description' => "An internal component specific to the {$code} fault has failed and requires replacement with factory-certified {$brand} parts."],
+        ['title' => 'Component failure',          'description' => "An internal component specific to the {$code} fault has failed and requires replacement with genuine Viking OEM parts."],
         ['title' => 'Blocked or restricted system','description' => "A blockage or restriction in the relevant system is preventing normal operation."],
         ['title' => 'Sensor or control fault',    'description' => "A malfunctioning sensor or control board is incorrectly reporting a fault condition."],
         ['title' => 'Wear over time',              'description' => "Normal wear after years of service has caused this component to fail."],
@@ -74,7 +74,7 @@ if (empty($faqs)) {
     $faqs = [
         ['question' => "Is the {$brand} {$code} error code dangerous?",         'answer' => "The {$code} code is a safety or fault indicator. While the code itself is not dangerous, the underlying cause — if left unaddressed — can lead to further damage or, in some cases, safety risks. We recommend addressing it promptly."],
         ['question' => "Can I reset the {$code} error by unplugging?",          'answer' => "A power reset may temporarily clear the code. However, if the underlying fault is not resolved, {$code} will reappear as soon as the appliance runs again. A power reset is a diagnostic step, not a repair."],
-        ['question' => "How long does a {$brand} {$code} repair take?",         'answer' => "Most repairs are completed in 1–2 hours on a single visit using factory-certified {$brand} parts."],
+        ['question' => "How long does a {$brand} {$code} repair take?",         'answer' => "Most repairs are completed in 1–2 hours on a single visit using genuine Viking OEM parts."],
         ['question' => "What does the {$brand} {$code} repair cost?",           'answer' => "Repair costs depend on the specific component causing the fault. Typical range: {$cost}. We provide an exact upfront quote after diagnosis."],
         ['question' => "Should I keep using my {$appliance} with the {$code} error?", 'answer' => "We recommend stopping use until the fault is diagnosed. Continued operation with an unresolved fault can cause additional damage to other components."],
     ];
@@ -89,7 +89,7 @@ get_header();
 <style>
 /* ── Error Code Single — Scoped Styles ──────────────────── */
 :root {
-  --ec-red:    #1B3A6B;
+  --ec-red:    #C4943A;
   --ec-dark:   #1a1a1a;
   --ec-warm:   #f8f6f3;
   --ec-alt:    #f2f0ed;
@@ -136,7 +136,7 @@ get_header();
 .ec-hero {
   background: url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/viking-kitchen-7series-hero.jpg'); ?>') no-repeat center center;
   background-size: cover;
-  border-bottom: 1px solid var(--clr-border);
+  border-bottom: 1px solid var(--color-border);
   /* Optional: fallback color if image fails to load */
   background-color:  var(--ec-dark);
   padding: 72px 0 56px;
@@ -147,7 +147,7 @@ get_header();
   content: '';
   position: absolute;
   inset: 0;
-  /* background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(27,58,107,0.55) 0%, rgba(27,58,107,0.3) 100%); */
+  /* background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(196,148,58,0.55) 0%, rgba(196,148,58,0.3) 100%); */
   background: rgba(0,0,0,0.35); 
 
   pointer-events: none;
@@ -194,8 +194,8 @@ get_header();
 .ec-sev--low::before      { background: #86efac; }
 .ec-sev--med      { background: rgba(180,83,9,.15);  color: #fcd34d; border: 1px solid rgba(180,83,9,.3); }
 .ec-sev--med::before      { background: #fcd34d; }
-.ec-sev--high     { background: rgba(27,58,107,.2);  color: #fca5a5; border: 1px solid rgba(27,58,107,.3); }
-.ec-sev--high::before     { background: #fca5a5; }
+.ec-sev--high     { background: #FFFBEB; color: #92400E; border: 1px solid #FCD34D; }
+.ec-sev--high::before     { background: #F59E0B; }
 .ec-sev--critical { background: rgba(153,27,27,.25); color: #fca5a5; border: 1px solid rgba(220,38,38,.5); animation: ec-pulse 2s ease-in-out infinite; }
 .ec-sev--critical::before { background: #ef4444; }
 @keyframes ec-pulse { 0%,100% { opacity:1; } 50% { opacity:.65; } }
@@ -357,11 +357,11 @@ get_header();
   border: 1px solid var(--ec-border);
   transition: border-color .2s;
 }
-.ec-cause:hover { border-color: rgba(27,58,107,.2); }
+.ec-cause:hover { border-color: rgba(196,148,58,.2); }
 .ec-cause__num {
   flex-shrink: 0;
   width: 28px; height: 28px;
-  background: rgba(27,58,107,.1);
+  background: rgba(196,148,58,.1);
   color: var(--ec-red);
   border-radius: 50%;
   font-size: .75rem;
@@ -463,7 +463,7 @@ get_header();
 /* When to call — highlight box */
 .ec-when-box {
   background: #fff1f2;
-  border: 1px solid rgba(27,58,107,.2);
+  border: 1px solid rgba(196,148,58,.2);
   border-radius: 8px;
   padding: 20px;
   margin-top: 4px;
@@ -531,14 +531,14 @@ get_header();
 .ec-faq-btn[aria-expanded="true"] {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border-color: rgba(27,58,107,.3);
+  border-color: rgba(196,148,58,.3);
   background: #fff;
 }
 .ec-faq-btn svg { flex-shrink: 0; transition: transform .2s; }
 .ec-faq-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
 .ec-faq-panel {
   background: #fff;
-  border: 1px solid rgba(27,58,107,.2);
+  border: 1px solid rgba(196,148,58,.2);
   border-top: none;
   border-radius: 0 0 8px 8px;
   padding: 16px 18px;
@@ -560,7 +560,7 @@ get_header();
 .ec-sb-cta::before {
   content: '';
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 80% 80% at 50% 10%, rgba(27,58,107,.2) 0%, transparent 65%);
+  background: radial-gradient(ellipse 80% 80% at 50% 10%, rgba(196,148,58,.2) 0%, transparent 65%);
   pointer-events: none;
 }
 .ec-sb-cta__badge {
@@ -647,8 +647,8 @@ get_header();
 .ec-sb-severity-display .ec-sev--low::before      { background: #15803d; }
 .ec-sb-severity-display .ec-sev--med      { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
 .ec-sb-severity-display .ec-sev--med::before      { background: #b45309; }
-.ec-sb-severity-display .ec-sev--high     { background: #fff1f2; color: #1B3A6B; border: 1px solid #fecdd3; }
-.ec-sb-severity-display .ec-sev--high::before     { background: #1B3A6B; }
+.ec-sb-severity-display .ec-sev--high     { background: #FFFBEB; color: #92400E; border: 1px solid #FCD34D; }
+.ec-sb-severity-display .ec-sev--high::before     { background: #F59E0B; }
 .ec-sb-severity-display .ec-sev--critical { background: #fef2f2; color: #991b1b; border: 1px solid #fca5a5; }
 .ec-sb-severity-display .ec-sev--critical::before { background: #dc2626; }
 .ec-sb-sev-tip {
@@ -680,13 +680,13 @@ get_header();
   color: var(--ec-text);
   transition: background .15s, border-color .15s;
 }
-.ec-related-list a:hover { background: var(--ec-alt); border-color: rgba(27,58,107,.2); }
+.ec-related-list a:hover { background: var(--ec-alt); border-color: rgba(196,148,58,.2); }
 .ec-related-code {
   font-family: 'Courier New', monospace;
   font-size: .75rem;
   font-weight: 800;
   color: var(--ec-red);
-  background: rgba(27,58,107,.08);
+  background: rgba(196,148,58,.08);
   padding: 2px 7px;
   border-radius: 4px;
 }
@@ -722,7 +722,7 @@ get_header();
   font-size: .8rem;
   font-weight: 800;
   color: var(--ec-red);
-  background: rgba(27,58,107,.08);
+  background: rgba(196,148,58,.08);
   padding: 3px 9px;
   border-radius: 5px;
   display: inline-block;
@@ -811,7 +811,7 @@ get_header();
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
           Try These Steps First
         </a>
-        <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="ec-btn--outline">&#x1F4DE; Call a Technician</a>
+        <a href="<?php echo esc_url($phone_raw); ?>" class="ec-btn--outline">&#x1F4DE; Call a Technician</a>
       </div>
     </div>
   </div>
@@ -919,7 +919,7 @@ get_header();
               <div class="ec-cost-block__range"><?php echo esc_html($cost); ?></div>
               <div class="ec-cost-block__note">Exact quote before any work begins. No surprises.</div>
             </div>
-            <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="ec-btn--red">&#x1F4DE; <?php echo esc_html($phone); ?></a>
+            <a href="<?php echo esc_url($phone_raw); ?>" class="ec-btn--red">&#x1F4DE; <?php echo esc_html($phone); ?></a>
           </div>
         </div>
 

@@ -124,11 +124,11 @@
       }
 
       const data = new FormData(form);
-      data.append('action', 'ar_submit_appointment');
-      data.append('nonce', window.AR_VARS?.nonce || '');
+      data.append('action', 'ar_appointment');
+      data.append('nonce', window.arAjax?.nonce || '');
 
       try {
-        const resp = await fetch(window.AR_VARS?.ajax_url || '/wp-admin/admin-ajax.php', {
+        const resp = await fetch(window.arAjax?.url || '/wp-admin/admin-ajax.php', {
           method: 'POST',
           body: data,
           credentials: 'same-origin',

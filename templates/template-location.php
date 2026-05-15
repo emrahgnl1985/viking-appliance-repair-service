@@ -23,7 +23,7 @@ $state      = get_post_meta( $post_id, '_ar_state', true )      ?: 'US';
 $state_full = get_post_meta( $post_id, '_ar_state_full', true ) ?: $state;
 $zip_raw    = get_post_meta( $post_id, '_ar_zip_codes', true )  ?: '';
 $zips       = array_filter( array_map( 'trim', explode( ',', $zip_raw ) ) );
-$subtitle   = get_post_meta( $post_id, '_ar_hero_subtitle', true ) ?: "Serving {$city} and the surrounding area — certified technicians, factory-certified parts, 30-day warranty on every repair.";
+$subtitle   = get_post_meta( $post_id, '_ar_hero_subtitle', true ) ?: "Serving {$city} and the surrounding area — Viking-certified technicians, genuine OEM parts, 30-day warranty on every repair.";
 $intro      = get_post_meta( $post_id, '_ar_body_intro', true );
 $faqs       = get_post_meta( $post_id, '_ar_faqs', true );
 $phone      = ar_get_phone();
@@ -54,7 +54,7 @@ if ( empty( $faqs ) ) {
 
 // ── Schema.org ──────────────────────────────────────────────────
 $loc_meta_desc = get_post_meta( $post_id, '_yoast_wpseo_metadesc', true )
-              ?: "Professional appliance repair in {$city}, {$state}. Certified technicians, factory-certified parts, 30-day warranty. Same-day service available.";
+              ?: "Professional appliance repair in {$city}, {$state}. Certified technicians, genuine Viking OEM parts, 30-day warranty. Same-day service available.";
 
 $faq_schema_loc = [];
 foreach ( $faqs as $faq ) {
@@ -89,7 +89,7 @@ $_schema_data = [
             ],
             'priceRange'       => '$$',
             'currenciesAccepted' => 'USD',
-            'openingHours'     => 'Mo-Su 07:00-20:00',
+            'openingHours'     => 'Mo-Sa 08:00-18:00',
         ],
         [
             '@type'      => 'FAQPage',
@@ -102,7 +102,7 @@ $_schema_data = [
             'itemListElement' => [
                 ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home',      'item' => home_url('/')],
                 ['@type' => 'ListItem', 'position' => 2, 'name' => 'Locations', 'item' => home_url('/locations/')],
-                ['@type' => 'ListItem', 'position' => 3, 'name' => "{$city} Appliance Repair"],
+                ['@type' => 'ListItem', 'position' => 3, 'name' => "Viking Appliance Repair in {$city}"],
             ],
         ],
     ],
@@ -143,7 +143,7 @@ ar_output_schema($_schema_data);
             <p class="hero__subtitle"><?php echo esc_html( $subtitle ); ?></p>
 
             <div class="hero__cta-group">
-                <a href="tel:<?php echo esc_attr( $phone_raw ); ?>" class="btn btn--call btn--lg">
+                <a href="<?php echo esc_url( $phone_raw ); ?>" class="btn btn--call btn--lg">
                     &#x1F4DE; <?php echo esc_html( $phone ); ?>
                 </a>
                 <a href="/schedule/" class="btn btn--outline-white btn--lg">Schedule Online</a>
@@ -228,12 +228,14 @@ ar_output_schema($_schema_data);
         <div class="grid grid-4">
             <?php
             $service_list = [
-                [ 'icon' => '🔥', 'name' => 'Range Repair',        'url' => '/services/viking-range-repair/' ],
-                [ 'icon' => '❄️', 'name' => 'Refrigerator Repair', 'url' => '/services/viking-refrigerator-repair/' ],
-                [ 'icon' => '🍽', 'name' => 'Dishwasher Repair',   'url' => '/services/viking-dishwasher-repair/' ],
-                [ 'icon' => '🫕', 'name' => 'Cooktop Repair',      'url' => '/services/viking-cooktop-repair/' ],
-                [ 'icon' => '🔲', 'name' => 'Wall Oven Repair',    'url' => '/services/viking-wall-oven-repair/' ],
-                [ 'icon' => '🍷', 'name' => 'Wine Cooler Repair',  'url' => '/services/viking-wine-cooler-repair/' ],
+                [ 'icon' => '&#x1F525;', 'name' => 'Range Repair',        'url' => '/services/viking-range-repair/' ],
+                [ 'icon' => '&#x2744;',  'name' => 'Refrigerator Repair', 'url' => '/services/viking-refrigerator-repair/' ],
+                [ 'icon' => '&#x1F37D;', 'name' => 'Dishwasher Repair',   'url' => '/services/viking-dishwasher-repair/' ],
+                [ 'icon' => '&#x1F373;', 'name' => 'Cooktop Repair',      'url' => '/services/viking-cooktop-repair/' ],
+                [ 'icon' => '&#x25A1;',  'name' => 'Wall Oven Repair',    'url' => '/services/viking-wall-oven-repair/' ],
+                [ 'icon' => '&#x1F377;', 'name' => 'Wine Cooler Repair',  'url' => '/services/viking-wine-cooler-repair/' ],
+                [ 'icon' => '&#x2603;',  'name' => 'Freezer Repair',      'url' => '/services/viking-freezer-repair/' ],
+                [ 'icon' => '&#x1F32A;', 'name' => 'Vent Hood Repair',    'url' => '/services/viking-vent-hood-repair/' ],
             ];
             foreach ( $service_list as $svc ) :
             ?>
@@ -284,8 +286,8 @@ ar_output_schema($_schema_data);
 <section class="section">
     <div class="container container--narrow">
         <?php ar_appointment_form(
-            "Book Appliance Repair in {$city} Today",
-            "Fill out the form and we'll call you within 60 minutes to confirm your appointment."
+            'location-page',
+            "Book Viking Appliance Repair in {$city} Today"
         ); ?>
     </div>
 </section>

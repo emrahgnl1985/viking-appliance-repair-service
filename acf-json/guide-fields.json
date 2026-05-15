@@ -3,6 +3,60 @@
   "title": "Guide Fields",
   "fields": [
     {
+      "key": "field_gd_brand",
+      "label": "Brand",
+      "name": "_ar_brand",
+      "type": "select",
+      "choices": {
+        "Viking": "Viking"
+      },
+      "default_value": "Viking"
+    },
+    {
+      "key": "field_gd_appliance",
+      "label": "Appliance Type",
+      "name": "_ar_appliance_type",
+      "type": "select",
+      "choices": {
+        "Range": "Range",
+        "Refrigerator": "Refrigerator",
+        "Dishwasher": "Dishwasher",
+        "Cooktop": "Cooktop",
+        "Wall Oven": "Wall Oven",
+        "Wine Cooler": "Wine Cooler",
+        "Freezer": "Freezer",
+        "Vent Hood": "Vent Hood"
+      }
+    },
+    {
+      "key": "field_gd_intro",
+      "label": "Guide Introduction",
+      "name": "_ar_intro",
+      "type": "wysiwyg",
+      "instructions": "1–2 paragraphs introducing the guide topic."
+    },
+    {
+      "key": "field_gd_steps",
+      "label": "Steps",
+      "name": "_ar_steps",
+      "type": "repeater",
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_gd_step_title",
+          "label": "Step Title",
+          "name": "title",
+          "type": "text"
+        },
+        {
+          "key": "field_gd_step_content",
+          "label": "Step Content",
+          "name": "content",
+          "type": "wysiwyg"
+        }
+      ]
+    },
+    {
       "key": "field_gd_related_services",
       "label": "Related Services",
       "name": "_ar_related_services",
@@ -22,13 +76,13 @@
         {
           "key": "field_gd_faq_q",
           "label": "Question",
-          "name": "q",
+          "name": "question",
           "type": "text"
         },
         {
           "key": "field_gd_faq_a",
           "label": "Answer",
-          "name": "a",
+          "name": "answer",
           "type": "textarea",
           "rows": 3
         }

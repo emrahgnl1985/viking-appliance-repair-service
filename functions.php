@@ -278,7 +278,7 @@ function ar_output_seo_meta():void{
     $id=$post->ID??0;$pt=get_post_type();$title='';$desc='';$img='';
     // Singular CPTs
     if(is_singular()){
-        if($pt==='service_page'){$b=ar_meta($id,'_ar_brand','');$a=ar_meta($id,'_ar_appliance_type','');$title="$b $a Repair | Certified Technicians &amp; 30-Day Warranty";$desc="Expert $b $a repair. Factory-certified parts, 30-day warranty, same-day service.";}
+        if($pt==='service_page'){$b=ar_meta($id,'_ar_brand','');$a=ar_meta($id,'_ar_appliance_type','');$title="$b $a Repair | Certified Technicians &amp; 30-Day Warranty";$desc="Expert $b $a repair. Genuine Viking OEM parts, 30-day warranty, same-day service.";}
         elseif($pt==='location_page'){$c=ar_meta($id,'_ar_city','');$s=ar_meta($id,'_ar_state','');$title="Viking Appliance Repair in $c, $s | Same-Day Service | Certified Specialists";$desc="Top-rated Viking appliance repair in $c. Viking-certified technicians, genuine OEM parts, 30-day warranty.";}
         elseif($pt==='error_code'){$b=ar_meta($id,'_ar_brand','');$c=ar_meta($id,'_ar_error_code','');$a=ar_meta($id,'_ar_appliance_type','');$title="$b $c Error Code — $a Fault: Causes, Fixes &amp; When to Call";$desc="$b $a showing $c error? Causes, step-by-step fixes, and when to call a technician.";}
         elseif($pt==='guide'){$title=get_the_title().' | Repair Guide';$desc=get_the_excerpt()?:'';}

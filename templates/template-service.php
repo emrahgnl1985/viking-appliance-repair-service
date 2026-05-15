@@ -22,7 +22,7 @@ $brand     = get_post_meta( $post_id, '_ar_brand', true )           ?: 'Brand';
 $appliance = get_post_meta( $post_id, '_ar_appliance_type', true )  ?: 'Appliance';
 $biz       = ar_get_business_name();
 $phone     = ar_get_phone();
-$subtitle  = get_post_meta( $post_id, '_ar_hero_subtitle', true )   ?: "Fast, reliable {$brand} {$appliance} repairs by certified technicians — factory-certified parts and a 30-day warranty.";
+$subtitle  = get_post_meta( $post_id, '_ar_hero_subtitle', true )   ?: "Fast, reliable {$brand} {$appliance} repairs by certified technicians — genuine Viking OEM parts and a 30-day warranty.";
 $intro     = get_post_meta( $post_id, '_ar_body_intro', true );
 $issues    = get_post_meta( $post_id, '_ar_common_issues', true );
 $features  = get_post_meta( $post_id, '_ar_features', true );
@@ -35,17 +35,17 @@ $phone_raw = ar_phone_link();
 if ( empty( $issues ) ) {
     $issues = [
         [ 'title' => 'Not draining or spinning', 'description' => 'Often caused by a clogged pump filter, faulty drain pump, or blocked drain hose. Our technicians diagnose and resolve the issue on the first visit.' ],
-        [ 'title' => 'Displaying error codes', 'description' => "{$brand} appliances display specific error codes that identify the underlying fault. We decode, diagnose, and fix them using factory-certified parts." ],
+        [ 'title' => 'Displaying error codes', 'description' => "{$brand} appliances display specific error codes that identify the underlying fault. We decode, diagnose, and fix them using genuine Viking OEM parts." ],
         [ 'title' => 'Excessive vibration or noise', 'description' => 'Worn drum bearings, damaged shock absorbers, or an unbalanced sensor can all cause unusual sounds. We replace only what\'s needed.' ],
         [ 'title' => 'Not starting or powering on', 'description' => 'Control board faults, door latch issues, or wiring problems can prevent startup. We trace the fault to its source and repair it correctly.' ],
-        [ 'title' => 'Water leaking', 'description' => 'Door seals, hose connections, and pump components are carefully inspected and replaced with factory-certified parts as needed.' ],
+        [ 'title' => 'Water leaking', 'description' => 'Door seals, hose connections, and pump components are carefully inspected and replaced with genuine Viking OEM parts as needed.' ],
         [ 'title' => 'Not heating correctly', 'description' => 'Heating elements and temperature sensors are tested to ensure your appliance reaches the correct operating temperature every cycle.' ],
     ];
 }
 
 if ( empty( $features ) ) {
     $features = [
-        [ 'icon' => '&#x1F527;', 'title' => 'Factory-Certified Parts', 'description' => "We use only factory-certified {$brand} replacement components — not generic alternatives — to preserve your appliance's performance and any remaining manufacturer's warranty." ],
+        [ 'icon' => '&#x1F527;', 'title' => 'Genuine Viking OEM Parts', 'description' => "We use only genuine Viking OEM replacement components — not aftermarket alternatives — to restore your appliance to factory performance and protect any remaining warranty." ],
         [ 'icon' => '&#x1F393;', 'title' => 'Highly Trained Technicians', 'description' => "Our repair technicians receive ongoing technical training specific to {$brand} appliances, ensuring accurate diagnosis and correct repairs across all current models." ],
         [ 'icon' => '&#x1F6E1;', 'title' => '30-Day Warranty', 'description' => 'Every repair is backed by our 30-day parts and labor warranty. If the repaired component fails within a month, we return and fix it at no additional charge.' ],
     ];
@@ -56,14 +56,14 @@ if ( empty( $steps ) ) {
         [ 'title' => 'Book Your Appointment', 'description' => 'Call us or use the form below. We offer same-day and next-day slots in most service areas, seven days a week.' ],
         [ 'title' => 'Technician Arrives', 'description' => 'Our technician arrives in the confirmed time window, fully equipped with diagnostic tools and a comprehensive parts inventory.' ],
         [ 'title' => 'Accurate Diagnosis', 'description' => 'We identify the root cause — not just the symptom — and provide a clear, upfront repair quote before any work begins.' ],
-        [ 'title' => 'Professional Repair', 'description' => "Using factory-certified {$brand} parts, we complete the repair efficiently and leave your home clean and tidy." ],
+        [ 'title' => 'Professional Repair', 'description' => "Using genuine Viking OEM parts, we complete the repair efficiently and leave your home clean and tidy." ],
         [ 'title' => 'Warranty Confirmed', 'description' => 'Your 30-day parts and labor warranty begins from the date of repair. We leave you with full written documentation.' ],
     ];
 }
 
 if ( empty( $faqs ) ) {
     $faqs = [
-        [ 'question' => "How long does a {$brand} {$appliance} repair take?", 'answer' => "Most {$brand} {$appliance} repairs are completed in a single visit lasting 1 to 2 hours. Because we stock a broad inventory of factory-certified {$brand} parts, same-day completion is the norm. In rare cases where a specific part must be ordered, we provide a clear timeline upfront and schedule a follow-up promptly." ],
+        [ 'question' => "How long does a {$brand} {$appliance} repair take?", 'answer' => "Most {$brand} {$appliance} repairs are completed in a single visit lasting 1 to 2 hours. Because we stock a broad inventory of genuine Viking OEM parts, same-day completion is the norm. In rare cases where a specific part must be ordered, we provide a clear timeline upfront and schedule a follow-up promptly." ],
         [ 'question' => "Is it worth repairing my {$brand} {$appliance} or should I replace it?", 'answer' => "{$brand} appliances are engineered for longevity. If your {$appliance} is under 10 years old and the repair cost is less than 50% of the replacement cost, repair is almost always the more economical choice. Our technicians will give you a transparent assessment so you can make an informed decision." ],
         [ 'question' => "Do you offer same-day {$brand} {$appliance} repair?", 'answer' => "Yes. We offer same-day service appointments in most of our service areas, subject to technician availability. We recommend calling early in the day for the best chance of same-day scheduling." ],
         [ 'question' => "What warranty do you provide on repairs?", 'answer' => "Every repair is covered by our 30-day parts and labor warranty. If the same fault recurs within 30 days of your service date, we return and resolve it at no additional cost to you." ],
@@ -75,7 +75,7 @@ if ( empty( $faqs ) ) {
 // ── Schema.org ──────────────────────────────────────────────────
 $meta_desc = get_post_meta( $post_id, '_yoast_wpseo_metadesc', true )
            ?: get_the_excerpt()
-           ?: "Expert {$brand} {$appliance} repair using factory-certified parts. 30-day warranty on all repairs. Book same-day service.";
+           ?: "Expert {$brand} {$appliance} repair using genuine Viking OEM parts. 30-day warranty on all repairs. Book same-day service.";
 
 $faq_schema = [];
 if ( ! empty( $faqs ) ) {
@@ -153,11 +153,11 @@ $image_map = [
     'viking-range-repair'        => '/assets/images/viking-3series-feature.jpg',
     'viking-refrigerator-repair' => '/assets/images/viking-refrigerator-3series.jpg',
     'viking-dishwasher-repair'   => '/assets/images/viking-dishwasher-7series.jpg',
-    'viking-cooktop-repair'      => '/assets/images/viking-cooktop-rangetop.jpg',
+    'viking-cooktop-repair'      => '/assets/images/48InductionHomepageSlide2025-2.png',
     'viking-wall-oven-repair'    => '/assets/images/viking-wall-oven-7series.jpg',
     'viking-wine-cooler-repair'  => '/assets/images/viking-wine-cellar.jpg',
     'viking-freezer-repair'      => '/assets/images/viking-refrigerator-integrated.jpg',
-    'viking-vent-hood-repair'    => '/assets/images/5_Series_Kitchen_HQ-new.jpg',
+    'viking-vent-hood-repair'    => '/assets/images/viking-5series-kitchen.jpg',
 ];
 
 // fallback image
@@ -172,19 +172,18 @@ ar_output_schema($_schema_data);
 <style>
     /* ── Hero ── */
 .s-hero {
-    background: url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/5_Series_Kitchen_HQ-new.jpg'); ?>') no-repeat center center;
+    background: url('<?php echo esc_url(get_template_directory_uri() . $image_path); ?>') no-repeat center center;
     background-size: cover;
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid var(--clr-border);
-    /* Optional: fallback color if image fails to load */
-    background-color: var(--clr-page);
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-primary-dark);
     padding: 72px 0 64px;
     display: flex;
-    align-items: center;     /* vertical center */
-    justify-content: center; /* horizontal center */
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    min-height: 500px; /* better than fixed height */
+    min-height: 500px;
 }
 .s-hero .container {
     position: relative;
@@ -201,6 +200,7 @@ ar_output_schema($_schema_data);
     position: absolute;
     inset: 0;
     z-index: 0;
+    background: linear-gradient(180deg, rgba(26,43,66,.60) 0%, rgba(26,43,66,.42) 55%, rgba(26,43,66,.68) 100%);
 }
 .s-hero__inner {
     position: relative; /* make text appear above overlay */
@@ -267,14 +267,14 @@ ar_output_schema($_schema_data);
             <p class="s-hero__sub"><?php echo esc_html( $subtitle ); ?></p>
 
             <div class="hero__cta-group">
-                <a href="tel:<?php echo esc_attr( $phone_raw ); ?>" class="btn btn--call btn--lg">
+                <a href="<?php echo esc_url( $phone_raw ); ?>" class="btn btn--call btn--lg">
                     &#x1F4DE; <?php echo esc_html( $phone ); ?>
                 </a>
                 <a href="/schedule/" class="btn btn--outline-white btn--lg">Schedule Online</a>
             </div>
 
             <div class="hero__trust">
-                <div class="hero__trust-item"><span class="hero__trust-icon" aria-hidden="true">&#x2713;</span> Factory-Certified Parts</div>
+                <div class="hero__trust-item"><span class="hero__trust-icon" aria-hidden="true">&#x2713;</span> Genuine Viking OEM Parts</div>
                 <div class="hero__trust-item"><span class="hero__trust-icon" aria-hidden="true">&#x23F0;</span> Same-Day Service</div>
                 <div class="hero__trust-item"><span class="hero__trust-icon" aria-hidden="true">&#x1F6E1;</span> 30-Day Warranty</div>
             </div>
@@ -304,8 +304,8 @@ ar_output_schema($_schema_data);
                 <?php echo wp_kses_post( wpautop( $intro ) ); ?>
             </div>
         <?php else : ?>
-            <p style="margin-top:var(--space-6);"><?php echo esc_html( $brand ); ?> <?php echo strtolower( esc_html( $appliance ) ); ?>s are engineered for precision performance — but even the most reliable appliances occasionally need professional attention. Whether yours is displaying an error code, refusing to drain, or not operating as it should, our highly trained technicians have the skills and the factory-certified parts to restore it to full working order.</p>
-            <p>We stock an extensive inventory of factory-certified <?php echo esc_html( $brand ); ?> components, which means we can complete most repairs in a single visit. No waiting weeks for parts to arrive, no repeated service calls. Our technicians receive ongoing training on the latest <?php echo esc_html( $brand ); ?> models, ensuring an accurate diagnosis every time.</p>
+            <p style="margin-top:var(--space-6);"><?php echo esc_html( $brand ); ?> <?php echo strtolower( esc_html( $appliance ) ); ?>s are engineered for precision performance — but even the most reliable appliances occasionally need professional attention. Whether yours is displaying an error code, refusing to drain, or not operating as it should, our highly trained technicians have the skills and the genuine Viking OEM parts to restore it to full working order.</p>
+            <p>We stock an extensive inventory of genuine <?php echo esc_html( $brand ); ?> OEM components, which means we can complete most repairs in a single visit. No waiting weeks for parts to arrive, no repeated service calls. Our technicians receive ongoing training on the latest <?php echo esc_html( $brand ); ?> models, ensuring an accurate diagnosis every time.</p>
             <p>Every repair we perform comes with a 30-day parts and labor warranty. We stand behind our work — if the same problem returns within a month, we fix it at no additional cost to you.</p>
         <?php endif; ?>
 
@@ -358,8 +358,8 @@ ar_output_schema($_schema_data);
     background: #fff;
 }
 .svc-pricing-card:hover {
-    border-color: var(--color-accent, #1B3A6B);
-    box-shadow: 0 6px 24px rgba(27,58,107,.08);
+    border-color: var(--color-accent, #C4943A);
+    box-shadow: 0 6px 24px rgba(196,148,58,.08);
 }
 .svc-pricing-card__header {
     display: flex;
@@ -377,9 +377,9 @@ ar_output_schema($_schema_data);
 .svc-pricing-card__price {
     font-size: .9rem;
     font-weight: 700;
-    color: var(--color-accent, #1B3A6B);
+    color: var(--color-accent, #C4943A);
     white-space: nowrap;
-    background: rgba(27,58,107,.07);
+    background: rgba(196,148,58,.07);
     padding: 4px 10px;
     border-radius: 20px;
     flex-shrink: 0;
@@ -394,7 +394,7 @@ ar_output_schema($_schema_data);
     margin-top: auto;
     padding-top: 12px;
     font-size: .8rem;
-    color: var(--color-accent, #1B3A6B);
+    color: var(--color-accent, #C4943A);
     font-weight: 600;
     text-decoration: none;
 }
@@ -538,22 +538,22 @@ ar_output_schema($_schema_data);
 .svc-hiw-node {
     width: 40px; height: 40px;
     border-radius: 50%;
-    border: 1.5px solid var(--color-accent, #1B3A6B);
+    border: 1.5px solid var(--color-accent, #C4943A);
     background: var(--color-surface, #fff);
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
     transition: background .2s ease;
 }
-.svc-hiw-step:hover .svc-hiw-node { background: var(--color-accent, #1B3A6B); }
+.svc-hiw-step:hover .svc-hiw-node { background: var(--color-accent, #C4943A); }
 .svc-hiw-node-num {
     font-size: 12px; font-weight: 700;
-    color: var(--color-accent, #1B3A6B);
+    color: var(--color-accent, #C4943A);
     transition: color .2s ease;
 }
 .svc-hiw-step:hover .svc-hiw-node-num { color: #fff; }
 .svc-hiw-line {
     flex: 1; width: 1px;
-    background: linear-gradient(to bottom, rgba(27,58,107,.25), rgba(27,58,107,.04));
+    background: linear-gradient(to bottom, rgba(196,148,58,.25), rgba(196,148,58,.04));
     margin: 6px 0;
 }
 .svc-hiw-step:last-child .svc-hiw-line { display: none; }
@@ -561,7 +561,7 @@ ar_output_schema($_schema_data);
 .svc-hiw-micro {
     font-size: 10px; font-weight: 700;
     letter-spacing: .1em; text-transform: uppercase;
-    color: var(--color-accent, #1B3A6B);
+    color: var(--color-accent, #C4943A);
     opacity: .75; margin-bottom: 6px;
 }
 .svc-hiw-step-title {

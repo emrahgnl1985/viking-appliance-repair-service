@@ -26,7 +26,7 @@ function ar_get_locations_content_data() {
 function ar_location_chicago() {
     return [[
         'post_type' => 'location_page',
-        'title'     => 'Appliance Repair Chicago',
+        'title'     => 'Viking Appliance Repair Chicago',
         'slug'      => 'chicago',
         'meta_title'  => 'Appliance Repair Chicago, IL | Same-Day Service',
         'meta_desc'   => 'Viking appliance repair in Chicago, IL. Certified technicians, genuine Viking parts, and a 30-day warranty. Same-day appointments available.',
@@ -61,7 +61,7 @@ function ar_location_chicago() {
                 ],
                 [
                     'question' => 'What Viking appliances do you repair in Chicago?',
-                    'answer'   => 'We specialize exclusively in Viking appliances: ranges, cooktops, refrigerators, dishwashers, wall ovens, wine coolers, and freezers. All Viking models and series covered.',
+                    'answer'   => 'We specialize exclusively in Viking appliances: ranges, cooktops, refrigerators, dishwashers, wall ovens, wine coolers, freezers, and vent hoods. All Viking models and series covered.',
                 ],
                 [
                     'question' => 'Is there a warranty on repairs in Chicago?',
@@ -78,10 +78,10 @@ function ar_location_chicago() {
 function ar_location_new_york() {
     return [[
         'post_type' => 'location_page',
-        'title'     => 'Appliance Repair New York',
+        'title'     => 'Viking Appliance Repair New York',
         'slug'      => 'new-york',
         'meta_title'  => 'Appliance Repair New York, NY | Same-Day Service in NYC',
-        'meta_desc'   => 'Top-rated appliance repair in New York City. Factory-certified technicians, same-day service in Manhattan, Brooklyn, Queens, the Bronx, and Staten Island. 30-day warranty.',
+        'meta_desc'   => 'Viking appliance repair in New York City. Viking-certified technicians, same-day service in Manhattan, Brooklyn, Queens, the Bronx, and Staten Island. 30-day warranty.',
         'taxonomies'  => [
             'city' => 'New York',
         ],
@@ -91,7 +91,7 @@ function ar_location_new_york() {
             '_ar_state_full'  => 'New York',
             '_ar_zip_codes'   => '10001,10002,10003,10004,10005,10006,10007,10009,10010,10011,10012,10013,10014,10016,10017,10018,10019,10020,10021,10022,10023,10024,10025,10026,10027,10028,10029,10030,10031,10032,10033,10034,10035,10036,10037,10038,10039,10040,10044,10065,10075,10128,10280,10301,10302,10303,10304,10305,10306,10307,10308,10309,10310,10311,10312,10314,10451,10452,10453,10454,10455,10456,10457,10458,10459,10460,10461,10462,10463,10464,10465,10466,10467,10468,10469,10470,10471,10472,10473,10474,10475,11001,11004,11005,11040,11101,11102,11103,11104,11105,11106,11201,11203,11204,11205,11206,11207,11208,11209,11210,11211,11212,11213,11214,11215,11216,11217,11218,11219,11220,11221,11222,11223,11224,11225,11226,11228,11229,11230,11231,11232,11233,11234,11235,11236,11237,11238,11239,11354,11355,11356,11357,11358,11360,11361,11362,11363,11364,11365,11366,11367,11368,11369,11370,11371,11372,11373,11374,11375,11377,11378,11379,11385,11411,11412,11413,11414,11415,11416,11417,11418,11419,11420,11421,11422,11423,11426,11427,11428,11429,11430,11432,11433,11434,11435,11436',
             '_ar_hero_subtitle' => 'NYC-wide appliance repair in Manhattan, Brooklyn, Queens, the Bronx, and Staten Island — on your schedule.',
-            '_ar_body_intro'  => "New Yorkers don't have time to wait days for a Viking appliance repair. That's why we offer same-day and next-day service across all five boroughs — Manhattan, Brooklyn, Queens, the Bronx, and Staten Island. Our Viking-certified technicians navigate the city efficiently to arrive within your scheduled window, ready to diagnose and repair on the first visit.\n\nFrom Upper West Side pre-war apartments to Brooklyn brownstones and Queens high-rises, we understand the unique challenges of NYC appliance repair. Tight spaces, elevator-only access, and building management requirements are all handled professionally. We carry a full inventory of genuine Viking OEM parts so most repairs are completed in a single visit.\n\nWe repair Viking ranges, refrigerators, dishwashers, cooktops, wall ovens, wine coolers, and freezers. Every repair includes genuine Viking OEM parts, Viking-certified technicians, and a 30-day parts-and-labor warranty. Flat-rate, transparent pricing — you approve the quote before we touch anything.",
+            '_ar_body_intro'  => "New Yorkers don't have time to wait days for a Viking appliance repair. That's why we offer same-day and next-day service across all five boroughs — Manhattan, Brooklyn, Queens, the Bronx, and Staten Island. Our Viking-certified technicians navigate the city efficiently to arrive within your scheduled window, ready to diagnose and repair on the first visit.\n\nFrom Upper West Side pre-war apartments to Brooklyn brownstones and Queens high-rises, we understand the unique challenges of NYC appliance repair. Tight spaces, elevator-only access, and building management requirements are all handled professionally. We carry a full inventory of genuine Viking OEM parts so most repairs are completed in a single visit.\n\nWe repair Viking ranges, refrigerators, dishwashers, cooktops, wall ovens, wine coolers, freezers, and vent hoods. Every repair includes genuine Viking OEM parts, Viking-certified technicians, and a 30-day parts-and-labor warranty. Flat-rate, transparent pricing — you approve the quote before we touch anything.",
             '_ar_neighborhoods' => 'Midtown Manhattan,Upper West Side,Upper East Side,Harlem,Washington Heights,Chelsea,Greenwich Village,SoHo,Tribeca,Lower East Side,East Village,Hell\'s Kitchen,Astoria,Long Island City,Flushing,Jamaica,Forest Hills,Park Slope,Williamsburg,DUMBO,Bushwick,Flatbush,Crown Heights,Bay Ridge,Bensonhurst,Sunset Park,Riverdale,Fordham,Pelham Bay,Mott Haven,Tottenville,St. George,New Dorp',
             '_ar_suburbs'     => 'Yonkers,Mount Vernon,New Rochelle,White Plains,Hempstead,Valley Stream,Elmont,Freeport,Long Beach,Garden City,Mineola,Hicksville,Levittown,Brentwood,Bay Shore,Islip,Jersey City (NJ),Newark (NJ),Hoboken (NJ),Bayonne (NJ),Union City (NJ)',
             '_ar_faqs'        => [
@@ -109,7 +109,7 @@ function ar_location_new_york() {
                 ],
                 [
                     'question' => 'What Viking appliances do you service in NYC?',
-                    'answer'   => 'We specialize exclusively in Viking appliances: ranges, cooktops, refrigerators, dishwashers, wall ovens, wine coolers, and freezers. All Viking models and series covered. We carry genuine Viking OEM parts for all models.',
+                    'answer'   => 'We specialize exclusively in Viking appliances: ranges, cooktops, refrigerators, dishwashers, wall ovens, wine coolers, freezers, and vent hoods. All Viking models and series covered. We carry genuine Viking OEM parts for all models.',
                 ],
                 [
                     'question' => 'Is appliance repair in New York worth it, or should I replace?',
@@ -130,10 +130,10 @@ function ar_location_new_york() {
 function ar_location_los_angeles() {
     return [[
         'post_type' => 'location_page',
-        'title'     => 'Appliance Repair Los Angeles',
+        'title'     => 'Viking Appliance Repair Los Angeles',
         'slug'      => 'los-angeles',
         'meta_title'  => 'Appliance Repair Los Angeles, CA | Same-Day Service',
-        'meta_desc'   => 'Expert appliance repair in Los Angeles, CA. Serving the entire LA metro area with same-day service, factory-certified parts, and a 30-day warranty.',
+        'meta_desc'   => 'Viking appliance repair in Los Angeles, CA. Same-day service across the entire LA metro. Genuine Viking OEM parts, certified technicians, 30-day warranty.',
         'taxonomies'  => [
             'city' => 'Los Angeles',
         ],
@@ -165,7 +165,7 @@ function ar_location_los_angeles() {
                 ],
                 [
                     'question' => 'What Viking appliances do you repair in Los Angeles?',
-                    'answer'   => 'We repair all Viking appliances: ranges, cooktops, refrigerators, dishwashers, wall ovens, wine coolers, and freezers. All Viking models and series covered.',
+                    'answer'   => 'We repair all Viking appliances: ranges, cooktops, refrigerators, dishwashers, wall ovens, wine coolers, freezers, and vent hoods. All Viking models and series covered.',
                 ],
                 [
                     'question' => 'What is your service area in Los Angeles County?',
@@ -182,10 +182,10 @@ function ar_location_los_angeles() {
 function ar_location_houston() {
     return [[
         'post_type' => 'location_page',
-        'title'     => 'Appliance Repair Houston',
+        'title'     => 'Viking Appliance Repair Houston',
         'slug'      => 'houston',
         'meta_title'  => 'Appliance Repair Houston, TX | Same-Day Service',
-        'meta_desc'   => 'Trusted appliance repair in Houston, TX. Serving all Houston neighborhoods and suburbs with factory-certified parts, same-day service, and a 30-day warranty.',
+        'meta_desc'   => 'Viking appliance repair in Houston, TX. Same-day service across Greater Houston. Genuine Viking OEM parts, certified technicians, 30-day warranty.',
         'taxonomies'  => [
             'city' => 'Houston',
         ],
@@ -234,10 +234,10 @@ function ar_location_houston() {
 function ar_location_miami() {
     return [[
         'post_type' => 'location_page',
-        'title'     => 'Appliance Repair Miami',
+        'title'     => 'Viking Appliance Repair Miami',
         'slug'      => 'miami',
         'meta_title'  => 'Appliance Repair Miami, FL | Same-Day Service',
-        'meta_desc'   => 'Expert appliance repair in Miami, FL. Same-day service across Miami-Dade and Broward counties. Factory-certified parts and a 30-day warranty on every repair.',
+        'meta_desc'   => 'Viking appliance repair in Miami, FL. Same-day service across Miami-Dade and Broward counties. Genuine Viking OEM parts, certified technicians, 30-day warranty.',
         'taxonomies'  => [
             'city' => 'Miami',
         ],
@@ -247,7 +247,7 @@ function ar_location_miami() {
             '_ar_state_full'  => 'Florida',
             '_ar_zip_codes'   => '33101,33109,33111,33112,33114,33116,33119,33121,33122,33124,33125,33126,33127,33128,33129,33130,33131,33132,33133,33134,33135,33136,33137,33138,33139,33140,33141,33142,33143,33144,33145,33146,33147,33149,33150,33151,33152,33153,33154,33155,33156,33157,33158,33160,33161,33162,33163,33165,33166,33167,33168,33169,33170,33172,33173,33174,33175,33176,33177,33178,33179,33180,33181,33182,33183,33184,33185,33186,33187,33189,33190,33193,33194,33196,33197,33199,33301,33304,33305,33306,33308,33309,33310,33311,33312,33313,33314,33315,33316,33317,33319,33321,33322,33323,33324,33325,33326,33327,33328,33329,33330,33331,33332,33334,33388,33394,33401,33406,33407,33408,33409,33410,33411,33412,33413,33414,33415,33417,33418,33426,33428,33431,33432,33433,33434,33436,33437,33438,33440,33441,33442,33444,33445,33446,33448,33449,33458,33460,33461,33462,33463,33467,33469,33470,33472,33473,33477,33478,33480,33483,33484,33486,33487,33496,33498',
             '_ar_hero_subtitle' => "Appliance repair across Miami-Dade and Broward — fast, reliable service in South Florida's heat and humidity.",
-            '_ar_body_intro'  => "Miami's tropical climate is one of the most demanding environments for Viking appliances in the United States. Persistent heat and humidity accelerate mold growth in Viking washing machines, stress Viking refrigerator compressors year-round, and corrode electrical contacts faster than in drier climates. Our Viking-certified technicians are trained to address these South Florida-specific failure modes, not just standard repairs.\n\nWe serve the entire Miami metro area including Miami-Dade County, Broward County, and northern Palm Beach County. From Brickell, Coconut Grove, and Coral Gables to Aventura, Doral, Hialeah, Fort Lauderdale, and Boca Raton — our technicians cover the region with same-day and next-day appointments and 2-hour arrival windows.\n\nAll Miami Viking repairs use genuine OEM parts and come with our 30-day parts-and-labor warranty. Our highly trained Viking technicians carry full part inventories for all Viking appliance models and series. Transparent flat-rate pricing — no surprises on the final invoice.",
+            '_ar_body_intro'  => "Miami's tropical climate is one of the most demanding environments for Viking appliances in the United States. Persistent heat and humidity stress Viking refrigerator compressors year-round, accelerate mold buildup in Viking dishwasher seals and interior surfaces, and corrode electrical contacts in Viking range and cooktop control systems faster than in drier climates. Our Viking-certified technicians are trained to address these South Florida-specific failure modes, not just standard repairs.\n\nWe serve the entire Miami metro area including Miami-Dade County, Broward County, and northern Palm Beach County. From Brickell, Coconut Grove, and Coral Gables to Aventura, Doral, Hialeah, Fort Lauderdale, and Boca Raton — our technicians cover the region with same-day and next-day appointments and 2-hour arrival windows.\n\nAll Miami Viking repairs use genuine OEM parts and come with our 30-day parts-and-labor warranty. Our highly trained Viking technicians carry full part inventories for all Viking appliance models and series. Transparent flat-rate pricing — no surprises on the final invoice.",
             '_ar_neighborhoods' => 'Brickell,Downtown Miami,Wynwood,Design District,Edgewater,Little Havana,Little Haiti,Overtown,Liberty City,Allapattah,Coconut Grove,Coral Gables,South Miami,Pinecrest,Palmetto Bay,Cutler Bay,Homestead,Kendall,Doral,Hialeah,Miami Lakes,Opa-locka,North Miami,North Miami Beach,Aventura,Bal Harbour,Surfside,Miami Beach,South Beach,Mid-Beach,North Beach',
             '_ar_suburbs'     => 'Coral Gables,Coconut Grove,Pinecrest,South Miami,Kendall,Doral,Hialeah,Miami Lakes,Homestead,Florida City,Cutler Bay,Palmetto Bay,Miami Gardens,Opa-locka,North Miami,North Miami Beach,Aventura,Hallandale Beach,Hollywood,Pembroke Pines,Miramar,Davie,Fort Lauderdale,Plantation,Sunrise,Tamarac,Lauderhill,Lauderdale Lakes,Margate,Coconut Creek,Pompano Beach,Deerfield Beach,Boca Raton,Delray Beach,Boynton Beach,West Palm Beach,Lake Worth',
             '_ar_faqs'        => [
@@ -273,7 +273,7 @@ function ar_location_miami() {
                 ],
                 [
                     'question' => 'What Viking appliances do you repair in Miami?',
-                    'answer'   => 'We specialize in Viking appliances: ranges, cooktops, refrigerators, dishwashers, wall ovens, wine coolers, and freezers. All Viking models and series covered. Genuine Viking parts, same-day service available.',
+                    'answer'   => 'We specialize in Viking appliances: ranges, cooktops, refrigerators, dishwashers, wall ovens, wine coolers, freezers, and vent hoods. All Viking models and series covered. Genuine Viking parts, same-day service available.',
                 ],
             ],
         ],
@@ -286,10 +286,10 @@ function ar_location_miami() {
 function ar_location_san_francisco() {
     return [[
         'post_type' => 'location_page',
-        'title'     => 'Appliance Repair San Francisco',
+        'title'     => 'Viking Appliance Repair San Francisco',
         'slug'      => 'san-francisco',
         'meta_title'  => 'Appliance Repair San Francisco, CA | Same-Day Service',
-        'meta_desc'   => 'Professional appliance repair in San Francisco and the Bay Area. Same-day service, factory-certified parts, and a 30-day warranty. Serving SF, Oakland, San Jose, and beyond.',
+        'meta_desc'   => 'Viking appliance repair in San Francisco and the Bay Area. Same-day service, genuine Viking OEM parts, and a 30-day warranty. Serving SF, Oakland, San Jose, and beyond.',
         'taxonomies'  => [
             'city' => 'San Francisco',
         ],
@@ -325,7 +325,7 @@ function ar_location_san_francisco() {
                 ],
                 [
                     'question' => 'What Viking appliances do you repair in San Francisco?',
-                    'answer'   => 'We repair all Viking appliances: ranges, cooktops, refrigerators, dishwashers, wall ovens, wine coolers, and freezers. All Viking models and series covered. We carry genuine Viking OEM parts and offer same-day service across San Francisco, Oakland, Berkeley, and surrounding areas.',
+                    'answer'   => 'We repair all Viking appliances: ranges, cooktops, refrigerators, dishwashers, wall ovens, wine coolers, freezers, and vent hoods. All Viking models and series covered. We carry genuine Viking OEM parts and offer same-day service across San Francisco, Oakland, Berkeley, and surrounding areas.',
                 ],
             ],
         ],

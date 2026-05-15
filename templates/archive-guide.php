@@ -20,7 +20,7 @@ $total_guides = $guides->found_posts ?: 0;
 // Category browse topics — used even when no posts exist
 $categories = [
     [ 'icon' => '&#x1F504;', 'title' => 'Repair vs Replace',       'desc' => 'Is it worth fixing or time to buy new? We break down the numbers.',          'slug' => '#repair-vs-replace' ],
-    [ 'icon' => '&#x1F4B0;', 'title' => 'Cost Expectations',        'desc' => 'What appliance repairs actually cost — by brand, type, and complexity.',      'slug' => '#cost-expectations' ],
+    [ 'icon' => '&#x1F4B0;', 'title' => 'Cost Expectations',        'desc' => 'What Viking appliance repairs actually cost — by appliance type and repair complexity.',      'slug' => '#cost-expectations' ],
     [ 'icon' => '&#x2699;️', 'title' => 'Common Problems',          'desc' => 'The most frequent appliance faults explained in plain language.',              'slug' => '#common-problems'   ],
     [ 'icon' => '&#x1F6E1;', 'title' => 'Safety & Risks',           'desc' => 'When an appliance fault is a safety hazard and what to do about it.',          'slug' => '#safety-risks'      ],
     [ 'icon' => '&#x1F527;', 'title' => 'Maintenance & Prevention', 'desc' => 'Simple routines that extend appliance life and prevent costly repairs.',       'slug' => '#maintenance'       ],
@@ -31,18 +31,21 @@ $categories = [
 
 <style>
 :root {
-    --g-page:    #f8f6f3;
-    --g-surface: #ffffff;
-    --g-alt:     #f2f0ed;
-    --g-border:  #e4e2dd;
-    --g-ink:     #1a1a1a;
-    --g-ink-mid: #3d3d3d;
-    --g-ink-muted: #6b6b6b;
-    --g-accent:  #1B3A6B;
-    --g-accent-dark: #122847;
-    --g-radius:  12px;
-    --g-wrap:    1200px;
-    --g-trans:   .2s ease;
+    --g-page:       #FAF7F2;
+    --g-surface:    #ffffff;
+    --g-alt:        #F2ECE3;
+    --g-border:     #e4e2dd;
+    --g-ink:        #1a1a1a;
+    --g-ink-mid:    #374151;
+    --g-ink-muted:  #6B7280;
+    --g-navy:       #1A2B42;
+    --g-navy-dark:  #0D1A29;
+    --g-accent:     #C4943A;
+    --g-accent-dark:#9E7428;
+    --g-gold-dim:   rgba(196,148,58,.14);
+    --g-radius:     12px;
+    --g-wrap:       1200px;
+    --g-trans:      .2s ease;
 }
 
 /* ── Page base ── */
@@ -50,8 +53,8 @@ $categories = [
 
 /* ── Hero ── */
 .g-hero {
-    background-color: var(--g-accent);
-    border-bottom: 3px solid var(--g-accent-dark);
+    background-color: var(--g-navy);
+    border-bottom: 3px solid var(--g-accent);
     padding: 72px 0 64px;
     overflow: hidden;
 }
@@ -88,7 +91,7 @@ $categories = [
     letter-spacing: -.03em;
     margin: 0 0 18px;
 }
-.g-hero__title em { font-style: normal; color: #ffd700; }
+.g-hero__title em { font-style: italic; color: #D4B46A; }
 .g-hero__sub {
     font-size: 20px;
     color: rgba(255, 255, 255, 0.78);
@@ -105,7 +108,7 @@ $categories = [
     font-family: 'Playfair Display', Georgia, serif;
     font-size: 30px;
     font-weight: 500;
-    color: #ffd700;
+    color: #D4B46A;
     line-height: 1;
     display: block;
     margin-bottom: 4px;
@@ -176,7 +179,7 @@ $categories = [
     transition: transform var(--g-trans);
 }
 .g-cat-card:hover {
-    border-color: rgba(27,58,107,.25);
+    border-color: rgba(196,148,58,.28);
     box-shadow: 0 4px 20px rgba(0,0,0,.07);
     transform: translateY(-2px);
 }
@@ -234,7 +237,7 @@ $categories = [
     transform: translateY(0);
 }
 .g-guide-card:hover {
-    border-color: rgba(27,58,107,.2);
+    border-color: rgba(196,148,58,.22);
     box-shadow: 0 6px 24px rgba(0,0,0,.08);
     transform: translateY(-3px);
 }
@@ -282,7 +285,7 @@ $categories = [
     letter-spacing: .07em;
     text-transform: uppercase;
     color: var(--g-accent);
-    background: rgba(27,58,107,.07);
+    background: rgba(196,148,58,.10);
     padding: 3px 8px;
     border-radius: 99px;
     line-height: 1.5;
@@ -468,9 +471,7 @@ $categories = [
 </div>
 
 <style>
-.g-section-head a:hover {
-    color: #ff6600 !important; /* Change this to the color you want on hover */
-}
+.g-section-head a:hover { color: var(--g-accent) !important; }
 </style>
 
 <!-- ── GUIDES GRID ───────────────────────────────────────── -->

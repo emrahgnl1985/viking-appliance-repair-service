@@ -10,6 +10,8 @@
 
 defined( 'ABSPATH' ) || die( 'Run via WP-CLI only.' );
 
+$base_img_url = get_template_directory_uri() . '/assets/images/';
+
 WP_CLI::line( '' );
 WP_CLI::line( '╔══════════════════════════════════════════════╗' );
 WP_CLI::line( '║  Viking Appliance Repair — Blog Sample Data  ║' );
@@ -109,7 +111,7 @@ $posts = [
         'content'  => <<<HTML
 <p>A Viking range that fails to heat the oven is one of the most common service calls we handle. Given that Viking ranges are built to professional kitchen standards and are designed for decades of service, a no-heat fault is almost always caused by a specific component failure rather than a fundamental problem with the appliance. Here is how to diagnose it systematically.</p>
 
-<figure><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/viking-3series-kitchen.jpg' ); ?>" alt="Viking 3 Series range in styled kitchen — not heating diagnosis guide" loading="lazy"></figure>
+<figure><img src="{$base_img_url}viking-3series-kitchen.jpg" alt="Viking 3 Series range in styled kitchen — not heating diagnosis guide" loading="lazy"></figure>
 
 <h2>Step 1: Check for a Fault Code</h2>
 <p>Before anything else, check whether the control panel is displaying an F-code. Viking ranges and ovens use a documented series of F fault codes that pinpoint the failed component. The most common codes related to a no-heat condition are:</p>
@@ -153,7 +155,7 @@ HTML,
         'content'  => <<<HTML
 <p>Viking ranges and wall ovens use a series of F fault codes to communicate specific failures to the technician or homeowner. Each code corresponds to a particular component or system failure, making diagnosis straightforward once you know what the codes mean. This guide covers the documented Viking oven F-codes F1 through F9.</p>
 
-<figure><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/viking-wall-oven-7series.jpg' ); ?>" alt="Viking wall oven F-code fault code guide" loading="lazy"></figure>
+<figure><img src="{$base_img_url}viking-wall-oven-7series.jpg" alt="Viking wall oven F-code fault code guide" loading="lazy"></figure>
 
 <h2>F1 — Control Board Failure</h2>
 <p>The F1 code indicates the main electronic control board (ERC) has detected an internal fault. The control board manages all oven functions including temperature regulation, timer, and self-clean. F1 is often triggered by a power surge or by component failure from heat and age. In most cases, the control board requires replacement.</p>
@@ -191,7 +193,7 @@ HTML,
         'content'  => <<<HTML
 <p>A Viking refrigerator that stops cooling is a genuine emergency — perishable food is at risk within hours of the temperature rising. Before calling a technician, work through this checklist. In a meaningful percentage of cases, the cause is something you can check yourself.</p>
 
-<figure><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/viking-refrigerator-french-door.jpg' ); ?>" alt="Viking integrated column refrigerators open — not cooling diagnosis guide" loading="lazy"></figure>
+<figure><img src="{$base_img_url}viking-refrigerator-french-door.jpg" alt="Viking integrated column refrigerators open — not cooling diagnosis guide" loading="lazy"></figure>
 
 <h2>1. Check the Condenser Coils</h2>
 <p>Viking built-in refrigerators have condenser coils located in the condenser compartment, typically accessed via the grille at the bottom or behind the unit. If these coils are coated with dust and pet hair, the condenser cannot release heat efficiently and the refrigerator will gradually lose its ability to cool.</p>
@@ -225,7 +227,7 @@ HTML,
         'content'  => <<<HTML
 <p>When a Viking dishwasher stops cleaning properly — leaving dishes spotted, greasy, or with dried-on food — the cause is almost always one of a small number of well-understood issues. Work through this list before assuming a major component has failed.</p>
 
-<figure><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/viking-dishwasher-7series.jpg' ); ?>" alt="Viking dishwasher not cleaning properly — causes and fixes" loading="lazy"></figure>
+<figure><img src="{$base_img_url}viking-dishwasher-7series.jpg" alt="Viking dishwasher not cleaning properly — causes and fixes" loading="lazy"></figure>
 
 <h2>1. Clogged Filter Assembly</h2>
 <p>Viking dishwashers use a manual-clean filter system at the bottom of the tub. The filter traps food particles to keep the wash water clean. When the filter becomes heavily clogged, it restricts water circulation through the wash system and wash performance drops dramatically. This is the single most common cause of a Viking dishwasher suddenly cleaning poorly.</p>
@@ -264,7 +266,7 @@ HTML,
         'content'  => <<<HTML
 <p>Viking appliances are built to last — but like any precision equipment, they perform best and last longest when maintained regularly. After years of servicing Viking appliances across the country, we can confirm that most appliance failures are predictable and preventable with a few maintenance tasks done annually.</p>
 
-<figure><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/5_Series_Kitchen_HQ-new.jpg' ); ?>" alt="Viking 5 Series kitchen — ranges, dishwasher, refrigerator and vent hood" loading="lazy"></figure>
+<figure><img src="{$base_img_url}5_Series_Kitchen_HQ-new.jpg" alt="Viking 5 Series kitchen — ranges, dishwasher, refrigerator and vent hood" loading="lazy"></figure>
 
 <h2>Viking Range &amp; Oven</h2>
 <ul>
@@ -313,7 +315,7 @@ HTML,
         'content'  => <<<HTML
 <p>Viking offers several residential range series with meaningfully different designs, feature sets, and price points. If you are considering a Viking range purchase — or trying to understand what you already own — this guide explains the key differences between the Professional Series and Tuscany Series.</p>
 
-<figure><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/viking-tuscany-product-1.jpg' ); ?>" alt="Viking Tuscany Series 48-inch range — Tuscany vs Professional Series comparison" loading="lazy"></figure>
+<figure><img src="{$base_img_url}viking-tuscany-product-1.jpg" alt="Viking Tuscany Series 48-inch range — Tuscany vs Professional Series comparison" loading="lazy"></figure>
 
 <h2>Viking Professional Series</h2>
 <p>The Professional Series is Viking's flagship residential range line and represents the core of their product lineup. Key characteristics:</p>
@@ -352,7 +354,7 @@ HTML,
         'content'  => <<<HTML
 <p>Viking gas cooktop burner ignition problems are among the most common service calls we receive. The good news: in most cases the cause is straightforward and can often be resolved at home before a technician is needed. Here are the five most likely causes, in order of likelihood.</p>
 
-<figure><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/viking-tuscany-kitchen-2.jpg' ); ?>" alt="Viking Tuscany range gas burners in use — burner ignition troubleshooting guide" loading="lazy"></figure>
+<figure><img src="{$base_img_url}viking-tuscany-kitchen-2.jpg" alt="Viking Tuscany range gas burners in use — burner ignition troubleshooting guide" loading="lazy"></figure>
 
 <h2>1. Moisture Around the Burner</h2>
 <p>Moisture is the most common cause of Viking cooktop ignition problems. When liquid boils over or condensation forms around a burner, it can enter the spark electrode area and cause the igniter to click continuously without lighting — or prevent it from sparking at all.</p>

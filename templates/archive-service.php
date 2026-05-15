@@ -39,7 +39,7 @@ $appliance_data = [
         'label'  => 'Cooktop',
         'term'   => 'Cooktop',
         'slug'   => 'viking-cooktop-repair',
-        'image'  => '/assets/images/viking-cooktop-rangetop.jpg',
+        'image'  => '/assets/images/48InductionHomepageSlide2025-2.png',
         'intro'  => 'Viking gas, electric, and induction cooktops are engineered for high-performance cooking in residential kitchens. When a Viking cooktop burner won\'t ignite, a surface element fails to heat, or an induction zone stops responding, our technicians diagnose and repair the fault with genuine Viking OEM parts. Most Viking cooktop repairs are completed in a single visit.',
         'issues' => ['Gas Burner Not Igniting', 'Continuous Clicking', 'Burner Flame Extinguishes', 'Surface Element Not Heating', 'Induction Zone Not Responding', 'Control Panel Unresponsive'],
     ],
@@ -71,7 +71,7 @@ $appliance_data = [
         'label'  => 'Vent Hood',
         'term'   => 'Vent Hood',
         'slug'   => 'viking-vent-hood-repair',
-        'image'  => '/assets/images/5_Series_Kitchen_HQ-new.jpg',
+        'image'  => '/assets/images/viking-5series-kitchen.jpg',
         'intro'  => 'Viking Professional vent hoods and range hoods are designed to efficiently remove smoke, steam, grease, and odors from above Viking ranges and cooktops. When a Viking vent hood develops a blower motor fault, lighting failure, or control panel issue, our certified technicians repair it using genuine Viking OEM components.',
         'issues' => ['Weak or No Suction', 'Blower Motor Not Running', 'Unusual Noise During Operation', 'Lights Not Working', 'Control Panel Unresponsive', 'Grease Filter Warning'],
     ],
@@ -82,16 +82,16 @@ $active_data      = $filter_appliance && isset($appliance_data[$filter_appliance
                     ? $appliance_data[$filter_appliance]
                     : null;
 
-// Hero content â€” appliance-specific if filtered
+// Hero content — appliance-specific if filtered
 $hero_title    = $active_data
     ? 'Viking ' . $active_data['label'] . ' Repair Service'
     : 'Viking Appliance Repair Services';
 $hero_subtitle = $active_data
-    ? $active_data['subtitle']
-    : 'Certified Viking repair technicians. Genuine Viking OEM parts. 30-day warranty on every repair. Same-day service available.';
+    ? 'Certified Viking ' . $active_data['label'] . ' repair — genuine Viking OEM parts, 30-day warranty, same-day service available.'
+    : 'Genuine Viking OEM parts — certified technicians — 30-day warranty on every repair.';
 $hero_image    = $active_data
     ? get_template_directory_uri() . $active_data['image']
-    : get_template_directory_uri() . '/assets/images/viking-kitchen-7series-hero.jpg';
+    : get_template_directory_uri() . '/assets/images/5_Series_Kitchen_HQ-new.jpg';
 
 // WP_Query
 $tax_query = [['taxonomy' => 'brand', 'field' => 'slug', 'terms' => 'viking']];
@@ -111,7 +111,7 @@ get_header();
 <style>
 /* â”€â”€ Archive Service â€” Scoped â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 :root {
-  --as-blue:   #1B3A6B;
+  --as-blue:   #C4943A;
   --as-red:    #C4943A;
   --as-bg:     #f7f8fa;
   --as-white:  #ffffff;
@@ -127,8 +127,8 @@ get_header();
     background-size: cover;
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid var(--clr-border);
-    background-color: var(--clr-page);
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-primary-dark);
     padding: 72px 0 64px;
     min-height: 500px;
     display: flex;
@@ -203,32 +203,74 @@ get_header();
 }
 
 /* Issues strip (shown when appliance is filtered) */
+/* ── Common Issues strip — redesigned ── */
 .as-issues {
-    background: var(--as-blue);
-    padding: 20px 0;
+    background: #fff;
+    border-top: 1px solid #E8E2D8;
+    border-bottom: 1px solid #E8E2D8;
+    padding: 36px 0;
 }
-.as-issues__inner {
+.as-issues__header {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
     align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
 }
-.as-issues__label {
-    font-size: .75rem;
+.as-issues__header-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: rgba(196,148,58,.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #C4943A;
+    flex-shrink: 0;
+}
+.as-issues__heading {
+    font-size: .72rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: .1em;
-    color: rgba(255,255,255,.55);
-    margin-right: 4px;
+    letter-spacing: .14em;
+    color: #C4943A;
+    margin: 0;
 }
-.as-issues__tag {
-    font-size: .8rem;
+.as-issues__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+.as-issues__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #FAF7F2;
+    border: 1.5px solid #E8E2D8;
+    border-left: 3px solid #C4943A;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: .875rem;
     font-weight: 600;
-    color: #fff;
-    background: rgba(255,255,255,.12);
-    border: 1px solid rgba(255,255,255,.18);
-    padding: 5px 12px;
-    border-radius: 20px;
+    color: #1A2B42;
+    line-height: 1.3;
+    transition: border-color .18s, background .18s, box-shadow .18s;
+}
+.as-issues__item:hover {
+    border-color: #C4943A;
+    background: #FDF9F2;
+    box-shadow: 0 2px 12px rgba(196,148,58,.14);
+}
+.as-issues__item-icon {
+    color: #C4943A;
+    flex-shrink: 0;
+    width: 16px; height: 16px;
+}
+@media (max-width: 900px) {
+    .as-issues__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+    .as-issues { padding: 24px 0; }
+    .as-issues__grid { grid-template-columns: 1fr; gap: 8px; }
+    .as-issues__item { padding: 11px 14px; font-size: .8125rem; }
 }
 
 /* Main content */
@@ -439,10 +481,11 @@ get_header();
 </style>
 
 <!-- â”€â”€ HERO (original) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
-<section class="s-hero s-hero--info" aria-labelledby="svc-arch-h1">
+<section class="s-hero s-hero--info" aria-labelledby="svc-arch-h1"
+     style="background-image: url('<?php echo esc_url($hero_image); ?>');">
     <div class="container">
-        <h1 id="svc-arch-h1" class="s-hero__title">Viking Appliance Repair Services</h1>
-        <p class="s-hero__sub">Genuine Viking parts &mdash; certified technicians &mdash; 30-day warranty on every repair.</p>
+        <h1 id="svc-arch-h1" class="s-hero__title"><?php echo esc_html($hero_title); ?></h1>
+        <p class="s-hero__sub"><?php echo esc_html($hero_subtitle); ?></p>
     </div>
 </section>
 
@@ -462,18 +505,29 @@ get_header();
     </div>
 </nav>
 
-<!-- â”€â”€ COMMON ISSUES STRIP (filtered only) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+<!-- ── COMMON ISSUES SECTION (filtered only) ──────────────── -->
 <?php if ($active_data): ?>
-<div class="as-issues">
-    <div class="container">
-        <div class="as-issues__inner">
-            <span class="as-issues__label">Common Issues We Fix:</span>
+<section class=”as-issues” aria-label=”Common <?php echo esc_attr($active_data['label']); ?> issues we repair”>
+    <div class=”container”>
+
+        <div class=”as-issues__header”>
+            <div class=”as-issues__header-icon” aria-hidden=”true”>
+                <svg width=”18” height=”18” viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”2” stroke-linecap=”round” stroke-linejoin=”round”><path d=”M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z”/></svg>
+            </div>
+            <p class=”as-issues__heading”>Common Viking <?php echo esc_html($active_data['label']); ?> Issues We Fix</p>
+        </div>
+
+        <div class=”as-issues__grid”>
             <?php foreach ($active_data['issues'] as $issue): ?>
-            <span class="as-issues__tag"><?php echo esc_html($issue); ?></span>
+            <div class=”as-issues__item”>
+                <svg class=”as-issues__item-icon” viewBox=”0 0 24 24” fill=”none” stroke=”currentColor” stroke-width=”2.5” stroke-linecap=”round” stroke-linejoin=”round” aria-hidden=”true”><polyline points=”20 6 9 17 4 12”/></svg>
+                <?php echo esc_html($issue); ?>
+            </div>
             <?php endforeach; ?>
         </div>
+
     </div>
-</div>
+</section>
 <?php endif; ?>
 
 <!-- â”€â”€ MAIN CONTENT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
@@ -501,11 +555,11 @@ get_header();
                 'viking-range-repair'        => '/assets/images/viking-kitchen-miramar.jpg',
                 'viking-refrigerator-repair' => '/assets/images/viking-refrigerator-3series.jpg',
                 'viking-dishwasher-repair'   => '/assets/images/viking-dishwasher-7series.jpg',
-                'viking-cooktop-repair'      => '/assets/images/viking-cooktop-rangetop.jpg',
+                'viking-cooktop-repair'      => '/assets/images/48InductionHomepageSlide2025-2.png',
                 'viking-wall-oven-repair'    => '/assets/images/viking-wall-oven-7series.jpg',
                 'viking-wine-cooler-repair'  => '/assets/images/viking-wine-cellar.jpg',
                 'viking-freezer-repair'      => '/assets/images/viking-refrigerator-integrated.jpg',
-                'viking-vent-hood-repair'    => '/assets/images/5_Series_Kitchen_HQ-new.jpg',
+                'viking-vent-hood-repair'    => '/assets/images/viking-5series-kitchen.jpg',
             ];
             while ($services_query->have_posts()): $services_query->the_post();
                 $pid        = get_the_ID();
@@ -543,8 +597,8 @@ get_header();
                     <img src="<?php echo esc_url($card_img); ?>" alt="Viking <?php echo esc_attr($ap['label']); ?> Repair" loading="lazy">
                 </div>
                 <div class="as-card__body">
-                    <p class="as-card__label">viking <?php echo esc_html($ap['label']); ?></p>
-                    <h3 class="as-card__title">viking <?php echo esc_html($ap['label']); ?> Repair</h3>
+                    <p class="as-card__label">Viking <?php echo esc_html($ap['label']); ?></p>
+                    <h3 class="as-card__title">Viking <?php echo esc_html($ap['label']); ?> Repair</h3>
                     <p class="as-card__desc"><?php echo esc_html($ap['subtitle']); ?></p>
                     <div class="as-card__footer">
                         <span class="as-card__cta">View Service &rarr;</span>
@@ -587,8 +641,8 @@ get_header();
             <h2 class="as-cta__title">Get Your Viking <?php echo $active_data ? esc_html($active_data['label']) : 'Appliance'; ?> Repaired Today</h2>
             <p class="as-cta__sub">Same-day and next-day appointments available. Our technician arrives fully equipped to diagnose and fix your appliance in a single visit.</p>
             <div class="as-cta__btns">
-                <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="as-btn--red">ðŸ“ž <?php echo esc_html($phone); ?></a>
-                <a href="<?php echo esc_url(home_url('/schedule/')); ?>" class="as-btn--outline">Schedule Online â†’</a>
+                <a href=”<?php echo esc_url($phone_raw); ?>” class=”as-btn--red”>&#x1F4DE; <?php echo esc_html($phone); ?></a>
+                <a href=”<?php echo esc_url(home_url(‘/schedule/’)); ?>” class=”as-btn--outline”>Schedule Online &rarr;</a>
             </div>
         </div>
     </div>

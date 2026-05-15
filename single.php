@@ -93,7 +93,7 @@ ar_output_schema([
 
 /* ── Hero ── */
 .sp-hero {
-    background: #1B3A6B;;
+    background: #1A2B42;
     padding: 3.5rem 0 2.75rem;
     position: relative;
     overflow: hidden;
@@ -103,8 +103,8 @@ ar_output_schema([
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse 55% 55% at 95% 0%, rgba(27,58,107,.2) 0%, transparent 65%),
-        radial-gradient(ellipse 35% 50% at 0% 100%, rgba(27,58,107,.07) 0%, transparent 60%);
+        radial-gradient(ellipse 55% 55% at 95% 0%, rgba(196,148,58,.2) 0%, transparent 65%),
+        radial-gradient(ellipse 35% 50% at 0% 100%, rgba(196,148,58,.07) 0%, transparent 60%);
     pointer-events: none;
 }
 
@@ -191,7 +191,7 @@ ar_output_schema([
 .sp-feat-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
 .sp-feat-img-placeholder {
     width: 64px; height: 64px;
-    background: rgba(27,58,107,.1);
+    background: rgba(196,148,58,.1);
     border-radius: var(--radius-xl);
     display: flex;
     align-items: center;
@@ -234,7 +234,7 @@ ar_output_schema([
     line-height: 1.4;
     transition: background var(--transition-fast), color var(--transition-fast);
 }
-.sp-toc__link:hover { background: rgba(27,58,107,.05); color: var(--color-accent); text-decoration: none; }
+.sp-toc__link:hover { background: rgba(196,148,58,.05); color: var(--color-accent); text-decoration: none; }
 .sp-toc__link--h3 { padding-left: 1.5rem; font-size: .75rem; }
 .sp-toc__num { font-size: .6875rem; font-weight: 700; color: var(--color-accent); opacity: .6; min-width: 1rem; }
 
@@ -313,11 +313,11 @@ ar_output_schema([
     justify-content: center;
 }
 .sp-content strong { font-weight: 700; color: var(--color-text-body); }
-.sp-content a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(27,58,107,.3); }
+.sp-content a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(196,148,58,.3); }
 .sp-content a:hover { text-decoration-color: var(--color-accent); }
 .sp-content blockquote {
     border-left: 4px solid var(--color-accent);
-    background: rgba(27,58,107,.04);
+    background: rgba(196,148,58,.04);
     padding: 1.25rem 1.5rem;
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
     margin: 1.75rem 0;
@@ -365,7 +365,7 @@ ar_output_schema([
     text-decoration: none;
     transition: all var(--transition-fast);
 }
-.sp-tag:hover { background: rgba(27,58,107,.08); border-color: rgba(27,58,107,.2); color: var(--color-accent); }
+.sp-tag:hover { background: rgba(196,148,58,.08); border-color: rgba(196,148,58,.2); color: var(--color-accent); }
 
 /* ── Related posts ── */
 .sp-related {
@@ -401,7 +401,7 @@ ar_output_schema([
     transition: box-shadow var(--transition-base), border-color var(--transition-base);
     display: block;
 }
-.sp-related-card:hover { box-shadow: var(--shadow-md); border-color: rgba(27,58,107,.2); text-decoration: none; }
+.sp-related-card:hover { box-shadow: var(--shadow-md); border-color: rgba(196,148,58,.2); text-decoration: none; }
 .sp-related-card__img {
     aspect-ratio: 16/9;
     background: var(--color-bg-section);
@@ -507,7 +507,7 @@ ar_output_schema([
     transition: background var(--transition-fast);
 }
 .sp-sb-cat:hover { background: var(--color-bg-light); text-decoration: none; }
-.sp-sb-cat.current { background: rgba(27,58,107,.05); }
+.sp-sb-cat.current { background: rgba(196,148,58,.05); }
 .sp-sb-cat__name { font-size: .875rem; color: var(--color-text-body); font-weight: 500; display: flex; align-items: center; gap: .5rem; }
 .sp-sb-cat.current .sp-sb-cat__name { color: var(--color-accent); }
 .sp-sb-cat__dot { width: 6px; height: 6px; background: var(--color-border-dark); border-radius: 50%; }
@@ -637,7 +637,7 @@ ar_output_schema([
                         <?php the_post_thumbnail('large', ['alt' => esc_attr($feat_img_alt), 'itemprop' => 'image']); ?>
                     <?php else: ?>
                         <div class="sp-feat-img-placeholder">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 20H5a2 2 0 01-2-2V8a2 2 0 012-2h14a2 2 0 012 2v4M15 17h6m-3-3v6" stroke="#1B3A6B" stroke-width="2" stroke-linecap="round"/></svg>
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 20H5a2 2 0 01-2-2V8a2 2 0 012-2h14a2 2 0 012 2v4M15 17h6m-3-3v6" stroke="#1A2B42" stroke-width="2" stroke-linecap="round"/></svg>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -834,7 +834,7 @@ ar_output_schema([
             tocLinks.forEach(function(l) { l.style.color = ''; l.style.background = ''; l.style.fontWeight = ''; });
             if (active) {
                 var al = document.querySelector('.sp-toc__link[href="#' + active.id + '"]');
-                if (al) { al.style.color = 'var(--color-accent)'; al.style.background = 'rgba(27,58,107,.06)'; al.style.fontWeight = '600'; }
+                if (al) { al.style.color = 'var(--color-accent)'; al.style.background = 'rgba(196,148,58,.06)'; al.style.fontWeight = '600'; }
             }
         }
         window.addEventListener('scroll', hlToc, { passive: true });

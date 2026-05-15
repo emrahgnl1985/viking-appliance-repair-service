@@ -33,7 +33,7 @@
   border-color: var(--color-accent-dark);
   color: var(--color-white);
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(27,58,107,0.22);
+  box-shadow: 0 4px 14px rgba(196,148,58,0.28);
 }
 
 .btn--accent {
@@ -46,7 +46,7 @@
   border-color: var(--color-accent-dark);
   color: var(--color-white);
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(27,58,107,0.22);
+  box-shadow: 0 4px 14px rgba(196,148,58,0.28);
 }
 
 .btn--outline-white {
@@ -418,8 +418,13 @@
   overflow: hidden;
 }
 
-.hero--service { background-color: var(--color-primary-dark); }
-.hero--location { background-color: var(--color-primary); }
+.hero--service  { background-color: var(--color-primary-dark); }
+.hero--location {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, #2A3F5C 100%);
+  min-height: 420px;
+  padding-top: calc(72px + var(--space-14));
+  padding-bottom: var(--space-14);
+}
 .hero--error-code {
   background-color: var(--color-bg-light);
   min-height: 360px;
@@ -460,9 +465,9 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  background-color: rgba(27,58,107,0.18);
-  border: 1px solid rgba(27,58,107,0.35);
-  color: #FFB39A;
+  background-color: rgba(196,148,58,0.14);
+  border: 1px solid rgba(196,148,58,0.40);
+  color: #D4B46A;
   font-size: var(--text-sm);
   font-weight: var(--weight-semibold);
   padding: var(--space-1) var(--space-3);
@@ -787,7 +792,7 @@
 
 .faq-item.open {
   border-color: var(--color-accent);
-  box-shadow: 0 4px 20px rgba(27,58,107,.1);
+  box-shadow: 0 4px 20px rgba(196,148,58,.14);
 }
 
 .faq-item.open::before {
@@ -955,7 +960,7 @@
 .form-textarea:focus {
   border-color: var(--color-accent);
   background-color: rgba(255,255,255,0.14);
-  box-shadow: 0 0 0 3px rgba(27,58,107,0.25);
+  box-shadow: 0 0 0 3px rgba(196,148,58,0.25);
 }
 
 .form-select {
@@ -1071,9 +1076,9 @@
 .disclaimer--prominent {
   background-color: #fff8f8;
   border-left: 5px solid var(--color-accent);
-  border-top: 1px solid rgba(27,58,107,.15);
-  border-right: 1px solid rgba(27,58,107,.15);
-  border-bottom: 1px solid rgba(27,58,107,.15);
+  border-top: 1px solid rgba(196,148,58,.18);
+  border-right: 1px solid rgba(196,148,58,.18);
+  border-bottom: 1px solid rgba(196,148,58,.18);
   border-radius: var(--radius-md);
   padding: 20px 28px;
   margin: var(--space-10) 0 var(--space-6);

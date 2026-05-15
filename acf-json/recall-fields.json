@@ -1,4 +1,4 @@
-﻿{
+{
   "key": "group_recall_fields",
   "title": "Recall Fields",
   "fields": [
@@ -9,28 +9,37 @@
       "type": "select",
       "choices": {
         "Viking": "Viking"
-      }
+      },
+      "default_value": "Viking"
+    },
+    {
+      "key": "field_rc_hero_image",
+      "label": "Hero Image URL",
+      "name": "_ar_hero_image",
+      "type": "url",
+      "instructions": "Full URL to the recall hero image. If blank, a gradient background is used."
     },
     {
       "key": "field_rc_recall_date",
       "label": "Recall Date",
       "name": "_ar_recall_date",
-      "type": "date_picker"
+      "type": "date_picker",
+      "instructions": "Official recall announcement date from CPSC."
     },
     {
       "key": "field_rc_affected_models",
       "label": "Affected Models",
       "name": "_ar_affected_models",
       "type": "textarea",
-      "rows": 3,
-      "instructions": "One model per line"
+      "rows": 4,
+      "instructions": "One model number per line. Consumers will be directed to cpsc.gov to verify their specific model."
     },
     {
       "key": "field_rc_cpsc_url",
-      "label": "CPSC URL",
+      "label": "CPSC Recall URL",
       "name": "_ar_cpsc_url",
       "type": "url",
-      "instructions": "Link to official CPSC recall page"
+      "instructions": "Direct link to the official CPSC recall notice page."
     }
   ],
   "location": [

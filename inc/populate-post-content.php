@@ -6,7 +6,7 @@
  * - Content:          active voice, transition words, 300+ words
  *
  * Run via SSH on Hostinger:
- *   wp eval-file wp-content/themes/wp-appliancerepair-theme/inc/populate-post-content.php
+ *   wp eval-file wp-content/themes/viking-appliance-repair-service/inc/populate-post-content.php
  *
  * DELETE THIS FILE immediately after running.
  */
@@ -466,7 +466,7 @@ foreach ($posts as $post) {
     $html .= "In addition, we back every repair with a 30-day parts-and-labor warranty so you get complete peace of mind.</p>\n";
 
     $html .= "<h2>Why Choose Us for $brand $appliance Repair?</h2>\n";
-    $html .= "<p>First, we only employ factory-certified technicians who specialise in $brand appliances. ";
+    $html .= "<p>First, we only employ Viking-certified technicians who specialize in $brand appliances. ";
     $html .= "Furthermore, our vans carry a full stock of $brand OEM parts, so we fix most faults in a single visit. ";
     $html .= "As a result, you avoid waiting days for parts or multiple appointments. ";
     $html .= "Moreover, we offer upfront pricing — you approve the cost before we start, and the price never changes.</p>\n";
@@ -1376,8 +1376,8 @@ foreach ($pages as $page) {
 
         $html .= "<h2>Contact Us</h2>\n";
         $html .= "<p>If you have any questions about this privacy policy or how we handle your data, please contact us directly by email or phone. ";
-        $html .= "We noticed that people often expect to be passed around a call centre when raising a privacy question — that will not happen here. ";
-        $html .= "Your enquiry goes straight to our team, and we respond within one business day.</p>\n";
+        $html .= "We noticed that people often expect to be passed around a call center when raising a privacy question — that will not happen here. ";
+        $html .= "Your inquiry goes straight to our team, and we respond within one business day.</p>\n";
 
         $html .= "<ul>\n";
         $html .= "<li><a href=\"{$home}/schedule/\">Schedule a repair</a></li>\n";

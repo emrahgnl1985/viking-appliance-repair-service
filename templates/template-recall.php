@@ -10,7 +10,7 @@ $pid       = $post->ID;
 $brand     = ar_meta($pid, '_ar_brand', '');
 $hero_img  = ar_meta($pid, '_ar_hero_image', '');
 $phone     = ar_get_phone();
-$phone_raw = get_option('ar_phone_raw', '+18000000000');
+$phone_raw = ar_phone_link();
 $biz       = ar_get_business_name();
 $title     = get_the_title();
 $pub_date  = get_the_date('F j, Y');
@@ -35,7 +35,7 @@ ar_output_schema($_schema_data);
 <style>
 /* ── Recall Single — Scoped Styles ─────────────────────── */
 :root{
-  --rc-red:    #1B3A6B;
+  --rc-red:    #C4943A;
   --rc-dark:   #1a1a1a;
   --rc-warm:   #f8f6f3;
   --rc-alt:    #f2f0ed;
@@ -76,7 +76,7 @@ ar_output_schema($_schema_data);
 .rc-hero {
   /* background: url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/viking-kitchen-7series-hero.jpg'); ?>') no-repeat center center; */
   background-size: cover;
-  border-bottom: 1px solid var(--clr-border);
+  border-bottom: 1px solid var(--color-border);
   /* Optional: fallback color if image fails to load */
   background:  linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);;
   padding: 72px 0 56px;
@@ -91,7 +91,7 @@ ar_output_schema($_schema_data);
   pointer-events: none;
   z-index: 0;
   background: rgba(0,0,0,0.35); /* semi-transparent dark */
-  /* background: radial-gradient(ellipse 70% 60% at 65% 40%, rgba(27,58,107,.15) 0%, transparent 65%); */
+  /* background: radial-gradient(ellipse 70% 60% at 65% 40%, rgba(196,148,58,.15) 0%, transparent 65%); */
 }
 .rc-hero__inner {
    max-width: 780px;
@@ -102,9 +102,9 @@ ar_output_schema($_schema_data);
 }
 .rc-hero__alert-pill {
   display: inline-flex; align-items: center; gap: 7px;
-  background: rgba(27,58,107,.2);
-  border: 1px solid rgba(27,58,107,.35);
-  color: #fca5a5;
+  background: rgba(196,148,58,.2);
+  border: 1px solid rgba(196,148,58,.35);
+  color: #D4B46A;
   font-size: .72rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: .1em;
   padding: 5px 14px; border-radius: 20px;
@@ -177,7 +177,7 @@ ar_output_schema($_schema_data);
 /* Urgency / action steps */
 .rc-urgency {
   background: #fff1f2;
-  border: 1.5px solid rgba(27,58,107,.25);
+  border: 1.5px solid rgba(196,148,58,.25);
   border-radius: var(--rc-radius);
   padding: 24px 28px;
 }
@@ -234,7 +234,7 @@ ar_output_schema($_schema_data);
 }
 .rc-sb-cta::before {
   content:''; position:absolute; inset:0;
-  background: radial-gradient(ellipse 80% 80% at 50% 10%, rgba(27,58,107,.2) 0%, transparent 65%);
+  background: radial-gradient(ellipse 80% 80% at 50% 10%, rgba(196,148,58,.2) 0%, transparent 65%);
   pointer-events:none;
 }
 .rc-sb-cta__badge { font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--rc-red); margin-bottom:10px; }
@@ -259,7 +259,7 @@ ar_output_schema($_schema_data);
   transition: background .15s, border-color .15s; margin-bottom: 8px;
 }
 .rc-sb-link:last-child { margin-bottom: 0; }
-.rc-sb-link:hover { background: var(--rc-alt); border-color: rgba(27,58,107,.2); }
+.rc-sb-link:hover { background: var(--rc-alt); border-color: rgba(196,148,58,.2); }
 .rc-sb-link span { color: var(--rc-red); }
 
 /* Responsive */
@@ -300,7 +300,7 @@ ar_output_schema($_schema_data);
       <h1 class="rc-hero__h1" id="rc-h1"><?php echo esc_html($title); ?></h1>
       <p class="rc-hero__sub">Important safety information. Check if your appliance is affected and follow the recommended steps immediately.</p>
       <div class="rc-hero__btns">
-        <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="rc-btn--red">&#x1F4DE; <?php echo esc_html($phone); ?></a>
+        <a href="<?php echo esc_url($phone_raw); ?>" class="rc-btn--red">&#x1F4DE; <?php echo esc_html($phone); ?></a>
         <a href="https://www.cpsc.gov/Recalls" target="_blank" rel="noopener noreferrer" class="rc-btn--outline">CPSC Database ↗</a>
       </div>
       <div class="rc-hero__meta-row">
@@ -355,7 +355,7 @@ ar_output_schema($_schema_data);
             </li>
             <li class="rc-urgency__step">
               <span class="rc-urgency__step-num">4</span>
-              <div class="rc-urgency__step-text"><strong>Do not attempt to repair it yourself</strong> — recalls involve safety-critical components. Only manufacturer-authorised technicians should perform recall remediation work.</div>
+              <div class="rc-urgency__step-text"><strong>Do not attempt to repair it yourself</strong> — recalls involve safety-critical components. Only manufacturer-authorized technicians should perform recall remediation work.</div>
             </li>
           </ol>
         </div>
@@ -394,7 +394,7 @@ ar_output_schema($_schema_data);
             <p>Our Viking-certified technicians can inspect your appliance, document the condition, and perform any additional service required. We carry genuine Viking OEM parts and back every repair with a 30-day parts and labor warranty.</p>
           </div>
           <div style="margin-top:20px;">
-            <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="rc-btn--red">&#x1F4DE; <?php echo esc_html($phone); ?></a>
+            <a href="<?php echo esc_url($phone_raw); ?>" class="rc-btn--red">&#x1F4DE; <?php echo esc_html($phone); ?></a>
           </div>
         </div>
 
@@ -407,7 +407,7 @@ ar_output_schema($_schema_data);
           <div class="rc-sb-cta__badge">&#x26A0; Safety Recall</div>
           <div class="rc-sb-cta__title">Need Help With Your <?php echo esc_html($brand ?: 'Appliance'); ?>?</div>
           <div class="rc-sb-cta__sub">Our certified technicians can inspect your appliance and perform post-recall service. Same-day available.</div>
-          <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="rc-sb-cta__phone">&#x1F4DE; <?php echo esc_html($phone); ?></a>
+          <a href="<?php echo esc_url($phone_raw); ?>" class="rc-sb-cta__phone">&#x1F4DE; <?php echo esc_html($phone); ?></a>
           <a href="/schedule/" class="rc-sb-cta__book">Schedule online →</a>
         </div>
 

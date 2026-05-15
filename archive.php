@@ -56,7 +56,7 @@ get_header();
 ================================================ */
 
 .ba-hero {
-    background: #1B3A6B;
+    background: #1A2B42;
     padding: 3.5rem 0 0;
     position: relative;
     overflow: hidden;
@@ -65,7 +65,7 @@ get_header();
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 55% 60% at 90% 0%, rgba(27,58,107,.18) 0%, transparent 65%);
+    background: radial-gradient(ellipse 55% 60% at 90% 0%, rgba(196,148,58,.18) 0%, transparent 65%);
     pointer-events: none;
 }
 
@@ -89,9 +89,9 @@ get_header();
     display: inline-flex;
     align-items: center;
     gap: .4rem;
-    background: rgba(27,58,107,.2);
-    border: 1px solid rgba(27,58,107,.35);
-    color: #fca5a5;
+    background: rgba(196,148,58,.2);
+    border: 1px solid rgba(196,148,58,.35);
+    color: #D4B46A;
     font-size: .6875rem;
     font-weight: 700;
     letter-spacing: .08em;
@@ -208,7 +208,7 @@ get_header();
     text-decoration: none;
     transition: box-shadow var(--transition-base), border-color var(--transition-base), transform var(--transition-base);
 }
-.ba-card:hover { box-shadow: var(--shadow-lg); border-color: rgba(27,58,107,.2); transform: translateY(-2px); text-decoration: none; }
+.ba-card:hover { box-shadow: var(--shadow-lg); border-color: rgba(196,148,58,.2); transform: translateY(-2px); text-decoration: none; }
 .ba-card__img {
     aspect-ratio: 16/9;
     width: 100%;
@@ -273,7 +273,7 @@ get_header();
 .ba-cat-list { display: flex; flex-direction: column; gap: .125rem; }
 .ba-cat-list__link { display: flex; align-items: center; justify-content: space-between; padding: .5625rem .625rem; border-radius: var(--radius-md); text-decoration: none; transition: background var(--transition-fast); }
 .ba-cat-list__link:hover { background: var(--color-bg-light); text-decoration: none; }
-.ba-cat-list__link.current { background: rgba(27,58,107,.05); }
+.ba-cat-list__link.current { background: rgba(196,148,58,.05); }
 .ba-cat-list__name { font-size: .875rem; color: var(--color-text-body); font-weight: 500; display: flex; align-items: center; gap: .5rem; }
 .ba-cat-list__link.current .ba-cat-list__name { color: var(--color-accent); }
 .ba-cat-list__dot { width: 6px; height: 6px; background: var(--color-border-dark); border-radius: 50%; }
@@ -410,7 +410,7 @@ get_header();
                 <?php else: ?>
                 <div class="ba-empty">
                     <div class="ba-empty__icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 20H5a2 2 0 01-2-2V8a2 2 0 012-2h14a2 2 0 012 2v4M15 17h6m-3-3v6" stroke="#1B3A6B" stroke-width="2" stroke-linecap="round"/></svg>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 20H5a2 2 0 01-2-2V8a2 2 0 012-2h14a2 2 0 012 2v4M15 17h6m-3-3v6" stroke="#1A2B42" stroke-width="2" stroke-linecap="round"/></svg>
                     </div>
                     <h2 class="ba-empty__title">No articles yet</h2>
                     <p class="ba-empty__text">Check back soon, or <a href="<?php echo esc_url(home_url('/blog/')); ?>">browse all articles</a>.</p>

@@ -39,7 +39,7 @@ get_header();
 }
 .sch-hero__eyebrow {
     display: inline-block;
-    background: var(--color-accent, #1B3A6B);
+    background: var(--color-accent, #C4943A);
     color: #fff;
     font-size: .75rem;
     font-weight: 700;
@@ -100,7 +100,7 @@ get_header();
     overflow: hidden;
 }
 .sch-form-card__header {
-    background: var(--color-accent, #1B3A6B);
+    background: var(--color-accent, #C4943A);
     padding: 24px 32px;
     color: #fff;
 }
@@ -141,7 +141,7 @@ get_header();
     color: var(--color-dark, #1a1a1a);
     margin: 0 0 16px;
     padding-bottom: 12px;
-    border-bottom: 2px solid var(--color-accent, #1B3A6B);
+    border-bottom: 2px solid var(--color-accent, #C4943A);
 }
 
 /* Phone card */
@@ -149,7 +149,7 @@ get_header();
     display: flex;
     align-items: center;
     gap: 12px;
-    background: var(--color-accent, #1B3A6B);
+    background: var(--color-accent, #C4943A);
     color: #fff;
     text-decoration: none;
     border-radius: 8px;
@@ -165,7 +165,7 @@ get_header();
     display: flex;
     align-items: center;
     gap: 10px;
-    color: var(--color-accent, #1B3A6B);
+    color: var(--color-accent, #C4943A);
     text-decoration: none;
     font-size: .9375rem;
     font-weight: 600;
@@ -186,7 +186,7 @@ get_header();
     width: 30px;
     height: 30px;
     min-width: 30px;
-    background: var(--color-accent, #1B3A6B);
+    background: var(--color-accent, #C4943A);
     color: #fff;
     border-radius: 50%;
     display: flex;
@@ -218,7 +218,7 @@ get_header();
     color: #444;
     line-height: 1.5;
 }
-.sch-prep-list li svg { color: var(--color-accent, #1B3A6B); flex-shrink: 0; margin-top: 2px; }
+.sch-prep-list li svg { color: var(--color-accent, #C4943A); flex-shrink: 0; margin-top: 2px; }
 
 /* Service areas card */
 .sch-cities {
@@ -283,7 +283,7 @@ get_header();
 .sch-expect__step-num {
     width: 56px;
     height: 56px;
-    background: var(--color-accent, #1B3A6B);
+    background: var(--color-accent, #C4943A);
     color: #fff;
     border-radius: 50%;
     display: flex;
@@ -293,7 +293,7 @@ get_header();
     font-weight: 800;
     margin: 0 auto 16px;
     border: 4px solid #fff;
-    box-shadow: 0 0 0 2px var(--color-accent, #1B3A6B);
+    box-shadow: 0 0 0 2px var(--color-accent, #C4943A);
 }
 .sch-expect__step h3 {
     font-size: .9375rem;
@@ -376,7 +376,7 @@ get_header();
                 <!-- Contact card -->
                 <div class="sch-sidebar-card">
                     <p class="sch-sidebar-card__title">Need Help Booking?</p>
-                    <a href="tel:<?php echo esc_attr($phone_raw); ?>" class="sch-phone-link">
+                    <a href="<?php echo esc_url($phone_raw); ?>" class="sch-phone-link">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
                         <?php echo esc_html($phone); ?>
                     </a>
@@ -498,8 +498,8 @@ $faqs = [
      'answer'   => 'In most service areas we offer same-day appointments for requests received before noon, and next-day appointments for all other requests. We provide a 2-hour arrival window so you are not waiting all day.'],
     ['question' => 'What Viking appliances do you service?',
      'answer'   => 'We specialize exclusively in Viking appliances: ranges, cooktops, refrigerators, dishwashers, wall ovens, wine coolers, freezers, and vent hoods — all Viking models and series covered.'],
-    ['question' => 'What appliances do you repair?',
-     'answer'   => 'We repair Viking ranges, cooktops, refrigerators, dishwashers, wall ovens, wine coolers, freezers, and vent hoods — both freestanding and built-in Viking models.'],
+    ['question' => 'Do you use genuine Viking OEM parts?',
+     'answer'   => 'Yes — we use only genuine Viking OEM replacement parts on every repair. We do not use aftermarket or generic substitutes. Genuine OEM parts ensure factory performance, compatibility, and compliance with any remaining manufacturer warranty terms.'],
     ['question' => 'How much does a repair cost?',
      'answer'   => 'Most common repairs range from $150 to $400 including parts and labor. You receive a firm written quote after diagnosis — the price you approve is the price you pay.'],
     ['question' => 'Is there a diagnostic fee?',

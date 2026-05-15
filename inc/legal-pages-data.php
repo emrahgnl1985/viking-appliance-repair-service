@@ -4,7 +4,7 @@
  * Creates Privacy Policy, Terms of Use, and Mobile Terms of Use pages.
  *
  * USAGE (from WordPress root):
- *   wp eval-file wp-content/themes/wp-appliancerepair-theme/inc/legal-pages-data.php
+ *   wp eval-file wp-content/themes/viking-appliance-repair-service/inc/legal-pages-data.php
  */
 
 defined( 'ABSPATH' ) || die( 'Run via WP-CLI only.' );
@@ -97,7 +97,7 @@ $legal_pages = [
 <li><strong>Email:</strong> privacy@{$site_name}</li>
 <li><strong>Mail:</strong> Privacy Officer, {$site_name}, United States</li>
 </ul>
-<p>Our team reviews all privacy enquiries within 2 business days. If you believe we have not handled your data correctly, you may contact us through the options below:</p>
+<p>Our team reviews all privacy inquiries within 2 business days. If you believe we have not handled your data correctly, you may contact us through the options below:</p>
 <ul>
 <li><a href="/schedule/">Schedule a repair</a></li>
 <li><a href="/terms-of-use/">Read our terms of use</a></li>
@@ -117,7 +117,7 @@ HTML,
 <p>These <strong>terms of use</strong> govern your use of {$site_name}'s appliance repair services and website. Specifically, by booking a repair or using our website, you agree to these terms. Furthermore, we update these terms from time to time, so we recommend reviewing this page before every booking. As a result, you will always have current information about your rights and our responsibilities.</p>
 
 <h3>1. Services</h3>
-<p>{$site_name} provides in-home Viking appliance repair services for residential customers. Our technicians are trained and certified to repair Viking appliances including ranges, refrigerators, dishwashers, cooktops, wall ovens, wine coolers, and freezers. We specialize exclusively in Viking brand appliances.</p>
+<p>{$site_name} provides in-home Viking appliance repair services for residential customers. Our technicians are trained and certified to repair Viking appliances including ranges, refrigerators, dishwashers, cooktops, wall ovens, wine coolers, freezers, and vent hoods. We specialize exclusively in Viking brand appliances.</p>
 
 <h3>2. Appointments and Scheduling</h3>
 <ul>

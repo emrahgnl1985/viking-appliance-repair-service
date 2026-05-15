@@ -19,35 +19,25 @@
     },
     {
       "key": "field_lp_state_full",
-      "label": "State Full",
+      "label": "State Full Name",
       "name": "_ar_state_full",
       "type": "text",
       "instructions": "e.g. Illinois, California"
     },
     {
-      "key": "field_lp_hero_headline",
-      "label": "Hero H1",
-      "name": "_ar_hero_headline",
-      "type": "text"
-    },
-    {
-      "key": "field_lp_hero_sub",
-      "label": "Hero Sub",
-      "name": "_ar_hero_sub",
+      "key": "field_lp_hero_subtitle",
+      "label": "Hero Subtitle",
+      "name": "_ar_hero_subtitle",
       "type": "textarea",
-      "rows": 2
+      "rows": 2,
+      "instructions": "Short subtitle displayed below the H1 in the hero section."
     },
     {
-      "key": "field_lp_intro_p1",
-      "label": "Intro Paragraph 1",
-      "name": "_ar_intro_p1",
-      "type": "wysiwyg"
-    },
-    {
-      "key": "field_lp_intro_p2",
-      "label": "Intro Paragraph 2",
-      "name": "_ar_intro_p2",
-      "type": "wysiwyg"
+      "key": "field_lp_body_intro",
+      "label": "Body Intro Copy",
+      "name": "_ar_body_intro",
+      "type": "wysiwyg",
+      "instructions": "2–3 paragraphs describing service coverage in this city. Leave blank to use auto-generated copy."
     },
     {
       "key": "field_lp_zip_codes",
@@ -59,48 +49,19 @@
     },
     {
       "key": "field_lp_neighborhoods",
-      "label": "Neighborhoods / Suburbs",
+      "label": "Neighborhoods / Suburbs (comma-separated)",
       "name": "_ar_neighborhoods",
-      "type": "repeater",
-      "layout": "table",
-      "sub_fields": [
-        {
-          "key": "field_lp_nb_name",
-          "label": "Name",
-          "name": "name",
-          "type": "text"
-        }
-      ]
+      "type": "textarea",
+      "rows": 3,
+      "instructions": "Comma-separated list of neighborhood names, e.g. Lincoln Park, Wicker Park, Hyde Park"
     },
     {
-      "key": "field_lp_reviews",
-      "label": "Customer Reviews",
-      "name": "_ar_reviews",
-      "type": "repeater",
-      "instructions": "Leave empty to use auto-generated example reviews.",
-      "layout": "block",
-      "sub_fields": [
-        {
-          "key": "field_lp_rv_name",
-          "label": "Name",
-          "name": "name",
-          "type": "text"
-        },
-        {
-          "key": "field_lp_rv_location",
-          "label": "Location",
-          "name": "location",
-          "type": "text",
-          "instructions": "e.g. Lincoln Park"
-        },
-        {
-          "key": "field_lp_rv_text",
-          "label": "Review",
-          "name": "text",
-          "type": "textarea",
-          "rows": 3
-        }
-      ]
+      "key": "field_lp_suburbs",
+      "label": "Suburbs (comma-separated)",
+      "name": "_ar_suburbs",
+      "type": "textarea",
+      "rows": 3,
+      "instructions": "Comma-separated list of suburb names, e.g. Naperville, Evanston, Oak Park"
     },
     {
       "key": "field_lp_faqs",
@@ -112,13 +73,13 @@
         {
           "key": "field_lp_faq_q",
           "label": "Question",
-          "name": "q",
+          "name": "question",
           "type": "text"
         },
         {
           "key": "field_lp_faq_a",
           "label": "Answer",
-          "name": "a",
+          "name": "answer",
           "type": "textarea",
           "rows": 3
         }
