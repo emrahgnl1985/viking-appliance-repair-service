@@ -1,8 +1,8 @@
-﻿<?php
+<?php
 /**
  * Archive: Error Codes
  * URL: /error-codes/
- * Design: matches vikingappliancerepairservice.com/error-codes/
+ * Design: OBSIDIAN — off-white hero, Cormorant headings, accordion sections, flat table rows
  */
 defined('ABSPATH') || exit;
 
@@ -64,1097 +64,930 @@ get_header();
 ?>
 
 <style>
-/* ── Error Code Archive — Scoped Styles ─────────────────── */
-:root {
-  --ec-red:    #C4943A;
-  --ec-dark:   #1a1a1a;
-  --ec-warm:   #f8f6f3;
-  --ec-alt:    #f2f0ed;
-  --ec-white:  #ffffff;
-  --ec-border: #e5e0da;
-  --ec-text:   #2c2c2c;
-  --ec-muted:  #6b6560;
-  --ec-radius: 10px;
-  --ec-shadow: 0 2px 12px rgba(0,0,0,.07);
-  --ec-shadow-md: 0 4px 20px rgba(0,0,0,.10);
-}
+/* ── Error Code Archive — OBSIDIAN Design ──────────────── */
 
-/* ── Hero ─────────────────────────────────────────────── */
+/* ph-split hero panel */
+.ph-split { display: grid; grid-template-columns: 1fr 42%; min-height: 460px; }
+.ph-split__text { display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 3.5rem; }
+.ph-split__img { position: relative; overflow: hidden; }
+.ph-split__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.ph-split__img::before { content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 2px; background: #C01C28; z-index: 1; }
+@media (max-width: 900px) { .ph-split { display: block; } .ph-split__img { height: 280px; position: relative; } .ph-split__img img { position: absolute; } .ph-split__img::before { display: none; } }
+
+/* Hero */
 .ec-hero {
-  background:
-    url('<?php echo esc_url(get_template_directory_uri() . '/assets/images/viking-kitchen-7series-hero.jpg'); ?>') no-repeat center center / cover;
-  background-color: #0D1B2A;
-  padding: 72px 0 56px;
-  position: relative;
-  overflow: hidden;
+    background: var(--color-bg-light, #F7F6F3);
+    padding-bottom: 0;
+    border-bottom: 1px solid var(--color-rule, #D9D8D3);
 }
-.ec-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(13,27,42,.55) 0%, rgba(13,27,42,.25) 60%, rgba(13,27,42,.05) 100%);
-  pointer-events: none;
-  z-index: 0;
-}
-.ec-hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
-}
-.ec-hero__inner {
-  max-width: 780px;
-  position: relative;
-  z-index: 1;
-}
+.ec-hero__inner { max-width: 860px; }
 .ec-hero__eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: .75rem;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: #C4943A;
-  margin-bottom: 16px;
-  background: rgba(255,255,255,.92);
-  padding: 5px 14px 5px 10px;
-  border-radius: 4px;
-  text-shadow: none;
-}
-.ec-hero__eyebrow::before {
-  content: '';
-  display: block;
-  width: 16px;
-  height: 2px;
-  background: #C4943A;
+    display: inline-block;
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    font-size: .6875rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--color-primary, #C01C28);
+    margin-bottom: 1.25rem;
 }
 .ec-hero__title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
-  color: #fff;
-  line-height: 1.15;
-  margin: 0 0 16px;
-  text-shadow: 0 2px 16px rgba(0,0,0,.8), 0 1px 4px rgba(0,0,0,.7);
+    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    color: var(--color-primary-dark, #0D0D0D);
+    line-height: 1.1;
+    letter-spacing: -.02em;
+    margin: 0 0 1.25rem;
 }
-.ec-hero__title em {
-  font-style: normal;
-  color: #C4943A;
-}
+.ec-hero__title em { font-style: italic; }
 .ec-hero__subtitle {
-  font-size: 1.0625rem;
-  color: #fff;
-  line-height: 1.65;
-  margin: 0 0 32px;
-  max-width: 640px;
-  text-shadow: 0 1px 10px rgba(0,0,0,.75), 0 1px 3px rgba(0,0,0,.6);
-  font-weight: 500;
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    font-size: 1.0625rem;
+    color: var(--color-text-muted, #717170);
+    line-height: 1.7;
+    margin: 0 0 2.5rem;
+    max-width: 640px;
 }
+
+/* Hero search */
 .ec-hero__search {
-  display: flex;
-  align-items: center;
-  max-width: 560px;
-  background: rgba(255,255,255,.08);
-  border: 1.5px solid rgba(255,255,255,.2);
-  border-radius: 50px;
-  padding: 6px 6px 6px 20px;
-  gap: 8px;
-  transition: border-color .2s, background .2s;
-  backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    max-width: 540px;
+    border: 1px solid var(--color-rule, #D9D8D3);
+    background: #ffffff;
+    padding: 0;
+    gap: 0;
 }
-.ec-hero__search:focus-within {
-  background: rgba(255,255,255,.12);
-  border-color: rgba(255,255,255,.4);
+.ec-hero__search svg {
+    margin: 0 .875rem;
+    color: var(--color-text-muted, #717170);
+    flex-shrink: 0;
 }
-.ec-hero__search svg { color: rgba(255,255,255,.5); flex-shrink: 0; }
 .ec-hero__search input {
-  flex: 1;
-  background: none;
-  border: none;
-  outline: none;
-  color: #fff;
-  font-size: .9375rem;
-  font-family: inherit;
+    flex: 1;
+    border: none;
+    outline: none;
+    color: var(--color-primary-dark, #0D0D0D);
+    font-size: .9375rem;
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    padding: .875rem 0;
+    background: transparent;
 }
-.ec-hero__search input::placeholder { color: rgba(255,255,255,.4); }
+.ec-hero__search input::placeholder { color: var(--color-text-muted, #717170); }
 .ec-hero__search button {
-  background: #C4943A;
-  color: #fff;
-  border: none;
-  border-radius: 50px;
-  padding: 10px 22px;
-  font-size: .875rem;
-  font-weight: 700;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background .2s, box-shadow .2s;
+    background: var(--color-primary-dark, #0D0D0D);
+    color: #fff;
+    border: none;
+    padding: .875rem 1.5rem;
+    font-size: .8125rem;
+    font-weight: 700;
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .2s;
+    flex-shrink: 0;
 }
-.ec-hero__search button:hover { background: #9E7428; box-shadow: 0 4px 16px rgba(196,148,58,.4); }
+.ec-hero__search button:hover { background: var(--color-primary, #C01C28); }
+
+/* Hero stats */
 .ec-hero__stats {
-  display: flex;
-  gap: 32px;
-  margin-top: 40px;
-  padding-top: 32px;
-  border-top: 1px solid rgba(255,255,255,.1);
+    display: flex;
+    gap: 3rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-rule, #D9D8D3);
+    flex-wrap: wrap;
 }
 .ec-stat__num {
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: #fff;
-  line-height: 1;
+    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--color-primary-dark, #0D0D0D);
+    line-height: 1;
+    display: block;
 }
 .ec-stat__label {
-  font-size: .78rem;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: .07em;
-  margin-top: 4px;
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    font-size: .6875rem;
+    font-weight: 700;
+    color: var(--color-text-muted, #717170);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin-top: .375rem;
 }
 
-/* ── Browse by Appliance ──────────────────────────────── */
-.ec-browse {
-  padding: 72px 0 56px;
-  background: var(--ec-warm);
+/* Appliance sections */
+.ec-sections {
+    padding: 4rem 0 5rem;
+    background: var(--color-bg-light, #F7F6F3);
+    border-bottom: 1px solid var(--color-rule, #D9D8D3);
 }
-.ec-browse__head {
-  margin-bottom: 40px;
+.ec-sections__head {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-rule, #D9D8D3);
 }
-.ec-browse__eyebrow {
-  font-size: .72rem;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--ec-red);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
+.ec-sections__eyebrow {
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    font-size: .6875rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--color-primary, #C01C28);
+    margin-bottom: .875rem;
 }
-.ec-browse__eyebrow::before {
-  content: '';
-  width: 20px;
-  height: 2px;
-  background: var(--ec-red);
+.ec-sections__title {
+    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 300;
+    color: var(--color-primary-dark, #0D0D0D);
+    margin: 0 0 .5rem;
+    letter-spacing: -.01em;
 }
-.ec-browse__title {
-  font-size: 1.875rem;
-  font-weight: 800;
-  color: var(--ec-dark);
-  margin: 0 0 8px;
-}
-.ec-browse__sub {
-  font-size: .9375rem;
-  color: var(--ec-muted);
-}
-.ec-ap-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
-}
-.ec-ap-card {
-  background: var(--ec-white);
-  border: 1px solid var(--ec-border);
-  border-radius: var(--ec-radius);
-  padding: 24px 20px 20px;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  transition: transform .2s, box-shadow .2s, border-color .2s;
-  position: relative;
-  overflow: hidden;
-}
-.ec-ap-card::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 3px;
-  background: var(--ec-red);
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform .25s;
-}
-.ec-ap-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--ec-shadow-md);
-  border-color: rgba(196,148,58,.2);
-}
-.ec-ap-card:hover::before { transform: scaleY(1); }
-.ec-ap-card__icon {
-  width: 40px;
-  height: 40px;
-  background: rgba(196,148,58,.08);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--ec-red);
-}
-.ec-ap-card__icon svg { width: 22px; height: 22px; }
-.ec-ap-card__name {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ec-dark);
-}
-.ec-ap-card__count {
-  font-size: .8rem;
-  color: var(--ec-muted);
-}
-.ec-ap-card__arrow {
-  font-size: .8rem;
-  color: var(--ec-red);
-  font-weight: 600;
-  margin-top: auto;
+.ec-sections__sub {
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    font-size: .9375rem;
+    color: var(--color-text-muted, #717170);
+    max-width: 560px;
+    margin: 0;
+    line-height: 1.65;
 }
 
-/* ── Directory ────────────────────────────────────────── */
+/* Accordion panels */
+.ec-ap-section {
+    background: #ffffff;
+    border: 1px solid var(--color-rule, #D9D8D3);
+    margin-bottom: .5rem;
+    scroll-margin-top: 80px;
+}
+.ec-ap-section.is-open { border-color: var(--color-primary-dark, #0D0D0D); }
+.ec-ap-section__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.375rem 1.5rem;
+    cursor: pointer;
+    user-select: none;
+    transition: background .15s;
+}
+.ec-ap-section__header:hover { background: var(--color-bg-light, #F7F6F3); }
+.ec-ap-section__icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--color-rule, #D9D8D3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted, #717170);
+    flex-shrink: 0;
+}
+.ec-ap-section.is-open .ec-ap-section__icon {
+    border-color: var(--color-primary, #C01C28);
+    color: var(--color-primary, #C01C28);
+}
+.ec-ap-section__icon svg { width: 20px; height: 20px; }
+.ec-ap-section__meta { flex: 1; }
+.ec-ap-section__title {
+    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-size: 1.375rem;
+    font-weight: 400;
+    color: var(--color-primary-dark, #0D0D0D);
+    margin: 0;
+    letter-spacing: -.01em;
+}
+.ec-ap-section__count {
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    font-size: .75rem;
+    color: var(--color-text-muted, #717170);
+    margin: .125rem 0 0;
+}
+.ec-ap-section__toggle {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: var(--color-text-muted, #717170);
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+.ec-toggle-icon { width: 16px; height: 16px; transition: transform .25s; }
+.ec-ap-section.is-open .ec-toggle-icon { transform: rotate(180deg); }
+.ec-ap-section__desc {
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    font-size: .875rem;
+    color: var(--color-text-muted, #717170);
+    line-height: 1.7;
+    padding: 0 1.5rem 1.25rem;
+    margin: 0;
+    border-bottom: 1px solid var(--color-rule, #D9D8D3);
+    display: none;
+}
+.ec-ap-section.is-open .ec-ap-section__desc { display: block; }
+.ec-ap-section__body { display: none; overflow-x: auto; }
+.ec-ap-section.is-open .ec-ap-section__body { display: block; }
+
+/* Directory section */
 .ec-dir {
-  padding: 72px 0 80px;
-  background: var(--ec-white);
+    padding: 4rem 0 5rem;
+    background: #ffffff;
 }
 .ec-dir__head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 32px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-rule, #D9D8D3);
 }
 .ec-dir__title {
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: var(--ec-dark);
-  margin: 0;
+    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 300;
+    color: var(--color-primary-dark, #0D0D0D);
+    margin: 0;
+    letter-spacing: -.01em;
 }
 .ec-dir__count {
-  font-size: .875rem;
-  color: var(--ec-muted);
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    font-size: .8125rem;
+    color: var(--color-text-muted, #717170);
 }
 
 /* Filter bar */
 .ec-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 24px;
-  align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
 }
 .ec-filter-input {
-  flex: 1;
-  min-width: 200px;
-  padding: 10px 16px;
-  border: 1.5px solid var(--ec-border);
-  border-radius: 50px;
-  font-size: .875rem;
-  font-family: inherit;
-  color: var(--ec-text);
-  background: var(--ec-warm);
-  outline: none;
-  transition: border-color .2s;
+    flex: 1;
+    min-width: 200px;
+    padding: .6875rem 1rem;
+    border: 1px solid var(--color-rule, #D9D8D3);
+    border-radius: 0;
+    font-size: .875rem;
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    color: var(--color-primary-dark, #0D0D0D);
+    background: var(--color-bg-light, #F7F6F3);
+    outline: none;
+    transition: border-color .2s;
 }
-.ec-filter-input:focus { border-color: var(--ec-red); background: #fff; }
+.ec-filter-input:focus { border-color: var(--color-primary-dark, #0D0D0D); background: #fff; }
 .ec-filter-select {
-  padding: 10px 36px 10px 14px;
-  border: 1.5px solid var(--ec-border);
-  border-radius: 50px;
-  font-size: .875rem;
-  font-family: inherit;
-  color: var(--ec-text);
-  background: var(--ec-warm) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b6560' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 12px center;
-  -webkit-appearance: none;
-  cursor: pointer;
-  outline: none;
-  transition: border-color .2s;
+    padding: .6875rem 2.25rem .6875rem .875rem;
+    border: 1px solid var(--color-rule, #D9D8D3);
+    border-radius: 0;
+    font-size: .875rem;
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    color: var(--color-primary-dark, #0D0D0D);
+    background: var(--color-bg-light, #F7F6F3) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23717170' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 10px center;
+    -webkit-appearance: none;
+    cursor: pointer;
+    outline: none;
+    transition: border-color .2s;
 }
-.ec-filter-select:focus { border-color: var(--ec-red); background-color: #fff; }
+.ec-filter-select:focus { border-color: var(--color-primary-dark, #0D0D0D); background-color: #fff; }
 .ec-filter-clear {
-  font-size: .8125rem;
-  color: var(--ec-muted);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px 8px;
-  text-decoration: underline;
-  transition: color .15s;
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    font-size: .75rem;
+    color: var(--color-text-muted, #717170);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: .25rem .5rem;
+    text-decoration: underline;
+    transition: color .15s;
 }
-.ec-filter-clear:hover { color: var(--ec-red); }
+.ec-filter-clear:hover { color: var(--color-primary, #C01C28); }
 
 /* Table */
 .ec-table-wrap {
-  overflow-x: auto;
-  border: 1px solid var(--ec-border);
-  border-radius: var(--ec-radius);
+    overflow-x: auto;
+    border: 1px solid var(--color-rule, #D9D8D3);
 }
 .ec-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: .9rem;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .875rem;
 }
 .ec-table thead th {
-  background: var(--ec-warm);
-  color: var(--ec-muted);
-  font-size: .72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .07em;
-  padding: 12px 16px;
-  text-align: left;
-  border-bottom: 1px solid var(--ec-border);
-  white-space: nowrap;
+    background: var(--color-bg-light, #F7F6F3);
+    color: var(--color-text-muted, #717170);
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    font-size: .6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    padding: .875rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-rule, #D9D8D3);
+    white-space: nowrap;
 }
 .ec-table tbody tr {
-  border-bottom: 1px solid var(--ec-border);
-  transition: background .15s;
+    border-bottom: 1px solid var(--color-rule, #D9D8D3);
+    transition: background .12s;
 }
 .ec-table tbody tr:last-child { border-bottom: none; }
-.ec-table tbody tr:hover { background: #faf9f7; }
+.ec-table tbody tr:hover { background: var(--color-bg-light, #F7F6F3); }
 .ec-table td {
-  padding: 14px 16px;
-  color: var(--ec-text);
-  vertical-align: middle;
+    padding: .9375rem 1rem;
+    color: var(--color-primary-dark, #0D0D0D);
+    vertical-align: middle;
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
 }
+
+/* Code badge */
 .ec-code-badge {
-  display: inline-flex;
-  align-items: center;
-  background: rgba(196,148,58,.08);
-  color: var(--ec-red);
-  font-size: .8rem;
-  font-weight: 800;
-  font-family: 'Courier New', monospace;
-  letter-spacing: .03em;
-  padding: 4px 10px;
-  border-radius: 6px;
-  border: 1px solid rgba(196,148,58,.15);
-  white-space: nowrap;
+    display: inline-block;
+    background: var(--color-bg-light, #F7F6F3);
+    color: var(--color-primary-dark, #0D0D0D);
+    font-size: .8125rem;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    letter-spacing: .04em;
+    padding: .25rem .625rem;
+    border: 1px solid var(--color-rule, #D9D8D3);
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background .15s, border-color .15s;
 }
-.ec-brand-chip {
-  display: inline-block;
-  font-size: .78rem;
-  font-weight: 600;
-  color: var(--ec-muted);
-  background: var(--ec-alt);
-  padding: 3px 9px;
-  border-radius: 20px;
-}
+.ec-code-badge:hover { background: var(--color-primary-dark, #0D0D0D); color: #fff; border-color: var(--color-primary-dark, #0D0D0D); }
+
 .ec-ap-chip {
-  font-size: .85rem;
-  color: var(--ec-text);
+    font-size: .8125rem;
+    color: var(--color-text-muted, #717170);
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
 }
-.ec-fault-text {
-  color: var(--ec-text);
-  font-size: .875rem;
-  line-height: 1.4;
-}
+.ec-fault-text { line-height: 1.4; }
 .ec-fault-title {
-  font-weight: 600;
-  display: block;
-  margin-bottom: 2px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: .125rem;
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    color: var(--color-primary-dark, #0D0D0D);
+    font-size: .875rem;
 }
 .ec-fault-hint {
-  font-size: .78rem;
-  color: var(--ec-muted);
+    font-size: .75rem;
+    color: var(--color-text-muted, #717170);
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
 }
 
-/* Severity badges */
+/* Severity */
 .ec-sev {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: .72rem;
-  font-weight: 700;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 20px;
-  white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: .3125rem;
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    font-size: .6875rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: .25rem .625rem;
+    white-space: nowrap;
+    border: 1px solid transparent;
 }
-.ec-sev::before {
-  content: '';
-  width: 6px; height: 6px;
-  border-radius: 50%;
-}
-.ec-sev--low      { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+.ec-sev::before { content: ''; width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+.ec-sev--low      { color: #15803d; border-color: #bbf7d0; background: #f0fdf4; }
 .ec-sev--low::before      { background: #15803d; }
-.ec-sev--med      { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+.ec-sev--med      { color: #b45309; border-color: #fde68a; background: #fffbeb; }
 .ec-sev--med::before      { background: #b45309; }
-.ec-sev--high     { background: #FFFBEB; color: #92400E; border: 1px solid #FCD34D; }
-.ec-sev--high::before     { background: #F59E0B; }
-.ec-sev--critical { background: #fef2f2; color: #991b1b; border: 1px solid #fca5a5; animation: ec-pulse 2s ease-in-out infinite; }
+.ec-sev--high     { color: #92400e; border-color: #fcd34d; background: #fffbeb; }
+.ec-sev--high::before     { background: #f59e0b; }
+.ec-sev--critical { color: #991b1b; border-color: #fca5a5; background: #fef2f2; animation: ec-pulse 2s ease-in-out infinite; }
 .ec-sev--critical::before { background: #ef4444; }
-@keyframes ec-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .7; } }
+@keyframes ec-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .65; } }
 
 .ec-view-link {
-  color: var(--ec-red);
-  font-size: .8125rem;
-  font-weight: 600;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: color .15s;
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    color: var(--color-primary, #C01C28);
+    font-size: .75rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    transition: color .15s;
 }
-.ec-view-link:hover { color: #9E7428; text-decoration: underline; }
+.ec-view-link:hover { color: var(--color-primary-dark, #0D0D0D); }
 
-/* No results / hidden rows */
+/* Hidden rows */
 .ec-table-row--hidden { display: none; }
 .ec-no-results {
-  padding: 48px 24px;
-  text-align: center;
-  color: var(--ec-muted);
-  font-size: .9375rem;
-  display: none;
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    padding: 3rem 1.5rem;
+    text-align: center;
+    color: var(--color-text-muted, #717170);
+    font-size: .9375rem;
+    display: none;
+    border-top: 1px solid var(--color-rule, #D9D8D3);
 }
 .ec-no-results.is-visible { display: block; }
 
 /* Show more */
-.ec-showmore-wrap {
-  text-align: center;
-  margin-top: 28px;
-}
+.ec-showmore-wrap { text-align: center; margin-top: 1.75rem; }
 .ec-showmore-btn {
-  background: var(--ec-warm);
-  border: 1.5px solid var(--ec-border);
-  color: var(--ec-text);
-  font-size: .875rem;
-  font-weight: 600;
-  font-family: inherit;
-  padding: 12px 28px;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: background .2s, border-color .2s;
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    background: #ffffff;
+    border: 1px solid var(--color-rule, #D9D8D3);
+    color: var(--color-primary-dark, #0D0D0D);
+    font-size: .8125rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: .875rem 2rem;
+    cursor: pointer;
+    transition: background .2s, border-color .2s;
+    border-radius: 0;
 }
-.ec-showmore-btn:hover { background: var(--ec-alt); border-color: #c5bfb8; }
+.ec-showmore-btn:hover { background: var(--color-bg-light, #F7F6F3); border-color: var(--color-primary-dark, #0D0D0D); }
 
-/* ── CTA Band ─────────────────────────────────────────── */
+/* CTA */
 .ec-cta {
-  background: var(--ec-dark);
-  padding: 72px 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.ec-cta::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(196,148,58,.12) 0%, transparent 70%);
-  pointer-events: none;
+    background: var(--color-primary-dark, #0D0D0D);
+    padding: 5rem 0;
+    text-align: center;
 }
 .ec-cta__eyebrow {
-  font-size: .72rem;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--ec-red);
-  margin-bottom: 12px;
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    font-size: .6875rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.4);
+    margin-bottom: .875rem;
 }
 .ec-cta__title {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
-  font-weight: 800;
-  color: #fff;
-  margin: 0 0 12px;
+    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: #ffffff;
+    margin: 0 0 1rem;
+    letter-spacing: -.01em;
 }
 .ec-cta__sub {
-  color: rgba(255,255,255,.65);
-  font-size: 1rem;
-  max-width: 520px;
-  margin: 0 auto 36px;
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    font-size: .9375rem;
+    color: rgba(255,255,255,.6);
+    max-width: 480px;
+    margin: 0 auto 2.25rem;
+    line-height: 1.7;
 }
-.ec-cta__btns {
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-  flex-wrap: wrap;
+.ec-cta__btns { display:flex; gap:.875rem; justify-content:center; flex-wrap:wrap; }
+.ec-btn--crimson {
+    background: var(--color-primary, #C01C28);
+    color: #fff;
+    padding: .875rem 1.875rem;
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    font-size: .875rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 2px;
+    transition: opacity .2s;
 }
-.ec-btn--red {
-  background: var(--ec-red);
-  color: #fff;
-  padding: 14px 32px;
-  border-radius: 50px;
-  font-size: .9375rem;
-  font-weight: 700;
-  text-decoration: none;
-  display: inline-block;
-  transition: background .2s, transform .15s;
-}
-.ec-btn--red:hover { background: #9E7428; transform: translateY(-1px); }
+.ec-btn--crimson:hover { opacity: .88; }
 .ec-btn--ghost {
-  color: rgba(255,255,255,.8);
-  padding: 14px 32px;
-  border-radius: 50px;
-  font-size: .9375rem;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-block;
-  border: 1.5px solid rgba(255,255,255,.2);
-  transition: background .2s, border-color .2s;
+    color: rgba(255,255,255,.8);
+    padding: .875rem 1.875rem;
+    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
+    font-size: .875rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 2px;
+    transition: border-color .2s, color .2s;
 }
-.ec-btn--ghost:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.4); }
+.ec-btn--ghost:hover { border-color: rgba(255,255,255,.6); color: #fff; }
 
-/* ── Grouped Sections (by appliance) ─────────────────── */
-.ec-sections {
-  padding: 72px 0 80px;
-  background: var(--ec-warm);
-}
-.ec-sections__head {
-  margin-bottom: 48px;
-}
-.ec-sections__eyebrow {
-  font-size: .72rem;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--ec-red);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.ec-sections__eyebrow::before {
-  content: '';
-  width: 20px;
-  height: 2px;
-  background: var(--ec-red);
-}
-.ec-sections__title {
-  font-size: 1.875rem;
-  font-weight: 800;
-  color: var(--ec-dark);
-  margin: 0 0 8px;
-}
-.ec-sections__sub {
-  font-size: .9375rem;
-  color: var(--ec-muted);
-  max-width: 600px;
-}
-.ec-ap-section {
-  background: var(--ec-white);
-  border: 1px solid var(--ec-border);
-  border-radius: var(--ec-radius);
-  margin-bottom: 16px;
-  overflow: hidden;
-  scroll-margin-top: 100px;
-}
-.ec-ap-section__header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 20px 24px;
-  cursor: pointer;
-  user-select: none;
-  transition: background .15s;
-}
-.ec-ap-section__header:hover { background: #faf9f7; }
-.ec-ap-section__icon {
-  width: 48px;
-  height: 48px;
-  background: rgba(196,148,58,.08);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--ec-red);
-  flex-shrink: 0;
-}
-.ec-ap-section__icon svg { width: 24px; height: 24px; }
-.ec-ap-section__meta { flex: 1; }
-.ec-ap-section__title {
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: var(--ec-dark);
-  margin: 0 0 2px;
-}
-.ec-ap-section__count {
-  font-size: .8125rem;
-  color: var(--ec-muted);
-  margin: 0;
-}
-.ec-ap-section__toggle {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--ec-muted);
-  font-size: .8125rem;
-  font-weight: 600;
-}
-.ec-toggle-icon {
-  width: 20px; height: 20px;
-  transition: transform .25s;
-}
-.ec-ap-section.is-open .ec-toggle-icon { transform: rotate(180deg); }
-.ec-ap-section.is-open .ec-ap-section__toggle-label { display: none; }
-.ec-ap-section.is-open::before {
-  content: '';
-  display: block;
-  height: 3px;
-  background: var(--ec-red);
-  margin: 0;
-}
-.ec-ap-section__desc {
-  font-size: .9rem;
-  color: var(--ec-muted);
-  line-height: 1.6;
-  padding: 0 24px 16px;
-  margin: 0;
-  border-bottom: 1px solid var(--ec-border);
-  display: none;
-}
-.ec-ap-section.is-open .ec-ap-section__desc { display: block; }
-.ec-ap-section__body {
-  display: none;
-  overflow-x: auto;
-}
-.ec-ap-section.is-open .ec-ap-section__body { display: block; }
-.ec-ap-table { border-top: 1px solid var(--ec-border); }
-.ec-ap-table thead th { background: var(--ec-alt); }
-
-/* ── Responsive ───────────────────────────────────────── */
 @media (max-width: 768px) {
-  .ec-hero { padding: 80px 0 40px; }
-  .ec-hero__stats { gap: 20px; flex-wrap: wrap; }
-  .ec-browse, .ec-dir, .ec-cta { padding: 48px 0; }
-  .ec-ap-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  /* Directory table (5-col): hide Fault Description (col 3) */
-  .ec-table:not(.ec-ap-table) td:nth-child(3),
-  .ec-table:not(.ec-ap-table) th:nth-child(3) { display: none; }
-  /* Per-appliance table (4-col): hide Fault Description (col 2) */
-  .ec-ap-table td:nth-child(2),
-  .ec-ap-table th:nth-child(2) { display: none; }
-  .ec-dir__head { flex-direction: column; align-items: flex-start; }
+    .ec-hero { padding-bottom: 3.5rem; }
+    .ec-hero__stats { gap: 2rem; }
+    .ec-table:not(.ec-ap-table) td:nth-child(3),
+    .ec-table:not(.ec-ap-table) th:nth-child(3) { display: none; }
+    .ec-ap-table td:nth-child(2), .ec-ap-table th:nth-child(2) { display: none; }
+    .ec-dir__head { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 480px) {
-  .ec-ap-grid { grid-template-columns: 1fr 1fr; }
-  /* Directory table: also hide Appliance (col 2) on very small screens */
-  .ec-table:not(.ec-ap-table) td:nth-child(2),
-  .ec-table:not(.ec-ap-table) th:nth-child(2) { display: none; }
-  .ec-hero__search { flex-direction: column; border-radius: 14px; padding: 12px; }
-  .ec-hero__search button { width: 100%; text-align: center; border-radius: 8px; padding: 12px; }
+    .ec-table:not(.ec-ap-table) td:nth-child(2),
+    .ec-table:not(.ec-ap-table) th:nth-child(2) { display: none; }
+    .ec-hero__search { flex-direction: column; }
+    .ec-hero__search button { width: 100%; text-align: center; padding: .875rem; }
 }
 </style>
 
-<!-- ── HERO ──────────────────────────────────────────────── -->
-<section class="ec-hero">
-  <div class="container">
-    <div class="ec-hero__inner">
-      <p class="ec-hero__eyebrow">Diagnostic Library</p>
-      <h1 class="ec-hero__title">Viking <em>Fault Code</em> Library</h1>
-      <p class="ec-hero__subtitle">Find what your Viking appliance's fault code means, how serious it is, and exactly what to do next &mdash; covering ranges, wall ovens, refrigerators, dishwashers, cooktops, wine coolers, freezers, and vent hoods.</p>
+<!-- HERO -->
+<section class="ec-hero" aria-labelledby="ec-h1">
+    <div class="ph-split">
+        <div class="ph-split__text" style="padding-top: calc(64px + 5rem);">
+            <div class="container">
+                <div class="ec-hero__inner">
+                    <span class="ec-hero__eyebrow">Diagnostic Library</span>
+                    <h1 id="ec-h1" class="ec-hero__title">Viking <em>Fault Code</em> Library</h1>
+                    <p class="ec-hero__subtitle">Find what your Viking appliance's fault code means, how serious it is, and exactly what to do next &mdash; covering ranges, wall ovens, refrigerators, dishwashers, cooktops, wine coolers, freezers, and vent hoods.</p>
 
-      <div class="ec-hero__search" id="ec-hero-search">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input type="text" id="ec-search-input" placeholder="Search by fault code or appliance type…" autocomplete="off" aria-label="Search Viking fault codes">
-        <button type="button" onclick="document.getElementById('ec-search-input').focus()">Search</button>
-      </div>
+                    <div class="ec-hero__search" id="ec-hero-search" role="search">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                        <input type="text" id="ec-search-input" placeholder="Search fault code or appliance type&hellip;" autocomplete="off" aria-label="Search Viking fault codes">
+                        <button type="button" onclick="document.getElementById('ec-search-input').focus()">Search</button>
+                    </div>
 
-      <div class="ec-hero__stats">
-        <div>
-          <div class="ec-stat__num"><?php echo $total ?: '100+'; ?></div>
-          <div class="ec-stat__label">Error Codes</div>
+                    <div class="ec-hero__stats" role="list" aria-label="Library statistics">
+                        <div role="listitem">
+                            <span class="ec-stat__num"><?php echo $total ?: '100+'; ?></span>
+                            <span class="ec-stat__label">Error Codes</span>
+                        </div>
+                        <div role="listitem">
+                            <span class="ec-stat__num"><?php echo count($appliances) ?: '8'; ?></span>
+                            <span class="ec-stat__label">Appliance Types</span>
+                        </div>
+                        <div role="listitem">
+                            <span class="ec-stat__num">30</span>
+                            <span class="ec-stat__label">Day Warranty</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-          <div class="ec-stat__num"><?php echo count($appliances) ?: '8'; ?></div>
-          <div class="ec-stat__label">Appliance Types</div>
+        <div class="ph-split__img">
+            <img src="<?php echo esc_url(AR_URI . '/assets/images/viking-range-desert-modern.jpg'); ?>" alt="Viking fault code diagnostic library" loading="lazy">
         </div>
-        <div>
-          <div class="ec-stat__num">Viking</div>
-          <div class="ec-stat__label">Brand</div>
-        </div>
-        <div>
-          <div class="ec-stat__num">30-Day</div>
-          <div class="ec-stat__label">Repair Warranty</div>
-        </div>
-      </div>
     </div>
-  </div>
 </section>
 
-<!-- ── ERROR CODES BY APPLIANCE TYPE ──────────────────────── -->
+<!-- ERROR CODES BY APPLIANCE TYPE -->
 <?php if ( ! empty($appliances) ):
-  $ap_descriptions = [
-    'range'        => 'Viking range fault codes (F1–F9) indicate specific failures in the oven temperature control system, control board, or door lock mechanism. These codes are documented in Viking service literature and allow precise diagnosis. F2 and F3 codes relate to temperature sensor faults; F4 indicates temperature runaway; F9 signals a self-clean door lock failure.',
-    'refrigerator' => 'Viking refrigerator fault codes signal problems with the defrost system, evaporator fan, ice maker assembly, or temperature sensing. Early diagnosis prevents food spoilage and prevents more costly compressor or sealed system failures.',
-    'dishwasher'   => 'Viking dishwasher fault codes point to water fill, drain, heating element, door latch, or circulation pump failures. Most codes prevent the appliance from completing a cycle to protect the kitchen from water damage.',
-    'cooktop'      => 'Viking cooktop fault indicators relate to ignition module failures, spark electrode faults, surface element failures on electric models, or induction coil issues. Most cooktop faults are diagnosed by observing which zone or burner is affected.',
-    'wall-oven'    => 'Viking wall oven fault codes use the same F-series architecture as Viking ranges. F2 and F3 indicate temperature sensor faults; F4 signals temperature runaway; F9 is a self-clean door lock failure. F1 indicates a main control board fault.',
-    'wine-cooler'  => 'Viking wine cooler fault displays indicate temperature sensing failures, compressor issues, or fan motor faults. Temperature inconsistency in a wine cooler risks wine quality — schedule service promptly when a fault code appears.',
-    'freezer'      => 'Viking freezer faults include defrost system failures, evaporator and condenser fan failures, temperature sensor faults, and door gasket deterioration. A freezer fault left unresolved risks complete food loss — schedule service at the first sign of temperature inconsistency.',
-    'vent-hood'    => 'Viking Professional Series vent hood faults include blower motor failures, fan speed control issues, damper problems, and thermal cutout trips from clogged grease filters. Prompt service prevents motor burnout and maintains kitchen ventilation safety.',
-  ];
+    $ap_descriptions = [
+        'range'        => 'Viking range fault codes (F1–F9) indicate specific failures in the oven temperature control system, control board, or door lock mechanism. These codes are documented in Viking service literature and allow precise diagnosis. F2 and F3 codes relate to temperature sensor faults; F4 indicates temperature runaway; F9 signals a self-clean door lock failure.',
+        'refrigerator' => 'Viking refrigerator fault codes signal problems with the defrost system, evaporator fan, ice maker assembly, or temperature sensing. Early diagnosis prevents food spoilage and prevents more costly compressor or sealed system failures.',
+        'dishwasher'   => 'Viking dishwasher fault codes point to water fill, drain, heating element, door latch, or circulation pump failures. Most codes prevent the appliance from completing a cycle to protect the kitchen from water damage.',
+        'cooktop'      => 'Viking cooktop fault indicators relate to ignition module failures, spark electrode faults, surface element failures on electric models, or induction coil issues. Most cooktop faults are diagnosed by observing which zone or burner is affected.',
+        'wall-oven'    => 'Viking wall oven fault codes use the same F-series architecture as Viking ranges. F2 and F3 indicate temperature sensor faults; F4 signals temperature runaway; F9 is a self-clean door lock failure. F1 indicates a main control board fault.',
+        'wine-cooler'  => 'Viking wine cooler fault displays indicate temperature sensing failures, compressor issues, or fan motor faults. Temperature inconsistency in a wine cooler risks wine quality — schedule service promptly when a fault code appears.',
+        'freezer'      => 'Viking freezer faults include defrost system failures, evaporator and condenser fan failures, temperature sensor faults, and door gasket deterioration. A freezer fault left unresolved risks complete food loss — schedule service at the first sign of temperature inconsistency.',
+        'vent-hood'    => 'Viking Professional Series vent hood faults include blower motor failures, fan speed control issues, damper problems, and thermal cutout trips from clogged grease filters. Prompt service prevents motor burnout and maintains kitchen ventilation safety.',
+    ];
 ?>
-<section class="ec-sections" id="ec-appliance-sections">
-  <div class="container">
-    <div class="ec-sections__head">
-      <p class="ec-sections__eyebrow">Grouped by Appliance</p>
-      <h2 class="ec-sections__title">Error Codes by Appliance Type</h2>
-      <p class="ec-sections__sub">Browse error codes specific to your appliance. Click any row to see causes, DIY checks, and repair costs.</p>
-    </div>
+<section class="ec-sections" id="ec-appliance-sections" aria-labelledby="ec-sections-h2">
+    <div class="container">
+        <header class="ec-sections__head">
+            <p class="ec-sections__eyebrow">Grouped by Appliance</p>
+            <h2 id="ec-sections-h2" class="ec-sections__title">Error Codes by Appliance Type</h2>
+            <p class="ec-sections__sub">Browse error codes specific to your appliance. Click any row to see causes, DIY checks, and repair costs.</p>
+        </header>
 
-    <?php foreach ($appliances as $ap):
-      $ap_slug  = $ap->slug;
-      $ap_name  = $ap->name;
-      if ($ap->count === 0) continue;
+        <?php foreach ($appliances as $ap):
+            $ap_slug  = $ap->slug;
+            $ap_name  = $ap->name;
+            if ($ap->count === 0) continue;
 
-      $ap_codes = new WP_Query([
-        'post_type'      => 'error_code',
-        'post_status'    => 'publish',
-        'posts_per_page' => -1,
-        'orderby'        => 'title',
-        'order'          => 'ASC',
-        'tax_query'      => [
-          'relation' => 'AND',
-          [
-            'taxonomy' => 'appliance_type',
-            'field'    => 'slug',
-            'terms'    => $ap_slug,
-          ],
-          [
-            'taxonomy' => 'brand',
-            'field'    => 'slug',
-            'terms'    => 'viking',
-          ],
-        ],
-        'no_found_rows'  => true,
-      ]);
+            $ap_codes = new WP_Query([
+                'post_type'      => 'error_code',
+                'post_status'    => 'publish',
+                'posts_per_page' => -1,
+                'orderby'        => 'title',
+                'order'          => 'ASC',
+                'tax_query'      => [
+                    'relation' => 'AND',
+                    [
+                        'taxonomy' => 'appliance_type',
+                        'field'    => 'slug',
+                        'terms'    => $ap_slug,
+                    ],
+                    [
+                        'taxonomy' => 'brand',
+                        'field'    => 'slug',
+                        'terms'    => 'viking',
+                    ],
+                ],
+                'no_found_rows'  => true,
+            ]);
 
-      $ap_count = $ap_codes->post_count;
-      if ($ap_count === 0) continue;
+            $ap_count = $ap_codes->post_count;
+            if ($ap_count === 0) continue;
 
-      /* Description */
-      $ap_desc = '';
-      foreach ($ap_descriptions as $key => $desc) {
-        if (str_contains($ap_slug, $key)) { $ap_desc = $desc; break; }
-      }
+            $ap_desc = '';
+            foreach ($ap_descriptions as $key => $desc) {
+                if (str_contains($ap_slug, $key)) { $ap_desc = $desc; break; }
+            }
 
-      /* Count unique brands */
-      $ap_brands = [];
-      if ($ap_codes->have_posts()) {
-        while ($ap_codes->have_posts()) {
-          $ap_codes->the_post();
-          $b = get_post_meta(get_the_ID(), '_ar_brand', true);
-          if ($b) $ap_brands[$b] = 1;
-        }
-        wp_reset_postdata();
-        $ap_codes->rewind_posts();
-      }
-      $icon_html = ec_icon($ap_slug, $ap_icons);
-    ?>
-    <div class="ec-ap-section" id="section-<?php echo esc_attr($ap_slug); ?>">
-      <div class="ec-ap-section__header" onclick="ecToggleSection(this)">
-        <div class="ec-ap-section__icon"><?php echo $icon_html; ?></div>
-        <div class="ec-ap-section__meta">
-          <h3 class="ec-ap-section__title"><?php echo esc_html($ap_name); ?> Error Codes</h3>
-          <p class="ec-ap-section__count"><?php echo $ap_count; ?> error code<?php echo $ap_count !== 1 ? 's' : ''; ?> &mdash; Viking</p>
-        </div>
-        <div class="ec-ap-section__toggle">
-          <span class="ec-ap-section__toggle-label">Expand</span>
-          <svg class="ec-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
-        </div>
-      </div>
-      <?php if ($ap_desc): ?>
-      <p class="ec-ap-section__desc"><?php echo esc_html($ap_desc); ?></p>
-      <?php endif; ?>
-      <div class="ec-ap-section__body">
-        <div class="ec-table-wrap" style="border:none;border-radius:0;">
-          <table class="ec-table ec-ap-table">
-            <thead>
-              <tr>
-                <th>Error Code</th>
-                <th>Fault Description</th>
-                <th>Severity</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-            <?php if ($ap_codes->have_posts()):
-              while ($ap_codes->have_posts()): $ap_codes->the_post();
-                $pid        = get_the_ID();
-                $brand      = get_post_meta($pid, '_ar_brand',         true) ?: '';
-                $code       = get_post_meta($pid, '_ar_error_code',    true) ?: '';
-                $meaning    = get_post_meta($pid, '_ar_code_meaning',  true) ?: get_the_excerpt();
-                $cost       = get_post_meta($pid, '_ar_cost_range',    true) ?: '';
-                $meta_sev   = get_post_meta($pid, '_ar_severity',      true) ?: '';
-                $sev        = ec_severity($cost, $meta_sev);
-                $title      = get_the_title();
-                $url        = get_permalink();
-                $fault_desc = wp_strip_all_tags($meaning);
-                $fault_short = mb_strimwidth($fault_desc, 0, 85, '…');
-            ?>
-            <tr>
-              <td><a href="<?php echo esc_url($url); ?>" class="ec-code-badge"><?php echo esc_html($code ?: $title); ?></a></td>
-              <td>
-                <div class="ec-fault-text">
-                  <span class="ec-fault-title"><?php echo esc_html($title); ?></span>
-                  <?php if ($fault_short): ?><span class="ec-fault-hint"><?php echo esc_html($fault_short); ?></span><?php endif; ?>
+            $ap_brands = [];
+            if ($ap_codes->have_posts()) {
+                while ($ap_codes->have_posts()) {
+                    $ap_codes->the_post();
+                    $b = get_post_meta(get_the_ID(), '_ar_brand', true);
+                    if ($b) $ap_brands[$b] = 1;
+                }
+                wp_reset_postdata();
+                $ap_codes->rewind_posts();
+            }
+            $icon_html = ec_icon($ap_slug, $ap_icons);
+        ?>
+        <div class="ec-ap-section" id="section-<?php echo esc_attr($ap_slug); ?>">
+            <div class="ec-ap-section__header" onclick="ecToggleSection(this)" role="button" aria-expanded="false" aria-controls="body-<?php echo esc_attr($ap_slug); ?>">
+                <div class="ec-ap-section__icon" aria-hidden="true"><?php echo $icon_html; ?></div>
+                <div class="ec-ap-section__meta">
+                    <h3 class="ec-ap-section__title"><?php echo esc_html($ap_name); ?> Error Codes</h3>
+                    <p class="ec-ap-section__count"><?php echo $ap_count; ?> error code<?php echo $ap_count !== 1 ? 's' : ''; ?> &mdash; Viking</p>
                 </div>
-              </td>
-              <td><span class="ec-sev <?php echo esc_attr($sev['cls']); ?>"><?php echo esc_html($sev['label']); ?></span></td>
-              <td><a href="<?php echo esc_url($url); ?>" class="ec-view-link">View →</a></td>
-            </tr>
-            <?php endwhile; wp_reset_postdata(); endif; ?>
-            </tbody>
-          </table>
+                <div class="ec-ap-section__toggle" aria-hidden="true">
+                    <span class="ec-ap-section__toggle-label">Expand</span>
+                    <svg class="ec-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                </div>
+            </div>
+            <?php if ($ap_desc): ?>
+            <p class="ec-ap-section__desc"><?php echo esc_html($ap_desc); ?></p>
+            <?php endif; ?>
+            <div class="ec-ap-section__body" id="body-<?php echo esc_attr($ap_slug); ?>">
+                <div class="ec-table-wrap" style="border:none;border-top:1px solid var(--color-rule,#D9D8D3);border-radius:0;">
+                    <table class="ec-table ec-ap-table">
+                        <thead>
+                            <tr>
+                                <th>Error Code</th>
+                                <th>Fault Description</th>
+                                <th>Severity</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php if ($ap_codes->have_posts()):
+                            while ($ap_codes->have_posts()): $ap_codes->the_post();
+                                $pid        = get_the_ID();
+                                $code       = get_post_meta($pid, '_ar_error_code',    true) ?: '';
+                                $meaning    = get_post_meta($pid, '_ar_code_meaning',  true) ?: get_the_excerpt();
+                                $cost       = get_post_meta($pid, '_ar_cost_range',    true) ?: '';
+                                $meta_sev   = get_post_meta($pid, '_ar_severity',      true) ?: '';
+                                $sev        = ec_severity($cost, $meta_sev);
+                                $title      = get_the_title();
+                                $url        = get_permalink();
+                                $fault_desc = wp_strip_all_tags($meaning);
+                                $fault_short = mb_strimwidth($fault_desc, 0, 85, '…');
+                        ?>
+                        <tr>
+                            <td><a href="<?php echo esc_url($url); ?>" class="ec-code-badge"><?php echo esc_html($code ?: $title); ?></a></td>
+                            <td>
+                                <div class="ec-fault-text">
+                                    <span class="ec-fault-title"><?php echo esc_html($title); ?></span>
+                                    <?php if ($fault_short): ?><span class="ec-fault-hint"><?php echo esc_html($fault_short); ?></span><?php endif; ?>
+                                </div>
+                            </td>
+                            <td><span class="ec-sev <?php echo esc_attr($sev['cls']); ?>"><?php echo esc_html($sev['label']); ?></span></td>
+                            <td><a href="<?php echo esc_url($url); ?>" class="ec-view-link">View &rarr;</a></td>
+                        </tr>
+                        <?php endwhile; wp_reset_postdata(); endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <?php endforeach; ?>
+        <?php endforeach; ?>
 
-  </div>
+    </div>
 </section>
 <?php endif; ?>
 
-<!-- ── ERROR CODE DIRECTORY ───────────────────────────────── -->
-<section class="ec-dir" id="ec-directory">
-  <div class="container">
-    <div class="ec-dir__head">
-      <div>
-        <h2 class="ec-dir__title">Complete Error Code Directory</h2>
-        <p style="color:var(--ec-muted);font-size:.9rem;margin:4px 0 0;">
-          <span id="ec-visible-count"><?php echo $total; ?></span> codes — click any row to view full diagnosis
-        </p>
-      </div>
-      <div id="ec-active-filters" style="display:flex;gap:8px;flex-wrap:wrap;"></div>
-    </div>
+<!-- COMPLETE DIRECTORY -->
+<section class="ec-dir" id="ec-directory" aria-labelledby="ec-dir-h2">
+    <div class="container">
+        <header class="ec-dir__head">
+            <div>
+                <h2 id="ec-dir-h2" class="ec-dir__title">Complete Error Code Directory</h2>
+                <p class="ec-dir__count">
+                    <span id="ec-visible-count"><?php echo $total; ?></span> codes &mdash; click any row to view full diagnosis
+                </p>
+            </div>
+            <div id="ec-active-filters" style="display:flex;gap:.5rem;flex-wrap:wrap;"></div>
+        </header>
 
-    <!-- Filters -->
-    <div class="ec-filters">
-      <input type="text" class="ec-filter-input" id="ec-dir-search" placeholder="&#x1F50D;  Search by fault code or appliance type…" aria-label="Search fault codes">
-      <select class="ec-filter-select" id="ec-ap-filter" aria-label="Filter by appliance">
-        <option value="">All Appliances</option>
-        <?php foreach ($appliances as $ap): ?>
-        <option value="<?php echo esc_attr($ap->slug); ?>"><?php echo esc_html($ap->name); ?></option>
-        <?php endforeach; ?>
-      </select>
-      <select class="ec-filter-select" id="ec-sev-filter" aria-label="Filter by severity">
-        <option value="">All Severity</option>
-        <option value="low">Low</option>
-        <option value="medium">Medium</option>
-        <option value="high">High</option>
-        <option value="critical">Critical</option>
-      </select>
-      <button class="ec-filter-clear" id="ec-clear-filters" style="display:none;">&#x2715; Clear filters</button>
-    </div>
+        <!-- Filters -->
+        <div class="ec-filters" role="search" aria-label="Filter error codes">
+            <input type="text" class="ec-filter-input" id="ec-dir-search" placeholder="Search by fault code or appliance&hellip;" aria-label="Search fault codes">
+            <select class="ec-filter-select" id="ec-ap-filter" aria-label="Filter by appliance">
+                <option value="">All Appliances</option>
+                <?php foreach ($appliances as $ap): ?>
+                <option value="<?php echo esc_attr($ap->slug); ?>"><?php echo esc_html($ap->name); ?></option>
+                <?php endforeach; ?>
+            </select>
+            <select class="ec-filter-select" id="ec-sev-filter" aria-label="Filter by severity">
+                <option value="">All Severity</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+                <option value="critical">Critical</option>
+            </select>
+            <button class="ec-filter-clear" id="ec-clear-filters" style="display:none;">&times; Clear filters</button>
+        </div>
 
-    <!-- Table -->
-    <div class="ec-table-wrap">
-      <table class="ec-table" id="ec-main-table">
-        <thead>
-          <tr>
-            <th>Error Code</th>
-            <th>Appliance</th>
-            <th>Fault Description</th>
-            <th>Severity</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody id="ec-tbody">
-          <?php if ($all_codes->have_posts()):
-            $row_idx = 0;
-            while ($all_codes->have_posts()): $all_codes->the_post();
-              $pid      = get_the_ID();
-              $brand    = get_post_meta($pid, '_ar_brand',         true) ?: '';
-              $appliance= get_post_meta($pid, '_ar_appliance_type',true) ?: '';
-              $code     = get_post_meta($pid, '_ar_error_code',    true) ?: '';
-              $meaning  = get_post_meta($pid, '_ar_code_meaning',  true) ?: get_the_excerpt();
-              $cost     = get_post_meta($pid, '_ar_cost_range',    true) ?: '';
-              $meta_sev = get_post_meta($pid, '_ar_severity',      true) ?: '';
-              $sev      = ec_severity($cost, $meta_sev);
-              $title    = get_the_title();
-              $url      = get_permalink();
-              // Short fault description from meaning
-              $fault_desc = wp_strip_all_tags($meaning);
-              $fault_short= mb_strimwidth($fault_desc, 0, 90, '…');
-              // Data attrs for JS filtering
-              $da_brand = strtolower($brand);
-              $da_ap    = sanitize_title($appliance);
-              $da_sev   = strtolower($sev['label']);
-              $da_search= strtolower("$brand $code $appliance $title");
-              $hidden   = $row_idx >= 20 ? ' ec-table-row--hidden ec-extra-row' : '';
-              $row_idx++;
-          ?>
-          <tr class="ec-table-row<?php echo $hidden; ?>"
-              data-brand="<?php echo esc_attr($da_brand); ?>"
-              data-appliance="<?php echo esc_attr($da_ap); ?>"
-              data-severity="<?php echo esc_attr($da_sev); ?>"
-              data-search="<?php echo esc_attr($da_search); ?>">
-            <td>
-              <a href="<?php echo esc_url($url); ?>" class="ec-code-badge"><?php echo esc_html($code ?: '—'); ?></a>
-            </td>
-            <td><span class="ec-ap-chip"><?php echo esc_html($appliance); ?></span></td>
-            <td>
-              <div class="ec-fault-text">
-                <span class="ec-fault-title"><?php echo esc_html($title); ?></span>
-                <?php if ($fault_short): ?>
-                <span class="ec-fault-hint"><?php echo esc_html($fault_short); ?></span>
-                <?php endif; ?>
-              </div>
-            </td>
-            <td><span class="ec-sev <?php echo esc_attr($sev['cls']); ?>"><?php echo esc_html($sev['label']); ?></span></td>
-            <td><a href="<?php echo esc_url($url); ?>" class="ec-view-link">View →</a></td>
-          </tr>
-          <?php endwhile; wp_reset_postdata(); endif; ?>
-        </tbody>
-      </table>
-      <p class="ec-no-results" id="ec-no-results">No error codes match your search. <a href="<?php echo esc_url($phone_raw); ?>" style="color:var(--ec-red);">Call us directly →</a></p>
-    </div>
+        <!-- Table -->
+        <div class="ec-table-wrap">
+            <table class="ec-table" id="ec-main-table">
+                <thead>
+                    <tr>
+                        <th>Error Code</th>
+                        <th>Appliance</th>
+                        <th>Fault Description</th>
+                        <th>Severity</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="ec-tbody">
+                    <?php if ($all_codes->have_posts()):
+                        $row_idx = 0;
+                        while ($all_codes->have_posts()): $all_codes->the_post();
+                            $pid       = get_the_ID();
+                            $appliance = get_post_meta($pid, '_ar_appliance_type', true) ?: '';
+                            $code      = get_post_meta($pid, '_ar_error_code',     true) ?: '';
+                            $meaning   = get_post_meta($pid, '_ar_code_meaning',   true) ?: get_the_excerpt();
+                            $cost      = get_post_meta($pid, '_ar_cost_range',     true) ?: '';
+                            $meta_sev  = get_post_meta($pid, '_ar_severity',       true) ?: '';
+                            $sev       = ec_severity($cost, $meta_sev);
+                            $title     = get_the_title();
+                            $url       = get_permalink();
+                            $fault_desc  = wp_strip_all_tags($meaning);
+                            $fault_short = mb_strimwidth($fault_desc, 0, 90, '…');
+                            $brand       = get_post_meta($pid, '_ar_brand', true) ?: '';
+                            $da_brand    = strtolower($brand);
+                            $da_ap       = sanitize_title($appliance);
+                            $da_sev      = strtolower($sev['label']);
+                            $da_search   = strtolower("$brand $code $appliance $title");
+                            $hidden      = $row_idx >= 20 ? ' ec-table-row--hidden ec-extra-row' : '';
+                            $row_idx++;
+                    ?>
+                    <tr class="ec-table-row<?php echo $hidden; ?>"
+                        data-brand="<?php echo esc_attr($da_brand); ?>"
+                        data-appliance="<?php echo esc_attr($da_ap); ?>"
+                        data-severity="<?php echo esc_attr($da_sev); ?>"
+                        data-search="<?php echo esc_attr($da_search); ?>">
+                        <td><a href="<?php echo esc_url($url); ?>" class="ec-code-badge"><?php echo esc_html($code ?: '—'); ?></a></td>
+                        <td><span class="ec-ap-chip"><?php echo esc_html($appliance); ?></span></td>
+                        <td>
+                            <div class="ec-fault-text">
+                                <span class="ec-fault-title"><?php echo esc_html($title); ?></span>
+                                <?php if ($fault_short): ?>
+                                <span class="ec-fault-hint"><?php echo esc_html($fault_short); ?></span>
+                                <?php endif; ?>
+                            </div>
+                        </td>
+                        <td><span class="ec-sev <?php echo esc_attr($sev['cls']); ?>"><?php echo esc_html($sev['label']); ?></span></td>
+                        <td><a href="<?php echo esc_url($url); ?>" class="ec-view-link">View &rarr;</a></td>
+                    </tr>
+                    <?php endwhile; wp_reset_postdata(); endif; ?>
+                </tbody>
+            </table>
+            <p class="ec-no-results" id="ec-no-results">No error codes match your search. <a href="<?php echo esc_url($phone_raw); ?>" style="color:var(--color-primary,#C01C28);">Call us directly &rarr;</a></p>
+        </div>
 
-    <?php if ($total > 20): ?>
-    <div class="ec-showmore-wrap">
-      <button class="ec-showmore-btn" id="ec-showmore">
-        Show all <?php echo $total; ?> error codes ↓
-      </button>
-    </div>
-    <?php endif; ?>
+        <?php if ($total > 20): ?>
+        <div class="ec-showmore-wrap">
+            <button class="ec-showmore-btn" id="ec-showmore">
+                Show all <?php echo $total; ?> error codes &darr;
+            </button>
+        </div>
+        <?php endif; ?>
 
-  </div>
+    </div>
 </section>
 
-<!-- ── CTA BAND ──────────────────────────────────────────── -->
-<section class="ec-cta">
-  <div class="container" style="position:relative;z-index:1;">
-    <p class="ec-cta__eyebrow">Can't Find Your Code?</p>
-    <h2 class="ec-cta__title">Speak Directly With a Technician</h2>
-    <p class="ec-cta__sub">Our certified technicians can diagnose any error code over the phone or in person — same-day appointments available.</p>
-    <div class="ec-cta__btns">
-      <a href="<?php echo esc_url($phone_raw); ?>" class="ec-btn--red">&#x1F4DE; <?php echo esc_html($phone); ?></a>
-      <a href="/schedule/" class="ec-btn--ghost">Schedule Online →</a>
+<!-- CTA -->
+<section class="ec-cta" aria-labelledby="ec-cta-h2">
+    <div class="container">
+        <p class="ec-cta__eyebrow">Can't Find Your Code?</p>
+        <h2 id="ec-cta-h2" class="ec-cta__title">Speak Directly With a Technician</h2>
+        <p class="ec-cta__sub">Our certified technicians can diagnose any error code over the phone or in person &mdash; same-day appointments available.</p>
+        <div class="ec-cta__btns">
+            <a href="<?php echo esc_url($phone_raw); ?>" class="ec-btn--crimson"><?php echo esc_html($phone); ?></a>
+            <a href="<?php echo esc_url(home_url('/schedule/')); ?>" class="ec-btn--ghost">Schedule Online &rarr;</a>
+        </div>
     </div>
-  </div>
 </section>
 
-<!-- ── APPOINTMENT FORM ───────────────────────────────────── -->
 <div id="book" style="scroll-margin-top:80px;">
-  <?php ar_appointment_form('error-code-archive', "Book a Diagnostic Appointment"); ?>
+    <?php ar_appointment_form('archive-page', 'Book Your Viking Repair Today'); ?>
 </div>
 
 <?php ar_disclaimer(); ?>
 
 <script>
-/* Accordion toggle for appliance sections */
+/* Accordion toggle */
 function ecToggleSection(headerEl) {
-  var section = headerEl.closest('.ec-ap-section');
-  if (!section) return;
-  var isOpen = section.classList.contains('is-open');
-  if (isOpen) {
-    section.classList.remove('is-open');
-    var lbl = headerEl.querySelector('.ec-ap-section__toggle-label');
-    if (lbl) lbl.textContent = 'Expand';
-  } else {
-    section.classList.add('is-open');
-    var lbl = headerEl.querySelector('.ec-ap-section__toggle-label');
-    if (lbl) lbl.textContent = 'Collapse';
-    /* Smooth scroll to section */
-    setTimeout(function() {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 50);
-  }
+    var section = headerEl.closest('.ec-ap-section');
+    if (!section) return;
+    var isOpen = section.classList.contains('is-open');
+    if (isOpen) {
+        section.classList.remove('is-open');
+        headerEl.setAttribute('aria-expanded', 'false');
+        var lbl = headerEl.querySelector('.ec-ap-section__toggle-label');
+        if (lbl) lbl.textContent = 'Expand';
+    } else {
+        section.classList.add('is-open');
+        headerEl.setAttribute('aria-expanded', 'true');
+        var lbl = headerEl.querySelector('.ec-ap-section__toggle-label');
+        if (lbl) lbl.textContent = 'Collapse';
+        setTimeout(function() {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+    }
 }
 
-/* Auto-open section if URL hash matches */
+/* Auto-open from hash */
 document.addEventListener('DOMContentLoaded', function() {
-  var hash = window.location.hash;
-  if (hash && hash.startsWith('#section-')) {
-    var target = document.querySelector(hash);
-    if (target) {
-      var hdr = target.querySelector('.ec-ap-section__header');
-      if (hdr) ecToggleSection(hdr);
+    var hash = window.location.hash;
+    if (hash && hash.startsWith('#section-')) {
+        var target = document.querySelector(hash);
+        if (target) {
+            var hdr = target.querySelector('.ec-ap-section__header');
+            if (hdr) ecToggleSection(hdr);
+        }
     }
-  }
 });
 
 (function(){
-  const searchInput  = document.getElementById('ec-search-input');
-  const dirSearch    = document.getElementById('ec-dir-search');
-  const apFilter     = document.getElementById('ec-ap-filter');
-  const sevFilter    = document.getElementById('ec-sev-filter');
-  const clearBtn     = document.getElementById('ec-clear-filters');
-  const countEl      = document.getElementById('ec-visible-count');
-  const noResults    = document.getElementById('ec-no-results');
-  const showMoreBtn  = document.getElementById('ec-showmore');
-  const tbody        = document.getElementById('ec-tbody');
-  const extraRows    = tbody ? tbody.querySelectorAll('.ec-extra-row') : [];
+    const searchInput  = document.getElementById('ec-search-input');
+    const dirSearch    = document.getElementById('ec-dir-search');
+    const apFilter     = document.getElementById('ec-ap-filter');
+    const sevFilter    = document.getElementById('ec-sev-filter');
+    const clearBtn     = document.getElementById('ec-clear-filters');
+    const countEl      = document.getElementById('ec-visible-count');
+    const noResults    = document.getElementById('ec-no-results');
+    const showMoreBtn  = document.getElementById('ec-showmore');
+    const tbody        = document.getElementById('ec-tbody');
+    const extraRows    = tbody ? tbody.querySelectorAll('.ec-extra-row') : [];
 
-  let allShown = false;
+    let allShown = false;
 
-  /* Show all extra rows when filters are active */
-  function showAllRows() {
-    extraRows.forEach(r => r.classList.remove('ec-table-row--hidden'));
-    allShown = true;
-    if (showMoreBtn) showMoreBtn.style.display = 'none';
-  }
+    function showAllRows() {
+        extraRows.forEach(r => r.classList.remove('ec-table-row--hidden'));
+        allShown = true;
+        if (showMoreBtn) showMoreBtn.style.display = 'none';
+    }
 
-  function filterTable() {
-    const q   = (dirSearch?.value || searchInput?.value || '').toLowerCase().trim();
-    const ap  = apFilter?.value || '';
-    const sev = sevFilter?.value || '';
+    function filterTable() {
+        const q   = (dirSearch?.value || searchInput?.value || '').toLowerCase().trim();
+        const ap  = apFilter?.value || '';
+        const sev = sevFilter?.value || '';
+        const hasFilter = q || ap || sev;
+        if (hasFilter && !allShown) showAllRows();
+        if (clearBtn) clearBtn.style.display = hasFilter ? 'inline-block' : 'none';
+        const rows = tbody ? tbody.querySelectorAll('.ec-table-row') : [];
+        let visible = 0;
+        rows.forEach(row => {
+            const rSearch = row.dataset.search || '';
+            const rAp     = row.dataset.appliance || '';
+            const rSev    = row.dataset.severity  || '';
+            const matchQ = !q   || rSearch.includes(q);
+            const matchA = !ap  || rAp === ap;
+            const matchS = !sev || rSev === sev;
+            const show   = matchQ && matchA && matchS;
+            row.classList.toggle('ec-table-row--hidden', !show);
+            if (show) visible++;
+        });
+        if (countEl) countEl.textContent = visible;
+        if (noResults) noResults.classList.toggle('is-visible', visible === 0);
+    }
 
-    const hasFilter = q || ap || sev;
-    if (hasFilter && !allShown) showAllRows();
-
-    if (clearBtn) clearBtn.style.display = hasFilter ? 'inline-block' : 'none';
-
-    const rows = tbody ? tbody.querySelectorAll('.ec-table-row') : [];
-    let visible = 0;
-
-    rows.forEach(row => {
-      const rSearch = row.dataset.search || '';
-      const rAp     = row.dataset.appliance || '';
-      const rSev    = row.dataset.severity  || '';
-
-      const matchQ = !q   || rSearch.includes(q);
-      const matchA = !ap  || rAp === ap;
-      const matchS = !sev || rSev === sev;
-      const show   = matchQ && matchA && matchS;
-
-      row.classList.toggle('ec-table-row--hidden', !show);
-      if (show) visible++;
-    });
-
-    if (countEl) countEl.textContent = visible;
-    if (noResults) noResults.classList.toggle('is-visible', visible === 0);
-  }
-
-  /* Sync hero search to dir search */
-  if (searchInput) {
-    searchInput.addEventListener('input', () => {
-      if (dirSearch) dirSearch.value = searchInput.value;
-      filterTable();
-      if (searchInput.value) {
-        document.getElementById('ec-directory')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  }
-
-  if (dirSearch) dirSearch.addEventListener('input',  filterTable);
-  if (apFilter)  apFilter.addEventListener('change',  filterTable);
-  if (sevFilter)   sevFilter.addEventListener('change', filterTable);
-
-  if (clearBtn) {
-    clearBtn.addEventListener('click', () => {
-      if (dirSearch)   dirSearch.value   = '';
-      if (searchInput) searchInput.value = '';
-      if (apFilter)    apFilter.value    = '';
-      if (sevFilter)   sevFilter.value   = '';
-      filterTable();
-    });
-  }
-
-  if (showMoreBtn) {
-    showMoreBtn.addEventListener('click', () => {
-      showAllRows();
-      filterTable();
-    });
-  }
-
-  /* Handle URL params (appliance from appliance cards) */
-  const params = new URLSearchParams(window.location.search);
-  const pAp    = params.get('appliance');
-  if (pAp && apFilter) { apFilter.value = pAp; }
-  if (pAp) filterTable();
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
+            if (dirSearch) dirSearch.value = searchInput.value;
+            filterTable();
+            if (searchInput.value) {
+                document.getElementById('ec-directory')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    }
+    if (dirSearch) dirSearch.addEventListener('input',  filterTable);
+    if (apFilter)  apFilter.addEventListener('change',  filterTable);
+    if (sevFilter) sevFilter.addEventListener('change', filterTable);
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            if (dirSearch)   dirSearch.value   = '';
+            if (searchInput) searchInput.value = '';
+            if (apFilter)    apFilter.value    = '';
+            if (sevFilter)   sevFilter.value   = '';
+            filterTable();
+        });
+    }
+    if (showMoreBtn) {
+        showMoreBtn.addEventListener('click', () => {
+            showAllRows();
+            filterTable();
+        });
+    }
+    const params = new URLSearchParams(window.location.search);
+    const pAp    = params.get('appliance');
+    if (pAp && apFilter) { apFilter.value = pAp; }
+    if (pAp) filterTable();
 })();
 </script>
 
 <?php get_footer(); ?>
-
-
-

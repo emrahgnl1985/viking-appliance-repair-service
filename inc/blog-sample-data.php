@@ -95,7 +95,27 @@ if ( $blog_id ) {
 }
 
 /* ──────────────────────────────────────────────
-   STEP 3 — Sample blog posts
+   STEP 3 — Delete ALL existing blog posts (clears Wolf/Samsung content)
+────────────────────────────────────────────── */
+$existing_posts = get_posts(['post_type' => 'post', 'numberposts' => -1, 'post_status' => 'any']);
+foreach ($existing_posts as $ep) {
+    wp_delete_post($ep->ID, true);
+    WP_CLI::line("  Deleted post: {$ep->post_title} (ID: {$ep->ID})");
+}
+WP_CLI::success('All existing blog posts deleted.');
+
+// Delete wrong categories (Speed Oven Tips etc.)
+$wrong_cats = ['speed-oven', 'speed-oven-tips', 'buying-guides'];
+foreach ($wrong_cats as $wc) {
+    $term = get_term_by('slug', $wc, 'blog_category');
+    if ($term) {
+        wp_delete_term($term->term_id, 'blog_category');
+        WP_CLI::line("  Deleted category: {$term->name}");
+    }
+}
+
+/* ──────────────────────────────────────────────
+   STEP 4 — Sample blog posts (Viking only)
 ────────────────────────────────────────────── */
 $posts = [
 

@@ -4,7 +4,7 @@
  *
  * Brand:      Viking only (USA market)
  * Appliances: Range, Refrigerator, Dishwasher, Cooktop,
- *             Wall Oven, Wine Cooler  (6 products)
+ *             Wall Oven, Wine Cooler, Freezer, Vent Hood  (8 products)
  *
  * Each entry powers template-service.php via ACF meta fields:
  *   _ar_brand, _ar_appliance_type, _ar_hero_subtitle,

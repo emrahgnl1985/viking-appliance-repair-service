@@ -193,12 +193,12 @@
   width: 44px;
   height: 44px;
   border-radius: var(--radius-lg);
-  background: rgba(196,148,58,0.14);
-  border: 1px solid rgba(196,148,58,0.30);
+  background: rgba(192,28,40,0.14);
+  border: 1px solid rgba(192,28,40,0.30);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #D4B46A;
+  color: #C01C28;
   flex-shrink: 0;
 }
 
@@ -391,7 +391,7 @@
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(196,148,58,0.25);
+  box-shadow: 0 0 0 3px rgba(192,28,40,0.20);
 }
 
 .form-group select {
@@ -486,7 +486,7 @@
 /* ==============================
    FAQ SECTION WRAPPER
    ============================== */
-.faq-section { max-width: 800px; margin: 0 auto; }
+.faq-section { max-width: none; margin: 0; width: 100%; }
 
 /* ==============================
    SECTION HEADER — shorthand

@@ -6,7 +6,7 @@
  */
 defined('ABSPATH') || exit;
 
-define('AR_VERSION', '1.6.0');
+define('AR_VERSION', '3.0.7');
 define('AR_DIR', get_template_directory());
 define('AR_URI', get_template_directory_uri());
 
@@ -65,8 +65,8 @@ add_action('init', function() {
 
 /* ── Enqueue ── */
 add_action('wp_enqueue_scripts', function() {
-    // Viking Heritage Estate typography — Playfair Display (serif display) + Inter (body) — loaded globally
-    wp_enqueue_style('ar-fonts','https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap',[],null);
+    // OBSIDIAN — Cormorant (high-contrast display serif) + Manrope (geometric body sans)
+    wp_enqueue_style('ar-fonts','https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700&display=swap',[],null);
     wp_enqueue_style('ar-variables', AR_URI.'/assets/css/variables.css', [], AR_VERSION);
     wp_enqueue_style('ar-base',      AR_URI.'/assets/css/base.css',      ['ar-variables'], AR_VERSION);
     wp_enqueue_style('ar-components',AR_URI.'/assets/css/components.css',['ar-base'], AR_VERSION);
@@ -174,9 +174,24 @@ add_action('wp_ajax_ar_appointment','ar_handle_form');
 add_action('wp_ajax_nopriv_ar_appointment','ar_handle_form');
 
 /* ── Helpers ── */
-function ar_get_phone():string{return get_option('ar_phone_number','844-719-4467');}
+function ar_get_phone():string{
+    $p = get_option('ar_phone_number','844-719-4467');
+    // Replace placeholder/dummy phone with real business number
+    if(empty($p)||$p==='(800) 555-0100'||$p==='800-555-0100'||$p==='8005550100'){
+        $p='844-719-4467';
+        update_option('ar_phone_number',$p);
+    }
+    return $p;
+}
 function ar_phone_link():string{return 'tel:'.preg_replace('/[^0-9+]/','',ar_get_phone());}
-function ar_get_business_name():string{return get_option('ar_business_name','We');}
+function ar_get_business_name():string{
+    $n = get_option('ar_business_name','Viking Appliance Repair Service');
+    if(empty($n)||$n==='We') {
+        $n='Viking Appliance Repair Service';
+        update_option('ar_business_name',$n);
+    }
+    return $n;
+}
 function ar_meta(int $id,string $key,string $fallback=''):string{return get_post_meta($id,$key,true)?:$fallback;}
 function ar_disclaimer(string $brand=''):void{
     $brand  = $brand ?: 'the manufacturer';
@@ -352,18 +367,22 @@ function ar_get_related_error_codes(string $brand, string $appliance, int $limit
 /* ── Related Links Output ── */
 function ar_related_links(array $posts, string $heading = 'Related Pages'): void {
     if (empty($posts)) return;
-    echo '<section class="section section--bg-light">';
+    echo '<section style="padding:var(--section-sm) 0;background:var(--color-bg-light);border-top:1px solid var(--color-rule);border-bottom:1px solid var(--color-rule);">';
     echo '<div class="container">';
-    echo '<h2 style="margin-bottom:var(--space-6);font-size:var(--text-2xl);">' . esc_html($heading) . '</h2>';
-    echo '<div class="related-links__grid">';
-    foreach ($posts as $p):
-        $pid = is_object($p) ? $p->ID : $p;
-    ?>
-    <a href="<?php echo esc_url(get_permalink($pid)); ?>" class="related-link">
-        <span class="related-link__icon" aria-hidden="true">→</span>
-        <?php echo esc_html(get_the_title($pid)); ?>
-    </a>
-    <?php endforeach;
+    if ($heading) {
+        echo '<span style="font-family:\'Manrope\',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#C01C28;display:block;margin-bottom:14px;">Related Services</span>';
+        echo '<h2 style="font-family:\'Cormorant\',Georgia,serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:0 0 var(--space-6);line-height:1.1;">' . esc_html($heading) . '</h2>';
+    }
+    echo '<div style="display:flex;flex-direction:column;gap:0;">';
+    foreach ($posts as $p) {
+        $pid   = is_object($p) ? $p->ID : $p;
+        $title = get_the_title($pid);
+        $url   = get_permalink($pid);
+        echo '<a href="' . esc_url($url) . '" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0;border-top:1px solid #D9D8D3;text-decoration:none;color:#0D0D0D;transition:color 0.12s ease;" onmouseover="this.style.color=\'#C01C28\'" onmouseout="this.style.color=\'#0D0D0D\'">';
+        echo '<span style="font-family:\'Cormorant\',Georgia,serif;font-size:1.125rem;font-weight:500;letter-spacing:-0.01em;line-height:1.2;">' . esc_html($title) . '</span>';
+        echo '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;color:#D9D8D3;" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+        echo '</a>';
+    }
     echo '</div></div></section>';
 }
 
