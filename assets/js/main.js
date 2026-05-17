@@ -1,7 +1,7 @@
 ﻿/**
  * Viking Appliance Repair Service — Main JavaScript
  * Handles: sticky header, mobile menu, FAQ accordion, smooth scroll,
- *          form AJAX submission, sticky call button
+ *          appointment iframe auto-resize, phone click tracking, reveal animations
  */
 (function () {
   'use strict';
@@ -57,33 +57,33 @@
 
     if (!question || !answer) return;
 
+    // Initialise closed state via max-height only (not hidden attr, so transition works)
+    answer.style.maxHeight = '0';
+    answer.style.overflow  = 'hidden';
+
+    function closeItem(target) {
+      const a = target.querySelector('.faq-answer');
+      const q = target.querySelector('.faq-question');
+      target.classList.remove('open');
+      if (a) a.style.maxHeight = '0';
+      if (q) q.setAttribute('aria-expanded', 'false');
+    }
+
     question.addEventListener('click', () => {
       const isOpen = item.classList.contains('open');
 
-      // Close all others
-      faqItems.forEach((other) => {
-        if (other !== item) {
-          other.classList.remove('open');
-          const otherAnswer = other.querySelector('.faq-answer');
-          if (otherAnswer) { otherAnswer.style.maxHeight = null; otherAnswer.hidden = true; }
-          const otherQ = other.querySelector('.faq-question');
-          if (otherQ) otherQ.setAttribute('aria-expanded', 'false');
-        }
-      });
+      // Close all other items
+      faqItems.forEach((other) => { if (other !== item) closeItem(other); });
 
-      // Toggle current
       if (isOpen) {
-        item.classList.remove('open');
-        answer.style.maxHeight = null;
-        answer.hidden = true;
-        question.setAttribute('aria-expanded', 'false');
+        closeItem(item);
       } else {
         item.classList.add('open');
-        answer.hidden = false;
+        // Set explicit px value so CSS transition runs from 0 → height
         answer.style.maxHeight = answer.scrollHeight + 'px';
         question.setAttribute('aria-expanded', 'true');
 
-        // Smooth scroll to question if needed
+        // Smooth scroll into view if question is near top
         const rect = question.getBoundingClientRect();
         if (rect.top < 80) {
           window.scrollTo({ top: window.scrollY + rect.top - 100, behavior: 'smooth' });
@@ -93,16 +93,12 @@
 
     // Keyboard support
     question.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        question.click();
-      }
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); question.click(); }
     });
 
     question.setAttribute('aria-expanded', 'false');
     question.setAttribute('role', 'button');
     question.setAttribute('tabindex', '0');
-    answer.hidden = true;
   });
 
   /* ============================================================

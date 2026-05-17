@@ -97,13 +97,12 @@
                 <a href="<?php echo esc_url(home_url('/error-codes/')); ?>" class="primary-nav__link">Fault Codes</a>
             </div>
 
-            <div class="primary-nav__item primary-nav__item--dropdown">
-                <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="primary-nav__link">Resources</a>
-                <div class="dropdown-menu" role="menu">
-                    <a href="<?php echo esc_url(home_url('/blog/')); ?>"          class="dropdown-menu__link" role="menuitem">Blog</a>
-                    <a href="<?php echo esc_url(home_url('/error-codes/')); ?>"    class="dropdown-menu__link" role="menuitem">Fault Codes</a>
-                    <a href="<?php echo esc_url(home_url('/recalls/')); ?>"        class="dropdown-menu__link" role="menuitem">Recalls</a>
-                </div>
+            <div class="primary-nav__item">
+                <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="primary-nav__link">Blog</a>
+            </div>
+
+            <div class="primary-nav__item">
+                <a href="<?php echo esc_url(home_url('/recalls/')); ?>" class="primary-nav__link">Recalls</a>
             </div>
 
         </nav>
@@ -144,12 +143,12 @@
         </button>
     </div>
 
-    <a href="<?php echo esc_url(home_url('/')); ?>"          class="mobile-nav__link">Home</a>
-    <a href="<?php echo esc_url(home_url('/services/')); ?>"  class="mobile-nav__link">Services</a>
-    <a href="<?php echo esc_url(home_url('/locations/')); ?>" class="mobile-nav__link">Locations</a>
+    <a href="<?php echo esc_url(home_url('/')); ?>"            class="mobile-nav__link">Home</a>
+    <a href="<?php echo esc_url(home_url('/services/')); ?>"   class="mobile-nav__link">Services</a>
+    <a href="<?php echo esc_url(home_url('/locations/')); ?>"  class="mobile-nav__link">Locations</a>
     <a href="<?php echo esc_url(home_url('/error-codes/')); ?>" class="mobile-nav__link">Fault Codes</a>
-    <a href="<?php echo esc_url(home_url('/recalls/')); ?>"   class="mobile-nav__link">Recalls</a>
-    <a href="<?php echo esc_url(home_url('/blog/')); ?>"      class="mobile-nav__link">Blog</a>
+    <a href="<?php echo esc_url(home_url('/blog/')); ?>"       class="mobile-nav__link">Blog</a>
+    <a href="<?php echo esc_url(home_url('/recalls/')); ?>"    class="mobile-nav__link">Recalls</a>
 
     <a href="<?php echo esc_url(ar_phone_link()); ?>" class="mobile-nav__phone">
         <?php echo esc_html(ar_get_phone()); ?>

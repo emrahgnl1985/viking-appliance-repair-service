@@ -8,6 +8,17 @@ defined('ABSPATH') || exit;
 $phone      = ar_get_phone();
 $phone_link = ar_phone_link();
 
+// Category-matched fallback images for posts with no featured image
+$blog_img_fallbacks = [
+    'range-oven'      => 'viking-kitchen-miramar.jpg',
+    'refrigerator'    => 'viking-refrigerator-3series.jpg',
+    'dishwasher'      => 'viking-dishwasher-7series.jpg',
+    'cooktop'         => 'viking-cooktop-rangetop.jpg',
+    'maintenance'     => '5_Series_Kitchen_HQ-new.jpg',
+    'troubleshooting' => 'viking-wall-oven-7series.jpg',
+    'buying-guides'   => 'viking-tuscany-kitchen-1.jpg',
+];
+
 // Archive title & description
 if (is_tax('blog_category')) {
     $term        = get_queried_object();
@@ -521,18 +532,25 @@ get_header();
                         $p_cat  = ($p_cats && !is_wp_error($p_cats)) ? $p_cats[0] : null;
                         $rt     = max(1, ceil(str_word_count(strip_tags(get_the_content())) / 200));
                         $post_id  = get_the_ID();
-                        $meta_url = get_post_meta($post_id, '_post_image_url', true);
-                        $meta_alt = get_post_meta($post_id, '_post_image_alt', true) ?: get_the_title();
+                        $meta_url  = get_post_meta($post_id, '_post_image_url', true);
+                        $meta_alt  = get_post_meta($post_id, '_post_image_alt', true) ?: get_the_title();
+                        $cat_slug  = $p_cat ? $p_cat->slug : '';
+                        $fallback  = get_template_directory_uri() . '/assets/images/' . ($blog_img_fallbacks[$cat_slug] ?? '5_Series_Kitchen_HQ-new.jpg');
+                        // Use fallback if stored URL is external/broken
+                        if ($meta_url && !str_starts_with($meta_url, get_template_directory_uri())) {
+                            $meta_url = $fallback;
+                        }
+                        $card_img = $meta_url ?: $fallback;
                     ?>
                     <a href="<?php the_permalink(); ?>" class="post-card">
-                        <?php if ($meta_url): ?>
+                        <?php if (has_post_thumbnail()): ?>
+                            <?php the_post_thumbnail('medium', ['class' => 'post-card__thumb', 'alt' => esc_attr($meta_alt)]); ?>
+                        <?php else: ?>
                             <img class="post-card__thumb"
-                                 src="<?php echo esc_url($meta_url); ?>"
+                                 src="<?php echo esc_url($card_img); ?>"
                                  alt="<?php echo esc_attr($meta_alt); ?>"
                                  width="800" height="450"
                                  loading="lazy">
-                        <?php elseif (has_post_thumbnail()): ?>
-                            <?php the_post_thumbnail('medium', ['class' => 'post-card__thumb', 'alt' => get_the_title()]); ?>
                         <?php endif; ?>
                         <?php if ($p_cat): ?>
                         <span class="post-card__label"><?php echo esc_html($p_cat->name); ?></span>

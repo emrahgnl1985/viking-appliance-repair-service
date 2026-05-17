@@ -182,8 +182,9 @@ ar_output_schema([
     aspect-ratio: 16/9;
     overflow: hidden;
     background: var(--color-bg-section);
+    min-height: 320px;
 }
-.sp-feat-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.sp-feat-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
 .sp-feat-img-placeholder {
     width: 64px; height: 64px;
     background: rgba(192,28,40,.1);
@@ -621,18 +622,34 @@ ar_output_schema([
                     <?php
                     $feat_img_url = get_post_meta($id, '_post_image_url', true);
                     $feat_img_alt = get_post_meta($id, '_post_image_alt', true) ?: get_the_title();
+
+                    // Category-matched fallback images
+                    $sp_img_map = [
+                        'range-oven'      => 'viking-kitchen-miramar.jpg',
+                        'refrigerator'    => 'viking-refrigerator-3series.jpg',
+                        'dishwasher'      => 'viking-dishwasher-7series.jpg',
+                        'cooktop'         => 'viking-cooktop-rangetop.jpg',
+                        'maintenance'     => '5_Series_Kitchen_HQ-new.jpg',
+                        'troubleshooting' => 'viking-wall-oven-7series.jpg',
+                        'buying-guides'   => 'viking-tuscany-kitchen-1.jpg',
+                    ];
+                    $sp_cat      = $post_cat ? $post_cat->slug : '';
+                    $sp_fallback = get_template_directory_uri() . '/assets/images/' . ($sp_img_map[$sp_cat] ?? '5_Series_Kitchen_HQ-new.jpg');
+
+                    // Replace external / broken URLs with fallback
+                    if ($feat_img_url && !str_starts_with($feat_img_url, get_template_directory_uri())) {
+                        $feat_img_url = $sp_fallback;
+                    }
+                    $sp_display = $feat_img_url ?: $sp_fallback;
                     ?>
-                    <?php if ($feat_img_url): ?>
-                        <img src="<?php echo esc_url($feat_img_url); ?>"
+                    <?php if (has_post_thumbnail()): ?>
+                        <?php the_post_thumbnail('large', ['alt' => esc_attr($feat_img_alt), 'itemprop' => 'image', 'loading' => 'eager']); ?>
+                    <?php else: ?>
+                        <img src="<?php echo esc_url($sp_display); ?>"
                              alt="<?php echo esc_attr($feat_img_alt); ?>"
                              itemprop="image"
-                             loading="eager">
-                    <?php elseif (has_post_thumbnail()): ?>
-                        <?php the_post_thumbnail('large', ['alt' => esc_attr($feat_img_alt), 'itemprop' => 'image']); ?>
-                    <?php else: ?>
-                        <div class="sp-feat-img-placeholder">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 20H5a2 2 0 01-2-2V8a2 2 0 012-2h14a2 2 0 012 2v4M15 17h6m-3-3v6" stroke="#0D0D0D" stroke-width="2" stroke-linecap="round"/></svg>
-                        </div>
+                             loading="eager"
+                             style="width:100%;height:100%;object-fit:cover;display:block;">
                     <?php endif; ?>
                 </div>
 
@@ -686,22 +703,38 @@ ar_output_schema([
                     <div class="sp-related">
                         <h2 class="sp-related__heading">Related Articles</h2>
                         <div class="sp-related-grid">
-                            <?php foreach ($related_posts as $rp):
-                                $rp_cats  = get_the_terms($rp->ID, 'blog_category');
-                                $rp_cat   = ($rp_cats && !is_wp_error($rp_cats)) ? $rp_cats[0]->name : '';
-                                $rp_img   = get_post_meta($rp->ID, '_post_image_url', true);
-                                $rp_alt   = get_post_meta($rp->ID, '_post_image_alt', true) ?: get_the_title($rp->ID);
+                            <?php
+                            $rp_img_fallbacks = [
+                                'range-oven'      => 'viking-kitchen-miramar.jpg',
+                                'refrigerator'    => 'viking-refrigerator-3series.jpg',
+                                'dishwasher'      => 'viking-dishwasher-7series.jpg',
+                                'cooktop'         => 'viking-cooktop-rangetop.jpg',
+                                'maintenance'     => '5_Series_Kitchen_HQ-new.jpg',
+                                'troubleshooting' => 'viking-wall-oven-7series.jpg',
+                                'buying-guides'   => 'viking-tuscany-kitchen-1.jpg',
+                            ];
+                            foreach ($related_posts as $rp):
+                                $rp_cats     = get_the_terms($rp->ID, 'blog_category');
+                                $rp_cat_obj  = ($rp_cats && !is_wp_error($rp_cats)) ? $rp_cats[0] : null;
+                                $rp_cat      = $rp_cat_obj ? $rp_cat_obj->name : '';
+                                $rp_cat_slug = $rp_cat_obj ? $rp_cat_obj->slug : '';
+                                $rp_img      = get_post_meta($rp->ID, '_post_image_url', true);
+                                $rp_alt      = get_post_meta($rp->ID, '_post_image_alt', true) ?: get_the_title($rp->ID);
+                                $rp_fallback = get_template_directory_uri() . '/assets/images/' . ($rp_img_fallbacks[$rp_cat_slug] ?? '5_Series_Kitchen_HQ-new.jpg');
+                                // Replace external/broken URLs with local fallback
+                                if ($rp_img && !str_starts_with($rp_img, get_template_directory_uri())) {
+                                    $rp_img = $rp_fallback;
+                                }
+                                $rp_display_img = $rp_img ?: $rp_fallback;
                             ?>
                             <a href="<?php echo esc_url(get_permalink($rp->ID)); ?>" class="sp-related-card">
                                 <div class="sp-related-card__img">
-                                    <?php if ($rp_img): ?>
-                                        <img src="<?php echo esc_url($rp_img); ?>"
-                                             alt="<?php echo esc_attr($rp_alt); ?>"
-                                             loading="lazy">
-                                    <?php elseif (has_post_thumbnail($rp->ID)): ?>
+                                    <?php if (has_post_thumbnail($rp->ID)): ?>
                                         <?php echo get_the_post_thumbnail($rp->ID, 'card', ['alt' => esc_attr($rp_alt)]); ?>
                                     <?php else: ?>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 20H5a2 2 0 01-2-2V8a2 2 0 012-2h14a2 2 0 012 2v4M15 17h6m-3-3v6" stroke="var(--color-border-dark)" stroke-width="2" stroke-linecap="round"/></svg>
+                                        <img src="<?php echo esc_url($rp_display_img); ?>"
+                                             alt="<?php echo esc_attr($rp_alt); ?>"
+                                             loading="lazy">
                                     <?php endif; ?>
                                 </div>
                                 <div class="sp-related-card__body">

@@ -12,6 +12,31 @@
  */
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * Delete ALL recall posts that are NOT Viking-branded before re-importing.
+ * Prevents Wolf/Samsung/other brand recalls from appearing on a Viking-only site.
+ * Safe to call multiple times — only deletes non-Viking or unbranded posts.
+ */
+function ar_purge_non_viking_recalls(): void {
+    $all_recalls = get_posts([
+        'post_type'      => 'recall',
+        'numberposts'    => -1,
+        'post_status'    => 'any',
+        'fields'         => 'ids',
+    ]);
+
+    foreach ( $all_recalls as $pid ) {
+        $brand = get_post_meta( $pid, '_ar_brand', true );
+        // Delete if not Viking (covers Wolf, Samsung, blank, etc.)
+        if ( strtolower( $brand ) !== 'viking' ) {
+            wp_delete_post( $pid, true );
+            if ( defined('WP_CLI') && WP_CLI ) {
+                WP_CLI::line( "  Deleted non-Viking recall (ID: {$pid}, Brand: {$brand})" );
+            }
+        }
+    }
+}
+
 function ar_get_all_brands_recalls_data(): array {
     return ar_recalls_viking();
 }

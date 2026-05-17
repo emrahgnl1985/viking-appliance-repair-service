@@ -74,19 +74,20 @@
 
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 8px);
+  top: 100%;                   /* flush to parent — no gap to lose hover over */
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-4px);
   min-width: 210px;
   background: var(--color-white);
   border: 1px solid var(--color-rule);
   border-radius: var(--radius-xl);
-  padding: var(--space-2) 0;
+  padding: 10px 0 var(--space-2);  /* extra top padding creates visual gap without hover gap */
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity var(--transition-base), transform var(--transition-base);
-  transform: translateX(-50%) translateY(-4px);
+  /* delay hiding so fast mouse movements don't close menu instantly */
+  transition: opacity 0.18s ease, transform 0.18s ease,
+              visibility 0s linear 0.18s;
   box-shadow: var(--shadow-lg);
   z-index: var(--z-dropdown);
 }
@@ -97,6 +98,8 @@
   visibility: visible;
   pointer-events: auto;
   transform: translateX(-50%) translateY(0);
+  transition: opacity 0.18s ease, transform 0.18s ease,
+              visibility 0s linear 0s;
 }
 
 .dropdown-menu__link {

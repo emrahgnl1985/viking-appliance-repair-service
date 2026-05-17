@@ -6,7 +6,7 @@
  */
 defined('ABSPATH') || exit;
 
-define('AR_VERSION', '3.0.8');
+define('AR_VERSION', '3.1.1');
 define('AR_DIR', get_template_directory());
 define('AR_URI', get_template_directory_uri());
 
@@ -61,6 +61,50 @@ add_action('init', function() {
 add_action('init', function() {
     add_rewrite_rule('^error-codes/([^/]+)/([^/]+)/?$','index.php?post_type=error_code&name=$matches[2]','top');
     add_rewrite_rule('^locations/([^/]+)/([^/]+)/?$','index.php?post_type=location_page&name=$matches[2]','top');
+});
+
+/* ── Filter non-Viking content from public queries ── */
+add_action('pre_get_posts', function(WP_Query $q) {
+    if (is_admin() || !$q->is_main_query()) return;
+
+    // Recall archive and single recall pages: Viking only
+    if ($q->is_post_type_archive('recall') || ($q->is_singular() && $q->get('post_type') === 'recall')) {
+        $existing = $q->get('meta_query') ?: [];
+        $q->set('meta_query', array_merge($existing, [
+            'relation' => 'AND',
+            [
+                'key'     => '_ar_brand',
+                'value'   => 'Viking',
+                'compare' => '=',
+            ],
+        ]));
+    }
+
+    // Error code archive: Viking only
+    if ($q->is_post_type_archive('error_code')) {
+        $existing = $q->get('meta_query') ?: [];
+        $q->set('meta_query', array_merge($existing, [
+            'relation' => 'AND',
+            [
+                'key'     => '_ar_brand',
+                'value'   => 'Viking',
+                'compare' => '=',
+            ],
+        ]));
+    }
+
+    // Service page archive: Viking only
+    if ($q->is_post_type_archive('service_page')) {
+        $existing = $q->get('meta_query') ?: [];
+        $q->set('meta_query', array_merge($existing, [
+            'relation' => 'AND',
+            [
+                'key'     => '_ar_brand',
+                'value'   => 'Viking',
+                'compare' => '=',
+            ],
+        ]));
+    }
 });
 
 /* ── Enqueue ── */
