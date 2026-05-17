@@ -177,13 +177,13 @@ $faqs = [
   font-family: var(--font-body);
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--color-primary-dark);
+  color: #C01C28;
   text-decoration: none;
   letter-spacing: -0.01em;
   margin-bottom: 10px;
   transition: color var(--transition-fast);
 }
-.sch-phone-link:hover { color: var(--color-primary); }
+.sch-phone-link:hover { color: #9A1520; }
 
 .sch-email-link {
   display: flex;

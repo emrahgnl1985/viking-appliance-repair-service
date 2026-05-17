@@ -239,7 +239,7 @@ ar_output_schema([
 
         <div class="svc-hiw-media">
           <img
-            src="<?php echo get_template_directory_uri() . $image_path; ?>"
+            src="<?php echo esc_url(get_template_directory_uri() . $image_path); ?>"
             alt="<?php echo esc_attr("{$brand} {$appliance}"); ?> repair"
             loading="lazy"
           >

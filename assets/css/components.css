@@ -232,8 +232,7 @@
   font-family: var(--font-body);
   font-size: 1.375rem;
   font-weight: 700;
-  color: #C01C28 !important;
-  color: var(--color-primary-dark);
+  color: #C01C28;
   text-decoration: none;
   letter-spacing: -0.01em;
 }

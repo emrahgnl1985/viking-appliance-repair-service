@@ -43,7 +43,7 @@
 
 .hero-content h1 em {
   font-style: italic;
-  color: #D4B46A;
+  color: #C01C28;
 }
 
 .hero-sub {
@@ -159,7 +159,7 @@
    front-page.php inline trust bar uses .tbar/.tbar__grid/.tbar__cell
    ============================== */
 .tbar {
-  background: linear-gradient(180deg, #111f33 0%, var(--color-primary-dark) 100%);
+  background: var(--color-primary-dark);
   border-top: 3px solid var(--color-accent);
   padding: var(--space-5) 0;
 }

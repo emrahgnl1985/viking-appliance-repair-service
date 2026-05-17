@@ -101,9 +101,8 @@
                 <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="primary-nav__link">Resources</a>
                 <div class="dropdown-menu" role="menu">
                     <a href="<?php echo esc_url(home_url('/blog/')); ?>"          class="dropdown-menu__link" role="menuitem">Blog</a>
-                    <a href="<?php echo esc_url(home_url('/guides/')); ?>"         class="dropdown-menu__link" role="menuitem">Repair Guides</a>
-                    <a href="<?php echo esc_url(home_url('/recalls/')); ?>"        class="dropdown-menu__link" role="menuitem">Recalls</a>
                     <a href="<?php echo esc_url(home_url('/error-codes/')); ?>"    class="dropdown-menu__link" role="menuitem">Fault Codes</a>
+                    <a href="<?php echo esc_url(home_url('/recalls/')); ?>"        class="dropdown-menu__link" role="menuitem">Recalls</a>
                 </div>
             </div>
 
@@ -149,7 +148,6 @@
     <a href="<?php echo esc_url(home_url('/services/')); ?>"  class="mobile-nav__link">Services</a>
     <a href="<?php echo esc_url(home_url('/locations/')); ?>" class="mobile-nav__link">Locations</a>
     <a href="<?php echo esc_url(home_url('/error-codes/')); ?>" class="mobile-nav__link">Fault Codes</a>
-    <a href="<?php echo esc_url(home_url('/guides/')); ?>"    class="mobile-nav__link">Repair Guides</a>
     <a href="<?php echo esc_url(home_url('/recalls/')); ?>"   class="mobile-nav__link">Recalls</a>
     <a href="<?php echo esc_url(home_url('/blog/')); ?>"      class="mobile-nav__link">Blog</a>
 
