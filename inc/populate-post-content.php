@@ -1319,7 +1319,7 @@ foreach ($pages as $page) {
         $html .= "<h2>When to Call a Certified Technician</h2>\n";
         $html .= "<p>Our clients tell us they appreciate the honesty — we will always say in the guide when a repair is beyond safe DIY territory. ";
         $html .= "If you see sparks, smell burning, hear loud grinding, or cannot clear an error code after following our steps, call us. ";
-        $html .= "Faults involving motors, control boards, or refrigerant need a professional every time — and trying to force it yourself usually turns a £150 repair into a £500 one.</p>\n";
+        $html .= "Faults involving motors, control boards, or refrigerant need a professional every time — and trying to force it yourself usually turns a \$150 repair into a \$500 one.</p>\n";
 
         $html .= "<ul>\n";
         $html .= "<li><a href=\"{$home}/schedule/\">Schedule a repair appointment</a></li>\n";

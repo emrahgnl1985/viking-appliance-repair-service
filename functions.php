@@ -6,7 +6,7 @@
  */
 defined('ABSPATH') || exit;
 
-define('AR_VERSION', '3.0.7');
+define('AR_VERSION', '3.0.8');
 define('AR_DIR', get_template_directory());
 define('AR_URI', get_template_directory_uri());
 

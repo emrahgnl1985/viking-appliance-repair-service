@@ -106,55 +106,28 @@
   });
 
   /* ============================================================
-     APPOINTMENT FORM — AJAX SUBMISSION
+     APPOINTMENT FORM — iframe auto-resize
+     Appointment form uses ProLeadService iframe; resize on postMessage
      ============================================================ */
-  const apptForms = document.querySelectorAll('.appt-form__form');
+  const apptIframes = document.querySelectorAll('#appointmentIframe');
 
-  apptForms.forEach((form) => {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const submitBtn = form.querySelector('[type="submit"]');
-      const successEl = form.closest('.appt-form')?.querySelector('.form-success');
-      const originalText = submitBtn ? submitBtn.innerHTML : '';
-
-      if (submitBtn) {
-        submitBtn.innerHTML = 'Sending…';
-        submitBtn.disabled  = true;
-      }
-
-      const data = new FormData(form);
-      data.append('action', 'ar_appointment');
-      data.append('nonce', window.arAjax?.nonce || '');
-
+  apptIframes.forEach((iframe) => {
+    window.addEventListener('message', (e) => {
       try {
-        const resp = await fetch(window.arAjax?.url || '/wp-admin/admin-ajax.php', {
-          method: 'POST',
-          body: data,
-          credentials: 'same-origin',
-        });
-
-        const json = await resp.json();
-
-        if (json.success) {
-          form.style.display = 'none';
-          if (successEl) successEl.style.display = 'block';
-
-          // Push to dataLayer if GTM present
-          if (window.dataLayer) {
-            window.dataLayer.push({ event: 'appointment_submitted' });
-          }
-        } else {
-          throw new Error(json.data || 'Submission error');
-        }
-      } catch (err) {
-        console.error('Form error:', err);
-        if (submitBtn) {
-          submitBtn.innerHTML = '⚠ Error — please call us directly';
-          submitBtn.disabled  = false;
-          submitBtn.style.backgroundColor = 'var(--color-danger)';
-        }
+        const origin = new URL(iframe.src).origin;
+        if (e.origin !== origin) return;
+      } catch (_) { return; }
+      if (e.data && e.data.height) {
+        iframe.style.height = parseInt(e.data.height, 10) + 'px';
       }
+    });
+
+    iframe.addEventListener('load', () => {
+      try {
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        const h = doc.documentElement.scrollHeight || doc.body.scrollHeight;
+        if (h > 100) iframe.style.height = h + 'px';
+      } catch (_) {}
     });
   });
 
