@@ -300,12 +300,87 @@ get_header();
 }
 .bl-section-head__more:hover { color: var(--color-primary); text-decoration: none; }
 
-/* ── Post cards grid ── */
-.bl-posts-grid {
+/* ── Editorial list (replaces card grid) ── */
+.bl-editorial-list { display: flex; flex-direction: column; gap: 0; }
+.bl-editorial-item {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: 240px 1fr;
+    gap: 0;
+    border-top: 1px solid #D9D8D3;
+    text-decoration: none;
+    color: #0D0D0D;
+    min-height: 180px;
+    transition: background 0.12s;
 }
+.bl-editorial-item:last-child { border-bottom: 1px solid #D9D8D3; }
+.bl-editorial-item:hover { background: #F7F6F3; }
+.bl-editorial-img {
+    overflow: hidden;
+    background: #EEEDE8;
+    position: relative;
+    border-right: 1px solid #D9D8D3;
+}
+.bl-editorial-img img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+.bl-editorial-item:hover .bl-editorial-img img { transform: scale(1.04); }
+.bl-editorial-body {
+    padding: 1.75rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5rem;
+}
+.bl-editorial-cat {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #C01C28;
+}
+.bl-editorial-title {
+    font-family: 'Cormorant', Georgia, serif;
+    font-size: clamp(1.25rem, 2vw, 1.625rem);
+    font-weight: 500;
+    color: #0D0D0D;
+    line-height: 1.2;
+    letter-spacing: -.01em;
+    margin: 0;
+    transition: color 0.12s;
+}
+.bl-editorial-item:hover .bl-editorial-title { color: #C01C28; }
+.bl-editorial-excerpt {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 13.5px;
+    color: #717170;
+    line-height: 1.65;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.bl-editorial-meta {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 12px;
+    color: #A8A8A5;
+    margin-top: .25rem;
+}
+.bl-editorial-arrow {
+    color: #D9D8D3;
+    margin-left: auto;
+    flex-shrink: 0;
+    align-self: center;
+    padding-right: 1.5rem;
+    transition: color 0.12s, transform 0.15s;
+}
+.bl-editorial-item:hover .bl-editorial-arrow { color: #C01C28; transform: translateX(4px); }
 
 /* ── Empty state ── */
 .bl-empty {
@@ -558,7 +633,6 @@ get_header();
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
-    .bl-posts-grid { grid-template-columns: repeat(2, 1fr); }
     .bl-grid { grid-template-columns: 1fr 260px; gap: 3rem; }
 }
 @media (max-width: 900px) {
@@ -570,7 +644,6 @@ get_header();
     .bl-featured__inner { grid-template-columns: 1fr; min-height: auto; }
     .bl-featured__img-wrap { aspect-ratio: 16/9; }
     .bl-featured__body { padding: 2rem; border-left: none; border-top: 1px solid var(--color-rule); }
-    .bl-posts-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
     .bl-hero { padding-top: calc(64px + 3rem); padding-bottom: 3rem; }
@@ -579,6 +652,11 @@ get_header();
     .bl-bottom-cta__btns { width: 100%; }
     .bl-bottom-cta__btn-phone,
     .bl-bottom-cta__btn-schedule { flex: 1; justify-content: center; }
+    .bl-editorial-item { grid-template-columns: 1fr; min-height: auto; }
+    .bl-editorial-img { height: 200px; border-right: none; border-bottom: 1px solid #D9D8D3; position: relative; }
+    .bl-editorial-img img { position: absolute; }
+    .bl-editorial-body { padding: 1.25rem; }
+    .bl-editorial-arrow { padding-right: 1.25rem; }
 }
 </style>
 
@@ -731,7 +809,7 @@ if ($featured_post):
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
                     </a>
                 </div>
-                <div class="bl-posts-grid">
+                <div class="bl-editorial-list">
                     <?php foreach ($section_posts as $sp):
                         $wc         = str_word_count(strip_tags(get_post_field('post_content', $sp->ID)));
                         $rt         = max(1, ceil($wc / 200));
@@ -742,19 +820,23 @@ if ($featured_post):
                         if ($card_img && !file_exists(str_replace(get_template_directory_uri(), get_template_directory(), $card_img))) $card_img = $card_fb;
                         if (!$card_img && !has_post_thumbnail($sp->ID)) $card_img = $card_fb;
                     ?>
-                    <a href="<?php echo esc_url(get_permalink($sp->ID)); ?>" class="post-card">
-                        <?php if ($card_img): ?>
-                            <img class="post-card__thumb"
-                                 src="<?php echo esc_url($card_img); ?>"
-                                 alt="<?php echo esc_attr($card_alt); ?>"
-                                 loading="lazy">
-                        <?php elseif (has_post_thumbnail($sp->ID)): ?>
-                            <?php echo get_the_post_thumbnail($sp->ID, 'medium', ['class' => 'post-card__thumb', 'alt' => esc_attr($card_alt)]); ?>
-                        <?php endif; ?>
-                        <span class="post-card__label"><?php echo esc_html($section_cat->name); ?></span>
-                        <h3 class="post-card__title"><?php echo esc_html(get_the_title($sp->ID)); ?></h3>
-                        <p class="post-card__excerpt"><?php echo wp_trim_words($excerpt, 18); ?></p>
-                        <span class="post-card__meta"><?php echo get_the_date('M j, Y', $sp->ID); ?> &middot; <?php echo $rt; ?> min read</span>
+                    <a href="<?php echo esc_url(get_permalink($sp->ID)); ?>" class="bl-editorial-item">
+                        <div class="bl-editorial-img">
+                            <?php if ($card_img): ?>
+                                <img src="<?php echo esc_url($card_img); ?>"
+                                     alt="<?php echo esc_attr($card_alt); ?>"
+                                     loading="lazy">
+                            <?php elseif (has_post_thumbnail($sp->ID)): ?>
+                                <?php echo get_the_post_thumbnail($sp->ID, 'medium', ['alt' => esc_attr($card_alt)]); ?>
+                            <?php endif; ?>
+                        </div>
+                        <div class="bl-editorial-body">
+                            <span class="bl-editorial-cat"><?php echo esc_html($section_cat->name); ?></span>
+                            <h3 class="bl-editorial-title"><?php echo esc_html(get_the_title($sp->ID)); ?></h3>
+                            <p class="bl-editorial-excerpt"><?php echo esc_html(wp_trim_words($excerpt, 20)); ?></p>
+                            <span class="bl-editorial-meta"><?php echo get_the_date('M j, Y', $sp->ID); ?> &middot; <?php echo $rt; ?> min read</span>
+                        </div>
+                        <svg class="bl-editorial-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                     <?php endforeach; ?>
                 </div>

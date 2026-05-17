@@ -134,34 +134,114 @@ ar_output_schema($_schema_data);
 </section>
 
 <!-- ── SERVICES IN CITY ───────────────────────── -->
+<style>
+.loc-svc-wrap {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 4rem;
+  align-items: start;
+}
+.loc-svc-row {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid #D9D8D3;
+  text-decoration: none;
+  color: #0D0D0D;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.12s;
+}
+.loc-svc-row::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: -4px;
+  width: 0;
+  background: #C01C28;
+  transition: width 0.14s;
+}
+.loc-svc-row:hover::before { width: 3px; left: 0; }
+.loc-svc-row:hover .loc-svc-num { color: #C01C28; }
+.loc-svc-row:hover .loc-svc-arrow { stroke: #C01C28; }
+.loc-svc-num {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #D9D8D3;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  transition: color 0.12s;
+}
+.loc-svc-name {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #0D0D0D;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.loc-svc-arrow {
+  stroke: #D9D8D3;
+  transition: stroke 0.12s;
+  flex-shrink: 0;
+}
+.loc-svc-closer { border-top: 1px solid #D9D8D3; }
+.loc-svc-img {
+  position: sticky;
+  top: 88px;
+  border-radius: 2px;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+}
+.loc-svc-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 900px) {
+  .loc-svc-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+  .loc-svc-img { position: static; aspect-ratio: 16/9; order: 2; }
+}
+</style>
 <section class="section" style="background:var(--color-bg-light);border-bottom:1px solid var(--color-rule);" aria-labelledby="svc-city-h2">
   <div class="container">
-    <div class="section-header section-header--center" style="margin-bottom:var(--space-10);">
-      <span class="section-header__eyebrow">Our Services in <?php echo esc_html($city); ?></span>
-      <h2 id="svc-city-h2" style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.75rem,3vw,2.625rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 0;line-height:1.1;">
-        Viking Appliance Repair Services
-      </h2>
-    </div>
-    <div class="grid grid-3" style="gap:var(--space-4);">
-      <?php
-      $svcs = [
-          ['name'=>'Viking Range Repair',        'slug'=>'viking-range-repair',        'desc'=>'Gas, dual-fuel, and induction ranges. Burner ignition, oven calibration, and control board repairs.'],
-          ['name'=>'Viking Refrigerator Repair',  'slug'=>'viking-refrigerator-repair',  'desc'=>'Built-in and French Door refrigerators. Ice maker, compressor, and cooling system repairs.'],
-          ['name'=>'Viking Dishwasher Repair',    'slug'=>'viking-dishwasher-repair',    'desc'=>'Drainage, cleaning, and starting failures. Control board and door latch repairs.'],
-          ['name'=>'Viking Cooktop Repair',       'slug'=>'viking-cooktop-repair',       'desc'=>'Gas, electric, and induction cooktops. Burner ignition and surface element repairs.'],
-          ['name'=>'Viking Wall Oven Repair',     'slug'=>'viking-wall-oven-repair',     'desc'=>'Single and double wall ovens. Temperature accuracy and element replacement.'],
-          ['name'=>'Viking Wine Cooler Repair',   'slug'=>'viking-wine-cooler-repair',   'desc'=>'Temperature maintenance and fault code diagnosis for Viking wine coolers.'],
-          ['name'=>'Viking Freezer Repair',       'slug'=>'viking-freezer-repair',       'desc'=>'Column and upright freezers. Defrost system and temperature alarm repairs.'],
-          ['name'=>'Viking Vent Hood Repair',     'slug'=>'viking-vent-hood-repair',     'desc'=>'Blower motor, lighting, and control panel repairs for Professional vent hoods.'],
-      ];
-      foreach ($svcs as $i => $svc): ?>
-      <a href="<?php echo esc_url(home_url('/services/' . $svc['slug'] . '/')); ?>" class="service-card" style="text-decoration:none;">
-        <div style="font-family:'Cormorant',Georgia,serif;font-size:2.5rem;font-weight:300;color:var(--color-rule);line-height:1;letter-spacing:-0.04em;margin-bottom:12px;" aria-hidden="true"><?php echo str_pad($i+1,2,'0',STR_PAD_LEFT); ?></div>
-        <h3 class="service-card__title"><?php echo esc_html($svc['name']); ?></h3>
-        <p class="service-card__desc"><?php echo esc_html($svc['desc']); ?></p>
-        <span class="service-card__link">Book in <?php echo esc_html($city); ?> &rarr;</span>
-      </a>
-      <?php endforeach; ?>
+    <div class="loc-svc-wrap">
+
+      <!-- Left: editorial service list -->
+      <div>
+        <span class="section-header__eyebrow" style="margin-bottom:12px;display:block;">Viking Repair Services in <?php echo esc_html($city); ?></span>
+        <h2 id="svc-city-h2" style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;color:#0D0D0D;letter-spacing:-0.025em;line-height:1.1;margin:0 0 var(--space-6);">
+          Every Viking Appliance We Service
+        </h2>
+        <?php
+        $svcs = [
+            ['name'=>'Viking Range Repair',        'slug'=>'viking-range-repair'],
+            ['name'=>'Viking Refrigerator Repair',  'slug'=>'viking-refrigerator-repair'],
+            ['name'=>'Viking Dishwasher Repair',    'slug'=>'viking-dishwasher-repair'],
+            ['name'=>'Viking Cooktop Repair',       'slug'=>'viking-cooktop-repair'],
+            ['name'=>'Viking Wall Oven Repair',     'slug'=>'viking-wall-oven-repair'],
+            ['name'=>'Viking Wine Cooler Repair',   'slug'=>'viking-wine-cooler-repair'],
+            ['name'=>'Viking Freezer Repair',       'slug'=>'viking-freezer-repair'],
+            ['name'=>'Viking Vent Hood Repair',     'slug'=>'viking-vent-hood-repair'],
+        ];
+        ?>
+        <div style="display:flex;flex-direction:column;">
+          <?php foreach ($svcs as $i => $svc): ?>
+          <a href="<?php echo esc_url(home_url('/services/' . $svc['slug'] . '/')); ?>" class="loc-svc-row">
+            <span class="loc-svc-num" aria-hidden="true"><?php echo str_pad($i+1,2,'0',STR_PAD_LEFT); ?></span>
+            <span class="loc-svc-name"><?php echo esc_html($svc['name']); ?></span>
+            <svg class="loc-svc-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <?php endforeach; ?>
+          <div class="loc-svc-closer"></div>
+        </div>
+      </div>
+
+      <!-- Right: Viking kitchen image -->
+      <div class="loc-svc-img">
+        <img src="<?php echo esc_url(AR_URI . '/assets/images/viking-5series-kitchen.jpg'); ?>"
+             alt="Viking appliances in <?php echo esc_attr($city); ?>"
+             loading="lazy">
+      </div>
+
     </div>
   </div>
 </section>

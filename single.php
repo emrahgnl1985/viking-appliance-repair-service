@@ -159,43 +159,31 @@ ar_output_schema([
 
 /* ── Layout ── */
 .sp-layout {
-    background: var(--color-bg-light);
-    padding: 3rem 0 5rem;
+    background: var(--color-white);
+    padding: 0 0 5rem;
 }
 .sp-grid {
-    display: grid;
-    grid-template-columns: 1fr 280px;
-    gap: 3rem;
-    align-items: start;
+    display: block;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 2rem 0;
 }
+.sp-sidebar { display: none; }
 
 /* ── Article card ── */
 .sp-article {
-    background: #fff;
-    border: 1px solid var(--color-rule);
-    border-radius: var(--radius-md);
-    overflow: hidden;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    overflow: visible;
 }
 
-/* Featured image */
-.sp-feat-img {
-    aspect-ratio: 16/9;
-    overflow: hidden;
-    background: var(--color-bg-section);
-    min-height: 320px;
-}
-.sp-feat-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
-.sp-feat-img-placeholder {
-    width: 64px; height: 64px;
-    background: rgba(192,28,40,.1);
-    border-radius: var(--radius-xl);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+/* Featured image — hidden in editorial layout (image lives in hero split) */
+.sp-feat-img { display: none; }
+.sp-feat-img-placeholder { display: none; }
 
 /* Article body */
-.sp-article__body { padding: 2.5rem; }
+.sp-article__body { padding: 2rem 0 0; }
 
 /* TOC */
 .sp-toc {
@@ -242,17 +230,18 @@ ar_output_schema([
 }
 .sp-content h2 {
     font-family: 'Cormorant', Georgia, serif;
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-size: clamp(1.625rem, 2.5vw, 2.25rem);
     font-weight: 400;
     color: #0D0D0D;
-    margin: 2.5rem 0 .875rem;
-    padding-top: 2.5rem;
-    border-top: 1px solid var(--color-rule);
+    margin: 3rem 0 1rem;
+    padding: 0 0 0 1.25rem;
+    border-top: none;
+    border-left: 3px solid #C01C28;
     scroll-margin-top: 90px;
     letter-spacing: -0.02em;
     line-height: 1.15;
 }
-.sp-content h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.sp-content h2:first-child { margin-top: 0; }
 .sp-content h3 {
     font-family: 'Cormorant', Georgia, serif;
     font-size: clamp(1.25rem, 2vw, 1.625rem);
@@ -270,15 +259,19 @@ ar_output_schema([
 .sp-content a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(192,28,40,.3); }
 .sp-content a:hover { text-decoration-color: var(--color-primary); }
 .sp-content blockquote {
-    border-left: 3px solid var(--color-primary);
-    background: var(--color-bg-light);
-    padding: 1.25rem 1.5rem;
-    margin: 1.75rem 0;
+    border-left: none;
+    background: #F7F6F3;
+    padding: 2.5rem 2rem;
+    margin: 2.5rem -2rem;
     font-family: 'Cormorant', Georgia, serif;
     font-style: italic;
-    font-size: 1.25rem;
-    color: var(--color-text-body);
-    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    color: #0D0D0D;
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    border-top: 1px solid #D9D8D3;
+    border-bottom: 1px solid #D9D8D3;
+    border-radius: 0;
 }
 .sp-content blockquote p { margin: 0; }
 .sp-content pre, .sp-content code {
@@ -343,43 +336,46 @@ ar_output_schema([
     height: 1.5px;
     background: var(--color-primary);
 }
-.sp-related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.sp-related-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
 .sp-related-card {
-    background: #fff;
-    border: 1px solid var(--color-rule);
-    border-top: 2px solid transparent;
-    border-radius: var(--radius-md);
-    overflow: hidden;
+    background: transparent;
+    border: none;
+    border-top: 1px solid #D9D8D3;
+    border-radius: 0;
+    overflow: visible;
     text-decoration: none;
-    transition: box-shadow var(--transition-base), border-color var(--transition-base);
-    display: block;
+    transition: color 0.12s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.125rem 0;
 }
-.sp-related-card:hover { box-shadow: var(--shadow-md); border-top-color: var(--color-primary); text-decoration: none; }
-.sp-related-card__img {
-    aspect-ratio: 16/9;
-    background: var(--color-bg-section);
-    overflow: hidden;
-}
-.sp-related-card__img img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; }
-.sp-related-card__body { padding: 1rem; }
+.sp-related-card:hover { color: #C01C28; text-decoration: none; }
+.sp-related-card__img { display: none; }
+.sp-related-card__body { padding: 0; }
 .sp-related-card__cat {
     font-size: .6875rem;
     font-weight: 700;
     letter-spacing: .1em;
     text-transform: uppercase;
-    color: var(--color-primary);
-    margin-bottom: .375rem;
+    color: #C01C28;
+    margin-bottom: .25rem;
 }
 .sp-related-card__title {
     font-family: 'Cormorant', Georgia, serif;
-    font-size: 1.0625rem;
+    font-size: 1.125rem;
     font-weight: 500;
     color: #0D0D0D;
     line-height: 1.2;
-    margin: 0;
     letter-spacing: -0.01em;
+    margin: 0;
 }
-.sp-related-card:hover .sp-related-card__title { color: var(--color-primary); }
+.sp-related-card:hover .sp-related-card__title { color: #C01C28; }
 
 /* ── Sidebar ── */
 .sp-sidebar {
@@ -519,14 +515,13 @@ ar_output_schema([
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-    .sp-grid { grid-template-columns: 1fr; }
-    .sp-sidebar { position: static; }
-    .sp-related-grid { grid-template-columns: 1fr 1fr; }
+    .sp-grid { padding: 2rem 1.5rem 0; }
+    .sp-content blockquote { margin: 2rem -1.5rem; }
 }
 @media (max-width: 640px) {
     .sp-hero { padding: calc(64px + 2.5rem) 0 2rem; }
-    .sp-article__body { padding: 1.25rem; }
-    .sp-related-grid { grid-template-columns: 1fr; }
+    .sp-grid { padding: 1.5rem 1.25rem 0; }
+    .sp-content blockquote { margin: 1.5rem -1.25rem; padding: 2rem 1.25rem; }
     .sp-bottom-cta__inner { flex-direction: column; align-items: flex-start; }
     .sp-bottom-cta__btns { width: 100%; }
     .sp-bottom-cta__btn-primary,
@@ -604,6 +599,19 @@ ar_output_schema([
 
     </div><!-- /.sp-hero-split -->
 </section>
+
+<!-- ================================================
+     DARK INFO STRIP
+================================================ -->
+<div style="background:#0D0D0D;padding:.85rem 0;border-top:1px solid rgba(255,255,255,.07);">
+  <div style="max-width:800px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+    <span style="font-family:'Manrope',sans-serif;font-size:12px;color:rgba(255,255,255,.45);letter-spacing:.04em;">Viking appliance specialist&nbsp;&middot;&nbsp;Same-day available&nbsp;&middot;&nbsp;30-day warranty</span>
+    <div style="display:flex;gap:12px;align-items:center;">
+      <a href="<?php echo esc_url($phone_link); ?>" style="font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#C01C28;text-decoration:none;letter-spacing:.04em;"><?php echo esc_html($phone); ?></a>
+      <a href="/schedule/" style="font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.65);text-decoration:none;border:1px solid rgba(255,255,255,.18);padding:6px 14px;border-radius:2px;transition:border-color .12s;">Schedule</a>
+    </div>
+  </div>
+</div>
 
 <!-- ================================================
      MAIN LAYOUT
@@ -697,6 +705,16 @@ ar_output_schema([
                         </div>
                     </div>
                     <?php endif; ?>
+
+                    <!-- Crimson inline CTA -->
+                    <div style="background:#C01C28;padding:2.5rem 2rem;margin:3rem -2rem 0;text-align:center;">
+                      <p style="font-family:'Cormorant',Georgia,serif;font-size:1.875rem;font-weight:300;color:#fff;letter-spacing:-.02em;line-height:1.15;margin:0 0 .5rem;">Need a Viking Appliance Repair?</p>
+                      <p style="font-family:'Manrope',sans-serif;font-size:12px;color:rgba(255,255,255,.7);margin:0 0 1.5rem;letter-spacing:.04em;">Certified specialists &middot; Genuine OEM parts &middot; 30-day warranty</p>
+                      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                        <a href="<?php echo esc_url($phone_link); ?>" style="font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;text-decoration:none;background:rgba(0,0,0,.25);padding:12px 24px;border-radius:2px;border:1.5px solid rgba(255,255,255,.3);"><?php echo esc_html($phone); ?></a>
+                        <a href="/schedule/" style="font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.8);text-decoration:none;background:transparent;padding:12px 24px;border-radius:2px;border:1.5px solid rgba(255,255,255,.25);">Schedule Online</a>
+                      </div>
+                    </div>
 
                     <!-- Related posts -->
                     <?php if ($related_posts): ?>

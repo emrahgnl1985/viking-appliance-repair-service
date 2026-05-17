@@ -406,6 +406,54 @@ ar_output_schema([
 
 
 <!-- ═══════════════════════════════════════════════════════
+     TICKER BAR — Animated crimson marquee
+     ═══════════════════════════════════════════════════════ -->
+<style>
+@keyframes hp-ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-33.333%); } }
+@media (prefers-reduced-motion: reduce) { .hp-ticker-track { animation: none !important; } }
+.hp-ticker { background: #C01C28; padding: .75rem 0; overflow: hidden; border-top: 1px solid rgba(255,255,255,.15); }
+.hp-ticker-track {
+    display: flex;
+    gap: 4rem;
+    white-space: nowrap;
+    animation: hp-ticker 28s linear infinite;
+}
+.hp-ticker-item {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.9);
+    flex-shrink: 0;
+}
+.hp-ticker-item__diamond {
+    color: rgba(255,255,255,.35);
+    margin-right: 1rem;
+}
+</style>
+
+<div class="hp-ticker" aria-hidden="true">
+  <div class="hp-ticker-track">
+    <?php
+    $ticker_items = [
+        'Genuine Viking OEM Parts Only',
+        '98% First-Visit Fix Rate',
+        '30-Day Written Warranty',
+        'Same-Day Service Mon–Sat',
+        'Certified Viking Technicians',
+        'Upfront Pricing — No Hidden Fees',
+        'All Viking Models Serviced',
+        '6 Metro Areas Covered',
+    ];
+    // Repeat 3× so the loop is seamless
+    for ($r = 0; $r < 3; $r++): foreach ($ticker_items as $item): ?>
+    <span class="hp-ticker-item"><span class="hp-ticker-item__diamond" aria-hidden="true">&#9670;</span><?php echo esc_html($item); ?></span>
+    <?php endforeach; endfor; ?>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
      PROOF BAR — Four large stats
      ═══════════════════════════════════════════════════════ -->
 <style>

@@ -230,125 +230,96 @@ $categories = [
 }
 .gd-ec-link:hover { background: var(--color-primary-dark, #0D0D0D); color: #fff; }
 
-/* Guide cards */
-.gd-guides-grid {
+/* ── Guide editorial list (replaces card grid) ── */
+.gd-editorial-list { display: flex; flex-direction: column; gap: 0; }
+.gd-editorial-item {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 240px 1fr;
     gap: 0;
-    border: 1px solid var(--color-rule, #D9D8D3);
-    background: var(--color-rule, #D9D8D3);
-}
-.gd-guide-card {
-    background: #ffffff;
+    border-top: 1px solid #D9D8D3;
     text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    opacity: 0;
-    transform: translateY(12px);
-    transition: opacity .4s ease, transform .4s ease;
+    color: #0D0D0D;
+    min-height: 180px;
+    transition: background 0.12s;
 }
-.gd-guide-card.gd-vis { opacity: 1; transform: translateY(0); }
-.gd-guide-card:hover { background: var(--color-bg-light, #F7F6F3); }
-
-.gd-guide-card__img {
-    aspect-ratio: 16/9;
+.gd-editorial-item:last-child { border-bottom: 1px solid #D9D8D3; }
+.gd-editorial-item:hover { background: #F7F6F3; }
+.gd-editorial-img {
     overflow: hidden;
-    background: var(--color-bg-section, #EEEDE8);
-    flex-shrink: 0;
+    background: #EEEDE8;
     position: relative;
+    border-right: 1px solid #D9D8D3;
 }
-.gd-guide-card__img img {
+.gd-editorial-img img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    display: block;
-    transition: transform .4s ease;
+    object-fit: cover;
+    transition: transform 0.35s ease;
 }
-.gd-guide-card:hover .gd-guide-card__img img { transform: scale(1.04); }
-.gd-guide-card__img-placeholder {
-    width: 100%;
-    height: 100%;
+.gd-editorial-item:hover .gd-editorial-img img { transform: scale(1.04); }
+.gd-editorial-img-placeholder {
+    position: absolute;
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2rem;
-    color: var(--color-text-muted, #717170);
+    color: #A8A8A5;
 }
-
-.gd-guide-card__body {
-    padding: 1.5rem;
+.gd-editorial-body {
+    padding: 1.75rem 2rem;
     display: flex;
     flex-direction: column;
-    gap: .625rem;
-    flex: 1;
-    border-top: 1px solid var(--color-rule, #D9D8D3);
+    justify-content: center;
+    gap: .5rem;
 }
-.gd-guide-card__meta {
-    display: flex;
-    align-items: center;
-    gap: .625rem;
-    flex-wrap: wrap;
-}
-.gd-guide-card__cat {
-    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
-    font-size: .6875rem;
+.gd-editorial-cat {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: .08em;
+    letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--color-primary, #C01C28);
+    color: #C01C28;
 }
-.gd-guide-card__date {
-    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
-    font-size: .75rem;
-    color: var(--color-text-muted, #717170);
-}
-.gd-guide-card__title {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
-    font-size: 1.375rem;
-    font-weight: 400;
-    color: var(--color-primary-dark, #0D0D0D);
-    line-height: 1.25;
-    margin: 0;
+.gd-editorial-title {
+    font-family: 'Cormorant', Georgia, serif;
+    font-size: clamp(1.25rem, 2vw, 1.625rem);
+    font-weight: 500;
+    color: #0D0D0D;
+    line-height: 1.2;
     letter-spacing: -.01em;
+    margin: 0;
+    transition: color 0.12s;
 }
-.gd-guide-card:hover .gd-guide-card__title { color: var(--color-primary, #C01C28); }
-.gd-guide-card__excerpt {
-    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
-    font-size: .8125rem;
-    color: var(--color-text-muted, #717170);
+.gd-editorial-item:hover .gd-editorial-title { color: #C01C28; }
+.gd-editorial-excerpt {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 13.5px;
+    color: #717170;
     line-height: 1.65;
     margin: 0;
-    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
-.gd-guide-card__footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: .5rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--color-rule, #D9D8D3);
-    margin-top: auto;
+.gd-editorial-meta {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 12px;
+    color: #A8A8A5;
+    margin-top: .25rem;
 }
-.gd-guide-card__read {
-    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
-    font-size: .75rem;
-    color: var(--color-text-muted, #717170);
-    display: flex;
-    align-items: center;
-    gap: .3125rem;
+.gd-editorial-arrow {
+    color: #D9D8D3;
+    margin-left: auto;
+    flex-shrink: 0;
+    align-self: center;
+    padding-right: 1.5rem;
+    transition: color 0.12s, transform 0.15s;
 }
-.gd-guide-card__read-link {
-    font-family: var(--font-body, 'Manrope', system-ui, sans-serif);
-    font-size: .75rem;
-    font-weight: 700;
-    color: var(--color-primary, #C01C28);
-    text-decoration: none;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    display: inline-flex;
-    align-items: center;
-    gap: .25rem;
-}
+.gd-editorial-item:hover .gd-editorial-arrow { color: #C01C28; transform: translateX(4px); }
 
 /* Empty state */
 .gd-empty {
@@ -448,17 +419,20 @@ $categories = [
 .gd-btn--ghost:hover { border-color: rgba(255,255,255,.6); color: #fff; }
 
 @media (max-width: 960px) {
-    .gd-guides-grid { grid-template-columns: repeat(2, 1fr); }
     .gd-topic-grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 640px) {
-    .gd-guides-grid { grid-template-columns: 1fr; }
     .gd-topic-grid { grid-template-columns: repeat(2, 1fr); }
     .gd-hero__stats { gap: 2rem; }
     .gd-grid-head { flex-direction: column; align-items: flex-start; }
+    .gd-editorial-item { grid-template-columns: 1fr; min-height: auto; }
+    .gd-editorial-img { height: 200px; border-right: none; border-bottom: 1px solid #D9D8D3; position: relative; }
+    .gd-editorial-img img { position: absolute; }
+    .gd-editorial-body { padding: 1.25rem; }
+    .gd-editorial-arrow { padding-right: 1.25rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-    .gd-guide-card { opacity: 1; transform: none; transition: none; }
+    .gd-editorial-item, .gd-editorial-img img, .gd-editorial-arrow { transition: none; }
 }
 </style>
 
@@ -531,7 +505,7 @@ $categories = [
 
         <?php if ($guides->have_posts()): ?>
 
-        <div class="gd-guides-grid" id="gd-guides-grid">
+        <div class="gd-editorial-list" id="gd-guides-grid">
             <?php while ($guides->have_posts()): $guides->the_post();
 
                 // Read time estimate (~200 words/min)
@@ -546,46 +520,32 @@ $categories = [
                 }
                 $brand_terms = get_the_terms(get_the_ID(), 'brand');
                 if ($brand_terms && !is_wp_error($brand_terms)) {
-                    $cat_label = $brand_terms[0]->name . ($cat_label ? ' &middot; ' . $cat_label : '');
+                    $cat_label = $brand_terms[0]->name . ($cat_label ? ' · ' . $cat_label : '');
                 }
                 if (!$cat_label) $cat_label = 'Guide';
 
                 $ar_img_url = get_post_meta(get_the_ID(), '_ar_image', true);
             ?>
-            <article class="gd-guide-card">
-                <a href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true">
-                    <div class="gd-guide-card__img">
-                        <?php if (has_post_thumbnail()): ?>
-                            <?php the_post_thumbnail('medium', ['alt' => esc_attr(get_the_title()) . ' — Viking Appliance Repair Guide', 'loading' => 'lazy']); ?>
-                        <?php elseif ($ar_img_url): ?>
-                            <img src="<?php echo esc_url($ar_img_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?> — Viking Appliance Repair Guide" loading="lazy">
-                        <?php else: ?>
-                            <div class="gd-guide-card__img-placeholder" aria-hidden="true">&#x1F527;</div>
-                        <?php endif; ?>
-                    </div>
-                </a>
-                <div class="gd-guide-card__body">
-                    <div class="gd-guide-card__meta">
-                        <span class="gd-guide-card__cat"><?php echo $cat_label; ?></span>
-                        <span class="gd-guide-card__date"><?php echo get_the_date('M j, Y'); ?></span>
-                    </div>
-                    <h2 class="gd-guide-card__title">
-                        <a href="<?php the_permalink(); ?>" style="text-decoration:none;color:inherit;"><?php the_title(); ?></a>
-                    </h2>
-                    <p class="gd-guide-card__excerpt">
-                        <?php echo wp_trim_words(get_the_excerpt() ?: strip_tags(get_the_content()), 22, '&hellip;'); ?>
-                    </p>
-                    <div class="gd-guide-card__footer">
-                        <span class="gd-guide-card__read">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                            <?php echo esc_html($read_time); ?> min read
-                        </span>
-                        <a href="<?php the_permalink(); ?>" class="gd-guide-card__read-link" aria-label="Read: <?php echo esc_attr(get_the_title()); ?>">
-                            Read &rarr;
-                        </a>
-                    </div>
+            <a href="<?php the_permalink(); ?>" class="gd-editorial-item">
+                <div class="gd-editorial-img">
+                    <?php if (has_post_thumbnail()): ?>
+                        <?php the_post_thumbnail('medium', ['alt' => esc_attr(get_the_title()) . ' — Viking Appliance Repair Guide', 'loading' => 'lazy']); ?>
+                    <?php elseif ($ar_img_url): ?>
+                        <img src="<?php echo esc_url($ar_img_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?> — Viking Appliance Repair Guide" loading="lazy">
+                    <?php else: ?>
+                        <div class="gd-editorial-img-placeholder" aria-hidden="true">&#x1F527;</div>
+                    <?php endif; ?>
                 </div>
-            </article>
+                <div class="gd-editorial-body">
+                    <span class="gd-editorial-cat"><?php echo esc_html($cat_label); ?></span>
+                    <h2 class="gd-editorial-title"><?php the_title(); ?></h2>
+                    <p class="gd-editorial-excerpt">
+                        <?php echo esc_html(wp_trim_words(get_the_excerpt() ?: strip_tags(get_the_content()), 20, '...')); ?>
+                    </p>
+                    <span class="gd-editorial-meta"><?php echo get_the_date('M j, Y'); ?> &middot; <?php echo esc_html($read_time); ?> min read</span>
+                </div>
+                <svg class="gd-editorial-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
             <?php endwhile; wp_reset_postdata(); ?>
         </div>
 
@@ -614,28 +574,6 @@ $categories = [
         </div>
     </div>
 </section>
-
-<!-- Scroll-reveal for guide cards -->
-<script>
-(function(){
-    'use strict';
-    var cards = document.querySelectorAll('.gd-guide-card');
-    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduced || !('IntersectionObserver' in window)) {
-        cards.forEach(function(c){ c.classList.add('gd-vis'); });
-        return;
-    }
-    var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-            if (!e.isIntersecting) return;
-            var idx = Array.prototype.indexOf.call(cards, e.target);
-            setTimeout(function(){ e.target.classList.add('gd-vis'); }, (idx % 3) * 80);
-            io.unobserve(e.target);
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-    cards.forEach(function(c){ io.observe(c); });
-}());
-</script>
 
 <?php ar_appointment_form('archive-page', 'Book Your Viking Repair Today'); ?>
 <?php ar_disclaimer(); ?>

@@ -143,21 +143,104 @@ ar_output_schema([
 
 <!-- ── COMMON ISSUES ──────────────────────────── -->
 <?php if (!empty($issues)): ?>
+<style>
+.svc-issues-list { display: flex; flex-direction: column; }
+.svc-issue-row {
+  display: grid;
+  grid-template-columns: 56px 1fr 24px;
+  gap: 0 20px;
+  padding: 22px 0;
+  border-bottom: 1px solid #D9D8D3;
+  align-items: start;
+  position: relative;
+  transition: background 0.12s;
+}
+.svc-issue-row:first-child { border-top: 1px solid #D9D8D3; }
+.svc-issue-row::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 0;
+  background: #C01C28;
+  transition: width 0.14s;
+}
+.svc-issue-row:hover::before { width: 3px; }
+.svc-issue-num {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: 2.25rem;
+  font-weight: 300;
+  color: #D9D8D3;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  padding-top: 3px;
+  transition: color 0.12s;
+}
+.svc-issue-row:hover .svc-issue-num { color: #C01C28; }
+.svc-issue-title {
+  font-family: 'Cormorant', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #0D0D0D;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 6px;
+}
+.svc-issue-desc {
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 13.5px;
+  color: #717170;
+  line-height: 1.7;
+  margin: 0;
+}
+.svc-issue-indicator {
+  width: 16px;
+  height: 1.5px;
+  background: #D9D8D3;
+  margin-top: 14px;
+  flex-shrink: 0;
+  transition: background 0.12s, width 0.12s;
+}
+.svc-issue-row:hover .svc-issue-indicator { background: #C01C28; width: 20px; }
+@media (max-width: 600px) {
+  .svc-issue-row { grid-template-columns: 44px 1fr; }
+  .svc-issue-indicator { display: none; }
+}
+</style>
 <section class="section" style="background:var(--color-bg-light);border-top:1px solid var(--color-rule);border-bottom:1px solid var(--color-rule);" aria-labelledby="issues-h2">
   <div class="container">
-    <div class="section-header section-header--center" style="max-width:580px;margin-left:auto;margin-right:auto;margin-bottom:var(--space-10);">
-      <span class="section-header__eyebrow">What We Fix</span>
-      <h2 id="issues-h2" style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.75rem,3vw,2.625rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 0;line-height:1.1;">
-        Common <?php echo esc_html("{$brand} {$appliance}"); ?> Problems We Repair
-      </h2>
-    </div>
-    <div class="grid grid-3" style="gap:var(--space-4);">
-      <?php foreach ($issues as $issue): ?>
-      <div class="issue-card">
-        <div class="issue-card__title"><?php echo esc_html($issue['title']); ?></div>
-        <p class="issue-card__desc"><?php echo esc_html($issue['description']); ?></p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+      <div>
+        <span class="section-header__eyebrow" style="display:block;margin-bottom:12px;">What We Fix</span>
+        <h2 id="issues-h2" style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.75rem,3vw,2.625rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:0 0 var(--space-8);line-height:1.1;">
+          Common <?php echo esc_html("{$brand} {$appliance}"); ?> Problems We Repair
+        </h2>
+        <div class="svc-issues-list">
+          <?php foreach ($issues as $i => $issue): ?>
+          <div class="svc-issue-row">
+            <div class="svc-issue-num" aria-hidden="true"><?php echo str_pad($i+1,2,'0',STR_PAD_LEFT); ?></div>
+            <div>
+              <h3 class="svc-issue-title"><?php echo esc_html($issue['title']); ?></h3>
+              <p class="svc-issue-desc"><?php echo esc_html($issue['description']); ?></p>
+            </div>
+            <div class="svc-issue-indicator" aria-hidden="true"></div>
+          </div>
+          <?php endforeach; ?>
+        </div>
       </div>
-      <?php endforeach; ?>
+      <div style="position:sticky;top:88px;">
+        <div style="border-left:2px solid #C01C28;padding-left:32px;">
+          <p style="font-family:'Cormorant',Georgia,serif;font-size:1.5rem;font-weight:400;color:#0D0D0D;line-height:1.3;letter-spacing:-0.01em;margin:0 0 24px;">
+            "Most <?php echo esc_html($brand); ?> <?php echo strtolower(esc_html($appliance)); ?> faults are resolved in a single visit — we carry a full OEM parts inventory on every truck."
+          </p>
+          <p style="font-family:'Manrope',system-ui,sans-serif;font-size:13px;color:#717170;margin:0 0 32px;line-height:1.7;">
+            Our factory-trained technicians diagnose the root cause, not just the symptom. Every repair includes a written 30-day warranty.
+          </p>
+          <a href="<?php echo esc_url($phone_raw); ?>" style="display:inline-flex;align-items:center;gap:10px;font-family:'Manrope',system-ui,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#C01C28;text-decoration:none;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 9a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            Call Now — <?php echo esc_html($phone); ?>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
