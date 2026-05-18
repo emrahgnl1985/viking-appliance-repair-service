@@ -171,14 +171,14 @@ ar_output_schema([
   <div class="container">
     <div class="section-header">
       <span class="section-header__eyebrow">Root Causes</span>
-      <h2 id="causes-h2" style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 0;line-height:1.1;">
+      <h2 id="causes-h2" style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 0;line-height:1.1;">
         What Causes the <?php echo esc_html($code); ?> Error?
       </h2>
     </div>
     <div class="grid grid-2" style="gap:var(--space-4);">
       <?php foreach ($causes as $i => $cause): ?>
       <div class="issue-card">
-        <div style="font-family:'Cormorant',Georgia,serif;font-size:2rem;font-weight:300;color:var(--color-rule);line-height:1;letter-spacing:-0.04em;margin-bottom:12px;" aria-hidden="true"><?php echo str_pad($i+1,2,'0',STR_PAD_LEFT); ?></div>
+        <div style="font-family:'Libre Baskerville',Georgia,serif;font-size:2rem;font-weight:300;color:var(--color-rule);line-height:1;letter-spacing:-0.04em;margin-bottom:12px;" aria-hidden="true"><?php echo str_pad($i+1,2,'0',STR_PAD_LEFT); ?></div>
         <div class="issue-card__title"><?php echo esc_html($cause['title']); ?></div>
         <p class="issue-card__desc"><?php echo esc_html($cause['description']); ?></p>
       </div>
@@ -194,7 +194,7 @@ ar_output_schema([
   <div class="container container--narrow">
     <div class="section-header">
       <span class="section-header__eyebrow">Troubleshooting Steps</span>
-      <h2 id="steps-h2" style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 0;line-height:1.1;">
+      <h2 id="steps-h2" style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 0;line-height:1.1;">
         Basic Steps Before Calling a Technician
       </h2>
     </div>
@@ -223,7 +223,7 @@ ar_output_schema([
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
       <div>
         <span class="section-header__eyebrow">Professional Repair</span>
-        <h2 id="when-h2" style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 16px;line-height:1.1;">
+        <h2 id="when-h2" style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 16px;line-height:1.1;">
           When to Call a Technician
         </h2>
         <?php if ($when_call): ?>
@@ -237,7 +237,7 @@ ar_output_schema([
       </div>
       <div>
         <span class="section-header__eyebrow">Estimated Repair Cost</span>
-        <div style="font-family:'Cormorant',Georgia,serif;font-size:clamp(3rem,5vw,5rem);font-weight:300;color:#0D0D0D;line-height:1;letter-spacing:-0.04em;margin:10px 0 12px;"><?php echo esc_html($cost); ?></div>
+        <div style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(3rem,5vw,5rem);font-weight:300;color:#0D0D0D;line-height:1;letter-spacing:-0.04em;margin:10px 0 12px;"><?php echo esc_html($cost); ?></div>
         <p style="font-size:13px;color:var(--color-text-muted);line-height:1.65;margin-bottom:var(--space-4);">Estimated range for parts and labor. Your technician provides an exact upfront quote before any work begins. Diagnostic fee is applied toward the repair cost.</p>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;">
           <?php foreach (['Genuine Viking OEM parts only','30-day parts & labor warranty','Upfront pricing — no hidden fees','Same-day service available'] as $p): ?>
@@ -273,7 +273,7 @@ ar_output_schema([
 .ec-related__item:hover::before { width: 2px; }
 .ec-related__item:hover .ec-related__arrow { color: #C01C28; }
 .ec-related__title {
-  font-family: 'Cormorant', Georgia, serif;
+  font-family: 'Libre Baskerville', Georgia, serif;
   font-size: 1.125rem; font-weight: 500;
   letter-spacing: -0.01em; line-height: 1.25;
   flex: 1; min-width: 0;
@@ -295,7 +295,7 @@ ar_output_schema([
   margin-bottom: 4px; display: block;
 }
 .ec-related__img-badge-title {
-  font-family: 'Cormorant', Georgia, serif; font-size: 1.25rem; font-weight: 400;
+  font-family: 'Libre Baskerville', Georgia, serif; font-size: 1.25rem; font-weight: 400;
   color: #fff; line-height: 1.2; letter-spacing: -0.01em;
 }
 @media (max-width: 900px) {
@@ -315,7 +315,7 @@ ar_output_schema([
       <!-- List -->
       <div>
         <span style="font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#C01C28;display:block;margin-bottom:12px;">Related Error Codes</span>
-        <h2 id="related-h2" style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.625rem,2.5vw,2.25rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:0 0 var(--space-6);line-height:1.1;">
+        <h2 id="related-h2" style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.625rem,2.5vw,2.25rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:0 0 var(--space-6);line-height:1.1;">
           Other <?php echo esc_html($brand); ?> <?php echo esc_html($appliance); ?> Fault Codes
         </h2>
 

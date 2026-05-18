@@ -120,7 +120,7 @@ ar_output_schema($_schema_data);
 <section class="section" style="border-bottom:1px solid var(--color-rule);">
   <div class="container container--narrow">
     <span class="section-header__eyebrow">Viking Repair in <?php echo esc_html($city); ?></span>
-    <h2 style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;letter-spacing:-0.02em;line-height:1.12;color:#0D0D0D;margin:12px 0 20px;">
+    <h2 style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;letter-spacing:-0.02em;line-height:1.12;color:#0D0D0D;margin:12px 0 20px;">
       Expert Viking Service Throughout <?php echo esc_html($city); ?>
     </h2>
     <?php if ($intro): ?>
@@ -166,7 +166,7 @@ ar_output_schema($_schema_data);
 .loc-svc-row:hover .loc-svc-num { color: #C01C28; }
 .loc-svc-row:hover .loc-svc-arrow { stroke: #C01C28; }
 .loc-svc-num {
-  font-family: 'Cormorant', Georgia, serif;
+  font-family: 'Libre Baskerville', Georgia, serif;
   font-size: 1.5rem;
   font-weight: 300;
   color: #D9D8D3;
@@ -175,7 +175,7 @@ ar_output_schema($_schema_data);
   transition: color 0.12s;
 }
 .loc-svc-name {
-  font-family: 'Cormorant', Georgia, serif;
+  font-family: 'Libre Baskerville', Georgia, serif;
   font-size: 1.125rem;
   font-weight: 500;
   color: #0D0D0D;
@@ -208,7 +208,7 @@ ar_output_schema($_schema_data);
       <!-- Left: editorial service list -->
       <div>
         <span class="section-header__eyebrow" style="margin-bottom:12px;display:block;">Viking Repair Services in <?php echo esc_html($city); ?></span>
-        <h2 id="svc-city-h2" style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;color:#0D0D0D;letter-spacing:-0.025em;line-height:1.1;margin:0 0 var(--space-6);">
+        <h2 id="svc-city-h2" style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;color:#0D0D0D;letter-spacing:-0.025em;line-height:1.1;margin:0 0 var(--space-6);">
           Every Viking Appliance We Service
         </h2>
         <?php
@@ -255,7 +255,7 @@ ar_output_schema($_schema_data);
       <?php if (!empty($local['neighborhoods'])): ?>
       <div>
         <span class="section-header__eyebrow">City Neighborhoods</span>
-        <h2 id="coverage-h2" style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 20px;line-height:1.1;">
+        <h2 id="coverage-h2" style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 20px;line-height:1.1;">
           <?php echo esc_html($city); ?> Neighborhoods We Serve
         </h2>
         <div class="zip-grid">
@@ -269,7 +269,7 @@ ar_output_schema($_schema_data);
       <?php if (!empty($local['suburbs'])): ?>
       <div>
         <span class="section-header__eyebrow">Surrounding Suburbs</span>
-        <h3 style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 20px;line-height:1.1;">
+        <h3 style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 20px;line-height:1.1;">
           Suburban Service Areas
         </h3>
         <div class="zip-grid">
@@ -290,7 +290,7 @@ ar_output_schema($_schema_data);
   <div class="container">
     <div style="text-align:center;margin-bottom:var(--space-10);">
       <span style="font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);display:block;margin-bottom:14px;">Why <?php echo esc_html($city); ?> Homeowners Trust Us</span>
-      <h2 id="why-city-h2" style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.875rem,3.5vw,3rem);font-weight:300;color:#fff;letter-spacing:-0.025em;line-height:1.1;margin:0;">
+      <h2 id="why-city-h2" style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.875rem,3.5vw,3rem);font-weight:300;color:#fff;letter-spacing:-0.025em;line-height:1.1;margin:0;">
         Premium Viking Service in <?php echo esc_html($city); ?>
       </h2>
     </div>
@@ -303,8 +303,8 @@ ar_output_schema($_schema_data);
       ];
       foreach ($whys as $w): ?>
       <div style="border-right:1px solid rgba(255,255,255,0.08);padding:36px 32px;display:flex;flex-direction:column;gap:14px;">
-        <div style="font-family:'Cormorant',Georgia,serif;font-size:4rem;font-weight:300;color:rgba(255,255,255,0.12);line-height:1;letter-spacing:-0.04em;" aria-hidden="true"><?php echo esc_html($w['n']); ?></div>
-        <h3 style="font-family:'Cormorant',Georgia,serif;font-size:1.25rem;font-weight:500;color:#fff;letter-spacing:-0.01em;line-height:1.2;"><?php echo esc_html($w['t']); ?></h3>
+        <div style="font-family:'Libre Baskerville',Georgia,serif;font-size:4rem;font-weight:300;color:rgba(255,255,255,0.12);line-height:1;letter-spacing:-0.04em;" aria-hidden="true"><?php echo esc_html($w['n']); ?></div>
+        <h3 style="font-family:'Libre Baskerville',Georgia,serif;font-size:1.25rem;font-weight:500;color:#fff;letter-spacing:-0.01em;line-height:1.2;"><?php echo esc_html($w['t']); ?></h3>
         <p style="font-family:'Manrope',sans-serif;font-size:13.5px;color:rgba(255,255,255,0.5);line-height:1.75;margin:0;"><?php echo esc_html($w['b']); ?></p>
       </div>
       <?php endforeach; ?>

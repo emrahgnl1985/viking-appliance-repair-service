@@ -67,7 +67,7 @@ ar_output_schema($_schema_data);
           Official Safety Recall Notice
         </div>
 
-        <h1 id="rc-h1" style="font-family:'Cormorant',Georgia,serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:400;letter-spacing:-0.025em;line-height:1.08;color:#0D0D0D;margin-bottom:16px;">
+        <h1 id="rc-h1" style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:400;letter-spacing:-0.025em;line-height:1.08;color:#0D0D0D;margin-bottom:16px;">
           <?php the_title(); ?>
         </h1>
 
@@ -131,7 +131,7 @@ ar_output_schema($_schema_data);
 <section style="background:var(--color-primary-dark);padding:var(--section-sm) 0;border-bottom:1px solid rgba(255,255,255,0.07);">
   <div class="container" style="text-align:center;">
     <span style="font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);display:block;margin-bottom:14px;">Your Next Step</span>
-    <h2 style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.875rem,3vw,2.75rem);font-weight:300;color:#fff;letter-spacing:-0.025em;line-height:1.1;margin:0 0 16px;">
+    <h2 style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.875rem,3vw,2.75rem);font-weight:300;color:#fff;letter-spacing:-0.025em;line-height:1.1;margin:0 0 16px;">
       Have Your <?php echo esc_html($brand ?: 'Viking'); ?> Appliance Inspected
     </h2>
     <p style="font-family:'Manrope',sans-serif;font-size:15px;color:rgba(255,255,255,0.5);max-width:480px;margin:0 auto var(--space-8);line-height:1.75;">
@@ -152,7 +152,7 @@ if (!empty($other_recalls)):
 <section style="padding:var(--section-sm) 0;" aria-labelledby="more-recalls-h2">
   <div class="container">
     <span class="section-header__eyebrow">Safety Recalls</span>
-    <h2 id="more-recalls-h2" style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 var(--space-6);line-height:1.1;">
+    <h2 id="more-recalls-h2" style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 var(--space-6);line-height:1.1;">
       More Viking Appliance Safety Recalls
     </h2>
     <div style="display:flex;flex-direction:column;gap:0;">
@@ -161,7 +161,7 @@ if (!empty($other_recalls)):
          style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 0;border-top:1px solid var(--color-rule);text-decoration:none;color:#0D0D0D;transition:color 0.12s ease;">
         <div>
           <div style="font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-primary);margin-bottom:4px;">Safety Recall</div>
-          <div style="font-family:'Cormorant',Georgia,serif;font-size:1.1875rem;font-weight:500;letter-spacing:-0.01em;line-height:1.2;">
+          <div style="font-family:'Libre Baskerville',Georgia,serif;font-size:1.1875rem;font-weight:500;letter-spacing:-0.01em;line-height:1.2;">
             <?php echo esc_html($rc->post_title); ?>
           </div>
         </div>

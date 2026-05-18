@@ -493,7 +493,7 @@ get_header();
 <section style="background:#0A0A0A;padding:var(--section-sm) 0;border-top:1px solid rgba(255,255,255,.06);">
   <div class="container" style="text-align:center;">
     <span style="font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);display:block;margin-bottom:14px;">Affected by a Recall?</span>
-    <h2 style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.875rem,3vw,2.75rem);font-weight:300;color:#fff;letter-spacing:-.025em;line-height:1.1;margin:0 0 14px;">We'll Inspect Your Viking Appliance</h2>
+    <h2 style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.875rem,3vw,2.75rem);font-weight:300;color:#fff;letter-spacing:-.025em;line-height:1.1;margin:0 0 14px;">We'll Inspect Your Viking Appliance</h2>
     <p style="font-family:'Manrope',sans-serif;font-size:15px;color:rgba(255,255,255,.5);max-width:480px;margin:0 auto var(--space-8);line-height:1.75;">
       Our certified Viking technicians can verify whether your appliance is affected and coordinate the required remedy at no cost to you.
     </p>

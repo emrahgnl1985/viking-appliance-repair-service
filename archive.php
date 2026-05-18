@@ -283,7 +283,7 @@ get_header();
     color: #C01C28;
 }
 .bl-editorial-title {
-    font-family: 'Cormorant', Georgia, serif;
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-size: clamp(1.25rem, 2vw, 1.625rem);
     font-weight: 500;
     color: #0D0D0D;

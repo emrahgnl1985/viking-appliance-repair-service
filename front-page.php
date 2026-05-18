@@ -58,7 +58,7 @@ ar_output_schema([
   --off: #F7F6F3; /* off-white surface */
   --muted: #717170;
   --rule: #D9D8D3;
-  --serif: 'Cormorant', Georgia, serif;
+  --serif: 'Libre Baskerville', Georgia, serif;
   --sans:  'Manrope', system-ui, sans-serif;
 }
 
@@ -201,8 +201,8 @@ ar_output_schema([
   margin-bottom: 32px;
 }
 .hp-hero__h1 em {
-  font-style: italic;
-  font-weight: 400;
+  font-style: normal;
+  font-weight: 300;
 }
 
 .hp-hero__sub {
@@ -467,16 +467,17 @@ ar_output_schema([
   border-left: 1px solid var(--rule);
 }
 .hp-proof__cell {
-  padding: 48px 40px;
+  padding: 36px 32px;
   border-right: 1px solid var(--rule);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 .hp-proof__val {
   font-family: var(--serif);
-  font-size: clamp(2.5rem, 4vw, 4rem);
-  font-weight: 300;
+  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+  font-weight: 400;
+  white-space: nowrap;
   color: var(--ink);
   line-height: 1;
   letter-spacing: -0.03em;
@@ -559,81 +560,95 @@ ar_output_schema([
   margin-bottom: 0;
 }
 
-/* Service list */
-.hp-svc__list { list-style: none; padding: 0; margin: 0; }
-
-.hp-svc__item {
+/* Service tile grid */
+.hp-svc__grid {
   display: grid;
-  grid-template-columns: 48px 1fr auto;
-  align-items: center;
-  gap: 0 28px;
-  padding: 22px 0;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
   border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+
+.hp-svc__tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 28px 28px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
   text-decoration: none;
   color: var(--ink);
-  transition: background 0.12s ease;
+  background: #fff;
   position: relative;
-  cursor: pointer;
+  overflow: hidden;
+  min-height: 180px;
+  transition: background 0.14s ease;
 }
-.hp-svc__item::before {
+.hp-svc__tile::before {
   content: '';
   position: absolute;
-  top: 0; bottom: 0; left: -40px; right: -40px;
-  background: transparent;
-  transition: background 0.12s ease;
-  z-index: 0;
+  top: 0; left: 0; right: 0;
+  height: 0;
+  background: var(--cr);
+  transition: height 0.16s ease;
 }
-.hp-svc__item:last-child { border-bottom: 1px solid var(--rule); }
-.hp-svc__item:hover::before { background: rgba(192,28,40,0.035); }
+.hp-svc__tile:hover { background: var(--off); }
+.hp-svc__tile:hover::before { height: 3px; }
 
-.hp-svc__item > * { position: relative; z-index: 1; }
+.hp-svc__tile-top { display: flex; flex-direction: column; gap: 10px; }
 
-.hp-svc__num {
-  font-family: var(--serif);
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--rule);
-  letter-spacing: 0.04em;
-  text-align: right;
-  align-self: start;
-  padding-top: 5px;
-}
-
-.hp-svc__body {}
 .hp-svc__name {
   font-family: var(--serif);
-  font-size: clamp(1.25rem, 2.2vw, 1.625rem);
-  font-weight: 400;
+  font-size: clamp(1.125rem, 1.6vw, 1.375rem);
+  font-weight: 700;
   color: var(--ink);
   line-height: 1.2;
-  letter-spacing: -0.015em;
-  margin-bottom: 5px;
+  letter-spacing: -0.01em;
   transition: color 0.12s ease;
 }
-.hp-svc__item:hover .hp-svc__name { color: var(--cr); }
+.hp-svc__tile:hover .hp-svc__name { color: var(--cr); }
+
 .hp-svc__desc {
   font-family: var(--sans);
-  font-size: 13px;
+  font-size: 13.5px;
+  font-weight: 400;
   color: var(--muted);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
-.hp-svc__arrow {
+.hp-svc__tile-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+}
+.hp-svc__tile-cta {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.12s ease;
+}
+.hp-svc__tile:hover .hp-svc__tile-cta { color: var(--cr); }
+.hp-svc__tile-arrow {
   color: var(--rule);
-  flex-shrink: 0;
-  transition: color 0.12s ease, transform 0.16s ease;
+  transition: color 0.12s ease, transform 0.14s ease;
 }
-.hp-svc__item:hover .hp-svc__arrow {
-  color: var(--cr);
-  transform: translateX(4px);
+.hp-svc__tile:hover .hp-svc__tile-arrow { color: var(--cr); transform: translateX(3px); }
+
+.hp-svc__cta { margin-top: 32px; }
+
+@media (max-width: 1024px) {
+  .hp-svc__grid { grid-template-columns: repeat(2, 1fr); }
 }
-
-.hp-svc__cta { margin-top: 40px; }
-
-@media (max-width: 680px) {
-  .hp-svc__item { grid-template-columns: 36px 1fr; gap: 0 16px; }
-  .hp-svc__arrow { display: none; }
-  .hp-svc__head  { gap: 20px; }
+@media (max-width: 560px) {
+  .hp-svc__grid { grid-template-columns: 1fr; border-left: none; }
+  .hp-svc__tile { border-right: none; min-height: auto; padding: 24px 20px; }
+  .hp-svc__head { gap: 20px; }
 }
 </style>
 
@@ -649,23 +664,22 @@ ar_output_schema([
       <a href="<?php echo esc_url(get_post_type_archive_link('service_page')); ?>" class="pgbtn-i">All Services &rarr;</a>
     </div>
 
-    <ul class="hp-svc__list" aria-label="Viking appliance repair services">
-      <?php foreach ($services as $i => $svc):
-        $num  = str_pad($i + 1, 2, '0', STR_PAD_LEFT);
+    <div class="hp-svc__grid" role="list" aria-label="Viking appliance repair services">
+      <?php foreach ($services as $svc):
         $link = home_url('/services/' . $svc['slug'] . '/');
       ?>
-      <li>
-        <a href="<?php echo esc_url($link); ?>" class="hp-svc__item">
-          <span class="hp-svc__num" aria-hidden="true"><?php echo esc_html($num); ?></span>
-          <div class="hp-svc__body">
-            <div class="hp-svc__name"><?php echo esc_html($svc['label']); ?></div>
-            <div class="hp-svc__desc"><?php echo esc_html($svc['desc']); ?></div>
-          </div>
-          <svg class="hp-svc__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </li>
+      <a href="<?php echo esc_url($link); ?>" class="hp-svc__tile" role="listitem">
+        <div class="hp-svc__tile-top">
+          <div class="hp-svc__name"><?php echo esc_html($svc['label']); ?></div>
+          <div class="hp-svc__desc"><?php echo esc_html($svc['desc']); ?></div>
+        </div>
+        <div class="hp-svc__tile-footer">
+          <span class="hp-svc__tile-cta">Book Repair</span>
+          <svg class="hp-svc__tile-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
       <?php endforeach; ?>
-    </ul>
+    </div>
 
   </div>
 </section>
@@ -845,7 +859,7 @@ ar_output_schema([
   font-family: var(--serif);
   font-size: 5rem;
   font-weight: 300;
-  color: var(--rule);
+  color: var(--cr);
   line-height: 1;
   letter-spacing: -0.04em;
 }
@@ -933,7 +947,7 @@ ar_output_schema([
   font-family: var(--serif);
   font-size: 3rem;
   font-weight: 300;
-  color: var(--rule);
+  color: var(--cr);
   line-height: 1;
   letter-spacing: -0.04em;
   margin-bottom: 16px;

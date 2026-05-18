@@ -56,7 +56,7 @@ $categories = [
     margin-bottom: 1.25rem;
 }
 .gd-hero__title {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 300;
     color: var(--color-primary-dark, #0D0D0D);
@@ -81,7 +81,7 @@ $categories = [
     border-top: 1px solid var(--color-rule, #D9D8D3);
 }
 .gd-stat__val {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: 3rem;
     font-weight: 300;
     color: var(--color-primary-dark, #0D0D0D);
@@ -113,7 +113,7 @@ $categories = [
     margin-bottom: 2rem;
 }
 .gd-topics__title {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: clamp(1.5rem, 2.5vw, 2rem);
     font-weight: 300;
     color: var(--color-primary-dark, #0D0D0D);
@@ -200,7 +200,7 @@ $categories = [
     border-bottom: 1px solid var(--color-rule, #D9D8D3);
 }
 .gd-grid-title {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: clamp(1.75rem, 3vw, 2.5rem);
     font-weight: 300;
     color: var(--color-primary-dark, #0D0D0D);
@@ -284,7 +284,7 @@ $categories = [
     color: #C01C28;
 }
 .gd-editorial-title {
-    font-family: 'Cormorant', Georgia, serif;
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-size: clamp(1.25rem, 2vw, 1.625rem);
     font-weight: 500;
     color: #0D0D0D;
@@ -329,7 +329,7 @@ $categories = [
     background: #ffffff;
 }
 .gd-empty__title {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: 2rem;
     font-weight: 300;
     color: var(--color-primary-dark, #0D0D0D);
@@ -375,7 +375,7 @@ $categories = [
     display: block;
 }
 .gd-cta__title {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 300;
     color: #ffffff;

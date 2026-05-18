@@ -35,10 +35,10 @@
   --color-info:          #1E4F8A;
   --color-info-bg:       #E6EEF8;
 
-  /* Typography — Cormorant (elegant high-contrast display) + Manrope (precise geometric body) */
-  --font-heading:  'Cormorant', Georgia, 'Times New Roman', serif;
+  /* Typography — Libre Baskerville (bold uniform display serif) + Manrope (precise geometric body) */
+  --font-heading:  'Libre Baskerville', Georgia, serif;
   --font-body:     'Manrope', system-ui, -apple-system, sans-serif;
-  --font-display:  'Cormorant', Georgia, 'Times New Roman', serif;
+  --font-display:  'Libre Baskerville', Georgia, serif;
   --font-mono:     'JetBrains Mono', 'Courier New', monospace;
 
   /* Font Scale */

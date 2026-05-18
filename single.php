@@ -134,7 +134,7 @@ ar_output_schema([
 }
 
 .sp-hero__title {
-    font-family: 'Cormorant', Georgia, serif;
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-size: clamp(2rem, 4vw, 3.5rem);
     font-weight: 400;
     color: #0D0D0D;
@@ -229,7 +229,7 @@ ar_output_schema([
     color: var(--color-text-body);
 }
 .sp-content h2 {
-    font-family: 'Cormorant', Georgia, serif;
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-size: clamp(1.625rem, 2.5vw, 2.25rem);
     font-weight: 400;
     color: #0D0D0D;
@@ -243,7 +243,7 @@ ar_output_schema([
 }
 .sp-content h2:first-child { margin-top: 0; }
 .sp-content h3 {
-    font-family: 'Cormorant', Georgia, serif;
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-size: clamp(1.25rem, 2vw, 1.625rem);
     font-weight: 500;
     color: #0D0D0D;
@@ -263,7 +263,7 @@ ar_output_schema([
     background: #F7F6F3;
     padding: 2.5rem 2rem;
     margin: 2.5rem -2rem;
-    font-family: 'Cormorant', Georgia, serif;
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-style: italic;
     font-size: clamp(1.5rem, 2.5vw, 2rem);
     color: #0D0D0D;
@@ -367,7 +367,7 @@ ar_output_schema([
     margin-bottom: .25rem;
 }
 .sp-related-card__title {
-    font-family: 'Cormorant', Georgia, serif;
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-size: 1.125rem;
     font-weight: 500;
     color: #0D0D0D;
@@ -392,7 +392,7 @@ ar_output_schema([
     padding: 1.75rem 1.5rem;
 }
 .sp-cta-card__title {
-    font-family: 'Cormorant', Georgia, serif;
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-size: 1.375rem;
     font-weight: 400;
     color: #fff;
@@ -476,7 +476,7 @@ ar_output_schema([
 /* ── Bottom CTA ── */
 .sp-bottom-cta { background: #0A0A0A; padding: 3.5rem 0; border-top: 1px solid rgba(255,255,255,0.07); }
 .sp-bottom-cta__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
-.sp-bottom-cta__title { font-family: 'Cormorant', Georgia, serif; font-size: clamp(1.75rem,3vw,2.5rem); font-weight: 300; letter-spacing: -0.025em; color: #fff; margin: 0 0 .375rem; line-height: 1.1; }
+.sp-bottom-cta__title { font-family: 'Libre Baskerville', Georgia, serif; font-size: clamp(1.75rem,3vw,2.5rem); font-weight: 300; letter-spacing: -0.025em; color: #fff; margin: 0 0 .375rem; line-height: 1.1; }
 .sp-bottom-cta__sub { font-size: .9375rem; color: rgba(255,255,255,.4); margin: 0; font-family: var(--font-body); }
 .sp-bottom-cta__btns { display: flex; gap: .875rem; flex-wrap: wrap; }
 .sp-bottom-cta__btn-primary {
@@ -708,7 +708,7 @@ ar_output_schema([
 
                     <!-- Crimson inline CTA -->
                     <div style="background:#C01C28;padding:2.5rem 2rem;margin:3rem -2rem 0;text-align:center;">
-                      <p style="font-family:'Cormorant',Georgia,serif;font-size:1.875rem;font-weight:300;color:#fff;letter-spacing:-.02em;line-height:1.15;margin:0 0 .5rem;">Need a Viking Appliance Repair?</p>
+                      <p style="font-family:'Libre Baskerville',Georgia,serif;font-size:1.875rem;font-weight:300;color:#fff;letter-spacing:-.02em;line-height:1.15;margin:0 0 .5rem;">Need a Viking Appliance Repair?</p>
                       <p style="font-family:'Manrope',sans-serif;font-size:12px;color:rgba(255,255,255,.7);margin:0 0 1.5rem;letter-spacing:.04em;">Certified specialists &middot; Genuine OEM parts &middot; 30-day warranty</p>
                       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
                         <a href="<?php echo esc_url($phone_link); ?>" style="font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;text-decoration:none;background:rgba(0,0,0,.25);padding:12px 24px;border-radius:2px;border:1.5px solid rgba(255,255,255,.3);"><?php echo esc_html($phone); ?></a>

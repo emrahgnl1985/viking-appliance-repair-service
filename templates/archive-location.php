@@ -40,7 +40,7 @@ $biz       = ar_get_business_name();
     margin-bottom: 1.25rem;
 }
 .loc-hero__title {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 300;
     color: var(--color-primary-dark, #0D0D0D);
@@ -72,7 +72,7 @@ $biz       = ar_get_business_name();
     gap: 1rem;
 }
 .loc-section-title {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: clamp(1.75rem, 3vw, 2.5rem);
     font-weight: 300;
     color: var(--color-primary-dark, #0D0D0D);
@@ -102,7 +102,7 @@ $biz       = ar_get_business_name();
 .loc-row:hover { background: var(--color-bg-light, #F7F6F3); }
 
 .loc-row__num {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: 3rem;
     font-weight: 300;
     color: var(--color-rule, #D9D8D3);
@@ -121,7 +121,7 @@ $biz       = ar_get_business_name();
     min-width: 0;
 }
 .loc-row__city {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: 1.625rem;
     font-weight: 400;
     color: var(--color-primary-dark, #0D0D0D);
@@ -181,7 +181,7 @@ $biz       = ar_get_business_name();
     margin-bottom: .875rem;
 }
 .loc-coverage__title {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: clamp(1.75rem, 3vw, 2.5rem);
     font-weight: 300;
     color: var(--color-primary-dark, #0D0D0D);
@@ -211,7 +211,7 @@ $biz       = ar_get_business_name();
 .loc-stat:nth-child(2n) { border-right: none; }
 .loc-stat:nth-last-child(-n+2) { border-bottom: none; }
 .loc-stat__num {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: 3.5rem;
     font-weight: 300;
     color: var(--color-primary-dark, #0D0D0D);
@@ -244,7 +244,7 @@ $biz       = ar_get_business_name();
     margin-bottom: .875rem;
 }
 .loc-cta__title {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 300;
     color: #ffffff;

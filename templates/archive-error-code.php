@@ -92,7 +92,7 @@ get_header();
     margin-bottom: 1.25rem;
 }
 .ec-hero__title {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 300;
     color: var(--color-primary-dark, #0D0D0D);
@@ -163,7 +163,7 @@ get_header();
     flex-wrap: wrap;
 }
 .ec-stat__num {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: 3rem;
     font-weight: 300;
     color: var(--color-primary-dark, #0D0D0D);
@@ -201,7 +201,7 @@ get_header();
     margin-bottom: .875rem;
 }
 .ec-sections__title {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: clamp(1.75rem, 3vw, 2.5rem);
     font-weight: 300;
     color: var(--color-primary-dark, #0D0D0D);
@@ -252,7 +252,7 @@ get_header();
 .ec-ap-section__icon svg { width: 20px; height: 20px; }
 .ec-ap-section__meta { flex: 1; }
 .ec-ap-section__title {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: 1.375rem;
     font-weight: 400;
     color: var(--color-primary-dark, #0D0D0D);
@@ -308,7 +308,7 @@ get_header();
     border-bottom: 1px solid var(--color-rule, #D9D8D3);
 }
 .ec-dir__title {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: clamp(1.75rem, 3vw, 2.5rem);
     font-weight: 300;
     color: var(--color-primary-dark, #0D0D0D);
@@ -528,7 +528,7 @@ get_header();
     margin-bottom: .875rem;
 }
 .ec-cta__title {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 300;
     color: #ffffff;

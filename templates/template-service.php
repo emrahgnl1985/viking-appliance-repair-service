@@ -128,7 +128,7 @@ ar_output_schema([
 <section class="section" style="padding-bottom:0;">
   <div class="container container--narrow">
     <span class="section-header__eyebrow">Expert <?php echo esc_html($brand); ?> Repair</span>
-    <h2 style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;letter-spacing:-0.02em;line-height:1.12;color:#0D0D0D;margin:12px 0 20px;">
+    <h2 style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;letter-spacing:-0.02em;line-height:1.12;color:#0D0D0D;margin:12px 0 20px;">
       Trusted <?php echo esc_html("{$brand} {$appliance}"); ?> Repair You Can Depend On
     </h2>
     <?php if ($intro): ?>
@@ -166,7 +166,7 @@ ar_output_schema([
 }
 .svc-issue-row:hover::before { width: 3px; }
 .svc-issue-num {
-  font-family: 'Cormorant', Georgia, serif;
+  font-family: 'Libre Baskerville', Georgia, serif;
   font-size: 2.25rem;
   font-weight: 300;
   color: #D9D8D3;
@@ -177,7 +177,7 @@ ar_output_schema([
 }
 .svc-issue-row:hover .svc-issue-num { color: #C01C28; }
 .svc-issue-title {
-  font-family: 'Cormorant', Georgia, serif;
+  font-family: 'Libre Baskerville', Georgia, serif;
   font-size: 1.25rem;
   font-weight: 500;
   color: #0D0D0D;
@@ -211,7 +211,7 @@ ar_output_schema([
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
       <div>
         <span class="section-header__eyebrow" style="display:block;margin-bottom:12px;">What We Fix</span>
-        <h2 id="issues-h2" style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.75rem,3vw,2.625rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:0 0 var(--space-8);line-height:1.1;">
+        <h2 id="issues-h2" style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.75rem,3vw,2.625rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:0 0 var(--space-8);line-height:1.1;">
           Common <?php echo esc_html("{$brand} {$appliance}"); ?> Problems We Repair
         </h2>
         <div class="svc-issues-list">
@@ -229,7 +229,7 @@ ar_output_schema([
       </div>
       <div style="position:sticky;top:88px;">
         <div style="border-left:2px solid #C01C28;padding-left:32px;">
-          <p style="font-family:'Cormorant',Georgia,serif;font-size:1.5rem;font-weight:400;color:#0D0D0D;line-height:1.3;letter-spacing:-0.01em;margin:0 0 24px;">
+          <p style="font-family:'Libre Baskerville',Georgia,serif;font-size:1.5rem;font-weight:400;color:#0D0D0D;line-height:1.3;letter-spacing:-0.01em;margin:0 0 24px;">
             "Most <?php echo esc_html($brand); ?> <?php echo strtolower(esc_html($appliance)); ?> faults are resolved in a single visit — we carry a full OEM parts inventory on every truck."
           </p>
           <p style="font-family:'Manrope',system-ui,sans-serif;font-size:13px;color:#717170;margin:0 0 32px;line-height:1.7;">
@@ -252,7 +252,7 @@ ar_output_schema([
   <div class="container">
     <div class="section-header section-header--center">
       <span class="section-header__eyebrow">Services &amp; Pricing</span>
-      <h2 id="svc-pricing-h2" style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.75rem,3vw,2.625rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 8px;line-height:1.1;">
+      <h2 id="svc-pricing-h2" style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.75rem,3vw,2.625rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 8px;line-height:1.1;">
         <?php echo esc_html("{$brand} {$appliance}"); ?> Repair Services &amp; Typical Costs
       </h2>
       <p class="section-header__subtitle">All prices are estimates. Your technician provides a firm written quote before any work begins.</p>
@@ -282,17 +282,17 @@ ar_output_schema([
   <div class="container">
     <div class="section-header section-header--center">
       <span class="section-header__eyebrow">Why Choose Us</span>
-      <h2 id="why-svc-h2" style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.75rem,3vw,2.625rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 0;line-height:1.1;">
+      <h2 id="why-svc-h2" style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.75rem,3vw,2.625rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 0;line-height:1.1;">
         Why Homeowners Choose Us for <?php echo esc_html($brand); ?> Repair
       </h2>
     </div>
     <div class="grid grid-3" style="gap:var(--space-8);">
       <?php foreach ($features as $i => $f): ?>
       <div>
-        <div style="font-family:'Cormorant',Georgia,serif;font-size:3.5rem;font-weight:300;color:#D9D8D3;line-height:1;letter-spacing:-0.04em;margin-bottom:16px;" aria-hidden="true">
+        <div style="font-family:'Libre Baskerville',Georgia,serif;font-size:3.5rem;font-weight:300;color:#D9D8D3;line-height:1;letter-spacing:-0.04em;margin-bottom:16px;" aria-hidden="true">
           <?php echo str_pad($i+1, 2, '0', STR_PAD_LEFT); ?>
         </div>
-        <h3 style="font-family:'Cormorant',Georgia,serif;font-size:1.25rem;font-weight:500;color:#0D0D0D;letter-spacing:-0.01em;line-height:1.2;margin-bottom:10px;">
+        <h3 style="font-family:'Libre Baskerville',Georgia,serif;font-size:1.25rem;font-weight:500;color:#0D0D0D;letter-spacing:-0.01em;line-height:1.2;margin-bottom:10px;">
           <?php echo esc_html($f['title']); ?>
         </h3>
         <p style="font-size:14px;color:#717170;line-height:1.75;margin:0;">
@@ -313,7 +313,7 @@ ar_output_schema([
 
       <div class="svc-hiw-sidebar">
         <div class="section-header__eyebrow" style="margin-bottom:12px;">Our Process</div>
-        <h2 id="svc-hiw-h2" style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.875rem,3vw,2.625rem);font-weight:400;color:#0D0D0D;line-height:1.1;letter-spacing:-0.025em;margin:0 0 16px;">
+        <h2 id="svc-hiw-h2" style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.875rem,3vw,2.625rem);font-weight:400;color:#0D0D0D;line-height:1.1;letter-spacing:-0.025em;margin:0 0 16px;">
           How Your <?php echo esc_html("{$brand} {$appliance}"); ?> Repair Works
         </h2>
         <p style="font-size:14px;color:#717170;line-height:1.75;margin:0 0 var(--space-6);">
@@ -382,7 +382,7 @@ ar_output_schema([
 <section style="background:var(--color-primary-dark);padding:var(--section-sm) 0;" aria-labelledby="loc-cta-h2">
   <div class="container" style="text-align:center;">
     <span style="font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);display:block;margin-bottom:16px;">Service Areas</span>
-    <h2 id="loc-cta-h2" style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;color:#fff;letter-spacing:-0.02em;line-height:1.1;margin:0 0 14px;">We Service Your Area</h2>
+    <h2 id="loc-cta-h2" style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;color:#fff;letter-spacing:-0.02em;line-height:1.1;margin:0 0 14px;">We Service Your Area</h2>
     <p style="font-family:'Manrope',sans-serif;font-size:15px;color:rgba(255,255,255,0.5);max-width:520px;margin:0 auto var(--space-8);line-height:1.7;">
       Serving Chicago, San Francisco, Houston, Miami, Los Angeles, New York, and their surrounding neighborhoods.
     </p>

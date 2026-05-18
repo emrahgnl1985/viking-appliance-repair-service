@@ -6,7 +6,7 @@
  */
 defined('ABSPATH') || exit;
 
-define('AR_VERSION', '3.1.3');
+define('AR_VERSION', '3.1.5');
 define('AR_DIR', get_template_directory());
 define('AR_URI', get_template_directory_uri());
 
@@ -109,8 +109,8 @@ add_action('pre_get_posts', function(WP_Query $q) {
 
 /* ── Enqueue ── */
 add_action('wp_enqueue_scripts', function() {
-    // OBSIDIAN — Cormorant (high-contrast display serif) + Manrope (geometric body sans)
-    wp_enqueue_style('ar-fonts','https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700&display=swap',[],null);
+    // OBSIDIAN — Barlow Semi Condensed (logo) + Libre Baskerville (bold display serif) + Manrope (body sans)
+    wp_enqueue_style('ar-fonts','https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap',[],null);
     wp_enqueue_style('ar-variables', AR_URI.'/assets/css/variables.css', [], AR_VERSION);
     wp_enqueue_style('ar-base',      AR_URI.'/assets/css/base.css',      ['ar-variables'], AR_VERSION);
     wp_enqueue_style('ar-components',AR_URI.'/assets/css/components.css',['ar-base'], AR_VERSION);

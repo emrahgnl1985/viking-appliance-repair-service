@@ -132,7 +132,7 @@ ar_output_schema($_schema_data);
       <time style="font-family:'Manrope',sans-serif;font-size:12px;color:var(--color-text-muted);" datetime="<?php echo esc_attr(get_the_date('c')); ?>"><?php echo get_the_date('F j, Y'); ?></time>
     </div>
 
-    <h1 style="font-family:'Cormorant',Georgia,serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:400;letter-spacing:-0.025em;line-height:1.08;color:#0D0D0D;margin-bottom:16px;">
+    <h1 style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:400;letter-spacing:-0.025em;line-height:1.08;color:#0D0D0D;margin-bottom:16px;">
       <?php the_title(); ?>
     </h1>
 
@@ -203,7 +203,7 @@ ar_output_schema($_schema_data);
 <section style="padding:var(--section-sm) 0;background:var(--color-bg-light);border-bottom:1px solid var(--color-rule);" aria-labelledby="rel-svc-h2">
   <div class="container">
     <span class="section-header__eyebrow">Book a Repair</span>
-    <h2 id="rel-svc-h2" style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 var(--space-6);line-height:1.1;">
+    <h2 id="rel-svc-h2" style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 var(--space-6);line-height:1.1;">
       Related Viking Repair Services
     </h2>
     <?php ar_related_links($related_svcs, ''); ?>
@@ -216,7 +216,7 @@ ar_output_schema($_schema_data);
 <section style="padding:var(--section-sm) 0;border-bottom:1px solid var(--color-rule);" aria-labelledby="rel-gd-h2">
   <div class="container">
     <span class="section-header__eyebrow">More Guides</span>
-    <h2 id="rel-gd-h2" style="font-family:'Cormorant',Georgia,serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 var(--space-6);line-height:1.1;">
+    <h2 id="rel-gd-h2" style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:10px 0 var(--space-6);line-height:1.1;">
       Other Repair Guides
     </h2>
     <div class="grid grid-3" style="gap:var(--space-4);">

@@ -129,7 +129,7 @@ get_header();
     margin-bottom: 1.25rem;
 }
 .svc-hero__title {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 300;
     color: var(--color-primary-dark, #0D0D0D);
@@ -258,7 +258,7 @@ get_header();
     margin-bottom: .75rem;
 }
 .svc-section-title {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: clamp(1.75rem, 3vw, 2.5rem);
     font-weight: 300;
     color: var(--color-primary-dark, #0D0D0D);
@@ -320,7 +320,7 @@ get_header();
     margin-bottom: .375rem;
 }
 .svc-row__title {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: 1.375rem;
     font-weight: 400;
     color: var(--color-primary-dark, #0D0D0D);
@@ -364,7 +364,7 @@ get_header();
 }
 .svc-trust__item:last-child { border-right: none; }
 .svc-trust__num {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: 3.5rem;
     font-weight: 300;
     color: var(--color-primary-dark, #0D0D0D);
@@ -397,7 +397,7 @@ get_header();
     margin-bottom: .875rem;
 }
 .svc-cta__title {
-    font-family: var(--font-display, 'Cormorant', Georgia, serif);
+    font-family: var(--font-display, 'Libre Baskerville', Georgia, serif);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 300;
     color: #ffffff;
