@@ -118,7 +118,7 @@ $phone_raw = ar_phone_link();
                     <h3 class="footer-col__title">Resources</h3>
                     <ul class="footer-nav">
                         <li><a href="<?php echo esc_url(home_url('/blog/')); ?>"        class="footer-nav__link">Repair Blog</a></li>
-                        <li><a href="<?php echo esc_url(home_url('/error-codes/')); ?>"  class="footer-nav__link">Fault Codes</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/error-codes/')); ?>"  class="footer-nav__link">Error Codes</a></li>
                         <li><a href="<?php echo esc_url(home_url('/recalls/')); ?>"      class="footer-nav__link">Safety Recalls</a></li>
                         <li><a href="<?php echo esc_url(home_url('/schedule/')); ?>"     class="footer-nav__link">Book a Repair</a></li>
                     </ul>

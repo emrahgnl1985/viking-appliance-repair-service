@@ -16,7 +16,7 @@ $services = [
     ['label' => 'Viking Dishwasher Repair',    'slug' => 'viking-dishwasher-repair',    'img' => 'viking-dishwasher-7series.jpg',       'desc' => 'Not cleaning, draining, or starting. Control board faults, door latch issues, spray arm failures resolved.'],
     ['label' => 'Viking Cooktop Repair',       'slug' => 'viking-cooktop-repair',       'img' => '48InductionHomepageSlide2025-2.png',  'desc' => 'Gas, electric, and induction cooktops. Burner ignition, spark module, and surface element failures.'],
     ['label' => 'Viking Wall Oven Repair',     'slug' => 'viking-wall-oven-repair',     'img' => 'viking-wall-oven-7series.jpg',        'desc' => 'Single and double wall ovens. Temperature inaccuracies, element failures, door lock faults, control panel issues.'],
-    ['label' => 'Viking Wine Cooler Repair',   'slug' => 'viking-wine-cooler-repair',   'img' => 'viking-wine-cellar.jpg',             'desc' => 'Wine coolers not maintaining temperature or displaying fault codes. Compressor, thermostat, and cooling fan repairs.'],
+    ['label' => 'Viking Wine Cooler Repair',   'slug' => 'viking-wine-cooler-repair',   'img' => 'viking-wine-cellar.jpg',             'desc' => 'Wine coolers not maintaining temperature or displaying error codes. Compressor, thermostat, and cooling fan repairs.'],
     ['label' => 'Viking Freezer Repair',       'slug' => 'viking-freezer-repair',       'img' => 'viking-refrigerator-integrated.jpg', 'desc' => 'Column and upright freezers. Defrost system faults, temperature alarms, frost buildup, evaporator fan failures.'],
     ['label' => 'Viking Vent Hood Repair',     'slug' => 'viking-vent-hood-repair',     'img' => 'viking-5series-kitchen.jpg',          'desc' => 'Professional vent hoods. Blower motor failures, lighting faults, and control panel issues.'],
 ];
@@ -1240,13 +1240,13 @@ ar_output_schema([
     >
   </div>
   <div class="hp-faultcta__content">
-    <div class="hp-faultcta__eyebrow">Viking Fault Code Reference</div>
+    <div class="hp-faultcta__eyebrow">Viking Error Code Reference</div>
     <h2 class="hp-faultcta__title">Seeing a Viking<br>Error Code?</h2>
     <p class="hp-faultcta__body">
-      Our complete Viking fault code reference explains every error display — what it means, what causes it, and step-by-step guidance for every Viking appliance model.
+      Our complete Viking error code reference explains every error display — what it means, what causes it, and step-by-step guidance for every Viking appliance model.
     </p>
     <a href="<?php echo esc_url(get_post_type_archive_link('error_code')); ?>" class="pgbtn-c">
-      Browse Viking Fault Codes &rarr;
+      Browse Viking Error Codes &rarr;
     </a>
   </div>
 </div>

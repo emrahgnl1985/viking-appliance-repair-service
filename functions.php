@@ -302,7 +302,7 @@ add_filter('wpseo_title', function(string $title): string {
     $map = [
         'service_page'  => 'Viking Appliance Repair Services | Certified Specialists',
         'location_page' => 'Viking Appliance Repair Locations | Major US Cities',
-        'error_code'    => 'Viking Appliance Fault Code Database | All Models',
+        'error_code'    => 'Viking Appliance Error Code Database | All Models',
         'guide'         => 'Viking Appliance Repair Guides | Step-by-Step',
         'recall'        => 'Viking Appliance Safety Recalls | CPSC Notices',
     ];
@@ -317,7 +317,7 @@ add_filter('wpseo_metadesc', function(string $desc): string {
     $map = [
         'service_page'  => 'Browse all Viking appliance repair services. Certified Viking specialists repair ranges, refrigerators, dishwashers, cooktops, and wall ovens with genuine OEM parts and a 30-day warranty.',
         'location_page' => 'Find certified Viking appliance repair near you. We serve major US cities with same-day service, genuine Viking OEM parts, and a 30-day warranty on every repair.',
-        'error_code'    => 'Look up Viking appliance fault codes. Get verified causes, step-by-step guidance, and expert repair estimates from our certified Viking technicians.',
+        'error_code'    => 'Look up Viking appliance error codes. Get verified causes, step-by-step guidance, and expert repair estimates from our certified Viking technicians.',
         'guide'         => 'Step-by-step Viking appliance repair guides written by certified technicians. Covers Viking ranges, refrigerators, dishwashers, cooktops, and wall ovens.',
         'recall'        => 'Check the latest Viking appliance safety recalls. Find CPSC notices, hazard details, remedies, and how to book a post-recall inspection.',
     ];

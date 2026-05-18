@@ -594,12 +594,12 @@ get_header();
             <div class="container">
                 <div class="ec-hero__inner">
                     <span class="ec-hero__eyebrow">Diagnostic Library</span>
-                    <h1 id="ec-h1" class="ec-hero__title">Viking <em>Fault Code</em> Library</h1>
-                    <p class="ec-hero__subtitle">Find what your Viking appliance's fault code means, how serious it is, and exactly what to do next &mdash; covering ranges, wall ovens, refrigerators, dishwashers, cooktops, wine coolers, freezers, and vent hoods.</p>
+                    <h1 id="ec-h1" class="ec-hero__title">Viking <em>Error Code</em> Library</h1>
+                    <p class="ec-hero__subtitle">Find what your Viking appliance's error code means, how serious it is, and exactly what to do next &mdash; covering ranges, wall ovens, refrigerators, dishwashers, cooktops, wine coolers, freezers, and vent hoods.</p>
 
                     <div class="ec-hero__search" id="ec-hero-search" role="search">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-                        <input type="text" id="ec-search-input" placeholder="Search fault code or appliance type&hellip;" autocomplete="off" aria-label="Search Viking fault codes">
+                        <input type="text" id="ec-search-input" placeholder="Search error code or appliance type&hellip;" autocomplete="off" aria-label="Search Viking error codes">
                         <button type="button" onclick="document.getElementById('ec-search-input').focus()">Search</button>
                     </div>
 
@@ -621,7 +621,7 @@ get_header();
             </div>
         </div>
         <div class="ph-split__img">
-            <img src="<?php echo esc_url(AR_URI . '/assets/images/viking-range-desert-modern.jpg'); ?>" alt="Viking fault code diagnostic library" loading="lazy">
+            <img src="<?php echo esc_url(AR_URI . '/assets/images/viking-range-desert-modern.jpg'); ?>" alt="Viking error code diagnostic library" loading="lazy">
         </div>
     </div>
 </section>
@@ -629,12 +629,12 @@ get_header();
 <!-- ERROR CODES BY APPLIANCE TYPE -->
 <?php if ( ! empty($appliances) ):
     $ap_descriptions = [
-        'range'        => 'Viking range fault codes (F1–F9) indicate specific failures in the oven temperature control system, control board, or door lock mechanism. These codes are documented in Viking service literature and allow precise diagnosis. F2 and F3 codes relate to temperature sensor faults; F4 indicates temperature runaway; F9 signals a self-clean door lock failure.',
-        'refrigerator' => 'Viking refrigerator fault codes signal problems with the defrost system, evaporator fan, ice maker assembly, or temperature sensing. Early diagnosis prevents food spoilage and prevents more costly compressor or sealed system failures.',
-        'dishwasher'   => 'Viking dishwasher fault codes point to water fill, drain, heating element, door latch, or circulation pump failures. Most codes prevent the appliance from completing a cycle to protect the kitchen from water damage.',
+        'range'        => 'Viking range error codes (F1–F9) indicate specific failures in the oven temperature control system, control board, or door lock mechanism. These codes are documented in Viking service literature and allow precise diagnosis. F2 and F3 codes relate to temperature sensor faults; F4 indicates temperature runaway; F9 signals a self-clean door lock failure.',
+        'refrigerator' => 'Viking refrigerator error codes signal problems with the defrost system, evaporator fan, ice maker assembly, or temperature sensing. Early diagnosis prevents food spoilage and prevents more costly compressor or sealed system failures.',
+        'dishwasher'   => 'Viking dishwasher error codes point to water fill, drain, heating element, door latch, or circulation pump failures. Most codes prevent the appliance from completing a cycle to protect the kitchen from water damage.',
         'cooktop'      => 'Viking cooktop fault indicators relate to ignition module failures, spark electrode faults, surface element failures on electric models, or induction coil issues. Most cooktop faults are diagnosed by observing which zone or burner is affected.',
-        'wall-oven'    => 'Viking wall oven fault codes use the same F-series architecture as Viking ranges. F2 and F3 indicate temperature sensor faults; F4 signals temperature runaway; F9 is a self-clean door lock failure. F1 indicates a main control board fault.',
-        'wine-cooler'  => 'Viking wine cooler fault displays indicate temperature sensing failures, compressor issues, or fan motor faults. Temperature inconsistency in a wine cooler risks wine quality — schedule service promptly when a fault code appears.',
+        'wall-oven'    => 'Viking wall oven error codes use the same F-series architecture as Viking ranges. F2 and F3 indicate temperature sensor faults; F4 signals temperature runaway; F9 is a self-clean door lock failure. F1 indicates a main control board fault.',
+        'wine-cooler'  => 'Viking wine cooler fault displays indicate temperature sensing failures, compressor issues, or fan motor faults. Temperature inconsistency in a wine cooler risks wine quality — schedule service promptly when a error code appears.',
         'freezer'      => 'Viking freezer faults include defrost system failures, evaporator and condenser fan failures, temperature sensor faults, and door gasket deterioration. A freezer fault left unresolved risks complete food loss — schedule service at the first sign of temperature inconsistency.',
         'vent-hood'    => 'Viking Professional Series vent hood faults include blower motor failures, fan speed control issues, damper problems, and thermal cutout trips from clogged grease filters. Prompt service prevents motor burnout and maintains kitchen ventilation safety.',
     ];
@@ -772,7 +772,7 @@ get_header();
 
         <!-- Filters -->
         <div class="ec-filters" role="search" aria-label="Filter error codes">
-            <input type="text" class="ec-filter-input" id="ec-dir-search" placeholder="Search by fault code or appliance&hellip;" aria-label="Search fault codes">
+            <input type="text" class="ec-filter-input" id="ec-dir-search" placeholder="Search by error code or appliance&hellip;" aria-label="Search error codes">
             <select class="ec-filter-select" id="ec-ap-filter" aria-label="Filter by appliance">
                 <option value="">All Appliances</option>
                 <?php foreach ($appliances as $ap): ?>

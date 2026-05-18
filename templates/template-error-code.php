@@ -77,7 +77,7 @@ ar_output_schema([
     '@graph'   => array_filter([
         ['@type'=>'TechArticle','headline'=>get_the_title(),'description'=>"{$brand} {$appliance} error code {$code}: {$meaning}. Causes, DIY steps, and when to call a technician.",'url'=>get_permalink(),'publisher'=>['@type'=>'LocalBusiness','name'=>$biz],'about'=>['@type'=>'Product','name'=>"{$brand} {$appliance}","manufacturer"=>['@type'=>'Organization','name'=>$brand]]],
         !empty($faqs) ? ['@type'=>'FAQPage','mainEntity'=>array_map(fn($f)=>['@type'=>'Question','name'=>$f['question'],'acceptedAnswer'=>['@type'=>'Answer','text'=>$f['answer']]],$faqs)] : null,
-        ['@type'=>'BreadcrumbList','itemListElement'=>[['@type'=>'ListItem','position'=>1,'name'=>'Home','item'=>home_url('/')],['@type'=>'ListItem','position'=>2,'name'=>'Fault Codes','item'=>home_url('/error-codes/')],['@type'=>'ListItem','position'=>3,'name'=>get_the_title()]]],
+        ['@type'=>'BreadcrumbList','itemListElement'=>[['@type'=>'ListItem','position'=>1,'name'=>'Home','item'=>home_url('/')],['@type'=>'ListItem','position'=>2,'name'=>'Error Codes','item'=>home_url('/error-codes/')],['@type'=>'ListItem','position'=>3,'name'=>get_the_title()]]],
     ]),
 ]);
 ?>
@@ -106,7 +106,7 @@ ar_output_schema([
         <nav class="breadcrumbs" aria-label="Breadcrumb" style="margin-bottom:var(--space-6);">
           <a href="<?php echo esc_url(home_url('/')); ?>">Home</a>
           <span class="breadcrumbs__sep" aria-hidden="true">/</span>
-          <a href="<?php echo esc_url(home_url('/error-codes/')); ?>">Fault Codes</a>
+          <a href="<?php echo esc_url(home_url('/error-codes/')); ?>">Error Codes</a>
           <span class="breadcrumbs__sep" aria-hidden="true">/</span>
           <span class="breadcrumbs__current" aria-current="page"><?php echo esc_html($brand); ?> <?php echo esc_html($code); ?></span>
         </nav>
@@ -158,7 +158,7 @@ ar_output_schema([
         $hero_img = $hero_img_map[strtolower($appliance)] ?? 'viking-3series-feature.jpg';
         ?>
         <img src="<?php echo esc_url(AR_URI . '/assets/images/' . $hero_img); ?>"
-             alt="<?php echo esc_attr("{$brand} {$appliance} — {$code} fault code repair"); ?>"
+             alt="<?php echo esc_attr("{$brand} {$appliance} — {$code} error code repair"); ?>"
              loading="eager">
       </div>
     </div>
@@ -316,7 +316,7 @@ ar_output_schema([
       <div>
         <span style="font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#C01C28;display:block;margin-bottom:12px;">Related Error Codes</span>
         <h2 id="related-h2" style="font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(1.625rem,2.5vw,2.25rem);font-weight:400;letter-spacing:-0.02em;color:#0D0D0D;margin:0 0 var(--space-6);line-height:1.1;">
-          Other <?php echo esc_html($brand); ?> <?php echo esc_html($appliance); ?> Fault Codes
+          Other <?php echo esc_html($brand); ?> <?php echo esc_html($appliance); ?> Error Codes
         </h2>
 
         <div class="ec-related__list" role="list">
@@ -330,7 +330,7 @@ ar_output_schema([
 
         <div class="ec-related__cta">
           <a href="<?php echo esc_url(home_url('/error-codes/')); ?>" class="btn btn--outline btn--lg">
-            All <?php echo esc_html($brand); ?> Fault Codes &rarr;
+            All <?php echo esc_html($brand); ?> Error Codes &rarr;
           </a>
         </div>
       </div>
@@ -355,7 +355,7 @@ ar_output_schema([
         $ec_img     = $ec_img_map[$ec_img_key] ?? 'viking-3series-feature.jpg';
         ?>
         <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/' . $ec_img); ?>"
-             alt="<?php echo esc_attr("Viking {$appliance} — related fault codes"); ?>"
+             alt="<?php echo esc_attr("Viking {$appliance} — related error codes"); ?>"
              loading="lazy">
         <div class="ec-related__img-badge">
           <span class="ec-related__img-badge-text">Viking <?php echo esc_html($appliance); ?></span>

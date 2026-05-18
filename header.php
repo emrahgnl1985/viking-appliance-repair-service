@@ -94,7 +94,7 @@
             </div>
 
             <div class="primary-nav__item">
-                <a href="<?php echo esc_url(home_url('/error-codes/')); ?>" class="primary-nav__link">Fault Codes</a>
+                <a href="<?php echo esc_url(home_url('/error-codes/')); ?>" class="primary-nav__link">Error Codes</a>
             </div>
 
             <div class="primary-nav__item">
@@ -146,7 +146,7 @@
     <a href="<?php echo esc_url(home_url('/')); ?>"            class="mobile-nav__link">Home</a>
     <a href="<?php echo esc_url(home_url('/services/')); ?>"   class="mobile-nav__link">Services</a>
     <a href="<?php echo esc_url(home_url('/locations/')); ?>"  class="mobile-nav__link">Locations</a>
-    <a href="<?php echo esc_url(home_url('/error-codes/')); ?>" class="mobile-nav__link">Fault Codes</a>
+    <a href="<?php echo esc_url(home_url('/error-codes/')); ?>" class="mobile-nav__link">Error Codes</a>
     <a href="<?php echo esc_url(home_url('/blog/')); ?>"       class="mobile-nav__link">Blog</a>
     <a href="<?php echo esc_url(home_url('/recalls/')); ?>"    class="mobile-nav__link">Recalls</a>
 
