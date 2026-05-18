@@ -857,9 +857,9 @@ ar_output_schema([
 }
 .hp-why__num {
   font-family: var(--serif);
-  font-size: 5rem;
-  font-weight: 300;
-  color: var(--cr);
+  font-size: 4rem;
+  font-weight: 700;
+  color: #C01C28;
   line-height: 1;
   letter-spacing: -0.04em;
 }
@@ -945,11 +945,11 @@ ar_output_schema([
 .hp-process__step:last-child { border-right: none; padding-right: 0; }
 .hp-process__step-num {
   font-family: var(--serif);
-  font-size: 3rem;
-  font-weight: 300;
-  color: var(--cr);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #C01C28;
   line-height: 1;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
   margin-bottom: 16px;
 }
 .hp-process__step-title {

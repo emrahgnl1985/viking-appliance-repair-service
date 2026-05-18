@@ -43,6 +43,34 @@ $phone_raw = ar_phone_link();
                             info@vikingappliancerepairservice.com
                         </a>
                     </div>
+
+                    <!-- Social Media -->
+                    <div style="display:flex;align-items:center;gap:10px;margin-top:20px;">
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/VikingServiceSupport"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Viking Appliance Repair on Facebook"
+                           style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:2px;color:rgba(255,255,255,0.6);text-decoration:none;transition:background 0.15s,border-color 0.15s,color 0.15s;"
+                           onmouseover="this.style.background='#1877F2';this.style.borderColor='#1877F2';this.style.color='#fff';"
+                           onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)';">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <!-- Tumblr -->
+                        <a href="https://www.tumblr.com/blog/vikingappliancerepair"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Viking Appliance Repair on Tumblr"
+                           style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:2px;color:rgba(255,255,255,0.6);text-decoration:none;transition:background 0.15s,border-color 0.15s,color 0.15s;"
+                           onmouseover="this.style.background='#35465C';this.style.borderColor='#35465C';this.style.color='#fff';"
+                           onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.borderColor='rgba(255,255,255,0.12)';this.style.color='rgba(255,255,255,0.6)';">
+                            <svg width="14" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.314 1.929-.543l1.170 3.219c-.51.432-1.955 1.136-4.33 1.136z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Services Column -->
